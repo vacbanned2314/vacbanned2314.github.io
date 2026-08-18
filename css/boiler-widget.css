@@ -1,0 +1,258 @@
+/* 3D-виджет котла — встроен в hero-decor-block */
+.hero-decor-block .boiler-widget {
+    --bw-accent: var(--accent);
+    --bw-accent-hot: var(--accent);
+    --bw-accent-soft: rgba(var(--accent-rgb), 0.16);
+    --bw-panel: var(--surface-card);
+    --bw-panel-solid: var(--bg-card);
+    --bw-line: var(--border-default);
+    --bw-text-1: var(--text-pure);
+    --bw-text-2: var(--text-dim);
+    --bw-text-3: rgba(168, 173, 184, 0.65);
+
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    border-radius: 24px;
+    font-family: var(--font-sans);
+    z-index: 2;
+}
+
+.hero-decor-block .boiler-widget * {
+    box-sizing: border-box;
+}
+
+.hero-decor-block .boiler-widget canvas {
+    display: block;
+    outline: none;
+}
+
+.boiler-widget__scene {
+    position: absolute;
+    inset: 0;
+    right: 58px;
+    width: auto;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+.boiler-widget__caption {
+    position: absolute;
+    top: 14px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.boiler-widget__controls {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    z-index: 15;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    width: 52px;
+}
+
+.boiler-widget__labels-toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    background: var(--bw-panel);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--bw-line);
+    border-radius: 8px;
+    padding: 8px 6px;
+    cursor: pointer;
+    user-select: none;
+    font-family: inherit;
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--bw-text-2);
+    text-align: center;
+    line-height: 1.2;
+}
+
+.boiler-widget__toggle-switch {
+    width: 26px;
+    height: 15px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    position: relative;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+.boiler-widget__toggle-switch::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #fff;
+    transition: left 0.2s;
+}
+
+.boiler-widget__labels-toggle.is-active .boiler-widget__toggle-switch {
+    background: var(--bw-accent);
+}
+
+.boiler-widget__labels-toggle.is-active .boiler-widget__toggle-switch::after {
+    left: 13px;
+}
+
+.boiler-widget__caption-title {
+    display: inline-block;
+    padding: 6px 11px;
+    border-radius: 8px;
+    background: var(--bw-panel);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--bw-line);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--bw-text-1);
+    letter-spacing: 0.02em;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
+}
+
+
+.boiler-widget__explode {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    background: var(--bw-panel);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--bw-line);
+    border-radius: 10px;
+    padding: 10px 6px 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.boiler-widget__labels-toggle,
+.boiler-widget__panel-toggle {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.26);
+}
+
+.boiler-widget__explode-val {
+    color: var(--bw-accent);
+    font-weight: 700;
+    font-size: 9.5px;
+    line-height: 1;
+}
+
+.boiler-widget__explode-label {
+    font-size: 8px;
+    font-weight: 600;
+    color: var(--bw-text-2);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.boiler-widget__explode-track {
+    height: 108px;
+    width: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.boiler-widget__explode input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 108px;
+    height: 3px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.14);
+    outline: none;
+    cursor: pointer;
+    transform: rotate(-90deg);
+    transform-origin: center center;
+}
+
+.boiler-widget__explode input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid var(--bw-accent);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.boiler-widget__explode input[type=range]::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid var(--bw-accent);
+}
+
+.boiler-widget__tooltip {
+    position: absolute;
+    display: none;
+    pointer-events: none;
+    z-index: 200;
+    background: var(--bw-panel-solid);
+    border: 1px solid var(--bw-line);
+    border-radius: 8px;
+    padding: 8px 11px;
+    max-width: 200px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.36), 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+.boiler-widget__tt-category {
+    font-size: 8px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 3px;
+}
+
+.boiler-widget__tooltip h4 {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--bw-text-1);
+    margin: 0 0 4px;
+}
+
+.boiler-widget__tooltip p {
+    font-size: 10px;
+    color: var(--bw-text-2);
+    line-height: 1.45;
+    margin: 0;
+}
+
+[data-theme="light"] .hero-decor-block .boiler-widget {
+    --bw-panel: rgba(255, 255, 255, 0.94);
+    --bw-text-1: #1a1d21;
+    --bw-text-2: #5a6069;
+    --bw-text-3: rgba(80, 85, 95, 0.75);
+    --bw-line: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .hero-decor-block .boiler-widget__toggle-switch {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .hero-decor-block .boiler-widget__toggle-switch::after {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}

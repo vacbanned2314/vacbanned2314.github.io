@@ -1,0 +1,195 @@
+/* Homepage atmosphere: alternating warm graphite zones with a restrained
+   engineering-grid texture. Kept separate so the treatment is easy to tune. */
+
+body.home-page {
+    --home-zone-a: #1c1b19;
+    --home-zone-b: #211f1c;
+    --home-zone-c: #181715;
+    --home-grid-line: rgba(255, 255, 255, 0.018);
+    --home-grid-major: rgba(255, 107, 0, 0.026);
+    --home-grain-dot: rgba(255, 255, 255, 0.026);
+    --home-zone-edge: rgba(255, 255, 255, 0.045);
+    --home-pipe-line: rgba(255, 107, 0, 0.19);
+}
+
+[data-theme="light"] body.home-page {
+    --home-zone-a: #f7f4ef;
+    --home-zone-b: #f0ebe4;
+    --home-zone-c: #fbf8f3;
+    --home-grid-line: rgba(35, 29, 22, 0.026);
+    --home-grid-major: rgba(255, 107, 0, 0.035);
+    --home-grain-dot: rgba(35, 29, 22, 0.032);
+    --home-zone-edge: rgba(35, 29, 22, 0.07);
+    --home-pipe-line: rgba(214, 86, 0, 0.18);
+}
+
+/* The fixed layer is visible in the hero and softens the otherwise flat canvas. */
+body.home-page .ambient-bg {
+    background:
+        radial-gradient(ellipse 42% 34% at 82% 12%, rgba(var(--accent-rgb), 0.075), transparent 72%),
+        radial-gradient(ellipse 36% 28% at 8% 38%, rgba(var(--accent-rgb), 0.035), transparent 76%),
+        linear-gradient(var(--home-grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--home-grid-line) 1px, transparent 1px);
+    background-size: auto, auto, 4rem 4rem, 4rem 4rem;
+}
+
+body.home-page .hero,
+body.home-page .home-portfolio,
+body.home-page #about,
+body.home-page #services,
+body.home-page #pricing,
+body.home-page #licenses,
+body.home-page #trust,
+body.home-page #calc {
+    isolation: isolate;
+    border-top: 1px solid var(--home-zone-edge);
+    background-image:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.012), transparent 18rem),
+        radial-gradient(ellipse 44% 30% at var(--zone-glow-x, 84%) var(--zone-glow-y, 22%), rgba(var(--accent-rgb), 0.045), transparent 72%),
+        linear-gradient(var(--home-grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--home-grid-line) 1px, transparent 1px),
+        radial-gradient(circle, var(--home-grain-dot) 0 0.45px, transparent 0.7px);
+    background-size: auto, auto, 4rem 4rem, 4rem 4rem, 0.25rem 0.25rem;
+    background-position: 0 0, 0 0, center top, center top, 0 0;
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+body.home-page .hero,
+body.home-page .home-portfolio,
+body.home-page #pricing,
+body.home-page #calc {
+    background-color: var(--home-zone-a);
+}
+
+body.home-page #about,
+body.home-page #licenses {
+    --zone-glow-x: 12%;
+    --zone-glow-y: 28%;
+    background-color: var(--home-zone-b);
+}
+
+body.home-page #services,
+body.home-page #trust {
+    --zone-glow-x: 88%;
+    --zone-glow-y: 36%;
+    background-color: var(--home-zone-c);
+}
+
+/* Hero and its project preview are one opening composition, not two stripes. */
+body.home-page .hero {
+    border-top: 0;
+    background-color: transparent;
+    background-image:
+        radial-gradient(ellipse 40% 34% at 84% 24%, rgba(var(--accent-rgb), 0.055), transparent 72%),
+        linear-gradient(var(--home-grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--home-grid-line) 1px, transparent 1px);
+    background-size: auto, 4rem 4rem, 4rem 4rem;
+}
+
+body.home-page .home-portfolio {
+    border-top: 0;
+    background-image:
+        radial-gradient(ellipse 46% 34% at 76% 18%, rgba(var(--accent-rgb), 0.04), transparent 72%),
+        linear-gradient(var(--home-grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--home-grid-line) 1px, transparent 1px),
+        radial-gradient(circle, var(--home-grain-dot) 0 0.45px, transparent 0.7px);
+    background-size: auto, 4rem 4rem, 4rem 4rem, 0.25rem 0.25rem;
+}
+
+/* Sparse pipe-route marks make the grid feel intentional rather than decorative. */
+body.home-page #about::after,
+body.home-page #pricing::after,
+body.home-page #trust::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    width: clamp(9rem, 17vw, 16rem);
+    height: clamp(4.5rem, 8vw, 7.5rem);
+    border-bottom: 1px solid var(--home-pipe-line);
+    border-left: 1px solid var(--home-pipe-line);
+    border-bottom-left-radius: 2rem;
+    background:
+        radial-gradient(circle at 0 100%, var(--accent) 0 0.2rem, transparent 0.25rem),
+        radial-gradient(circle at 100% 100%, var(--accent) 0 0.16rem, transparent 0.21rem);
+    opacity: 0.72;
+    pointer-events: none;
+}
+
+body.home-page #about::after {
+    top: clamp(2rem, 6vw, 5rem);
+    right: -2.5rem;
+    transform: rotate(180deg);
+}
+
+body.home-page #pricing::after {
+    right: 2.5vw;
+    bottom: clamp(1.5rem, 4vw, 4rem);
+}
+
+body.home-page #trust::after {
+    top: clamp(2rem, 5vw, 4.5rem);
+    left: -3rem;
+    transform: rotate(90deg);
+}
+
+/* Match the visible card edges to the portfolio shell below. The original
+   horizontal padding made the trust cards look narrower than their container. */
+body.home-page .hero-stats-block {
+    padding-inline: 0;
+}
+
+@media (max-width: 768px) {
+    body.home-page .hero-stats-block {
+        padding-inline: 0;
+    }
+
+    body.home-page .hero-stat-card .stat-val {
+        font-size: clamp(0.875rem, 3.6vw, 1.125rem);
+        letter-spacing: -0.04em;
+        max-width: 100%;
+        text-wrap: balance;
+    }
+}
+
+body.home-page .hero > .container,
+body.home-page .home-portfolio > .container,
+body.home-page main > section > .container {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    body.home-page .ambient-bg,
+    body.home-page .hero,
+    body.home-page .home-portfolio,
+    body.home-page #about,
+    body.home-page #services,
+    body.home-page #pricing,
+    body.home-page #licenses,
+    body.home-page #trust,
+    body.home-page #calc {
+        background-size: auto, auto, 3rem 3rem, 3rem 3rem, 0.25rem 0.25rem;
+    }
+
+    body.home-page #about::after,
+    body.home-page #pricing::after,
+    body.home-page #trust::after {
+        opacity: 0.46;
+        transform: scale(0.72);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.home-page .ambient-bg,
+    body.home-page .hero,
+    body.home-page .home-portfolio,
+    body.home-page main > section {
+        transition: none;
+    }
+}
+
+@media (max-width: 560px) {
+    body.home-page .hero-stats-block {
+        margin-inline: -0.25rem;
+    }
+}

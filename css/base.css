@@ -1,0 +1,117 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+html {
+    overflow-x: clip;
+    -webkit-text-size-adjust: 100%;
+}
+
+body { 
+    font-family: var(--font-sans); 
+    background-color: var(--bg-base); 
+    color: var(--text-pure); 
+    overflow-x: clip;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body.nav-open {
+    overflow: hidden;
+}
+
+.text-highlight { 
+    color: var(--text-pure); 
+    font-weight: 700; 
+}
+
+.container { 
+    max-width: 1300px; 
+    margin: 0 auto; 
+    padding-inline: var(--space-container);
+    width: 100%;
+}
+
+.section-padding { 
+    padding-block: var(--space-section);
+}
+
+.section-header { 
+    margin: 0 auto clamp(2rem, 5vw, 3.75rem) auto; 
+    max-width: 800px; 
+    text-align: center; 
+}
+
+.section-title { 
+    font-size: var(--text-title);
+    font-weight: var(--font-weight-bold); 
+    letter-spacing: var(--letter-tight);
+    margin-bottom: 0.9375rem; 
+    line-height: 1.2; 
+    color: var(--text-pure);
+    text-wrap: balance;
+}
+
+.section-subtitle { 
+    font-size: var(--text-body);
+    line-height: 1.65;
+    color: var(--text-dim); 
+}
+
+.text-left { 
+    text-align: left; 
+    margin: 0 0 1.25rem 0; 
+}
+
+.ambient-bg { 
+    position: fixed; 
+    top: -50%; 
+    left: -50%; 
+    width: 200%; 
+    height: 200%; 
+    background: radial-gradient(circle at 50% 30%, var(--ambient-glow) 0%, transparent 60%); 
+    z-index: 0; 
+    pointer-events: none; 
+    transition: background 0.4s ease; 
+}
+
+.line-wrap { 
+    overflow: hidden; 
+}
+
+.gsap-text { 
+    display: inline-block; 
+}
+
+.gsap-text:not(.accent-text) {
+    color: var(--text-pure);
+}
+
+.accent-text { 
+    color: var(--accent);
+}
+
+.logo-icon {
+    flex-shrink: 0;
+    color: var(--accent);
+    transition: stroke 0.4s ease;
+}
+
+.about-feature-icon svg,
+.stat-icon-wrap svg,
+.service-icon-wrap svg,
+.review-icon-wrap svg,
+.license-zoom svg,
+.docs-coverflow-arrow svg,
+.reviews-carousel-arrow svg,
+.faq-nav-arrow svg,
+.lightbox-close svg {
+    color: inherit;
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        letter-spacing: -0.02em;
+    }
+}

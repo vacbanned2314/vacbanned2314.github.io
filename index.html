@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ТеплоРемСервис — расчёт, монтаж и сервис систем отопления и котельных в Казани и пригороде.">
+    <meta property="og:title" content="ТеплоРемСервис | Отопление и котельные в Казани">
+    <meta property="og:description" content="ТеплоРемСервис — расчёт, монтаж и сервис систем отопления и котельных в Казани и пригороде.">
+    <meta property="og:image" content="assets/images/og-cover.svg">
+    <meta property="og:type" content="website">
+    <title>ТеплоРемСервис | Отопление и котельные в Казани</title>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "ООО ТеплоРемСервис",
+        "telephone": "+79376254703",
+        "email": "info@teplorem.ru",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Казань",
+            "addressCountry": "RU"
+        },
+        "areaServed": {
+            "@type": "City",
+            "name": "Казань"
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "00:00",
+            "closes": "23:59"
+        }
+    }
+    </script>
+    
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+
+    <link rel="stylesheet" href="css/main.css?v=20260817-hero-actions-restore">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body class="home-page">
+
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+<symbol id="icon-logo-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+  </symbol>
+  <symbol id="icon-sun" viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="12" r="5" fill="currentColor"/>
+    <path d="M12 2V4M12 20V22M4 12H2M22 12H20M19.0711 19.0711L17.6569 17.6569M6.34315 6.34315L4.92893 4.92893M19.0711 4.92893L17.6569 6.34315M6.34315 17.6569L4.92893 19.0711" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="icon-moon" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </symbol>
+  <symbol id="icon-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+  </symbol>
+  <symbol id="icon-file-detail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+  </symbol>
+  <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+  </symbol>
+  <symbol id="icon-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+  </symbol>
+  <symbol id="icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+  </symbol>
+  <symbol id="icon-floor-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/>
+  </symbol>
+  <symbol id="icon-smartphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+  </symbol>
+  <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+  </symbol>
+  <symbol id="icon-wifi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/>
+  </symbol>
+  <symbol id="icon-wifi-smart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/><path d="M12 14v3"/>
+  </symbol>
+  <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+  </symbol>
+  <symbol id="icon-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+  </symbol>
+  <symbol id="icon-pencil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/><path d="m15 5 3 3"/>
+  </symbol>
+  <symbol id="icon-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z"/>
+  </symbol>
+  <symbol id="icon-quote" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-7 0c0-1.016.463-1.94 1.192-2.549zm12 0C15.553 16.227 15 15 15 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-7 0c0-1.016.463-1.94 1.192-2.549z"/>
+  </symbol>
+  <symbol id="icon-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M15 18l-6-6 6-6"/>
+  </symbol>
+  <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 18l6-6-6-6"/>
+  </symbol>
+  <symbol id="icon-zoom-in" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/>
+  </symbol>
+  <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 6L6 18M6 6l12 12"/>
+  </symbol>
+</svg>
+
+    <div class="ambient-bg"></div>
+
+    <button type="button" class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true" tabindex="-1"></button>
+
+    <header class="pill-header">
+        <div class="header-wrap">
+            <a href="index.html" class="logo-box">
+                <svg class="logo-icon" width="36" height="36" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-logo-flame"></use></svg>
+                <div class="logo-text-wrap">
+                    <div class="logo-main">Тепло<span>Рем</span>Сервис</div>
+                    <div class="logo-sub">Инженерная группа</div>
+                </div>
+            </a>
+            
+            <nav class="nav-links" id="main-nav" aria-label="Основная навигация">
+                <a href="team.html">О нас</a>
+                <a href="services.html">Услуги</a>
+                <a href="portfolio.html">Портфолио</a>
+                <a href="licenses.html">Допуски</a>
+                <a href="faq.html">FAQ</a>
+                <a href="#trust">Отзывы</a>
+                <div class="mobile-nav-contacts">
+                    <a href="tel:+79376254703" class="mobile-nav-phone">+7 937 625-47-03</a>
+                    <a href="https://t.me/teplorem" class="mobile-nav-tg" target="_blank" rel="noopener noreferrer">Telegram</a>
+                </div>
+                <a href="#calc" class="mobile-cta">Заказать выезд</a>
+            </nav>
+
+            <div class="contact-box">
+                <a href="tel:+79376254703" class="phone-link">+7 937 625-47-03</a>
+                <a href="https://t.me/teplorem" class="btn-ghost" target="_blank" rel="noopener noreferrer">Telegram</a>
+                
+                <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Переключить тему" aria-pressed="true">
+                    <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-sun"></use></svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-moon"></use></svg>
+                </button>
+
+                <button type="button" class="burger-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text-block">
+                <div class="premium-badge gsap-fade">
+                    <span class="premium-badge__pipe" aria-hidden="true"></span>
+                    <span class="premium-badge__copy">
+                        <span class="premium-badge__kicker">Работаем официально</span>
+                        <span class="premium-badge__text">Договор · гарантия <span class="premium-badge__accent">5 лет</span></span>
+                    </span>
+                </div>
+
+                <h1 class="hero-title">
+                    <div class="line-wrap"><span class="gsap-text">Расчёт</span></div>
+                    <div class="line-wrap"><span class="gsap-text">и монтаж систем</span></div>
+                    <div class="line-wrap"><span class="gsap-text accent-text">отопления</span></div>
+                </h1>
+
+                <p class="hero-lead gsap-fade">
+                    Монтируем котельные узлы и контуры тёплого пола. Настраиваем автоматику <strong class="text-highlight">ZONT / MyHeat</strong>, чтобы управлять температурой со смартфона.
+                </p>
+
+                <div class="hero-actions-group gsap-fade">
+                    <a href="#calc" class="btn-glow hero-action--vertical-primary">
+                        <span class="btn-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"><use href="#icon-phone"></use></svg></span>
+                        <span class="btn-content">Вызвать мастера</span>
+                    </a>
+                    <div class="hero-action-underlinks">
+                        <a href="portfolio.html" class="btn-outline hero-action--inline">
+                            <span class="btn-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"><use href="#icon-floor-grid"></use></svg></span>
+                            <span class="btn-content">Посмотреть работы</span>
+                        </a>
+                        <a href="services.html" class="btn-outline hero-action--inline">
+                            <span class="btn-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"><use href="#icon-wrench"></use></svg></span>
+                            <span class="btn-content">Услуги и цены</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-decor-block" id="hero-decor-block">
+                <div class="hero-decor-glow" aria-hidden="true"></div>
+                <div class="hero-decor-grid" aria-hidden="true"></div>
+                <div class="boiler-widget" id="boiler-widget" aria-label="Интерактивная 3D-схема котла Vaillant ecoTEC">
+                    <div class="boiler-widget__scene" id="boiler-scene"></div>
+
+                    <div class="boiler-widget__caption">
+                        <span class="boiler-widget__caption-title">Vaillant ecoTEC · схема в разборе</span>
+                    </div>
+
+                    <div class="boiler-widget__controls">
+                        <button type="button" class="boiler-widget__labels-toggle is-active" data-bw-labels-toggle aria-pressed="true">
+                            <span class="boiler-widget__toggle-switch" aria-hidden="true"></span>
+                            <span>Номера</span>
+                        </button>
+
+                        <div class="boiler-widget__explode">
+                            <span class="boiler-widget__explode-val" data-bw-explode-val>30%</span>
+                            <div class="boiler-widget__explode-track">
+                                <input type="range" data-bw-explode-slider min="0" max="1" step="0.01" value="0.3" aria-label="Степень разборки котла">
+                            </div>
+                            <span class="boiler-widget__explode-label">Разборка</span>
+                        </div>
+                    </div>
+
+                    <div class="boiler-widget__tooltip" role="tooltip">
+                        <div class="boiler-widget__tt-category" data-bw-tt-cat></div>
+                        <h4 data-bw-tt-name>—</h4>
+                        <p data-bw-tt-desc></p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="hero-stats-block gsap-fade">
+                <div class="hero-stats-title">
+                    <span class="hero-stats-title-line" aria-hidden="true"></span>
+                    <p class="hero-stats-title-text">Почему именно <span class="accent-text">мы</span>?</p>
+                    <span class="hero-stats-title-line" aria-hidden="true"></span>
+                </div>
+                <div class="hero-stats" aria-label="Ключевые гарантии">
+                    <article class="hero-stat-card gsap-stat">
+                        <div class="hero-stat-glow" aria-hidden="true"></div>
+                        <div class="hero-stat-inner">
+                            <div class="hero-stat-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-file-text"></use></svg>
+                            </div>
+                            <span class="stat-val accent-text">Фиксированная смета</span>
+                            <span class="stat-desc">Стоимость и состав работ фиксируем в договоре</span>
+                        </div>
+                    </article>
+                    <article class="hero-stat-card hero-stat-card--featured gsap-stat">
+                        <div class="hero-stat-glow" aria-hidden="true"></div>
+                        <div class="hero-stat-inner">
+                            <div class="hero-stat-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-clock"></use></svg>
+                            </div>
+                            <span class="stat-val accent-text">24/7</span>
+                            <span class="stat-desc">Аварийные выезды в непогоду и праздники</span>
+                        </div>
+                    </article>
+                    <article class="hero-stat-card gsap-stat">
+                        <div class="hero-stat-glow" aria-hidden="true"></div>
+                        <div class="hero-stat-inner">
+                            <div class="hero-stat-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-shield-check"></use></svg>
+                            </div>
+                            <span class="stat-val accent-text">Проведение ТО</span>
+                            <span class="stat-desc">Остаёмся на связи и обслуживаем систему дальше</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-portfolio" id="portfolio-preview" aria-labelledby="portfolio-preview-title">
+        <div class="container">
+            <div class="home-portfolio-shell">
+                <div class="home-portfolio-copy">
+                    <div>
+                        <span class="home-portfolio-eyebrow">Реализованные объекты <b>2022—2024</b></span>
+                        <h2 class="section-title" id="portfolio-preview-title">Наши <span class="accent-text">работы</span></h2>
+                    </div>
+
+                    <div class="home-portfolio-projects" role="listbox" aria-label="Выбор проекта">
+                        <button class="home-portfolio-project is-active" type="button" role="option" aria-selected="true"
+                            data-title="Монтаж котельной в Казани"
+                            data-meta="Монтаж отопления в частном доме"
+                            data-src="assets/portfolio/Монтаж - Казань ул Федосеевская/20240902_131548.webp"
+                            data-alt="Смонтированная котельная в частном доме в Казани">
+                            <span class="home-portfolio-project-index">01</span>
+                            <span><strong>Котельная в Казани</strong><small>Монтаж отопления в частном доме</small></span>
+                            <span class="home-portfolio-project-arrow" aria-hidden="true">↗</span>
+                        </button>
+                        <button class="home-portfolio-project" type="button" role="option" aria-selected="false"
+                            data-title="Автоматизация отопления ZONT"
+                            data-meta="Управление климатом со смартфона"
+                            data-src="assets/portfolio/Автоматизация системы отопления и водоснабжения дома ZONT/20241023_112933.webp"
+                            data-alt="Автоматика ZONT в системе отопления дома">
+                            <span class="home-portfolio-project-index">02</span>
+                            <span><strong>Автоматика ZONT</strong><small>Удалённое управление</small></span>
+                            <span class="home-portfolio-project-arrow" aria-hidden="true">↗</span>
+                        </button>
+                        <button class="home-portfolio-project" type="button" role="option" aria-selected="false"
+                            data-title="Котельная в Лаишево"
+                            data-meta="Монтаж инженерных коммуникаций"
+                            data-src="assets/portfolio/Монтаж - Лаишево ул. Садовая/20240506_182453.webp"
+                            data-alt="Инженерные коммуникации котельной в Лаишево">
+                            <span class="home-portfolio-project-index">03</span>
+                            <span><strong>Котельная в Лаишево</strong><small>Монтаж коммуникаций</small></span>
+                            <span class="home-portfolio-project-arrow" aria-hidden="true">↗</span>
+                        </button>
+                        <button class="home-portfolio-project" type="button" role="option" aria-selected="false"
+                            data-title="Реконструкция котельного узла"
+                            data-meta="Модернизация действующей системы"
+                            data-src="assets/portfolio/Реконструкция котельного узла - Щурячий/20230121_151315.webp"
+                            data-alt="Реконструированный котельный узел">
+                            <span class="home-portfolio-project-index">04</span>
+                            <span><strong>Реконструкция узла</strong><small>Модернизация системы</small></span>
+                            <span class="home-portfolio-project-arrow" aria-hidden="true">↗</span>
+                        </button>
+                    </div>
+
+                    <div class="home-portfolio-actions">
+                        <a class="btn-glow" href="portfolio.html">
+                            <span class="btn-content">Все проекты</span>
+                            <span aria-hidden="true">→</span>
+                        </a>
+                        <button class="btn-outline home-portfolio-view" type="button" data-home-portfolio-open>
+                            <span class="btn-content">Смотреть фото</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="home-portfolio-gallery" tabindex="0" aria-label="Превью выбранного проекта. Используйте стрелки для листания">
+                    <div class="home-portfolio-stage">
+                        <button class="home-portfolio-image-button" type="button" data-home-portfolio-open aria-label="Открыть фото: монтаж котельной в Казани">
+                            <img data-home-portfolio-image src="assets/portfolio/Монтаж - Казань ул Федосеевская/20240902_131548.webp" alt="Смонтированная котельная в частном доме в Казани">
+                            <span class="home-portfolio-zoom" aria-hidden="true">↗</span>
+                        </button>
+
+                        <div class="home-portfolio-photo-label" aria-live="polite">
+                            <span><b data-home-portfolio-current>01</b> / 04</span>
+                            <div><strong data-home-portfolio-stage-title>Монтаж котельной в Казани</strong><small data-home-portfolio-stage-meta>Монтаж отопления в частном доме</small></div>
+                        </div>
+
+                        <div class="home-portfolio-controls">
+                            <button type="button" class="home-portfolio-arrow" data-home-portfolio-prev aria-label="Предыдущее фото">←</button>
+                            <button type="button" class="home-portfolio-arrow" data-home-portfolio-next aria-label="Следующее фото">→</button>
+                        </div>
+                    </div>
+                    <div class="home-portfolio-progress" aria-hidden="true"><span data-home-portfolio-progress></span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="home-portfolio-lightbox" data-home-portfolio-lightbox hidden>
+        <button class="home-portfolio-lightbox-backdrop" type="button" data-home-portfolio-close aria-label="Закрыть просмотр"></button>
+        <figure class="home-portfolio-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Просмотр фотографии проекта">
+            <button class="home-portfolio-lightbox-close" type="button" data-home-portfolio-close aria-label="Закрыть">×</button>
+            <img data-home-portfolio-lightbox-image src="" alt="">
+            <figcaption data-home-portfolio-lightbox-caption></figcaption>
+            <a href="portfolio.html" class="btn-glow">Открыть всё портфолио</a>
+        </figure>
+    </div>
+
+    <main>
+        <section class="about about-route section-padding" id="about">
+            <div class="container">
+                <div class="about-route-layout">
+                    <div class="about-route-intro">
+                        <p class="about-route-kicker">Отопление и котельные с 2018 года</p>
+                        <h2 class="section-title about-route-title">Делаем полный<br>цикл работ<br><span>по&nbsp;отоплению.</span></h2>
+                        <p class="about-route-copy">Сначала делаем замер и расчёт, затем подбираем оборудование и монтируем систему. Состав работ и стоимость согласовываем заранее.</p>
+
+                        <div class="about-route-principles" aria-label="Принципы работы">
+                            <div class="about-route-principle">
+                                <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-users"></use></svg>
+                                <span>Собственный штат</span>
+                            </div>
+                            <div class="about-route-principle">
+                                <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-file-detail"></use></svg>
+                                <span>Смета в договоре</span>
+                            </div>
+                            <div class="about-route-principle">
+                                <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-wifi"></use></svg>
+                                <span>Управление с телефона</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-route-metrics" aria-label="Показатели компании">
+                        <article class="about-route-metric about-route-metric--main">
+                            <div class="about-route-metric-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-clock"></use></svg>
+                            </div>
+                            <div class="about-route-value"><span class="stat-count" data-count="8">0</span><span class="about-route-plus">+</span></div>
+                            <p>лет занимаемся отоплением и котельными</p>
+                        </article>
+
+                        <article class="about-route-metric">
+                            <div class="about-route-metric-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-home"></use></svg>
+                            </div>
+                            <div class="about-route-value"><span class="about-route-prefix">&gt;</span><span class="stat-count" data-count="200">0</span></div>
+                            <p>объектов завершили за это время</p>
+                        </article>
+
+                        <article class="about-route-metric">
+                            <div class="about-route-metric-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-star"></use></svg>
+                            </div>
+                            <div class="about-route-value"><span>5+</span></div>
+                            <p>брендов обслуживаем по авторизации</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services section-padding" id="services">
+            <div class="container">
+                <div class="section-header services-header">
+                    <h2 class="section-title">Как мы работаем</h2>
+                    <p class="section-subtitle">Замер, расчёт, монтаж и обслуживание</p>
+                </div>
+
+                <div class="services-pipeline">
+                    <div class="services-grid">
+                        <article class="service-card" data-step="design">
+                            <div class="service-card-inner">
+                                <div class="service-card-top">
+                                    <div class="service-icon-wrap">
+                                        <svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-pencil"></use></svg>
+                                    </div>
+                                    <span class="service-tag">Замер</span>
+                                </div>
+                                <h3 class="service-name">Расчёт и подбор</h3>
+                                <p class="service-desc">Снимаем размеры, считаем тепловую нагрузку и подбираем оборудование под дом. Состав котельной и обвязку согласовываем до монтажа.</p>
+                            </div>
+                        </article>
+
+                        <article class="service-card" data-step="install">
+                            <div class="service-card-inner">
+                                <div class="service-card-top">
+                                    <div class="service-icon-wrap">
+                                        <svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-wrench"></use></svg>
+                                    </div>
+                                    <span class="service-tag">Монтаж</span>
+                                </div>
+                                <h3 class="service-name">Монтаж котельных</h3>
+                                <p class="service-desc">Собираем котельные узлы из меди, нержавеющей стали или сшитого полиэтилена. Контуры маркируем, чтобы в системе было легко разобраться.</p>
+                            </div>
+                        </article>
+
+                        <article class="service-card" data-step="zont">
+                            <div class="service-card-inner">
+                                <div class="service-card-top">
+                                    <div class="service-icon-wrap">
+                                        <svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-wifi-smart"></use></svg>
+                                    </div>
+                                    <span class="service-tag">Умный дом</span>
+                                </div>
+                                <h3 class="service-name">Автоматика ZONT</h3>
+                                <p class="service-desc">Подключаем ZONT и настраиваем погодозависимое управление. Температуру в доме можно контролировать со смартфона.</p>
+                            </div>
+                        </article>
+
+                        <article class="service-card" data-step="service">
+                            <div class="service-card-inner">
+                                <div class="service-card-top">
+                                    <div class="service-icon-wrap">
+                                        <svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-shield-check"></use></svg>
+                                    </div>
+                                    <span class="service-tag">ТО</span>
+                                </div>
+                                <h3 class="service-name">Сервис и ТО</h3>
+                                <p class="service-desc">Чистим теплообменники, настраиваем газовые клапаны и проверяем датчики в рамках регулярного ТО.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing-area section-padding" id="pricing">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Стоимость и зона обслуживания</h2>
+                    <p class="section-subtitle">Примерная стоимость работ и районы, куда мы выезжаем</p>
+                </div>
+
+                <div class="info-grid">
+                    <article class="pricing-sheet">
+                        <p class="info-kicker">01 / Ориентир по бюджету</p>
+                        <h3>Стоимость «под ключ»</h3>
+                        <p class="price-range"><span>350–600</span> <small>тыс. ₽</small></p>
+                        <dl class="price-specs">
+                            <div><dt>Объект</dt><dd>150–200 м²</dd></div>
+                            <div><dt>Котёл</dt><dd>24–28 кВт</dd></div>
+                            <div><dt>В составе</dt><dd>Расчёт, оборудование, монтаж</dd></div>
+                        </dl>
+                        <p class="info-note">Точная смета — только после выезда на объект и замера.</p>
+                        <a href="faq.html#faq-price" class="info-card-link">Как считаем смету <span aria-hidden="true">→</span></a>
+                    </article>
+
+                    <article class="service-area">
+                        <p class="info-kicker">02 / География выезда</p>
+                        <h3>Казань и пригород<br>в радиусе <strong>~70 км</strong></h3>
+                        <ul class="service-area-list">
+                            <li>Высокая Гора</li>
+                            <li>Осиново</li>
+                            <li>Столбище</li>
+                            <li>Зеленодольск</li>
+                            <li>Иннополис</li>
+                            <li>Лаишево</li>
+                            <li>Аэропорт</li>
+                            <li>Посёлки вдоль М7</li>
+                        </ul>
+                        <p class="info-note">Крупные объекты и выезды дальше 70 км согласуем отдельно.</p>
+                        <a href="faq.html#faq-order" class="info-card-link">Все вопросы о выезде <span aria-hidden="true">→</span></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="licenses section-padding" id="licenses">
+            <div class="container">
+                <article class="licenses-proof scroll-reveal" aria-labelledby="licenses-title">
+                    <a class="licenses-proof__document" href="licenses.html" aria-label="Открыть допуск ВДГО и ВКГО">
+                        <img src="assets/docs/goszhilinspektsiya-vdgo.webp" alt="Официальный допуск на обслуживание ВДГО и ВКГО">
+                        <span aria-hidden="true">↗</span>
+                    </a>
+
+                    <div class="licenses-proof__content">
+                        <span class="licenses-proof__eyebrow">Официальные допуски</span>
+                        <h2 id="licenses-title">Работаем с газовым оборудованием официально</h2>
+                        <span class="licenses-proof__type">ВДГО / ВКГО</span>
+                        <h3>ВДГО / ВКГО</h3>
+                        <p>Допуск на техническое обслуживание внутридомового и внутриквартирного газового оборудования.</p>
+                        <span class="licenses-proof__status"><i aria-hidden="true"></i> Действующий статус</span>
+                        <a href="licenses.html" class="btn-glow licenses-proof__link">
+                            <span class="btn-content">Все допуски и сертификаты</span>
+                            <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="reviews section-padding" id="trust">
+            <div class="container">
+                <div class="section-header reviews-header">
+                    <h2 class="section-title">Что говорят заказчики</h2>
+                    <p class="section-subtitle">Заказчики рассказывают о сроках, смете и работе готовых систем.</p>
+                </div>
+
+                <div class="reviews-evidence">
+                    <aside class="reviews-source" aria-label="Рейтинг на Яндекс.Картах">
+                        <p class="reviews-source-kicker">Источник отзывов</p>
+                        <p class="reviews-source-brand">Яндекс Карты</p>
+                        <p class="reviews-source-score">5,0</p>
+                        <p class="reviews-source-stars" aria-label="5 звёзд">★★★★★</p>
+                        <p class="reviews-source-note">Рейтинг по оценкам 42 клиентов</p>
+                        <a href="https://yandex.ru/maps/-/CTqxA4zv" class="reviews-source-link" target="_blank" rel="noopener noreferrer">Открыть профиль <span aria-hidden="true">→</span></a>
+                    </aside>
+
+                    <div class="review-ledger">
+                        <article class="review-entry">
+                            <span class="review-entry-number" aria-hidden="true">01</span>
+                            <div>
+                                <p class="review-entry-meta">Отопление · ZONT</p>
+                                <blockquote>«Боялись, что с отоплением затянется — сделали за один заход. ZONT уже управляет температурой с телефона, а смета — ровно та, что в договоре».</blockquote>
+                                <footer><strong>Алексей Смирнов</strong><a href="https://yandex.ru/maps/-/CTqxA4zv" target="_blank" rel="noopener noreferrer">Источник в Яндекс.Картах</a></footer>
+                            </div>
+                        </article>
+
+                        <article class="review-entry">
+                            <span class="review-entry-number" aria-hidden="true">02</span>
+                            <div>
+                                <p class="review-entry-meta">Котельная · запуск за 5 дней</p>
+                                <blockquote>«Оставил заявку вечером — утром уже был инженер с рулеткой. Через пять дней котельная работала: каждый этап согласовывали, присылали фотоотчёты».</blockquote>
+                                <footer><strong>Дмитрий Яковлев</strong><a href="https://yandex.ru/maps/-/CTqxA4zv" target="_blank" rel="noopener noreferrer">Источник в Яндекс.Картах</a></footer>
+                            </div>
+                        </article>
+
+                        <article class="review-entry">
+                            <span class="review-entry-number" aria-hidden="true">03</span>
+                            <div>
+                                <p class="review-entry-meta">Сервис · аварийный выезд</p>
+                                <blockquote>«Минус двадцать, котёл встал ночью — мастер приехал в тот же день. Нашёл засор, всё промыл и настроил, без давления “срочно меняйте котёл”».</blockquote>
+                                <footer><strong>Марина Ковалёва</strong><a href="https://yandex.ru/maps/-/CTqxA4zv" target="_blank" rel="noopener noreferrer">Источник в Яндекс.Картах</a></footer>
+                            </div>
+                        </article>
+
+                        <div class="review-more">
+                            <p class="review-more-title">Ещё работы</p>
+                            <ul>
+                                <li><span>Реконструкция</span><a href="https://yandex.ru/maps/-/CTqxA4zv" target="_blank" rel="noopener noreferrer">Игорь Волков <span aria-hidden="true">→</span></a></li>
+                                <li><span>Автоматика ZONT</span><a href="https://yandex.ru/maps/-/CTqxA4zv" target="_blank" rel="noopener noreferrer">Сергей Петров <span aria-hidden="true">→</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section" id="calc">
+            <div class="container">
+                <div class="cta-wrapper scroll-reveal">
+                    <div class="cta-content">
+                        <h2>Смета после выезда на объект</h2>
+                        <p>Оставьте номер — главный инженер перезвонит в течение 15 минут. Он уточнит площадь и тип котла и договорится о выезде для замера и расчёта стоимости.</p>
+                    </div>
+                    <div class="cta-form-block">
+                        <form class="sleek-form" id="lead-form" novalidate>
+                            <div class="input-group input-group--primary">
+                                <div class="form-field">
+                                    <label for="lead-name">Ваше имя</label>
+                                    <input type="text" id="lead-name" name="name" placeholder="Ваше имя" aria-label="Ваше имя" autocomplete="name" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="lead-phone">Номер телефона</label>
+                                    <input type="tel" id="lead-phone" name="phone" placeholder="+7 (999) 000-00-00" aria-label="Номер телефона" autocomplete="tel" inputmode="tel" required>
+                                </div>
+                            </div>
+                            <div class="form-details-prompt">
+                                <span class="form-details-prompt__text">Уже знаете, что нужно?</span>
+                                <label class="form-switch">
+                                    <input type="checkbox" class="form-switch__input" id="lead-details-toggle" aria-controls="lead-form-details">
+                                    <span class="form-switch__track" aria-hidden="true">
+                                        <span class="form-switch__thumb"></span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div class="form-details" id="lead-form-details" inert>
+                                <div class="form-details__inner">
+                                    <div class="input-group input-group--secondary">
+                                        <div class="form-field">
+                                            <label>Интересующая услуга</label>
+                                            <select name="service_code" aria-label="Интересующая услуга">
+                                                <option value="" selected disabled hidden>Выберите услугу</option>
+                                                <option value="design">Расчёт и подбор</option>
+                                                <option value="installation">Монтаж котельной</option>
+                                                <option value="automation">Автоматика ZONT</option>
+                                                <option value="service">Сервис и ТО</option>
+                                                <option value="reconstruction">Реконструкция</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-field">
+                                            <label for="lead-area">Площадь объекта</label>
+                                            <input type="number" id="lead-area" name="area_sqm" placeholder="Площадь, м²" aria-label="Площадь объекта в квадратных метрах" min="1" max="100000" step="1" inputmode="numeric">
+                                        </div>
+                                        <div class="form-field">
+                                            <label>Тип отопления</label>
+                                            <select name="heating_type" aria-label="Тип отопления">
+                                                <option value="" selected disabled hidden>Тип котла</option>
+                                                <option value="gas_boiler">Газовый котёл</option>
+                                                <option value="electric">Электрический</option>
+                                                <option value="solid_fuel">Твёрдотопливный</option>
+                                                <option value="heat_pump">Тепловой насос</option>
+                                                <option value="centralized">Центральное</option>
+                                                <option value="unknown">Не знаю</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="lead-message">Комментарий к заявке</label>
+                                        <textarea id="lead-message" name="message" rows="2" placeholder="Комментарий: адрес объекта, сроки, пожелания…" aria-label="Комментарий к заявке"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="privacy-consent">
+                                <input type="checkbox" name="privacy_consent" id="lead-privacy-consent" required aria-required="true">
+                                <label for="lead-privacy-consent">Я соглашаюсь с <a href="privacy.html" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a> и даю согласие на обработку персональных данных.</label>
+                            </div>
+                            <button type="submit" class="btn-glow btn-submit" id="lead-submit">Оставить заявку</button>
+                            <p class="form-feedback" id="form-feedback" role="status" aria-live="polite" hidden></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-main">
+            <div class="container footer-flex scroll-reveal">
+                <div class="footer-brand">
+                    <div class="logo-main">Тепло<span>Рем</span>Сервис</div>
+                    <p class="footer-desc">Отопление, котельные и сервис в Казани и пригороде.</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="nav-col">
+                        <h4>Услуги</h4>
+                        <a href="#services">Расчёт и подбор</a>
+                        <a href="#services">Монтаж котельных</a>
+                        <a href="#services">Автоматика</a>
+                        <a href="#services">Сервис котлов</a>
+                        <a href="portfolio.html">Портфолио</a>
+                        <a href="licenses.html">Допуски</a>
+                        <a href="team.html">Наша команда</a>
+                        <a href="faq.html">FAQ</a>
+                    </div>
+                </div>
+
+                <div class="footer-contacts-clean">
+                    <h4>Связаться с нами</h4>
+                    <a href="tel:+79376254703" class="footer-phone">+7 (937) 625-47-03</a>
+                    <a href="mailto:info@teplorem.ru" class="footer-mail">info@teplorem.ru</a>
+                    <a href="https://t.me/teplorem" class="footer-tg-link" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-legal">
+            <div class="container footer-legal-inner scroll-reveal">
+                <p class="footer-legal-copy">© 2026 ООО «ТеплоРемСервис». Все права защищены.</p>
+                <p class="footer-legal-reqs">ИНН: 1661071059 | ОГРН: 1211600075642</p>
+                <a href="privacy.html" class="footer-legal-link">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.TEPLOREM_API = window.TEPLOREM_API || 'http://localhost:3001';
+    </script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script defer src="js/core/common.js?v=20260817-1635"></script>
+    <script defer src="js/core/custom-select.js?v=20260817-1635"></script>
+    <script defer src="js/components/form.js?v=20260817-1635"></script>
+    <script defer src="js/components/boiler-widget.js?v=20260817-1635"></script>
+    <script defer src="js/pages/home.js?v=20260817-1635"></script>
+</body>
+</html>

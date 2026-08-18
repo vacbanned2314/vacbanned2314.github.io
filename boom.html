@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaillant ecoTEC — интерактивная схема котла</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; background: #0a0c0e; }
+        .boiler-widget-wrapper {
+            --bg-deep: #0a0c0e;
+            --bg-panel: rgba(20, 24, 28, 0.86);
+            --bg-panel-solid: #161b1f;
+            --line: rgba(255, 255, 255, 0.09);
+            --text-1: #eef1f3;
+            --text-2: #9aa4ad;
+            --text-3: #666f78;
+            --accent: #00a878;
+            --accent-soft: rgba(0, 168, 120, 0.16);
+            
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+            background: var(--bg-deep);
+            overflow: hidden;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        .boiler-widget-wrapper * {
+            box-sizing: border-box;
+        }
+
+        .boiler-widget-wrapper canvas {
+            display: block;
+            outline: none;
+        }
+
+        #scene-container {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .widget-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 22px 28px;
+            pointer-events: none;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.55), transparent);
+            z-index: 10;
+        }
+
+        .brand-block {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.15), 0 4px 14px rgba(0,168,120,0.35);
+            flex-shrink: 0;
+        }
+
+        .brand-logo svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .brand-info h1 {
+            margin: 0;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-1);
+            letter-spacing: 0.2px;
+        }
+
+        .brand-info p {
+            margin: 2px 0 0;
+            font-size: 11.5px;
+            color: var(--text-3);
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: 0.3px;
+        }
+
+        .widget-legend {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            max-width: 520px;
+            pointer-events: auto;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11.5px;
+            color: var(--text-2);
+            font-weight: 500;
+        }
+
+        .legend-color {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .widget-controls-hint {
+            position: absolute;
+            left: 28px;
+            bottom: 28px;
+            color: var(--text-2);
+            font-size: 12px;
+            line-height: 1.9;
+            pointer-events: none;
+            font-family: 'JetBrains Mono', monospace;
+            z-index: 10;
+        }
+
+        .widget-controls-hint b {
+            color: var(--text-1);
+            font-weight: 600;
+        }
+
+        .explode-controls {
+            position: absolute;
+            left: 50%;
+            bottom: 28px;
+            transform: translateX(-50%);
+            background: var(--bg-panel);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 16px 26px 14px;
+            width: 340px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            z-index: 20;
+        }
+
+        .explode-controls label {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 11.5px;
+            font-weight: 600;
+            color: var(--text-2);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-bottom: 10px;
+        }
+
+        .explode-percent {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--accent);
+            font-size: 12px;
+        }
+
+        .explode-controls input[type=range] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(255, 255, 255, 0.14);
+            outline: none;
+            cursor: pointer;
+        }
+
+        .explode-controls input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #fff;
+            border: 3px solid var(--accent);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+
+        .explode-controls input[type=range]::-moz-range-thumb {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #fff;
+            border: 3px solid var(--accent);
+        }
+
+        .hover-tooltip {
+            position: absolute;
+            display: none;
+            pointer-events: none;
+            z-index: 200;
+            background: var(--bg-panel-solid);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 9px 13px;
+            max-width: 230px;
+            box-shadow: 0 10px 26px rgba(0,0,0,0.5);
+            transform: translate(16px, 16px);
+        }
+
+        .hover-tooltip h4 {
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--text-1);
+            margin: 0 0 3px;
+        }
+
+        .hover-tooltip p {
+            font-size: 11px;
+            color: var(--text-2);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .mobile-panel-toggle {
+            position: absolute;
+            top: 22px;
+            right: 28px;
+            z-index: 60;
+            background: var(--bg-panel);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            color: var(--text-1);
+            font-size: 12.5px;
+            font-weight: 600;
+            padding: 9px 14px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .details-sidebar {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 340px;
+            background: var(--bg-panel);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-left: 1px solid var(--line);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.35s ease;
+            z-index: 50;
+        }
+
+        .sidebar-header {
+            padding: 78px 22px 14px;
+            border-bottom: 1px solid var(--line);
+            flex-shrink: 0;
+        }
+
+        .sidebar-header h2 {
+            margin: 0 0 4px;
+            font-size: 14px;
+            color: var(--text-1);
+            font-weight: 700;
+        }
+
+        .sidebar-header p {
+            margin: 0;
+            font-size: 11.5px;
+            color: var(--text-3);
+            line-height: 1.5;
+        }
+
+        .components-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 8px 12px 24px;
+        }
+
+        .components-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .components-list::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 3px;
+        }
+
+        .component-card {
+            border-radius: 10px;
+            margin-bottom: 6px;
+            overflow: hidden;
+            border: 1px solid transparent;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .component-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .component-card.is-active {
+            background: var(--accent-soft);
+            border-color: rgba(0, 168, 120, 0.4);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 12px;
+            cursor: pointer;
+        }
+
+        .card-number {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10.5px;
+            font-weight: 700;
+            color: #0a0c0e;
+        }
+
+        .card-title-group {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .card-title {
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--text-1);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-category {
+            font-size: 10px;
+            color: var(--text-3);
+            margin-top: 1px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .card-chevron {
+            color: var(--text-3);
+            font-size: 10px;
+            transition: transform 0.2s;
+            flex-shrink: 0;
+        }
+
+        .component-card.is-open .card-chevron {
+            transform: rotate(90deg);
+        }
+
+        .card-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.28s ease;
+        }
+
+        .component-card.is-open .card-body {
+            max-height: 260px;
+        }
+
+        .card-content {
+            padding: 0 14px 14px 44px;
+        }
+
+        .card-description {
+            font-size: 12px;
+            color: var(--text-2);
+            line-height: 1.6;
+            margin: 0 0 8px;
+        }
+
+        .card-specs {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .card-specs li {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10.5px;
+            color: var(--text-2);
+            padding: 4px 0;
+            border-top: 1px dashed var(--line);
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .card-specs li span:first-child {
+            color: var(--text-3);
+        }
+
+        .card-specs li span:last-child {
+            color: var(--text-1);
+            text-align: right;
+        }
+
+        .labels-toggle {
+            position: absolute;
+            left: 28px;
+            top: 78px;
+            z-index: 55;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-panel);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 8px 12px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .labels-toggle span {
+            font-size: 11.5px;
+            color: var(--text-2);
+            font-weight: 500;
+        }
+
+        .toggle-switch {
+            width: 30px;
+            height: 17px;
+            border-radius: 9px;
+            background: rgba(255, 255, 255, 0.15);
+            position: relative;
+            transition: background 0.2s;
+            flex-shrink: 0;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: #fff;
+            transition: left 0.2s;
+        }
+
+        .labels-toggle.is-active .toggle-switch {
+            background: var(--accent);
+        }
+
+        .labels-toggle.is-active .toggle-switch::after {
+            left: 15px;
+        }
+
+        @media (max-width: 880px) {
+            .details-sidebar {
+                transform: translateX(100%);
+            }
+            .details-sidebar.is-open {
+                transform: translateX(0);
+            }
+            .mobile-panel-toggle {
+                display: flex;
+            }
+            .widget-legend {
+                display: none;
+            }
+            .explode-controls {
+                width: 82vw;
+            }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+<div class="boiler-widget-wrapper" id="boiler-widget">
+    <div id="scene-container"></div>
+
+    <div class="widget-header">
+        <div class="brand-block">
+            <div class="brand-logo">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 5 10 5 15a7 7 0 0 0 14 0c0-5-7-13-7-13Z" fill="white"/></svg>
+            </div>
+            <div class="brand-info">
+                <h1>Vaillant ecoTEC · схема в разборе</h1>
+                <p>интерактивная 3D-модель узлов котла</p>
+            </div>
+        </div>
+        <div class="widget-legend" id="ui-legend"></div>
+    </div>
+
+    <div class="labels-toggle is-active" id="ui-labels-toggle">
+        <div class="toggle-switch"></div>
+        <span>Номера деталей</span>
+    </div>
+
+    <div class="mobile-panel-toggle" id="ui-panel-toggle">Детали узлов ›</div>
+
+    <div class="widget-controls-hint">
+        🖱️ <b>ЛКМ</b> — вращение&nbsp;&nbsp;·&nbsp;&nbsp;🖱️ <b>ПКМ</b> — сдвиг<br>
+        🖱️ <b>Колесо</b> — масштаб&nbsp;&nbsp;·&nbsp;&nbsp;👆 наведите на деталь
+    </div>
+
+    <div class="explode-controls">
+        <label>Степень разборки <span class="explode-percent" id="ui-explode-val">30%</span></label>
+        <input type="range" id="ui-explode-slider" min="0" max="1" step="0.01" value="0.3">
+    </div>
+
+    <div class="hover-tooltip" id="ui-tooltip">
+        <h4 id="ui-tt-name">—</h4>
+        <p id="ui-tt-desc"></p>
+    </div>
+
+    <div class="details-sidebar" id="ui-sidebar">
+        <div class="sidebar-header">
+            <h2>Основные узлы (11 элементов)</h2>
+            <p>Наведите курсор на деталь в 3D-сцене или выберите её в списке.</p>
+        </div>
+        <div class="components-list" id="ui-components-list"></div>
+    </div>
+</div>
+
+<script>
+(function() {
+    'use strict';
+
+    const CATEGORIES = {
+        corpus:      { color: '#b8bec4', label: 'Корпус' },
+        hydraulics:  { color: '#4fa3d1', label: 'Гидравлика' },
+        combustion:  { color: '#e08a3c', label: 'Газ и горение' },
+        electronics: { color: '#4cc38a', label: 'Электроника' },
+        heat:        { color: '#c97c4b', label: 'Теплообмен' },
+        vent:        { color: '#9aa4ad', label: 'Вентиляция' }
+    };
+
+    let scene, camera, renderer, controls, raycaster, mouse;
+    let parts = [];            
+    let interactiveParts = []; 
+    
+    let explodeAmount = 0.3;
+    let hoveredPart = null;
+    let selectedPart = null;
+    let labelsVisible = true;
+    let uiCounter = 0;
+
+    const wrapper = document.getElementById('boiler-widget');
+    const container = document.getElementById('scene-container');
+    const tooltip = document.getElementById('ui-tooltip');
+    const ttName = document.getElementById('ui-tt-name');
+    const ttDesc = document.getElementById('ui-tt-desc');
+    const listContainer = document.getElementById('ui-components-list');
+
+    // === Генератор полных текстур ===
+    const TextureGen = {
+        cv(w,h){ const c=document.createElement('canvas'); c.width=w; c.height=h; return {c, ctx:c.getContext('2d')}; },
+
+        brushedMetal(base='#9aa0a5', hi='#ffffff', lo='#000000'){
+            const {c,ctx}=this.cv(1024,1024);
+            ctx.fillStyle=base; ctx.fillRect(0,0,1024,1024);
+            for(let i=0;i<2600;i++){
+                const y=Math.random()*1024, len=Math.random()*40+8, a=Math.random()*0.13;
+                ctx.strokeStyle = Math.random()>0.5 ? `rgba(255,255,255,${a})` : `rgba(0,0,0,${a})`;
+                ctx.lineWidth = Math.random()*1.4+0.3;
+                ctx.beginPath(); ctx.moveTo(Math.random()*1024,y); ctx.lineTo(Math.random()*1024+len,y); ctx.stroke();
+            }
+            const grad=ctx.createLinearGradient(0,0,0,1024);
+            grad.addColorStop(0,'rgba(255,255,255,0.06)'); grad.addColorStop(0.5,'rgba(0,0,0,0)'); grad.addColorStop(1,'rgba(0,0,0,0.1)');
+            ctx.fillStyle=grad; ctx.fillRect(0,0,1024,1024);
+            const tex=new THREE.CanvasTexture(c); tex.wrapS=tex.wrapT=THREE.RepeatWrapping; return tex;
+        },
+
+        copper(){
+            const {c,ctx}=this.cv(512,512);
+            const grad=ctx.createLinearGradient(0,0,512,0);
+            grad.addColorStop(0,'#a9673f'); grad.addColorStop(0.22,'#e0996b'); grad.addColorStop(0.5,'#f0b587');
+            grad.addColorStop(0.78,'#c67e50'); grad.addColorStop(1,'#a9673f');
+            ctx.fillStyle=grad; ctx.fillRect(0,0,512,512);
+            for(let i=0;i<400;i++){
+                ctx.fillStyle=`rgba(60,30,10,${Math.random()*0.12})`;
+                ctx.fillRect(Math.random()*512,0,Math.random()*4+0.5,512);
+            }
+            for(let i=0;i<60;i++){
+                ctx.fillStyle=`rgba(0,0,0,${Math.random()*0.15})`;
+                ctx.fillRect(0,Math.random()*512,512,Math.random()*2+0.5);
+            }
+            const tex=new THREE.CanvasTexture(c); tex.wrapS=tex.wrapT=THREE.RepeatWrapping; return tex;
+        },
+
+        ribbed(base='#3a3d40', dark='#1b1d1f', axis='y', count=26){
+            const {c,ctx}=this.cv(256,256);
+            ctx.fillStyle=base; ctx.fillRect(0,0,256,256);
+            ctx.fillStyle=dark;
+            const step=256/count;
+            for(let i=0;i<count;i++){
+                if(axis==='y') ctx.fillRect(0,i*step,256,step*0.42);
+                else ctx.fillRect(i*step,0,step*0.42,256);
+            }
+            const tex=new THREE.CanvasTexture(c); tex.wrapS=tex.wrapT=THREE.RepeatWrapping; return tex;
+        },
+
+        fins(){
+            const {c,ctx}=this.cv(256,256);
+            ctx.fillStyle='#7c8085'; ctx.fillRect(0,0,256,256);
+            for(let y=0;y<256;y+=10){
+                ctx.fillStyle='#3d4043'; ctx.fillRect(0,y,256,5);
+                ctx.fillStyle='rgba(255,255,255,0.18)'; ctx.fillRect(0,y+5,256,1);
+            }
+            const tex=new THREE.CanvasTexture(c); tex.wrapS=tex.wrapT=THREE.RepeatWrapping; tex.repeat.set(1,3); return tex;
+        },
+
+        perforated(base='#2b2d2f'){
+            const {c,ctx}=this.cv(256,256);
+            ctx.fillStyle=base; ctx.fillRect(0,0,256,256);
+            ctx.fillStyle='#0a0a0a';
+            for(let y=10;y<256;y+=16){
+                for(let x=10;x<256;x+=16){
+                    ctx.beginPath(); ctx.arc(x,y,3,0,Math.PI*2); ctx.fill();
+                }
+            }
+            const tex=new THREE.CanvasTexture(c); tex.wrapS=tex.wrapT=THREE.RepeatWrapping; return tex;
+        },
+
+        powderCoat(color='#e2e6e9'){
+            const {c,ctx}=this.cv(512,512);
+            ctx.fillStyle=color; ctx.fillRect(0,0,512,512);
+            for(let i=0;i<9000;i++){
+                ctx.fillStyle=`rgba(0,0,0,${Math.random()*0.035})`;
+                ctx.fillRect(Math.random()*512,Math.random()*512,1.6,1.6);
+            }
+            const grad=ctx.createRadialGradient(256,180,50,256,256,420);
+            grad.addColorStop(0,'rgba(255,255,255,0.25)'); grad.addColorStop(1,'rgba(0,0,0,0.06)');
+            ctx.fillStyle=grad; ctx.fillRect(0,0,512,512);
+            const tex=new THREE.CanvasTexture(c); tex.wrapS=tex.wrapT=THREE.RepeatWrapping; return tex;
+        },
+
+        pcb(){
+            const {c,ctx}=this.cv(768,384);
+            ctx.fillStyle='#0c3a26'; ctx.fillRect(0,0,768,384);
+            ctx.strokeStyle='rgba(210,180,90,0.55)'; ctx.lineWidth=2;
+            for(let i=0;i<70;i++){
+                ctx.beginPath();
+                let x=Math.random()*768, y=Math.random()*384;
+                ctx.moveTo(x,y);
+                for(let s=0;s<3;s++){ x+=(Math.random()-0.5)*90; y+=(Math.random()-0.5)*60; ctx.lineTo(x,y); }
+                ctx.stroke();
+            }
+            for(let i=0;i<16;i++){
+                const x=30+Math.random()*700, y=30+Math.random()*320, w=40+Math.random()*60, h=24+Math.random()*30;
+                ctx.fillStyle='#1a1a1a'; ctx.fillRect(x,y,w,h);
+                ctx.fillStyle='#c9c9c9';
+                for(let p=0;p<w;p+=8){ ctx.fillRect(x+p,y-4,3,4); ctx.fillRect(x+p,y+h,3,4); }
+            }
+            for(let i=0;i<26;i++){
+                ctx.fillStyle='#d4b25a';
+                ctx.beginPath(); ctx.arc(Math.random()*768,Math.random()*384,5,0,Math.PI*2); ctx.fill();
+            }
+            const tex=new THREE.CanvasTexture(c); return tex;
+        },
+        
+        logo(){
+            const { c, ctx } = this.cv(512, 128);
+            ctx.clearRect(0, 0, 512, 128);
+            ctx.fillStyle = '#555555'; 
+            ctx.textAlign = 'center'; 
+            ctx.font = '700 85px Inter, sans-serif';
+            ctx.fillText('Vaillant', 256, 95);
+            const tex = new THREE.CanvasTexture(c);
+            return tex;
+        }
+    };
+
+    let mats;
+
+    function init() {
+        scene = new THREE.Scene();
+        
+        camera = new THREE.PerspectiveCamera(38, container.clientWidth / container.clientHeight, 0.1, 1000);
+        camera.position.set(38, 22, 54);
+
+        renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        renderer.outputEncoding = THREE.sRGBEncoding;
+        
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.0;
+        
+        container.appendChild(renderer.domElement);
+
+        raycaster = new THREE.Raycaster();
+        mouse = new THREE.Vector2();
+
+        initMaterials();
+        setupLighting();
+        setupGround();
+        buildBoilerModel();
+        buildUI();
+
+        controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.06;
+        controls.target.set(0, -1, 2);
+        controls.maxDistance = 110;
+        controls.minDistance = 14;
+        controls.maxPolarAngle = Math.PI * 0.92;
+
+        setupEvents();
+        animate();
+    }
+
+    function initMaterials() {
+        mats = {
+            whitePlastic: new THREE.MeshStandardMaterial({ map: TextureGen.powderCoat('#e2e6e9'), roughness: 0.75, metalness: 0.05 }),
+            darkMetal:    new THREE.MeshStandardMaterial({ map: TextureGen.brushedMetal('#585c60'), roughness: 0.55, metalness: 0.75 }),
+            silverMetal:  new THREE.MeshStandardMaterial({ map: TextureGen.brushedMetal('#aeb4b9'), roughness: 0.35, metalness: 0.85 }),
+            copper:       new THREE.MeshStandardMaterial({ map: TextureGen.copper(), roughness: 0.28, metalness: 0.9 }),
+            redVessel:    new THREE.MeshStandardMaterial({ color: 0xb23a2f, map: TextureGen.powderCoat('#c94c3f'), roughness: 0.65, metalness: 0.15 }),
+            pcb:          new THREE.MeshStandardMaterial({ map: TextureGen.pcb(), roughness: 0.5, metalness: 0.1 }),
+            glass:        new THREE.MeshStandardMaterial({ map: TextureGen.brushedMetal('#cfd6da'), transparent: true, opacity: 0.28, roughness: 0.15, metalness: 0.4 }),
+            fins:         new THREE.MeshStandardMaterial({ map: TextureGen.fins(), roughness: 0.5, metalness: 0.65 }),
+            perforated:   new THREE.MeshStandardMaterial({ map: TextureGen.perforated(), roughness: 0.6, metalness: 0.6 }),
+            pump:         new THREE.MeshStandardMaterial({ map: TextureGen.ribbed('#5a5e62','#25282a','y',24), roughness: 0.45, metalness: 0.7 }),
+            
+            logo:         new THREE.MeshStandardMaterial({ map: TextureGen.logo(), transparent: true, roughness: 0.3 }),
+            screen:       new THREE.MeshStandardMaterial({ color: 0x5a7b8c, roughness: 0.2 }),
+            seam:         new THREE.MeshStandardMaterial({ color: 0xb0b5b9, roughness: 0.9 }),
+            knob:         new THREE.MeshStandardMaterial({ color: 0xe0e0e0, roughness: 0.4, metalness: 0.1 })
+        };
+    }
+
+    function setupLighting() {
+        scene.add(new THREE.AmbientLight(0xffffff, 0.3));
+
+        const keyLight = new THREE.DirectionalLight(0xffffff, 0.85);
+        keyLight.position.set(18, 30, 26);
+        keyLight.castShadow = true;
+        keyLight.shadow.mapSize.width = 2048;
+        keyLight.shadow.mapSize.height = 2048;
+        keyLight.shadow.bias = -0.0008;
+        scene.add(keyLight);
+
+        const fillLight = new THREE.DirectionalLight(0x9fc9ff, 0.3);
+        fillLight.position.set(-22, 10, -18);
+        scene.add(fillLight);
+        
+        scene.add(new THREE.HemisphereLight(0xbfd9ff, 0x1a1a1a, 0.25));
+    }
+
+    function setupGround() {
+        const geo = new THREE.CircleGeometry(46, 64);
+        geo.rotateX(-Math.PI / 2);
+        const mat = new THREE.ShadowMaterial({ opacity: 0.35 });
+        const ground = new THREE.Mesh(geo, mat);
+        ground.position.y = -20.5;
+        ground.receiveShadow = true;
+        scene.add(ground);
+    }
+
+    function createLabelSprite(number, colorHex) {
+        const canvas = document.createElement('canvas');
+        canvas.width = 128; canvas.height = 128;
+        const ctx = canvas.getContext('2d');
+        
+        ctx.beginPath();
+        ctx.arc(64, 64, 58, 0, Math.PI * 2);
+        ctx.fillStyle = colorHex;
+        ctx.fill();
+        ctx.lineWidth = 6;
+        ctx.strokeStyle = 'rgba(255,255,255,0.9)';
+        ctx.stroke();
+        
+        ctx.fillStyle = '#0a0c0e';
+        ctx.font = '700 56px "JetBrains Mono", monospace';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(String(number), 64, 68);
+        
+        const tex = new THREE.CanvasTexture(canvas);
+        const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, depthTest: false, transparent: true }));
+        sprite.scale.set(1.6, 1.6, 1.6);
+        sprite.renderOrder = 999;
+        
+        return sprite;
+    }
+
+    // Добавляет черные грани геометрии для лучшей читаемости
+    function applyEdges(mesh, angleThreshold = 25) {
+        if (!mesh.geometry) return;
+        const edgesGeo = new THREE.EdgesGeometry(mesh.geometry, angleThreshold);
+        const edgesMat = new THREE.LineBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.5 });
+        edgesMat.userData.originalOpacity = 0.5;
+        const edges = new THREE.LineSegments(edgesGeo, edgesMat);
+        mesh.add(edges);
+    }
+
+    function addPart(geometry, material, basePos, explodeDir, name, meta) {
+        const isInteractive = meta.interactive !== false;
+        const mesh = new THREE.Mesh(geometry, material.clone());
+        
+        mesh.position.copy(basePos);
+        mesh.castShadow = true;
+        mesh.receiveShadow = true;
+        
+        applyEdges(mesh);
+
+        geometry.computeBoundingBox();
+        const halfH = (geometry.boundingBox.max.y - geometry.boundingBox.min.y) / 2;
+
+        mesh.userData = {
+            name: name,
+            category: CATEGORIES[meta.category] ? meta.category : 'corpus',
+            desc: meta.desc || '',
+            specs: meta.specs || [],
+            basePos: basePos.clone(),
+            explodeDir: explodeDir.clone(),
+            isInteractive: isInteractive,
+            originalEmissive: mesh.material.emissive ? mesh.material.emissive.clone() : new THREE.Color(0x000000)
+        };
+
+        if (isInteractive) {
+            uiCounter++;
+            mesh.userData.id = uiCounter;
+            
+            const catColor = CATEGORIES[mesh.userData.category].color;
+            const label = createLabelSprite(uiCounter, catColor);
+            scene.add(label);
+            mesh.userData.label = label;
+            mesh.userData.labelOffset = halfH + 1.6;
+
+            const leaderMat = new THREE.LineBasicMaterial({ color: catColor, transparent: true, opacity: 0.55, depthTest: false });
+            const leader = new THREE.Line(new THREE.BufferGeometry().setFromPoints([mesh.position.clone(), mesh.position.clone()]), leaderMat);
+            leader.renderOrder = 998;
+            scene.add(leader);
+            mesh.userData.leader = leader;
+
+            interactiveParts.push(mesh);
+        }
+
+        scene.add(mesh);
+        parts.push(mesh);
+        return mesh;
+    }
+
+    function buildBoilerModel() {
+        
+        addPart(new THREE.BoxGeometry(15, 24, 1.4), mats.silverMetal,
+            new THREE.Vector3(0,0,-4), new THREE.Vector3(0,0,-7),
+            'Несущее шасси', { category: 'corpus', desc: 'Оцинкованная стальная рама для крепления узлов.' });
+
+        const vesselGeo = new THREE.CylinderGeometry(6, 6, 3, 32);
+        vesselGeo.rotateX(Math.PI/2);
+        addPart(vesselGeo, mats.redVessel,
+            new THREE.Vector3(0,4,-2.5), new THREE.Vector3(0,9,-13),
+            'Расширительный бак', { category: 'hydraulics', desc: 'Компенсирует расширение теплоносителя в системе.' });
+
+        addPart(new THREE.BoxGeometry(11, 4.6, 6), mats.fins,
+            new THREE.Vector3(0,7,1), new THREE.Vector3(0,13,-2),
+            'Первичный теплообменник', { category: 'heat', desc: 'Снимает тепло с продуктов сгорания.' });
+        
+        addPart(new THREE.CylinderGeometry(0.3, 0.3, 10, 16), mats.copper,
+            new THREE.Vector3(0,7,3), new THREE.Vector3(0,13,4),
+            'Змеевик', { interactive: false });
+
+        const fanGeo = new THREE.CylinderGeometry(2.7, 2.7, 2.2, 32);
+        fanGeo.rotateX(Math.PI/2);
+        addPart(fanGeo, mats.darkMetal,
+            new THREE.Vector3(3.5,2,3), new THREE.Vector3(9,6,9),
+            'Вентилятор дымоудаления', { category: 'vent', desc: 'Создаёт тягу для отвода газов.' });
+
+        addPart(new THREE.BoxGeometry(9.5, 1.6, 4.5), mats.perforated,
+            new THREE.Vector3(0,-1,1), new THREE.Vector3(0,-3,3),
+            'Модулируемая горелка', { category: 'combustion', desc: 'Распределяет пламя для равномерного нагрева.' });
+
+        addPart(new THREE.BoxGeometry(11.5, 7, 6.5), mats.glass,
+            new THREE.Vector3(0,1.5,1), new THREE.Vector3(0,6,8), 
+            'Кожух', { interactive: false }); 
+
+        const pumpGeo = new THREE.CylinderGeometry(1.8, 1.8, 3.6, 32);
+        pumpGeo.rotateX(Math.PI/2);
+        addPart(pumpGeo, mats.pump,
+            new THREE.Vector3(4.5,-6,2), new THREE.Vector3(11,-5,7),
+            'Циркуляционный насос', { category: 'hydraulics', desc: 'Обеспечивает циркуляцию теплоносителя.' });
+
+        addPart(new THREE.BoxGeometry(3.1, 4, 3.1), mats.silverMetal,
+            new THREE.Vector3(-4.5,-6.5,1.5), new THREE.Vector3(-10.5,-5,5),
+            'Газовый клапан', { category: 'combustion', desc: 'Дозирует подачу газа.' });
+
+        addPart(new THREE.BoxGeometry(7, 2.1, 3), mats.fins,
+            new THREE.Vector3(0,-5,-2), new THREE.Vector3(0,-10.5,-7),
+            'Вторичный теплообменник ГВС', { category: 'heat', desc: 'Греет проточную воду.' });
+
+        addPart(new THREE.BoxGeometry(10, 1.5, 2), mats.silverMetal,
+            new THREE.Vector3(0,-9,1), new THREE.Vector3(0,-16,2),
+            'Гидравлические подключения', { category: 'hydraulics', desc: 'Подвод труб отопления, воды и газа.' });
+
+        addPart(new THREE.BoxGeometry(15, 5.6, 3), mats.pcb,
+            new THREE.Vector3(0,-10,4), new THREE.Vector3(0,-13,13),
+            'Электронная плата', { category: 'electronics', desc: 'Управляет всеми процессами котла.' });
+
+        // Фронтальная панель
+        const w = 15.5, h = 25, r = 0.8;
+        const shape = new THREE.Shape();
+        shape.moveTo(-w/2 + r, -h/2);
+        shape.lineTo(w/2 - r, -h/2);
+        shape.quadraticCurveTo(w/2, -h/2, w/2, -h/2 + r);
+        shape.lineTo(w/2, h/2 - r);
+        shape.quadraticCurveTo(w/2, h/2, w/2 - r, h/2);
+        shape.lineTo(-w/2 + r, h/2);
+        shape.quadraticCurveTo(-w/2, h/2, -w/2, h/2 - r);
+        shape.lineTo(-w/2, -h/2 + r);
+        shape.quadraticCurveTo(-w/2, -h/2, -w/2 + r, -h/2);
+        
+        const extrudeSettings = { depth: 5.2, bevelEnabled: true, bevelThickness: 0.1, bevelSize: 0.1, bevelSegments: 3, curveSegments: 12 };
+        const coverGeo = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+        coverGeo.center();
+
+        const frontPanel = addPart(coverGeo, mats.whitePlastic,
+            new THREE.Vector3(0,0,4.6), new THREE.Vector3(0,0,26),
+            'Лицевая панель', { category: 'corpus', desc: 'Внешний защитный кожух с панелью управления.' });
+
+        // Детали интерфейса
+        const seam = new THREE.Mesh(new THREE.BoxGeometry(15.7, 0.05, 5.5), mats.seam);
+        seam.position.set(0, -4.5, 0);
+        applyEdges(seam);
+        frontPanel.add(seam);
+
+        const bezel = new THREE.Mesh(new THREE.BoxGeometry(7, 4.5, 0.2), mats.whitePlastic);
+        bezel.position.set(0, -9, 2.6);
+        applyEdges(bezel);
+        frontPanel.add(bezel);
+
+        const lcd = new THREE.Mesh(new THREE.BoxGeometry(2.4, 1.4, 0.1), mats.screen);
+        lcd.position.set(0, -7.8, 2.7);
+        applyEdges(lcd);
+        frontPanel.add(lcd);
+
+        const knobGeo = new THREE.CylinderGeometry(0.7, 0.7, 0.4, 32);
+        knobGeo.rotateX(Math.PI/2);
+        const knob = new THREE.Mesh(knobGeo, mats.knob);
+        knob.position.set(0, -9.8, 2.7);
+        applyEdges(knob);
+        frontPanel.add(knob);
+
+        const btnGeo = new THREE.BoxGeometry(0.6, 0.2, 0.1);
+        const btn1 = new THREE.Mesh(btnGeo, mats.seam);
+        btn1.position.set(-1, -8.7, 2.7);
+        applyEdges(btn1);
+        frontPanel.add(btn1);
+
+        const btn2 = new THREE.Mesh(btnGeo, mats.seam);
+        btn2.position.set(1, -8.7, 2.7);
+        applyEdges(btn2);
+        frontPanel.add(btn2);
+
+        const logoMesh = new THREE.Mesh(new THREE.PlaneGeometry(5, 1.25), mats.logo);
+        logoMesh.position.set(0, -3, 2.65);
+        frontPanel.add(logoMesh);
+    }
+
+    function buildUI() {
+        const legendEl = document.getElementById('ui-legend');
+        Object.values(CATEGORIES).forEach(cat => {
+            legendEl.innerHTML += `<div class="legend-item"><span class="legend-color" style="background:${cat.color}"></span>${cat.label}</div>`;
+        });
+
+        listContainer.innerHTML = '';
+        interactiveParts.forEach(mesh => {
+            const data = mesh.userData;
+            const cat = CATEGORIES[data.category];
+            
+            const card = document.createElement('div');
+            card.className = 'component-card';
+            card.dataset.id = data.id;
+            
+            card.innerHTML = `
+                <div class="card-header">
+                    <div class="card-number" style="background:${cat.color}">${data.id}</div>
+                    <div class="card-title-group">
+                        <div class="card-title">${data.name}</div>
+                        <div class="card-category">${cat.label}</div>
+                    </div>
+                    <div class="card-chevron">›</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <p class="card-description">${data.desc}</p>
+                    </div>
+                </div>
+            `;
+            
+            card.querySelector('.card-header').addEventListener('click', () => toggleCard(card, mesh));
+            listContainer.appendChild(card);
+        });
+    }
+
+    function toggleCard(cardElement, mesh) {
+        const isOpen = cardElement.classList.contains('is-open');
+        document.querySelectorAll('.component-card.is-open').forEach(el => el.classList.remove('is-open'));
+        if (!isOpen) {
+            cardElement.classList.add('is-open');
+            selectPart(mesh);
+        } else {
+            selectPart(null);
+        }
+    }
+
+    function selectPart(mesh) {
+        if (selectedPart) {
+            selectedPart.material.emissive.copy(selectedPart.userData.originalEmissive);
+        }
+        document.querySelectorAll('.component-card.is-active').forEach(el => el.classList.remove('is-active'));
+        selectedPart = mesh;
+        if (mesh) {
+            mesh.material.emissive.setHex(0x00543a);
+            const card = listContainer.querySelector(`.component-card[data-id="${mesh.userData.id}"]`);
+            if (card) {
+                card.classList.add('is-active');
+                card.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+            }
+        }
+    }
+
+    function setupEvents() {
+        const resizeObserver = new ResizeObserver(entries => {
+            for (let entry of entries) {
+                const { width, height } = entry.contentRect;
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                renderer.setSize(width, height);
+            }
+        });
+        resizeObserver.observe(wrapper);
+
+        const slider = document.getElementById('ui-explode-slider');
+        const valEl = document.getElementById('ui-explode-val');
+        
+        slider.addEventListener('input', (e) => {
+            explodeAmount = parseFloat(e.target.value);
+            valEl.textContent = Math.round(explodeAmount * 100) + '%';
+            slider.style.background = `linear-gradient(to right, var(--accent) 0%, var(--accent) ${explodeAmount * 100}%, rgba(255,255,255,0.14) ${explodeAmount * 100}%)`;
+        });
+        slider.dispatchEvent(new Event('input'));
+
+        document.getElementById('ui-labels-toggle').addEventListener('click', function() {
+            labelsVisible = !labelsVisible;
+            this.classList.toggle('is-active', labelsVisible);
+        });
+
+        document.getElementById('ui-panel-toggle').addEventListener('click', () => {
+            document.getElementById('ui-sidebar').classList.toggle('is-open');
+        });
+
+        wrapper.addEventListener('mousemove', (e) => {
+            const rect = wrapper.getBoundingClientRect();
+            mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+            mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+            
+            tooltip.style.left = (e.clientX - rect.left) + 'px';
+            tooltip.style.top = (e.clientY - rect.top) + 'px';
+        });
+
+        wrapper.addEventListener('click', () => {
+            if (hoveredPart) {
+                const card = listContainer.querySelector(`.component-card[data-id="${hoveredPart.userData.id}"]`);
+                if (card) {
+                    document.querySelectorAll('.component-card.is-open').forEach(el => el.classList.remove('is-open'));
+                    card.classList.add('is-open');
+                }
+                selectPart(hoveredPart);
+                
+                if (wrapper.clientWidth <= 880) {
+                    document.getElementById('ui-sidebar').classList.add('is-open');
+                }
+            }
+        });
+    }
+
+    function setOpacityRecursive(obj, alphaMultiplier) {
+        if (obj.material) {
+            if (obj.material.userData.originalOpacity === undefined) {
+                obj.material.userData.originalOpacity = obj.material.opacity;
+            }
+            obj.material.transparent = true;
+            obj.material.opacity = alphaMultiplier * obj.material.userData.originalOpacity;
+        }
+        obj.children.forEach(child => setOpacityRecursive(child, alphaMultiplier));
+    }
+
+    function animate() {
+        requestAnimationFrame(animate);
+
+        parts.forEach(part => {
+            if (part.userData.name === 'Лицевая панель') {
+                const currentOpacity = Math.max(0, 1 - (explodeAmount * 1.4));
+                setOpacityRecursive(part, currentOpacity);
+            }
+
+            const targetPos = part.userData.basePos.clone().add(
+                part.userData.explodeDir.clone().multiplyScalar(explodeAmount)
+            );
+            part.position.lerp(targetPos, 0.1);
+
+            if (part.userData.isInteractive && part.userData.label) {
+                const labelPos = part.position.clone();
+                labelPos.y += part.userData.labelOffset;
+                part.userData.label.position.copy(labelPos);
+                part.userData.label.visible = labelsVisible && (explodeAmount > 0.04) && part.material.opacity !== 0;
+
+                const linePositions = part.userData.leader.geometry.attributes.position;
+                linePositions.setXYZ(0, part.position.x, part.position.y, part.position.z);
+                linePositions.setXYZ(1, labelPos.x, labelPos.y - 0.3, labelPos.z);
+                linePositions.needsUpdate = true;
+                part.userData.leader.visible = part.userData.label.visible;
+            }
+        });
+
+        raycaster.setFromCamera(mouse, camera);
+        
+        const testableMeshes = interactiveParts.filter(p => !p.material.transparent || p.material.opacity > 0.2);
+        const intersects = raycaster.intersectObjects(testableMeshes);
+
+        if (intersects.length > 0) {
+            const object = intersects[0].object;
+            if (hoveredPart !== object) {
+                if (hoveredPart && hoveredPart !== selectedPart) {
+                    hoveredPart.material.emissive.copy(hoveredPart.userData.originalEmissive);
+                }
+                hoveredPart = object;
+                if (hoveredPart !== selectedPart) {
+                    hoveredPart.material.emissive.setHex(0x2f6b52);
+                }
+                
+                ttName.textContent = object.userData.name;
+                ttDesc.textContent = object.userData.desc;
+                tooltip.style.display = 'block';
+                document.body.style.cursor = 'pointer';
+            }
+        } else {
+            clearHover();
+        }
+
+        controls.update();
+        renderer.render(scene, camera);
+    }
+
+    function clearHover() {
+        if (hoveredPart) {
+            if (hoveredPart !== selectedPart) {
+                hoveredPart.material.emissive.copy(hoveredPart.userData.originalEmissive);
+            }
+            hoveredPart = null;
+            tooltip.style.display = 'none';
+            document.body.style.cursor = 'default';
+        }
+    }
+
+    window.addEventListener('load', init);
+})();
+</script>
+</body>
+</html>

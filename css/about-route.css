@@ -1,0 +1,306 @@
+/* Homepage about section: selected route concept adapted to the site tokens. */
+#about.about-route {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(4.5rem, 8vw, 7rem);
+}
+
+#about.about-route::before {
+    content: "";
+    position: absolute;
+    inset: 14% auto auto -9rem;
+    width: 23rem;
+    height: 23rem;
+    border-radius: 50%;
+    background: rgba(var(--accent-rgb), 0.055);
+    filter: blur(1px);
+    pointer-events: none;
+}
+
+#about .about-route-layout {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 0.86fr) minmax(34rem, 1.14fr);
+    gap: clamp(3rem, 7vw, 7rem);
+    align-items: center;
+}
+
+#about .about-route-intro {
+    min-width: 0;
+}
+
+#about .about-route-kicker {
+    margin: 0 0 1.25rem;
+    color: var(--accent);
+    font-size: var(--fs-12);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+#about .about-route-title {
+    max-width: 12ch;
+    margin: 0;
+    font-size: clamp(2.8rem, 5.3vw, 5.25rem);
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+    text-wrap: balance;
+}
+
+#about .about-route-title span {
+    color: var(--accent);
+}
+
+#about .about-route-copy {
+    max-width: 34rem;
+    margin: 1.75rem 0 0;
+    color: var(--text-dim);
+    font-size: var(--fs-16);
+    line-height: 1.7;
+}
+
+#about .about-route-principles {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 2.5rem;
+    border-top: 1px solid var(--line-strong);
+}
+
+#about .about-route-principle {
+    display: grid;
+    grid-template-columns: 1.4rem minmax(0, 1fr);
+    gap: 0.65rem;
+    align-items: center;
+    min-width: 0;
+    padding: 1rem 0.75rem 0 0;
+    color: var(--text-pure);
+    font-size: var(--fs-12);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.35;
+}
+
+#about .about-route-principle + .about-route-principle {
+    padding-left: 0.9rem;
+    border-left: 1px solid var(--line-soft);
+}
+
+#about .about-route-principle svg {
+    color: var(--accent);
+}
+
+#about .about-route-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+#about .about-route-metric {
+    position: relative;
+    min-height: 13.75rem;
+    padding: clamp(1.4rem, 3vw, 2rem);
+    overflow: hidden;
+    border: 1px solid var(--line-soft);
+    border-radius: calc(var(--radius-panel) - 3px);
+    background: var(--bg-card);
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, background-color 0.3s ease;
+}
+
+#about .about-route-metric::after {
+    content: "";
+    position: absolute;
+    right: -4rem;
+    bottom: -5rem;
+    width: 11rem;
+    height: 11rem;
+    border: 1px solid rgba(var(--accent-rgb), 0.16);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2.2rem rgba(var(--accent-rgb), 0.035), 0 0 0 4.4rem rgba(var(--accent-rgb), 0.02);
+    pointer-events: none;
+}
+
+#about .about-route-metric:hover {
+    transform: translateY(-4px);
+    border-color: rgba(var(--accent-rgb), 0.4);
+}
+
+#about .about-route-metric--main {
+    display: grid;
+    grid-template-columns: auto minmax(13rem, 1fr);
+    grid-column: 1 / -1;
+    min-height: 15rem;
+    align-items: end;
+    align-content: end;
+    column-gap: clamp(1.25rem, 3vw, 2.5rem);
+    background:
+        linear-gradient(125deg, rgba(var(--accent-rgb), 0.12), transparent 55%),
+        var(--bg-card);
+}
+
+#about .about-route-metric-icon {
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    place-items: center;
+    margin-bottom: 2.1rem;
+    border: 1px solid rgba(var(--accent-rgb), 0.42);
+    border-radius: var(--radius-icon);
+    color: var(--accent);
+    background: rgba(var(--accent-rgb), 0.08);
+}
+
+#about .about-route-metric--main .about-route-metric-icon {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+}
+
+#about .about-route-value {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: baseline;
+    color: var(--accent);
+    font-size: clamp(3.25rem, 6vw, 5.5rem);
+    font-weight: var(--font-weight-bold);
+    line-height: 0.9;
+    letter-spacing: -0.07em;
+}
+
+#about .about-route-value small {
+    margin-left: 0.65rem;
+    color: var(--text-pure);
+    font-size: var(--fs-14);
+    letter-spacing: 0;
+}
+
+#about .about-route-prefix {
+    margin-right: 0.1em;
+}
+
+#about .about-route-plus {
+    margin-left: 0.04em;
+}
+
+#about .about-route-metric p {
+    position: relative;
+    z-index: 1;
+    max-width: 15rem;
+    margin: 0.8rem 0 0;
+    color: var(--text-dim);
+    font-size: var(--fs-13);
+    line-height: 1.5;
+}
+
+#about .about-route-metric--main p {
+    align-self: end;
+    max-width: 18rem;
+    margin: 0 0 0.5rem;
+    font-size: var(--fs-15);
+    line-height: 1.45;
+}
+
+@media (max-width: 1024px) {
+    #about .about-route-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    #about .about-route-title {
+        max-width: 15ch;
+    }
+
+    #about .about-route-copy {
+        max-width: 42rem;
+    }
+}
+
+@media (max-width: 639px) {
+    #about.about-route {
+        padding-block: 3.75rem;
+    }
+
+    #about .about-route-layout {
+        gap: 2rem;
+    }
+
+    #about .about-route-kicker {
+        margin-bottom: 1rem;
+        font-size: var(--fs-10);
+    }
+
+    #about .about-route-title {
+        max-width: 100%;
+        font-size: clamp(2.5rem, 12.5vw, 3.65rem);
+        line-height: 1;
+    }
+
+    #about .about-route-copy {
+        margin-top: 1.25rem;
+        font-size: var(--fs-14);
+        line-height: 1.65;
+    }
+
+    #about .about-route-principles {
+        grid-template-columns: 1fr;
+        gap: 0;
+        margin-top: 1.75rem;
+    }
+
+    #about .about-route-principle,
+    #about .about-route-principle + .about-route-principle {
+        min-height: 3.25rem;
+        padding: 0.75rem 0;
+        border-left: 0;
+        border-bottom: 1px solid var(--line-soft);
+        font-size: var(--fs-13);
+    }
+
+    #about .about-route-metrics {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        padding: 0;
+    }
+
+    #about .about-route-metric {
+        min-height: 10.75rem;
+        padding: 1.15rem;
+    }
+
+    #about .about-route-metric--main {
+        grid-template-columns: auto minmax(0, 1fr);
+        min-height: 12.5rem;
+        column-gap: 1rem;
+    }
+
+    #about .about-route-metric--main .about-route-metric-icon {
+        top: 1.15rem;
+        left: 1.15rem;
+    }
+
+    #about .about-route-metric-icon {
+        width: 2.35rem;
+        height: 2.35rem;
+        margin-bottom: 1.5rem;
+    }
+
+    #about .about-route-value {
+        font-size: clamp(2.6rem, 13vw, 4rem);
+    }
+
+    #about .about-route-metric p,
+    #about .about-route-metric--main p {
+        max-width: 11rem;
+        font-size: var(--fs-11);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #about .about-route-metric {
+        transition: none;
+    }
+}

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1724"/>
+      <stop offset="100%" style="stop-color:#1a1025"/>
+    </linearGradient>
+    <linearGradient id="fire" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b35"/>
+      <stop offset="60%" style="stop-color:#ff4500"/>
+      <stop offset="100%" style="stop-color:#ffd700"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b35"/>
+      <stop offset="100%" style="stop-color:#ff4500"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g stroke="#fff" stroke-opacity="0.03" stroke-width="0.5">
+    <line x1="0" y1="210" x2="1200" y2="210"/>
+    <line x1="0" y1="420" x2="1200" y2="420"/>
+  </g>
+  <g transform="translate(600, 200)">
+    <path d="M0 120 C-20 80 -60 30 -50 -20 C-40 -60 0 -100 0 -160 C0 -100 40 -60 50 -20 C60 30 20 80 0 120Z" fill="url(#fire)" opacity="0.9"/>
+    <path d="M0 120 C-12 90 -30 50 -25 0 C-20 -35 0 -70 0 -120 C0 -70 20 -35 25 0 C30 50 12 90 0 120Z" fill="#ffd700" opacity="0.6"/>
+  </g>
+  <text x="600" y="340" text-anchor="middle" font-family="Golos Text,Segoe UI,Arial,sans-serif" font-size="72" font-weight="700" fill="#fff">Тепло<tspan fill="url(#accent)">Рем</tspan>Сервис</text>
+  <text x="600" y="395" text-anchor="middle" font-family="Golos Text,Segoe UI,Arial,sans-serif" font-size="26" font-weight="500" fill="#94a3b8">Проектирование и монтаж премиальных инженерных систем отопления</text>
+  <rect x="450" y="420" width="300" height="3" rx="1.5" fill="url(#accent)"/>
+  <text x="600" y="490" text-anchor="middle" font-family="Golos Text,Segoe UI,Arial,sans-serif" font-size="18" fill="#64748b">Казань • Проектирование • Монтаж • Автоматика ZONT • Сервис</text>
+  <rect x="0" y="626" width="1200" height="4" fill="url(#accent)"/>
+</svg>

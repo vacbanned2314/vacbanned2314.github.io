@@ -1,0 +1,277 @@
+:root {
+
+    --font-sans: 'Golos Text', system-ui, -apple-system, sans-serif;
+    --font-weight-body: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --letter-tight: -0.02em;
+    --letter-wide: 0.06em;
+
+    --bg-base: #1C1B19;
+
+    --bg-surface: #252320;
+
+    --bg-card: #302D29;
+
+    --accent: #FF6B00;
+
+    --accent-rgb: 255, 107, 0;
+
+    --accent-action: var(--accent);
+
+    --accent-action-hover: color-mix(in srgb, var(--accent) 84%, black);
+
+    --accent-action-rgb: 255, 107, 0;
+
+    --focus-ring: var(--accent);
+
+    --accent-secondary: var(--accent);
+
+    --accent-secondary-rgb: 255, 107, 0;
+
+    /* Muted copper palette for the hero trust cards */
+    --hero-stats-accent: var(--accent);
+
+    --hero-stats-accent-rgb: 255, 107, 0;
+
+    --hero-stats-action: var(--accent);
+
+    --text-pure: #ffffff;
+
+    --text-dim: #B7B0A7;
+
+    --border-glass: var(--border-default);
+
+    --header-bg: rgba(37, 35, 32, 0.85);
+
+    --ambient-glow: rgba(var(--accent-secondary-rgb), 0.04);
+
+    --card-grad: var(--surface-card-gradient);
+
+    --rating-grad: var(--surface-card-gradient);
+
+    --cta-grad: var(--surface-card-gradient);
+
+    --input-bg: rgba(0,0,0,0.3);
+
+    --btn-ghost-bg: rgba(255,255,255,0.03);
+
+    --footer-bg: #11100F;
+
+    --mobile-nav-bg: rgba(17, 16, 15, 0.98);
+
+    --doc-shelf-bg: rgba(255, 255, 255, 0.04);
+
+    --doc-paper-bg: rgba(250, 248, 245, 0.9);
+
+    --doc-paper-border: rgba(255, 255, 255, 0.12);
+
+    --doc-paper-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+
+
+
+    /* Responsive design tokens */
+
+    --bp-md: 768px;
+
+    --bp-lg: 1024px;
+
+    --touch-min: 2.75rem;
+
+    --space-section: clamp(3rem, 8vw, 7.5rem);
+
+    --space-container: clamp(1rem, 4vw, 2.5rem);
+
+    --text-title: clamp(1.75rem, 5vw, 2.625rem);
+
+    --text-hero: clamp(2rem, 7vw, 4.5rem);
+
+    --text-body: clamp(0.9375rem, 2.5vw, 1.125rem);
+
+    --header-offset: calc(5.5rem + env(safe-area-inset-top, 0px));
+
+    --radius-pill: 999px;
+
+    /* Shared design system tokens. Keep component CSS dependent on these values. */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-7: 2rem;
+    --space-8: 2.5rem;
+
+    --radius-button: 0.5rem;
+    --radius-card: 1rem;
+    --radius-control: var(--radius-button);
+    --radius-icon: 0.625rem;
+
+    --border-width: 1px;
+    --border-default: rgba(255, 255, 255, 0.12);
+    --border-subtle: rgba(255, 255, 255, 0.07);
+    --border-accent: rgba(var(--accent-rgb), 0.55);
+
+    --surface-card: rgba(45, 42, 38, 0.82);
+    --surface-card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.055), transparent 64%), var(--surface-card);
+    --shadow-card: 0 18px 44px rgba(12, 10, 8, 0.2);
+    --shadow-hover: 0 22px 52px rgba(12, 10, 8, 0.28);
+    --shadow-control: 0 8px 24px rgba(var(--accent-rgb), 0.22);
+
+    --icon-size-sm: 1rem;
+    --icon-size-md: 1.25rem;
+    --icon-size-lg: 1.5rem;
+    --icon-stroke: 1.75;
+
+    --type-heading-lg: var(--text-title);
+    --type-heading-md: var(--fs-22);
+    --type-card-title: var(--fs-18);
+    --type-body: var(--fs-15);
+    --type-caption: var(--fs-13);
+    --type-heading-weight: var(--font-weight-bold);
+    --type-body-weight: var(--font-weight-body);
+
+    /* Discrete type scale — every fixed font-size on the site names one of these (no raw px/rem in rules) */
+
+    --fs-9: 0.5625rem;
+
+    --fs-10: 0.625rem;
+
+    --fs-11: 0.6875rem;
+
+    --fs-12: 0.75rem;
+
+    --fs-13: 0.8125rem;
+
+    --fs-14: 0.875rem;
+
+    --fs-15: 0.9375rem;
+
+    --fs-16: 1rem;
+
+    --fs-17: 1.0625rem;
+
+    --fs-18: 1.125rem;
+
+    --fs-20: 1.25rem;
+
+    --fs-22: 1.375rem;
+
+    --fs-24: 1.5rem;
+
+    --fs-26: 1.625rem;
+
+    --fs-28: 1.75rem;
+
+    --fs-32: 2rem;
+
+    --fs-36: 2.25rem;
+
+    --fs-40: 2.5rem;
+
+    --fs-42: 2.625rem;
+
+    --fs-52: 3.25rem;
+
+    --fs-64: 4rem;
+
+    --text-page-title: clamp(2rem, 5vw, 3.25rem);
+
+    /* Unified glow-card scale (about-feature / stat-box / service-card / review-card / rating-card) */
+
+    --card-radius-outer: var(--radius-card);
+
+    --card-radius-inner: var(--radius-card);
+
+    --card-glow-opacity: 0.5;
+
+    --card-hover-lift: -8px;
+
+    --card-hover-shadow: var(--shadow-hover);
+
+    /* Engineering-passport geometry */
+    --line-strong: var(--border-default);
+    --line-soft: var(--border-subtle);
+    --panel-shadow: var(--shadow-card);
+    --radius-panel: var(--radius-card);
+    --control-height: 52px;
+
+}
+
+
+
+[data-theme="light"] {
+
+    --bg-base: #F7F4EF;
+
+    --bg-surface: #FFFDFA;
+
+    --bg-card: #EEE9E1;
+
+    --accent: #FF6B00;
+
+    --accent-rgb: 255, 107, 0;
+
+    --accent-secondary-rgb: 255, 107, 0;
+
+    --accent-action: var(--accent);
+
+    --accent-action-hover: color-mix(in srgb, var(--accent) 84%, black);
+
+    --accent-action-rgb: 255, 107, 0;
+
+    --focus-ring: var(--accent);
+
+    --hero-stats-accent: var(--accent);
+
+    --hero-stats-accent-rgb: 255, 107, 0;
+
+    --hero-stats-action: var(--accent);
+
+    --text-pure: #1B1A18;
+
+    --text-dim: #6E685F;
+
+    --border-glass: var(--border-default);
+
+    --header-bg: rgba(255, 253, 250, 0.85);
+
+    --ambient-glow: rgba(var(--accent-secondary-rgb), 0.03);
+
+    --card-grad: var(--surface-card-gradient);
+
+    --rating-grad: var(--surface-card-gradient);
+
+    --cta-grad: var(--surface-card-gradient);
+
+    --input-bg: rgba(0,0,0,0.03);
+
+    --btn-ghost-bg: rgba(0,0,0,0.03);
+
+    --footer-bg: #E5DED4;
+
+    --mobile-nav-bg: rgba(255, 253, 250, 0.98);
+
+    --doc-shelf-bg: linear-gradient(160deg, #FFFDFA 0%, #EEE9E1 100%);
+
+    --doc-paper-bg: #FFFDFA;
+
+    --doc-paper-border: rgba(0, 0, 0, 0.06);
+
+    --doc-paper-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+
+    --line-strong: var(--border-default);
+    --line-soft: var(--border-subtle);
+    --panel-shadow: var(--shadow-card);
+
+    --border-default: rgba(35, 29, 22, 0.12);
+    --border-subtle: rgba(35, 29, 22, 0.07);
+    --border-accent: rgba(var(--accent-rgb), 0.55);
+    --surface-card: rgba(255, 253, 250, 0.82);
+    --surface-card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.72), transparent 64%), var(--surface-card);
+    --shadow-card: 0 18px 44px rgba(73, 55, 36, 0.1);
+    --shadow-hover: 0 22px 52px rgba(73, 55, 36, 0.15);
+    --shadow-control: 0 8px 24px rgba(var(--accent-rgb), 0.18);
+
+}
