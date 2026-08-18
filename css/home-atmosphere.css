@@ -1,15 +1,58 @@
-/* Homepage atmosphere: alternating warm graphite zones with a restrained
-   engineering-grid texture. Kept separate so the treatment is easy to tune. */
+/* Homepage atmosphere: cool engineering graphite zones with a restrained
+   steel grid and one amber heat signal. Kept separate so the treatment is
+   easy to tune without changing the other routes. */
 
 body.home-page {
-    --home-zone-a: #1c1b19;
-    --home-zone-b: #211f1c;
-    --home-zone-c: #181715;
-    --home-grid-line: rgba(255, 255, 255, 0.018);
-    --home-grid-major: rgba(255, 107, 0, 0.026);
-    --home-grain-dot: rgba(255, 255, 255, 0.026);
-    --home-zone-edge: rgba(255, 255, 255, 0.045);
-    --home-pipe-line: rgba(255, 107, 0, 0.19);
+    --home-zone-a: #151a1c;
+    --home-zone-b: #1b2326;
+    --home-zone-c: #141a1c;
+    --home-grid-line: rgba(193, 215, 219, 0.04);
+    --home-grid-major: rgba(240, 138, 36, 0.026);
+    --home-grain-dot: rgba(209, 226, 228, 0.016);
+    --home-zone-edge: rgba(203, 222, 224, 0.045);
+    --home-pipe-line: rgba(240, 138, 36, 0.22);
+    --home-seam-color: var(--home-zone-a);
+}
+
+/* Variant 1: engineering graphite + amber signal. Scoped to the homepage so
+   the internal pages keep their existing visual language until a full-site
+   palette decision is made. */
+[data-theme="dark"] body.home-page {
+    --bg-base: #151a1c;
+    --bg-surface: #20292c;
+    --bg-card: #2a3438;
+
+    --accent: #f08a24;
+    --accent-rgb: 240, 138, 36;
+    --accent-action: var(--accent);
+    --accent-action-hover: color-mix(in srgb, var(--accent) 84%, black);
+    --accent-action-rgb: 240, 138, 36;
+    --accent-secondary: var(--accent);
+    --accent-secondary-rgb: 240, 138, 36;
+    --hero-stats-accent: var(--accent);
+    --hero-stats-accent-rgb: 240, 138, 36;
+    --hero-stats-action: var(--accent);
+
+    --text-pure: #f3f1ea;
+    --text-dim: #9da8aa;
+    --header-bg: rgba(28, 36, 39, 0.88);
+    --ambient-glow: rgba(var(--accent-secondary-rgb), 0.035);
+    --input-bg: rgba(8, 14, 16, 0.58);
+    --btn-ghost-bg: rgba(220, 235, 236, 0.045);
+    --footer-bg: #0b0f10;
+    --mobile-nav-bg: rgba(11, 15, 16, 0.98);
+
+    --border-default: rgba(203, 222, 224, 0.12);
+    --border-subtle: rgba(203, 222, 224, 0.07);
+    --border-accent: rgba(var(--accent-rgb), 0.55);
+    --surface-card: rgba(42, 52, 56, 0.9);
+    --surface-card-gradient: linear-gradient(135deg, rgba(220, 235, 236, 0.045), transparent 64%), var(--surface-card);
+    --shadow-card: 0 18px 44px rgba(5, 9, 11, 0.28);
+    --shadow-hover: 0 22px 52px rgba(5, 9, 11, 0.38);
+    --shadow-control: 0 8px 24px rgba(var(--accent-rgb), 0.2);
+
+    --doc-shelf-bg: rgba(210, 225, 226, 0.045);
+    --doc-paper-border: rgba(215, 230, 232, 0.14);
 }
 
 [data-theme="light"] body.home-page {
@@ -27,10 +70,8 @@ body.home-page {
 body.home-page .ambient-bg {
     background:
         radial-gradient(ellipse 42% 34% at 82% 12%, rgba(var(--accent-rgb), 0.075), transparent 72%),
-        radial-gradient(ellipse 36% 28% at 8% 38%, rgba(var(--accent-rgb), 0.035), transparent 76%),
-        linear-gradient(var(--home-grid-line) 1px, transparent 1px),
-        linear-gradient(90deg, var(--home-grid-line) 1px, transparent 1px);
-    background-size: auto, auto, 4rem 4rem, 4rem 4rem;
+        radial-gradient(ellipse 36% 28% at 8% 38%, rgba(var(--accent-rgb), 0.035), transparent 76%);
+    background-size: auto, auto;
 }
 
 body.home-page .hero,
@@ -42,15 +83,18 @@ body.home-page #licenses,
 body.home-page #trust,
 body.home-page #calc {
     isolation: isolate;
-    border-top: 1px solid var(--home-zone-edge);
+    border-top: 0;
+    border-bottom: 0;
     background-image:
+        linear-gradient(180deg, color-mix(in srgb, var(--home-seam-color) 76%, transparent), transparent 7rem),
         linear-gradient(180deg, rgba(255, 255, 255, 0.012), transparent 18rem),
         radial-gradient(ellipse 44% 30% at var(--zone-glow-x, 84%) var(--zone-glow-y, 22%), rgba(var(--accent-rgb), 0.045), transparent 72%),
         linear-gradient(var(--home-grid-line) 1px, transparent 1px),
         linear-gradient(90deg, var(--home-grid-line) 1px, transparent 1px),
         radial-gradient(circle, var(--home-grain-dot) 0 0.45px, transparent 0.7px);
-    background-size: auto, auto, 4rem 4rem, 4rem 4rem, 0.25rem 0.25rem;
-    background-position: 0 0, 0 0, center top, center top, 0 0;
+    background-size: auto, auto, auto, 4rem 4rem, 4rem 4rem, 0.25rem 0.25rem;
+    background-position: 0 0, 0 0, 0 0, center top, center top, 0 0;
+    background-attachment: scroll, scroll, scroll, fixed, fixed, fixed;
     transition: background-color 0.4s ease, border-color 0.4s ease;
 }
 
@@ -65,6 +109,7 @@ body.home-page #about,
 body.home-page #licenses {
     --zone-glow-x: 12%;
     --zone-glow-y: 28%;
+    --home-seam-color: var(--home-zone-a);
     background-color: var(--home-zone-b);
 }
 
@@ -72,28 +117,47 @@ body.home-page #services,
 body.home-page #trust {
     --zone-glow-x: 88%;
     --zone-glow-y: 36%;
+    --home-seam-color: var(--home-zone-b);
     background-color: var(--home-zone-c);
+}
+
+body.home-page #pricing,
+body.home-page #calc {
+    --home-seam-color: var(--home-zone-c);
 }
 
 /* Hero and its project preview are one opening composition, not two stripes. */
 body.home-page .hero {
     border-top: 0;
+    border-bottom: 0;
     background-color: transparent;
     background-image:
         radial-gradient(ellipse 40% 34% at 84% 24%, rgba(var(--accent-rgb), 0.055), transparent 72%),
         linear-gradient(var(--home-grid-line) 1px, transparent 1px),
         linear-gradient(90deg, var(--home-grid-line) 1px, transparent 1px);
     background-size: auto, 4rem 4rem, 4rem 4rem;
+    background-position: 0 0, center top, center top;
+    background-attachment: scroll, fixed, fixed;
 }
 
 body.home-page .home-portfolio {
     border-top: 0;
+    border-bottom: 0;
     background-image:
         radial-gradient(ellipse 46% 34% at 76% 18%, rgba(var(--accent-rgb), 0.04), transparent 72%),
         linear-gradient(var(--home-grid-line) 1px, transparent 1px),
         linear-gradient(90deg, var(--home-grid-line) 1px, transparent 1px),
         radial-gradient(circle, var(--home-grain-dot) 0 0.45px, transparent 0.7px);
     background-size: auto, 4rem 4rem, 4rem 4rem, 0.25rem 0.25rem;
+    background-position: 0 0, center top, center top, 0 0;
+    background-attachment: scroll, fixed, fixed, fixed;
+}
+
+body.home-page .main-footer {
+    border-top: 0;
+    background:
+        linear-gradient(180deg, var(--home-zone-a) 0, transparent 5.5rem),
+        var(--footer-bg);
 }
 
 /* Sparse pipe-route marks make the grid feel intentional rather than decorative. */
@@ -159,16 +223,25 @@ body.home-page main > section > .container {
 }
 
 @media (max-width: 768px) {
-    body.home-page .ambient-bg,
-    body.home-page .hero,
-    body.home-page .home-portfolio,
+    body.home-page .ambient-bg {
+        background-size: auto, auto;
+    }
+
+    body.home-page .hero {
+        background-size: auto, 3rem 3rem, 3rem 3rem;
+    }
+
+    body.home-page .home-portfolio {
+        background-size: auto, 3rem 3rem, 3rem 3rem, 0.25rem 0.25rem;
+    }
+
     body.home-page #about,
     body.home-page #services,
     body.home-page #pricing,
     body.home-page #licenses,
     body.home-page #trust,
     body.home-page #calc {
-        background-size: auto, auto, 3rem 3rem, 3rem 3rem, 0.25rem 0.25rem;
+        background-size: auto, auto, auto, 3rem 3rem, 3rem 3rem, 0.25rem 0.25rem;
     }
 
     body.home-page #about::after,

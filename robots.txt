@@ -3,4 +3,4 @@ Disallow: /admin/
 Disallow: /api/
 Allow: /
 
-Sitemap: https://teplorem.ru/sitemap.xml
+Sitemap: https://vacbanned2314.github.io/teploremservice-site/sitemap.xml
