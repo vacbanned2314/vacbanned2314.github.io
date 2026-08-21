@@ -6,12 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroDecorBlock = document.getElementById('hero-decor-block');
     const boilerWidget = heroDecorBlock?.querySelector('.boiler-widget');
     const skipHeavyMotion = reducedMotion || isMobile;
-    const showBoilerWidget = boilerWidget && window.matchMedia('(min-width: 769px)').matches;
+    const showBoilerWidget = Boolean(boilerWidget);
 
     initHomePortfolioPreview();
 
     if (showBoilerWidget && typeof initBoilerWidget === 'function') {
-        initBoilerWidget(boilerWidget, { reducedMotion: skipHeavyMotion });
+        initBoilerWidget(boilerWidget, {
+            reducedMotion: skipHeavyMotion,
+            mobile: isMobile
+        });
     }
 
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;

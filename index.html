@@ -39,7 +39,7 @@
         document.documentElement.setAttribute('data-theme', savedTheme);
     </script>
 
-    <link rel="stylesheet" href="css/main.css?v=20260817-hero-actions-restore">
+    <link rel="stylesheet" href="css/main.css?v=20260820-boiler-9">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -207,26 +207,29 @@
             <div class="hero-decor-block" id="hero-decor-block">
                 <div class="hero-decor-glow" aria-hidden="true"></div>
                 <div class="hero-decor-grid" aria-hidden="true"></div>
-                <div class="boiler-widget" id="boiler-widget" aria-label="Интерактивная 3D-схема котла Vaillant ecoTEC">
+                <div class="boiler-widget" id="boiler-widget" aria-label="Интерактивная 3D-модель котла Vaillant ecoTEC plus">
+                    <div class="boiler-widget__identity" aria-hidden="true">
+                        <strong>Vaillant <span>ecoTEC plus</span></strong>
+                        <span class="boiler-widget__identity-subtitle">Интерактивная схема узла</span>
+                    </div>
+
                     <div class="boiler-widget__scene" id="boiler-scene"></div>
 
-                    <div class="boiler-widget__caption">
-                        <span class="boiler-widget__caption-title">Vaillant ecoTEC · схема в разборе</span>
+                    <div class="boiler-widget__fallback" hidden aria-hidden="true">
+                        <div class="boiler-fallback-shell">
+                            <span class="boiler-fallback-screen">42°</span>
+                            <span class="boiler-fallback-seam"></span>
+                            <span class="boiler-fallback-knob"></span>
+                        </div>
                     </div>
 
                     <div class="boiler-widget__controls">
-                        <button type="button" class="boiler-widget__labels-toggle is-active" data-bw-labels-toggle aria-pressed="true">
-                            <span class="boiler-widget__toggle-switch" aria-hidden="true"></span>
-                            <span>Номера</span>
-                        </button>
-
-                        <div class="boiler-widget__explode">
-                            <span class="boiler-widget__explode-val" data-bw-explode-val>30%</span>
-                            <div class="boiler-widget__explode-track">
-                                <input type="range" data-bw-explode-slider min="0" max="1" step="0.01" value="0.3" aria-label="Степень разборки котла">
-                            </div>
-                            <span class="boiler-widget__explode-label">Разборка</span>
-                        </div>
+                        <span class="boiler-widget__control-caption" aria-hidden="true">Разборка</span>
+                        <span class="boiler-widget__control-state" aria-hidden="true">Разобран</span>
+                        <span class="boiler-widget__range-wrap">
+                            <input type="range" data-bw-explode-slider min="0" max="1" step="0.01" value="0.3" aria-label="Степень разборки котла" aria-orientation="vertical">
+                        </span>
+                        <span class="boiler-widget__control-state" aria-hidden="true">Собран</span>
                     </div>
 
                     <div class="boiler-widget__tooltip" role="tooltip">
@@ -739,7 +742,7 @@
     <script defer src="js/core/common.js?v=20260817-1635"></script>
     <script defer src="js/core/custom-select.js?v=20260817-1635"></script>
     <script defer src="js/components/form.js?v=20260817-1635"></script>
-    <script defer src="js/components/boiler-widget.js?v=20260817-1635"></script>
-    <script defer src="js/pages/home.js?v=20260817-1635"></script>
+    <script defer src="js/components/boiler-widget.js?v=20260820-boiler-16"></script>
+    <script defer src="js/pages/home.js?v=20260820-boiler-10"></script>
 </body>
 </html>

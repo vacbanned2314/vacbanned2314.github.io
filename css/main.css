@@ -1,9 +1,10 @@
 @import url("variables.css?v=20260817-1635");
 @import url("base.css?v=20260817-1635");
 @import url("components.css?v=20260817-1635");
-@import url("boiler-widget.css?v=20260817-1635");
+@import url("boiler-widget.css?v=20260820-boiler-9");
 @import url("animations.css?v=20260817-1635");
 @import url("mobile.css?v=20260817-1635");
 @import url("design-system.css?v=20260817-hero-actions-restore");
 @import url("about-route.css?v=20260817-1635");
 @import url("home-atmosphere.css?v=20260818-seam-pass");
+@import url("home-boiler.css?v=20260818-boiler-1");

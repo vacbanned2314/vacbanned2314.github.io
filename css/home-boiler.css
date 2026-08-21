@@ -1,0 +1,383 @@
+/* Homepage direction 06: boiler room.
+   Copper / amber replaces the cold green signal; rounded vessels and panels
+   make the interface feel like a maintained piece of equipment. */
+
+body.home-page,
+[data-theme="dark"] body.home-page {
+    --boiler-copper: #d27a43;
+    --boiler-copper-rgb: 210, 122, 67;
+    --boiler-copper-hi: #e19a66;
+    --boiler-copper-deep: #a95a32;
+    --boiler-steel: #a7b1b4;
+    --boiler-zone-a: #111719;
+    --boiler-zone-b: #192124;
+    --boiler-zone-c: #141c1f;
+    --boiler-card: rgba(35, 47, 51, 0.9);
+    --boiler-card-soft: rgba(35, 47, 51, 0.64);
+    --boiler-line: rgba(211, 225, 225, 0.14);
+    --boiler-line-soft: rgba(211, 225, 225, 0.08);
+    --boiler-radius-panel: 1.25rem;
+    --boiler-radius-card: 0.875rem;
+
+    --home-zone-a: var(--boiler-zone-a);
+    --home-zone-b: var(--boiler-zone-b);
+    --home-zone-c: var(--boiler-zone-c);
+    --home-grid-line: rgba(211, 225, 225, 0.045);
+    --home-grid-major: rgba(var(--boiler-copper-rgb), 0.035);
+    --home-grain-dot: rgba(211, 225, 225, 0.018);
+    --home-zone-edge: var(--boiler-line-soft);
+    --home-pipe-line: rgba(var(--boiler-copper-rgb), 0.24);
+
+    --bg-base: var(--boiler-zone-a);
+    --bg-surface: var(--boiler-zone-b);
+    --bg-card: #263236;
+    --accent: var(--boiler-copper);
+    --accent-rgb: var(--boiler-copper-rgb);
+    --accent-action: var(--boiler-copper);
+    --accent-action-hover: color-mix(in srgb, var(--boiler-copper) 82%, black);
+    --accent-action-rgb: var(--boiler-copper-rgb);
+    --accent-secondary: var(--boiler-copper-hi);
+    --accent-secondary-rgb: 225, 154, 102;
+    --hero-stats-accent: var(--boiler-copper);
+    --hero-stats-accent-rgb: var(--boiler-copper-rgb);
+    --hero-stats-action: var(--boiler-copper);
+    --text-pure: #f4f0e9;
+    --text-dim: #a7b1b4;
+    --header-bg: rgba(17, 23, 25, 0.9);
+    --ambient-glow: rgba(var(--boiler-copper-rgb), 0.045);
+    --input-bg: rgba(7, 12, 14, 0.62);
+    --footer-bg: #0b1011;
+    --mobile-nav-bg: rgba(11, 16, 17, 0.98);
+    --border-default: var(--boiler-line);
+    --border-subtle: var(--boiler-line-soft);
+    --border-accent: rgba(var(--boiler-copper-rgb), 0.58);
+    --surface-card: var(--boiler-card);
+    --surface-card-gradient: linear-gradient(135deg, rgba(232, 238, 236, 0.045), transparent 62%), var(--boiler-card);
+    --shadow-card: 0 18px 42px rgba(5, 9, 10, 0.24);
+    --shadow-hover: 0 22px 48px rgba(5, 9, 10, 0.34);
+    --shadow-control: 0 9px 24px rgba(var(--boiler-copper-rgb), 0.22);
+    --radius-button: 0.625rem;
+    --radius-card: var(--boiler-radius-panel);
+    --radius-control: 0.625rem;
+    --radius-icon: 0.75rem;
+    --card-radius-outer: var(--boiler-radius-panel);
+    --card-radius-inner: var(--boiler-radius-card);
+    --radius-panel: var(--boiler-radius-panel);
+    --panel-shadow: var(--shadow-card);
+}
+
+[data-theme="light"] body.home-page {
+    --boiler-zone-a: #f3eee7;
+    --boiler-zone-b: #ebe4db;
+    --boiler-zone-c: #f8f4ee;
+    --boiler-card: rgba(255, 252, 247, 0.9);
+    --boiler-card-soft: rgba(255, 252, 247, 0.72);
+    --boiler-line: rgba(54, 47, 40, 0.14);
+    --boiler-line-soft: rgba(54, 47, 40, 0.08);
+    --home-grid-line: rgba(54, 47, 40, 0.035);
+    --home-grid-major: rgba(var(--boiler-copper-rgb), 0.045);
+    --home-grain-dot: rgba(54, 47, 40, 0.028);
+    --home-zone-edge: var(--boiler-line-soft);
+    --bg-base: var(--boiler-zone-a);
+    --bg-surface: var(--boiler-zone-b);
+    --bg-card: #fffaf4;
+    --text-pure: #211e1a;
+    --text-dim: #6f675f;
+    --header-bg: rgba(255, 250, 244, 0.9);
+    --input-bg: rgba(44, 34, 25, 0.035);
+    --footer-bg: #e2d9ce;
+    --mobile-nav-bg: rgba(255, 250, 244, 0.98);
+    --border-default: var(--boiler-line);
+    --border-subtle: var(--boiler-line-soft);
+    --surface-card: var(--boiler-card);
+    --surface-card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.72), transparent 62%), var(--boiler-card);
+    --shadow-card: 0 18px 42px rgba(71, 52, 35, 0.12);
+    --shadow-hover: 0 22px 48px rgba(71, 52, 35, 0.16);
+}
+
+/* The header and hero are the control room entrance. */
+body.home-page .pill-header {
+    border-radius: 60px;
+    border-color: var(--boiler-line);
+    background: var(--header-bg);
+    background: color-mix(in srgb, var(--bg-surface) 76%, transparent);
+    backdrop-filter: blur(16px) saturate(120%);
+    -webkit-backdrop-filter: blur(16px) saturate(120%);
+    box-shadow:
+        0 12px 30px rgba(5, 9, 10, 0.18),
+        inset 0 1px 0 rgba(236, 242, 240, 0.08);
+}
+
+body.home-page .hero-decor-block {
+    border: 1px solid var(--boiler-line);
+    border-radius: var(--boiler-radius-panel);
+    background:
+        radial-gradient(circle at 52% 42%, rgba(239, 245, 242, 0.065), transparent 38%),
+        linear-gradient(145deg, rgba(10, 17, 19, 0.38), rgba(26, 35, 38, 0.14));
+    box-shadow: inset 0 1px 0 rgba(240, 246, 242, 0.05), 0 1.25rem 3rem rgba(4, 8, 9, 0.16);
+}
+
+body.home-page .hero-decor-grid {
+    border-radius: var(--boiler-radius-panel);
+}
+
+body.home-page .hero-stats-block {
+    padding-block: clamp(1.1rem, 2.4vw, 1.6rem);
+    padding-inline: 0;
+    border: none;
+    border-radius: var(--boiler-radius-panel);
+    background: transparent;
+    box-shadow: none;
+}
+
+body.home-page .hero-stat-inner,
+body.home-page .hero-stat-card--featured .hero-stat-inner,
+body.home-page .hero-stat-card:hover .hero-stat-inner {
+    border: 1px solid var(--boiler-line-soft);
+    border-radius: var(--boiler-radius-card);
+    background:
+        linear-gradient(145deg, rgba(var(--boiler-copper-rgb), 0.08), transparent 52%),
+        var(--boiler-card-soft);
+    box-shadow: none;
+}
+
+body.home-page .hero-stat-card--featured .hero-stat-inner {
+    background:
+        linear-gradient(145deg, rgba(var(--boiler-copper-rgb), 0.12), transparent 58%),
+        var(--boiler-card-soft);
+}
+
+body.home-page .hero-stats-title-text {
+    font-size: var(--text-title);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.16;
+    letter-spacing: var(--letter-tight);
+}
+
+body.home-page .hero-stat-icon,
+body.home-page .service-icon-wrap,
+body.home-page .about-route-metric-icon {
+    border-radius: var(--boiler-radius-card);
+    background: rgba(var(--boiler-copper-rgb), 0.12);
+    color: var(--boiler-copper-hi);
+}
+
+/* Portfolio becomes a rounded equipment dossier; the photo remains the hero. */
+body.home-page .home-portfolio-shell {
+    border: 1px solid var(--boiler-line);
+    border-radius: var(--boiler-radius-panel);
+    background:
+        linear-gradient(135deg, rgba(var(--boiler-copper-rgb), 0.08), transparent 35%),
+        var(--boiler-card-soft);
+    box-shadow: var(--shadow-card), inset 0 1px 0 rgba(238, 244, 240, 0.04);
+}
+
+body.home-page .home-portfolio-stage {
+    border: 1px solid var(--boiler-line-soft);
+    border-radius: var(--boiler-radius-card);
+    box-shadow: 0 14px 34px rgba(5, 9, 10, 0.24);
+}
+
+body.home-page .home-portfolio-photo-label {
+    border-radius: 0.625rem;
+    border-color: var(--boiler-line);
+}
+
+/* About and services use one rounded vessel with internal seams. */
+body.home-page #about .about-route-metrics,
+body.home-page #services .services-pipeline {
+    border: 1px solid var(--boiler-line);
+    border-radius: var(--boiler-radius-panel);
+    background:
+        linear-gradient(145deg, rgba(var(--boiler-copper-rgb), 0.07), transparent 34%),
+        var(--boiler-card-soft);
+    box-shadow: var(--shadow-card), inset 0 1px 0 rgba(238, 244, 240, 0.04);
+    overflow: hidden;
+}
+
+body.home-page #about .about-route-metric {
+    border-radius: 0;
+    border-color: var(--boiler-line-soft);
+    background: rgba(16, 23, 25, 0.18);
+}
+
+body.home-page #about .about-route-metric--main {
+    background: rgba(var(--boiler-copper-rgb), 0.055);
+}
+
+body.home-page #services .services-grid {
+    gap: 1px;
+    border: 0;
+    background: var(--boiler-line);
+}
+
+body.home-page #services .service-card,
+body.home-page #services .service-card-inner {
+    border-radius: 0;
+}
+
+body.home-page #services .service-card-inner {
+    border: 0;
+    background: rgba(16, 23, 25, 0.22);
+}
+
+body.home-page #services .service-card:nth-child(even) .service-card-inner {
+    background: rgba(var(--boiler-copper-rgb), 0.045);
+}
+
+body.home-page #services .service-tag {
+    border-radius: 0.5rem;
+    border-color: rgba(var(--boiler-copper-rgb), 0.32);
+    background: rgba(var(--boiler-copper-rgb), 0.08);
+    color: var(--boiler-copper-hi);
+}
+
+/* Pricing, proof and reviews are rounded technical instruments, not floating cards. */
+body.home-page .info-grid,
+body.home-page .licenses-proof,
+body.home-page .reviews-evidence,
+body.home-page .cta-wrapper {
+    border: 1px solid var(--boiler-line);
+    border-radius: var(--boiler-radius-panel);
+    background:
+        linear-gradient(135deg, rgba(var(--boiler-copper-rgb), 0.08), transparent 36%),
+        var(--boiler-card-soft);
+    box-shadow: var(--shadow-card), inset 0 1px 0 rgba(238, 244, 240, 0.04);
+    overflow: hidden;
+}
+
+body.home-page .pricing-sheet,
+body.home-page .service-area,
+body.home-page .licenses-proof__document,
+body.home-page .reviews-source {
+    border-radius: 0;
+    background: rgba(16, 23, 25, 0.2);
+}
+
+body.home-page .service-area,
+body.home-page .licenses-proof__document {
+    background: rgba(var(--boiler-copper-rgb), 0.045);
+}
+
+body.home-page .reviews-source {
+    border-left: 3px solid var(--boiler-copper);
+}
+
+body.home-page .review-entry:hover {
+    background: rgba(var(--boiler-copper-rgb), 0.055);
+}
+
+body.home-page .info-grid::after,
+body.home-page .reviews-evidence::after,
+body.home-page .cta-wrapper::after {
+    border-color: rgba(var(--boiler-copper-rgb), 0.72);
+}
+
+body.home-page .cta-wrapper {
+    border-top: 1px solid var(--boiler-line);
+    background:
+        radial-gradient(ellipse 60% 80% at 0% 50%, rgba(var(--boiler-copper-rgb), 0.16), transparent 68%),
+        var(--boiler-card);
+}
+
+body.home-page .cta-wrapper::before {
+    background: linear-gradient(90deg, rgba(var(--boiler-copper-rgb), 0.1), transparent 52%);
+    border-radius: inherit;
+}
+
+body.home-page .cta-form-block,
+body.home-page .cta-form-block .form-field,
+body.home-page .cta-form-block label {
+    text-align: left;
+}
+
+body.home-page .cta-content h2::before {
+    background: linear-gradient(90deg, var(--boiler-copper), var(--boiler-copper-hi));
+}
+
+body.home-page .cta-form-block .form-field input,
+body.home-page .cta-form-block .form-field select,
+body.home-page .cta-form-block .form-field textarea {
+    border-radius: 0.625rem;
+    border-color: var(--boiler-line);
+    background: rgba(8, 14, 16, 0.5);
+}
+
+body.home-page .cta-form-block .form-field input:focus,
+body.home-page .cta-form-block .form-field select:focus,
+body.home-page .cta-form-block .form-field textarea:focus {
+    border-color: var(--boiler-copper);
+    box-shadow: 0 0 0 3px rgba(var(--boiler-copper-rgb), 0.13);
+}
+
+body.home-page .btn-glow,
+body.home-page .btn-outline,
+body.home-page .btn-ghost {
+    border-radius: 0.625rem;
+}
+
+body.home-page .boiler-widget__tooltip {
+    border-radius: 0.625rem;
+    border-color: var(--boiler-line);
+}
+
+body.home-page .boiler-widget__controls {
+    border-color: var(--boiler-line);
+}
+
+body.home-page .hero-decor-grid {
+    opacity: 0.22;
+}
+
+@media (max-width: 1024px) {
+    body.home-page .pill-header {
+        border-radius: 1.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body.home-page .hero-decor-block {
+        order: 2;
+        width: min(100%, 28rem);
+        min-height: 23rem;
+        margin-top: 1rem;
+        transform: none;
+    }
+
+    body.home-page .hero-stats-title-text {
+        font-size: clamp(1.8rem, 8vw, 2.35rem);
+        line-height: 1.18;
+    }
+
+    body.home-page .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body.home-page .service-area {
+        border-top: 1px solid var(--boiler-line);
+        border-left: 0;
+    }
+
+    body.home-page .hero-stats-block,
+    body.home-page .home-portfolio-shell,
+    body.home-page #about .about-route-metrics,
+    body.home-page #services .services-pipeline,
+    body.home-page .info-grid,
+    body.home-page .licenses-proof,
+    body.home-page .reviews-evidence,
+    body.home-page .cta-wrapper {
+        border-radius: 1rem;
+    }
+
+    body.home-page .hero-decor-block {
+        border-radius: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.home-page .hero-stat-card,
+    body.home-page .service-card,
+    body.home-page .home-portfolio-stage {
+        transition: none;
+    }
+}

@@ -630,10 +630,6 @@
         gap: 0;
     }
 
-    .hero-decor-block {
-        display: none;
-    }
-
     .hero-text-block {
         order: 1;
         transform: none;
