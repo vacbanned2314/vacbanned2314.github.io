@@ -14,6 +14,8 @@ body.home-page,
     --boiler-zone-c: #141c1f;
     --boiler-card: rgba(35, 47, 51, 0.9);
     --boiler-card-soft: rgba(35, 47, 51, 0.64);
+    --boiler-module-pane: rgba(16, 23, 25, 0.2);
+    --boiler-module-pane-active: rgba(35, 47, 51, 0.54);
     --boiler-line: rgba(211, 225, 225, 0.14);
     --boiler-line-soft: rgba(211, 225, 225, 0.08);
     --boiler-radius-panel: 1.25rem;
@@ -72,6 +74,8 @@ body.home-page,
     --boiler-zone-c: #f8f4ee;
     --boiler-card: rgba(255, 252, 247, 0.9);
     --boiler-card-soft: rgba(255, 252, 247, 0.72);
+    --boiler-module-pane: rgba(255, 252, 247, 0.2);
+    --boiler-module-pane-active: rgba(255, 255, 255, 0.5);
     --boiler-line: rgba(54, 47, 40, 0.14);
     --boiler-line-soft: rgba(54, 47, 40, 0.08);
     --home-grid-line: rgba(54, 47, 40, 0.035);
@@ -246,17 +250,63 @@ body.home-page .cta-wrapper {
     overflow: hidden;
 }
 
+body.home-page .info-grid {
+    background: var(--boiler-card-soft);
+}
+
 body.home-page .pricing-sheet,
 body.home-page .service-area,
 body.home-page .licenses-proof__document,
 body.home-page .reviews-source {
     border-radius: 0;
-    background: rgba(16, 23, 25, 0.2);
+    background: var(--boiler-module-pane);
 }
 
-body.home-page .service-area,
 body.home-page .licenses-proof__document {
     background: rgba(var(--boiler-copper-rgb), 0.045);
+}
+
+body.home-page .pricing-sheet {
+    border-left: 0;
+}
+
+body.home-page .pricing-sheet,
+body.home-page .service-area {
+    transition: background 0.35s ease;
+}
+
+body.home-page .pricing-sheet:hover,
+body.home-page .pricing-sheet:focus-within,
+body.home-page .service-area:hover,
+body.home-page .service-area:focus-within {
+    background:
+        radial-gradient(circle at 10% 0%, rgba(var(--boiler-copper-rgb), 0.09), transparent 42%),
+        var(--boiler-module-pane-active);
+}
+
+body.home-page .info-kicker {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+body.home-page .info-kicker::before {
+    content: '';
+    flex: 0 0 auto;
+    width: 0.4375rem;
+    height: 0.4375rem;
+    border-radius: 50%;
+    background: var(--boiler-copper);
+    box-shadow: 0 0 0 0 rgba(var(--boiler-copper-rgb), 0.12);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+body.home-page .pricing-sheet:hover .info-kicker::before,
+body.home-page .pricing-sheet:focus-within .info-kicker::before,
+body.home-page .service-area:hover .info-kicker::before,
+body.home-page .service-area:focus-within .info-kicker::before {
+    transform: scale(1.12);
+    box-shadow: 0 0 0 0.375rem rgba(var(--boiler-copper-rgb), 0.1);
 }
 
 body.home-page .reviews-source {
@@ -267,10 +317,13 @@ body.home-page .review-entry:hover {
     background: rgba(var(--boiler-copper-rgb), 0.055);
 }
 
-body.home-page .info-grid::after,
 body.home-page .reviews-evidence::after,
 body.home-page .cta-wrapper::after {
     border-color: rgba(var(--boiler-copper-rgb), 0.72);
+}
+
+body.home-page .info-grid::after {
+    display: none;
 }
 
 body.home-page .cta-wrapper {
