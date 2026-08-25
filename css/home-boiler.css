@@ -161,8 +161,7 @@ body.home-page .hero-stats-title-text {
 }
 
 body.home-page .hero-stat-icon,
-body.home-page .service-icon-wrap,
-body.home-page .about-route-metric-icon {
+body.home-page .service-icon-wrap {
     border-radius: var(--boiler-radius-card);
     background: rgba(var(--boiler-copper-rgb), 0.12);
     color: var(--boiler-copper-hi);
@@ -205,14 +204,10 @@ body.home-page #services .services-pipeline {
     background: var(--boiler-module-shell);
 }
 
-body.home-page #about .about-route-metric {
-    border-radius: 0;
-    border-color: var(--boiler-line-soft);
-    background: rgba(16, 23, 25, 0.18);
-}
-
-body.home-page #about .about-route-metric--main {
-    background: rgba(var(--boiler-copper-rgb), 0.055);
+body.home-page #about .about-route-proof-main {
+    background:
+        linear-gradient(145deg, rgba(var(--boiler-copper-rgb), 0.07), transparent 52%),
+        var(--boiler-module-pane);
 }
 
 body.home-page #services .services-grid {
