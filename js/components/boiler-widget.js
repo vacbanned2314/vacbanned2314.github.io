@@ -24,6 +24,7 @@ function initBoilerWidget(wrapper, options = {}) {
     const ttName = wrapper.querySelector('[data-bw-tt-name]');
     const ttDesc = wrapper.querySelector('[data-bw-tt-desc]');
     const slider = wrapper.querySelector('[data-bw-explode-slider]');
+    const sliderValue = wrapper.querySelector('[data-bw-explode-value]');
     const controlsRail = wrapper.querySelector('.boiler-widget__controls');
     const fallback = wrapper.querySelector('.boiler-widget__fallback');
 
@@ -595,7 +596,12 @@ function initBoilerWidget(wrapper, options = {}) {
         if (slider) {
             const updateSliderTrack = () => {
                 const progress = Math.round(explodeAmount * 100);
-                slider.style.background = `linear-gradient(to right, var(--bw-accent) 0%, var(--bw-accent) ${progress}%, rgba(255,255,255,0.14) ${progress}%)`;
+                slider.style.background = `linear-gradient(to right, var(--bw-accent) 0%, var(--bw-accent) ${progress}%, rgba(255,255,255,0.14) ${progress}%, rgba(255,255,255,0.14) 100%)`;
+                slider.setAttribute(
+                    'aria-valuetext',
+                    progress <= 5 ? 'Собран' : progress >= 95 ? 'Разобран' : `Разобран на ${progress}%`
+                );
+                if (sliderValue) sliderValue.textContent = `${progress}%`;
             };
 
             if (options.mobile) {

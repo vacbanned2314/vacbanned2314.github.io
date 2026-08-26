@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initHomePortfolioPreview();
     initAboutScope();
+    initMobileServicesAccordion();
     initMobileConversionBar();
 
     const syncBoilerWidget = () => {
@@ -182,6 +183,44 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', refreshScroll);
     window.addEventListener('orientationchange', refreshScroll);
 });
+
+function initMobileServicesAccordion() {
+    const section = document.querySelector('#services');
+    if (!section) return;
+
+    const mobileMedia = window.matchMedia('(max-width: 768px)');
+    const cards = [...section.querySelectorAll('.service-card')];
+    const buttons = cards.map((card) => card.querySelector('[data-service-toggle]'));
+    if (!cards.length || buttons.some((button) => !button)) return;
+
+    const setOpenCard = (activeCard) => {
+        cards.forEach((card, index) => {
+            const button = buttons[index];
+            const isOpen = !mobileMedia.matches || card === activeCard;
+            const title = card.querySelector('.service-name')?.textContent?.trim() || 'этапа';
+
+            card.classList.toggle('is-open', isOpen);
+            button.setAttribute('aria-expanded', String(isOpen));
+            button.setAttribute('aria-label', `${isOpen ? 'Скрыть' : 'Показать'} описание этапа «${title}»`);
+        });
+    };
+
+    buttons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            if (!mobileMedia.matches) return;
+            const card = cards[index];
+            setOpenCard(card.classList.contains('is-open') ? null : card);
+        });
+    });
+
+    const sync = () => {
+        const activeCard = cards.find((card) => card.classList.contains('is-open')) || cards[0];
+        setOpenCard(mobileMedia.matches ? activeCard : null);
+    };
+
+    mobileMedia.addEventListener('change', sync);
+    sync();
+}
 
 function initAboutScope() {
     const rows = [...document.querySelectorAll('#about .about-route-scope-row')];

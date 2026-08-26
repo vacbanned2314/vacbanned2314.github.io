@@ -2,11 +2,11 @@
 
 (() => {
     const desktopMedia = window.matchMedia('(min-width: 769px)');
-    const stylesheetHref = 'css/boiler-widget.css?v=20260826-desktop-only-1';
+    const stylesheetHref = 'css/boiler-widget.css?v=20260826-desktop-only-7';
     const scriptSources = [
         'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js',
         'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js',
-        'js/components/boiler-widget.js?v=20260820-boiler-16'
+        'js/components/boiler-widget.js?v=20260826-boiler-19'
     ];
 
     let dependencyPromise = null;

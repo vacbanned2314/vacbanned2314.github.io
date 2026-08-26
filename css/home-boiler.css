@@ -299,6 +299,11 @@ body.home-page #services .service-desc {
     color: var(--text-dim);
 }
 
+body.home-page #services .service-step-index,
+body.home-page #services .service-card-toggle {
+    display: none;
+}
+
 /* Pricing, proof and reviews are rounded technical instruments, not floating cards. */
 body.home-page .info-grid,
 body.home-page .reviews-evidence,
@@ -390,6 +395,7 @@ body.home-page .reviews-evidence {
     border-radius: var(--boiler-radius-panel);
     background: var(--boiler-module-shell);
     box-shadow: inset 0 1px 0 rgba(238, 244, 240, 0.04);
+    text-align: left;
 }
 
 body.home-page .reviews-evidence::after {
@@ -496,6 +502,19 @@ body.home-page .mobile-conversion-bar {
     display: none;
 }
 
+body.home-page .home-portfolio-mobile-link {
+    display: none;
+}
+
+body.home-page .home-section-heading {
+    margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+body.home-page .home-section-heading .section-subtitle {
+    max-width: 46rem;
+    margin-inline: auto;
+}
+
 body.home-page .review-entry blockquote {
     max-width: none;
     margin: 0.75rem 0 1.1rem;
@@ -532,15 +551,70 @@ body.home-page .review-more li + li {
 }
 
 body.home-page .cta-wrapper {
-    border-top: 1px solid var(--boiler-line);
-    background:
-        radial-gradient(ellipse 60% 80% at 0% 50%, rgba(var(--boiler-copper-rgb), 0.16), transparent 68%),
-        var(--boiler-card);
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 0;
+    align-items: stretch;
+    padding: 0;
+    border: 1px solid var(--boiler-line);
+    border-radius: var(--boiler-radius-panel);
+    background: var(--boiler-module-shell);
+    box-shadow: inset 0 1px 0 rgba(238, 244, 240, 0.04);
+    text-align: left;
 }
 
-body.home-page .cta-wrapper::before {
-    background: linear-gradient(90deg, rgba(var(--boiler-copper-rgb), 0.1), transparent 52%);
-    border-radius: inherit;
+body.home-page .cta-wrapper::before,
+body.home-page .cta-wrapper::after {
+    display: none;
+}
+
+body.home-page .cta-content,
+body.home-page .cta-form-block {
+    min-width: 0;
+    padding: clamp(2rem, 4vw, 3rem);
+}
+
+body.home-page .cta-content {
+    background: var(--boiler-module-pane);
+}
+
+body.home-page .cta-form-block {
+    padding-left: clamp(2rem, 4vw, 3rem);
+    border-left: 1px solid var(--boiler-line);
+    background: var(--boiler-module-pane-active);
+}
+
+body.home-page .cta-kicker,
+body.home-page .cta-form-kicker {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin: 0 0 1.5rem;
+    color: var(--boiler-copper-ink);
+    font-size: var(--fs-12);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+body.home-page .cta-kicker::before,
+body.home-page .cta-form-kicker::before {
+    content: '';
+    width: 0.4375rem;
+    height: 0.4375rem;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: var(--boiler-copper);
+}
+
+body.home-page .cta-content h2 {
+    margin: 0;
+    padding: 0 0 1.25rem;
+    border-bottom: 1px solid var(--boiler-line);
+}
+
+body.home-page .cta-content p:last-child {
+    margin-top: 1.25rem;
 }
 
 body.home-page .cta-form-block,
@@ -550,7 +624,7 @@ body.home-page .cta-form-block label {
 }
 
 body.home-page .cta-content h2::before {
-    background: linear-gradient(90deg, var(--boiler-copper), var(--boiler-copper-hi));
+    display: none;
 }
 
 body.home-page .cta-form-block .form-field input,
@@ -604,7 +678,144 @@ body.home-page .hero-decor-grid {
     }
 }
 
+@media (min-width: 1025px) {
+    body.home-page .hero {
+        padding-bottom: 3.5rem;
+    }
+
+    body.home-page .home-portfolio {
+        padding-bottom: 2.5rem;
+    }
+
+    body.home-page #about.about-route,
+    body.home-page #services,
+    body.home-page #pricing,
+    body.home-page #licenses,
+    body.home-page #trust,
+    body.home-page #calc {
+        padding-block: 3rem;
+    }
+}
+
 @media (max-width: 768px) {
+    body.home-page .home-section-heading {
+        margin-bottom: 1.25rem;
+        padding-inline: 0.25rem;
+    }
+
+    body.home-page .home-section-heading .section-title {
+        font-size: clamp(1.75rem, 8vw, 2.15rem);
+        line-height: 1.12;
+        text-wrap: balance;
+    }
+
+    body.home-page .home-section-heading .section-subtitle {
+        max-width: 32rem;
+        font-size: var(--fs-13);
+        line-height: 1.5;
+        text-wrap: balance;
+    }
+
+    body.home-page .home-portfolio {
+        padding-bottom: 1.5rem;
+    }
+
+    body.home-page main > .section-padding {
+        padding-block: 2rem;
+    }
+
+    body.home-page #about.about-route {
+        padding-block: 2rem;
+    }
+
+    body.home-page #services,
+    body.home-page #pricing,
+    body.home-page #licenses,
+    body.home-page #trust,
+    body.home-page #calc {
+        padding-block: 2rem;
+    }
+
+    body.home-page #about .about-route-layout {
+        gap: 1.5rem;
+    }
+
+    body.home-page #about .about-route-proof-head {
+        min-height: 3.25rem;
+        padding: 0.75rem 1rem;
+    }
+
+    body.home-page #about .about-route-proof-main {
+        min-height: 12rem;
+        padding: 1.25rem;
+    }
+
+    body.home-page #about .about-route-proof-value {
+        margin-top: 0.8rem;
+        font-size: clamp(4rem, 20vw, 5rem);
+    }
+
+    body.home-page #about .about-route-proof-copy {
+        margin-top: 1rem;
+        line-height: 1.45;
+    }
+
+    body.home-page #about .about-route-proof-facts {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body.home-page #about .about-route-proof-fact,
+    body.home-page #about .about-route-proof-fact + .about-route-proof-fact {
+        padding: 1rem;
+    }
+
+    body.home-page #about .about-route-proof-fact + .about-route-proof-fact {
+        border-top: 0;
+        border-left: 1px solid var(--line-soft);
+    }
+
+    body.home-page #about .about-route-proof-fact strong {
+        margin-top: 0.55rem;
+        font-size: var(--fs-16);
+    }
+
+    body.home-page #about .about-route-proof-fact span {
+        margin-top: 0.4rem;
+        line-height: 1.35;
+    }
+
+    body.home-page .cta-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    body.home-page .cta-content,
+    body.home-page .cta-form-block {
+        padding: 1.25rem;
+    }
+
+    body.home-page .cta-form-block {
+        border-top: 1px solid var(--boiler-line);
+        border-left: 0;
+    }
+
+    body.home-page .cta-kicker,
+    body.home-page .cta-form-kicker {
+        margin-bottom: 1rem;
+        font-size: var(--fs-11);
+    }
+
+    body.home-page .cta-content h2 {
+        padding-bottom: 1rem;
+        font-size: clamp(1.75rem, 8vw, 2.1rem);
+        line-height: 1.12;
+    }
+
+    body.home-page .cta-content p:last-child {
+        margin-top: 1rem;
+        font-size: var(--fs-13);
+        line-height: 1.5;
+    }
+
     body.home-page .hero-decor-block {
         display: none;
     }
@@ -617,47 +828,243 @@ body.home-page .hero-decor-grid {
         font-size: var(--fs-11);
     }
 
-    body.home-page .home-portfolio-copy,
-    body.home-page .home-portfolio-gallery {
-        padding: 1.25rem 1rem;
+    body.home-page .hero-stats-block {
+        margin-top: 1rem;
+        padding-block: 0.75rem;
     }
 
-    body.home-page .home-portfolio-projects {
-        display: flex;
-        gap: 0.625rem;
-        margin-inline: -1rem;
-        padding: 0.25rem 1rem 0.75rem;
-        overflow-x: auto;
-        overscroll-behavior-inline: contain;
-        scroll-snap-type: x proximity;
-        scrollbar-width: none;
-        border-top: 0;
+    body.home-page .hero-stats-title {
+        justify-content: flex-start;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
     }
 
-    body.home-page .home-portfolio-projects::-webkit-scrollbar {
+    body.home-page .hero-stats-title-line:first-child {
         display: none;
     }
 
-    body.home-page .home-portfolio-project {
-        flex: 0 0 min(16rem, 82vw);
-        min-height: 3.75rem;
-        padding: 0.75rem;
-        scroll-snap-align: start;
-        border: 1px solid var(--boiler-line);
-        border-radius: 0.625rem;
-        background: var(--boiler-module-pane);
+    body.home-page .hero-stats-title-line:last-child {
+        max-width: 3rem;
     }
 
-    body.home-page .home-portfolio-project.is-active {
-        background: var(--boiler-module-pane-active);
+    body.home-page .hero-stats-title-text {
+        flex-shrink: 1;
+        font-size: clamp(1.65rem, 7.5vw, 2rem);
+        line-height: 1.08;
+        white-space: normal;
+    }
+
+    body.home-page .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 0;
+        border-top: 1px solid var(--boiler-line);
+    }
+
+    body.home-page .hero-stat-card,
+    body.home-page .hero-stat-card:hover {
+        border-radius: 0;
+        transform: none;
+    }
+
+    body.home-page .hero-stat-inner,
+    body.home-page .hero-stat-card--featured .hero-stat-inner,
+    body.home-page .hero-stat-card:hover .hero-stat-inner {
+        display: grid;
+        grid-template-columns: 2.625rem minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        gap: 0.25rem 0.875rem;
+        align-items: center;
+        min-height: 4.5rem;
+        padding: 0.625rem 0;
+        border: 0;
+        border-bottom: 1px solid var(--boiler-line);
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        text-align: left;
+    }
+
+    body.home-page .hero-stat-glow {
+        display: none;
+    }
+
+    body.home-page .hero-stat-icon,
+    body.home-page .hero-stat-card:hover .hero-stat-icon {
+        grid-row: 1 / span 2;
+        width: 2.625rem;
+        height: 2.625rem;
+        margin: 0;
+        transform: none;
+        box-shadow: none;
+    }
+
+    body.home-page .hero-stat-card .stat-val {
+        align-self: end;
+        margin: 0;
+        font-size: var(--fs-16);
+        line-height: 1.15;
+        text-align: left;
+    }
+
+    body.home-page .hero-stat-card .stat-desc {
+        align-self: start;
+        font-size: var(--fs-12);
+        line-height: 1.35;
+        text-align: left;
+    }
+
+    body.home-page .home-portfolio-copy {
+        display: none;
+    }
+
+    body.home-page .home-portfolio-shell {
+        display: block;
+    }
+
+    body.home-page .home-portfolio-gallery {
+        padding: 1rem;
+    }
+
+    body.home-page .home-portfolio-photo-label {
+        grid-template-columns: max-content minmax(0, 1fr);
+        gap: 0.75rem;
+        padding-bottom: 1rem;
+    }
+
+    body.home-page .home-portfolio-photo-label > span {
+        white-space: nowrap;
+    }
+
+    body.home-page .home-portfolio-photo-label strong {
+        font-size: clamp(1.125rem, 5vw, 1.35rem);
+        line-height: 1.15;
     }
 
     body.home-page .home-portfolio-stage {
-        min-height: 16rem;
+        min-height: 15rem;
+        border: 0;
+        border-radius: 0.75rem;
+    }
+
+    body.home-page .home-portfolio-image-button {
+        border-radius: inherit;
+    }
+
+    body.home-page .home-portfolio-gallery-footer {
+        margin-top: 0.75rem;
+    }
+
+    body.home-page .home-portfolio-arrow {
+        width: 2.75rem;
+        height: 2.75rem;
+    }
+
+    body.home-page .home-portfolio-mobile-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: var(--touch-min);
+        margin-top: 0.5rem;
+        color: var(--boiler-copper-hi);
+        font-size: var(--fs-13);
+        font-weight: var(--font-weight-semibold);
+        text-decoration: none;
     }
 
     body.home-page #services .service-card-inner {
-        padding: 1.125rem 1rem;
+        display: grid;
+        grid-template-columns: 2rem minmax(0, 1fr);
+        grid-template-rows: auto auto auto;
+        gap: 0.2rem 0.75rem;
+        min-height: 4.75rem;
+        padding: 0.85rem 3.75rem 0.85rem 1rem;
+    }
+
+    body.home-page #services .service-step-index {
+        display: block;
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        padding-top: 0.1rem;
+        color: var(--boiler-copper-hi);
+        font-size: var(--fs-12);
+        font-weight: var(--font-weight-semibold);
+        font-variant-numeric: tabular-nums;
+        line-height: 1.2;
+    }
+
+    body.home-page #services .service-card-top {
+        grid-column: 2;
+        grid-row: 1;
+        justify-content: flex-start;
+        margin: 0;
+    }
+
+    body.home-page #services .service-name {
+        grid-column: 2;
+        grid-row: 2;
+        margin: 0;
+    }
+
+    body.home-page #services .service-card-toggle {
+        position: absolute;
+        z-index: 4;
+        top: 0;
+        right: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 4.75rem;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: var(--text-dim);
+        cursor: pointer;
+    }
+
+    body.home-page #services .service-card-toggle::before,
+    body.home-page #services .service-card-toggle::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 1rem;
+        width: 0.875rem;
+        height: 1px;
+        background: currentColor;
+        transition: transform 180ms ease, color 180ms ease;
+    }
+
+    body.home-page #services .service-card-toggle::after {
+        transform: rotate(90deg);
+    }
+
+    body.home-page #services .service-card.is-open .service-card-toggle {
+        color: var(--boiler-copper-hi);
+    }
+
+    body.home-page #services .service-card.is-open .service-card-toggle::after {
+        transform: rotate(0deg);
+    }
+
+    body.home-page #services .service-card-details {
+        display: grid;
+        grid-column: 2;
+        grid-row: 3;
+        grid-template-rows: 0fr;
+        opacity: 0;
+        transition: grid-template-rows 220ms ease, opacity 160ms ease;
+    }
+
+    body.home-page #services .service-card-details-inner {
+        overflow: hidden;
+    }
+
+    body.home-page #services .service-card.is-open .service-card-details {
+        grid-template-rows: 1fr;
+        opacity: 1;
+    }
+
+    body.home-page #services .service-desc {
+        padding-top: 0.75rem;
     }
 
     body.home-page .reviews-source {
@@ -771,11 +1178,6 @@ body.home-page .hero-decor-grid {
         box-shadow: var(--shadow-control);
     }
 
-    body.home-page .hero-stats-title-text {
-        font-size: clamp(1.8rem, 8vw, 2.35rem);
-        line-height: 1.18;
-    }
-
     body.home-page .info-grid {
         grid-template-columns: 1fr;
     }
@@ -804,6 +1206,12 @@ body.home-page .hero-decor-grid {
     body.home-page .service-card,
     body.home-page .home-portfolio-stage,
     body.home-page .mobile-conversion-bar {
+        transition: none;
+    }
+
+    body.home-page #services .service-card-details,
+    body.home-page #services .service-card-toggle::before,
+    body.home-page #services .service-card-toggle::after {
         transition: none;
     }
 }
