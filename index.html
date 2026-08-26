@@ -39,7 +39,15 @@
         document.documentElement.setAttribute('data-theme', savedTheme);
     </script>
 
-    <link rel="stylesheet" href="css/main.css?v=20260826-soft-seams-2">
+    <link rel="stylesheet" href="css/variables.css?v=20260817-1635">
+    <link rel="stylesheet" href="css/base.css?v=20260825-font-1">
+    <link rel="stylesheet" href="css/components.css?v=20260817-1635">
+    <link rel="stylesheet" href="css/animations.css?v=20260817-1635">
+    <link rel="stylesheet" href="css/mobile.css?v=20260817-1635">
+    <link rel="stylesheet" href="css/design-system.css?v=20260825-font-1">
+    <link rel="stylesheet" href="css/about-route.css?v=20260825-about-scope-2">
+    <link rel="stylesheet" href="css/home-atmosphere.css?v=20260826-soft-seams-2">
+    <link rel="stylesheet" href="css/home-boiler.css?v=20260826-critical-ux-1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -188,8 +196,8 @@
 
                 <div class="hero-actions-group gsap-fade">
                     <a href="#calc" class="btn-glow hero-action--vertical-primary">
-                        <span class="btn-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"><use href="#icon-phone"></use></svg></span>
-                        <span class="btn-content">Вызвать мастера</span>
+                        <span class="btn-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"><use href="#icon-wrench"></use></svg></span>
+                        <span class="btn-content">Заказать выезд</span>
                     </a>
                     <div class="hero-action-underlinks">
                         <a href="portfolio.html" class="btn-outline hero-action--inline">
@@ -351,7 +359,7 @@
 
                     <div class="home-portfolio-stage">
                         <button class="home-portfolio-image-button" type="button" data-home-portfolio-open aria-label="Открыть фото: котельная на улице Голубятникова">
-                            <img data-home-portfolio-image src="assets/portfolio/Казань, ул.Голубятникова/20240911_184511.webp" alt="Котельная с двумя котлами Vaillant, насосными группами и коллекторами в Казани">
+                            <img data-home-portfolio-image src="assets/portfolio/Казань, ул.Голубятникова/20240911_184511.webp" alt="Котельная с двумя котлами Vaillant, насосными группами и коллекторами в Казани" loading="lazy" decoding="async">
                         </button>
                     </div>
 
@@ -567,7 +575,7 @@
             <div class="container">
                 <article class="licenses-proof scroll-reveal" aria-labelledby="licenses-title">
                     <a class="licenses-proof__document" href="licenses.html" aria-label="Открыть допуск ВДГО и ВКГО">
-                        <img src="assets/docs/goszhilinspektsiya-vdgo.webp" alt="Официальный допуск на обслуживание ВДГО и ВКГО">
+                        <img src="assets/docs/goszhilinspektsiya-vdgo.webp" alt="Официальный допуск на обслуживание ВДГО и ВКГО" loading="lazy" decoding="async">
                     </a>
 
                     <div class="licenses-proof__content">
@@ -621,7 +629,7 @@
                             </div>
                         </article>
 
-                        <article class="review-entry">
+                        <article class="review-entry" id="review-extra-2" data-mobile-review-extra>
                             <span class="review-entry-number" aria-hidden="true">02</span>
                             <div>
                                 <p class="review-entry-meta">Котельная · запуск за 5 дней</p>
@@ -630,7 +638,7 @@
                             </div>
                         </article>
 
-                        <article class="review-entry">
+                        <article class="review-entry" id="review-extra-3" data-mobile-review-extra>
                             <span class="review-entry-number" aria-hidden="true">03</span>
                             <div>
                                 <p class="review-entry-meta">Сервис · аварийный выезд</p>
@@ -639,13 +647,17 @@
                             </div>
                         </article>
 
-                        <div class="review-more">
+                        <div class="review-more" id="review-extra-more" data-mobile-review-extra>
                             <p class="review-more-title">Ещё работы</p>
                             <ul>
                                 <li><span>Реконструкция</span><a href="https://yandex.ru/maps/-/CTqxA4zv" target="_blank" rel="noopener noreferrer">Игорь Волков <span aria-hidden="true">→</span></a></li>
                                 <li><span>Автоматика ZONT</span><a href="https://yandex.ru/maps/-/CTqxA4zv" target="_blank" rel="noopener noreferrer">Сергей Петров <span aria-hidden="true">→</span></a></li>
                             </ul>
                         </div>
+
+                        <button class="reviews-mobile-toggle" type="button" hidden aria-expanded="false" aria-controls="review-extra-2 review-extra-3 review-extra-more">
+                            Показать ещё 2 отзыва
+                        </button>
                     </div>
                 </div>
             </div>
@@ -729,6 +741,17 @@
         </section>
     </main>
 
+    <nav class="mobile-conversion-bar" data-mobile-conversion aria-label="Быстрая связь" aria-hidden="true" inert>
+        <a href="tel:+79376254703" class="mobile-conversion-bar__call">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-phone"></use></svg>
+            <span>Позвонить</span>
+        </a>
+        <a href="#calc" class="mobile-conversion-bar__request">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-wrench"></use></svg>
+            <span>Заказать выезд</span>
+        </a>
+    </nav>
+
     <footer class="main-footer">
         <div class="footer-main">
             <div class="container footer-flex scroll-reveal">
@@ -772,12 +795,10 @@
     <script>
         window.TEPLOREM_API = window.TEPLOREM_API || 'http://localhost:3001';
     </script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
     <script defer src="js/core/common.js?v=20260817-1635"></script>
     <script defer src="js/core/custom-select.js?v=20260817-1635"></script>
     <script defer src="js/components/form.js?v=20260817-1635"></script>
-    <script defer src="js/components/boiler-widget.js?v=20260820-boiler-16"></script>
-    <script defer src="js/pages/home.js?v=20260825-portfolio-preload-1"></script>
+    <script defer src="js/components/boiler-loader.js?v=20260826-desktop-only-1"></script>
+    <script defer src="js/pages/home.js?v=20260826-critical-ux-1"></script>
 </body>
 </html>

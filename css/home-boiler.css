@@ -8,6 +8,7 @@ body.home-page,
     --boiler-copper-rgb: 210, 122, 67;
     --boiler-copper-hi: #e19a66;
     --boiler-copper-deep: #a95a32;
+    --boiler-copper-ink: #e19a66;
     --boiler-steel: #a7b1b4;
     --boiler-zone-a: #111719;
     --boiler-zone-b: #192124;
@@ -74,6 +75,7 @@ body.home-page,
     --boiler-copper-rgb: 159, 67, 29;
     --boiler-copper-hi: #b85a27;
     --boiler-copper-deep: #783018;
+    --boiler-copper-ink: #783018;
     --boiler-zone-a: #e3ddd5;
     --boiler-zone-b: #d8d1c8;
     --boiler-zone-c: #eae5de;
@@ -468,7 +470,30 @@ body.home-page .review-entry-number {
 }
 
 body.home-page .review-entry-meta {
-    letter-spacing: 0.09em;
+    color: var(--boiler-copper-ink);
+    font-size: var(--fs-12);
+    letter-spacing: 0.06em;
+}
+
+body.home-page .reviews-source-kicker,
+body.home-page .review-more-title,
+body.home-page .licenses-proof__eyebrow {
+    color: var(--boiler-copper-ink);
+    font-size: var(--fs-12);
+    letter-spacing: 0.07em;
+}
+
+body.home-page .licenses-proof__facts span {
+    font-size: var(--fs-12);
+    letter-spacing: 0.06em;
+}
+
+body.home-page .reviews-mobile-toggle {
+    display: none;
+}
+
+body.home-page .mobile-conversion-bar {
+    display: none;
 }
 
 body.home-page .review-entry blockquote {
@@ -581,11 +606,169 @@ body.home-page .hero-decor-grid {
 
 @media (max-width: 768px) {
     body.home-page .hero-decor-block {
-        order: 2;
-        width: min(100%, 28rem);
-        min-height: 23rem;
-        margin-top: 1rem;
-        transform: none;
+        display: none;
+    }
+
+    body.home-page .hero-actions-group {
+        width: 100%;
+    }
+
+    body.home-page .premium-badge__kicker {
+        font-size: var(--fs-11);
+    }
+
+    body.home-page .home-portfolio-copy,
+    body.home-page .home-portfolio-gallery {
+        padding: 1.25rem 1rem;
+    }
+
+    body.home-page .home-portfolio-projects {
+        display: flex;
+        gap: 0.625rem;
+        margin-inline: -1rem;
+        padding: 0.25rem 1rem 0.75rem;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        scroll-snap-type: x proximity;
+        scrollbar-width: none;
+        border-top: 0;
+    }
+
+    body.home-page .home-portfolio-projects::-webkit-scrollbar {
+        display: none;
+    }
+
+    body.home-page .home-portfolio-project {
+        flex: 0 0 min(16rem, 82vw);
+        min-height: 3.75rem;
+        padding: 0.75rem;
+        scroll-snap-align: start;
+        border: 1px solid var(--boiler-line);
+        border-radius: 0.625rem;
+        background: var(--boiler-module-pane);
+    }
+
+    body.home-page .home-portfolio-project.is-active {
+        background: var(--boiler-module-pane-active);
+    }
+
+    body.home-page .home-portfolio-stage {
+        min-height: 16rem;
+    }
+
+    body.home-page #services .service-card-inner {
+        padding: 1.125rem 1rem;
+    }
+
+    body.home-page .reviews-source {
+        padding: 1.25rem 1rem;
+    }
+
+    body.home-page .reviews-source-score {
+        font-size: clamp(3rem, 15vw, 4rem);
+    }
+
+    body.home-page .review-entry,
+    body.home-page .review-more {
+        padding: 1.25rem 1rem;
+    }
+
+    body.home-page [data-mobile-review-extra][hidden] {
+        display: none !important;
+    }
+
+    body.home-page .reviews-mobile-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-height: var(--touch-min);
+        padding: 0.9rem 1rem;
+        color: var(--text-pure);
+        font: inherit;
+        font-size: var(--fs-14);
+        font-weight: var(--font-weight-semibold);
+        text-align: left;
+        background: var(--boiler-module-pane);
+        border: 0;
+        border-top: 1px solid var(--boiler-line);
+        cursor: pointer;
+    }
+
+    body.home-page .reviews-mobile-toggle::after {
+        content: '+';
+        color: var(--boiler-copper-ink);
+        font-size: 1.25rem;
+        line-height: 1;
+    }
+
+    body.home-page .reviews-mobile-toggle[aria-expanded="true"]::after {
+        content: '−';
+    }
+
+    body.home-page .mobile-conversion-bar {
+        position: fixed;
+        right: 0.75rem;
+        bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+        left: 0.75rem;
+        z-index: 90;
+        display: grid;
+        grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+        gap: 0.5rem;
+        padding: 0.5rem;
+        border: 1px solid var(--boiler-line);
+        border-radius: 0.875rem;
+        background: color-mix(in srgb, var(--bg-surface) 92%, transparent);
+        box-shadow: 0 12px 28px rgba(5, 9, 10, 0.24);
+        backdrop-filter: blur(16px) saturate(120%);
+        -webkit-backdrop-filter: blur(16px) saturate(120%);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(calc(100% + 1.5rem));
+        transition:
+            transform 180ms cubic-bezier(0.4, 0, 1, 1),
+            opacity 160ms linear,
+            visibility 0s linear 180ms;
+    }
+
+    body.home-page .mobile-conversion-bar.is-visible {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+        transition:
+            transform 240ms cubic-bezier(0.33, 1, 0.68, 1),
+            opacity 200ms linear,
+            visibility 0s linear 0s;
+    }
+
+    body.home-page .mobile-conversion-bar a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        min-width: 0;
+        min-height: 3rem;
+        padding: 0.625rem 0.75rem;
+        border-radius: 0.625rem;
+        font-size: var(--fs-13);
+        font-weight: var(--font-weight-semibold);
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    body.home-page .mobile-conversion-bar__call {
+        color: var(--text-pure);
+        border: 1px solid var(--boiler-line);
+        background: var(--boiler-module-pane);
+    }
+
+    body.home-page .mobile-conversion-bar__request {
+        color: #ffffff;
+        border: 1px solid var(--boiler-copper);
+        background: var(--boiler-copper);
+        box-shadow: var(--shadow-control);
     }
 
     body.home-page .hero-stats-title-text {
@@ -619,7 +802,8 @@ body.home-page .hero-decor-grid {
 @media (prefers-reduced-motion: reduce) {
     body.home-page .hero-stat-card,
     body.home-page .service-card,
-    body.home-page .home-portfolio-stage {
+    body.home-page .home-portfolio-stage,
+    body.home-page .mobile-conversion-bar {
         transition: none;
     }
 }

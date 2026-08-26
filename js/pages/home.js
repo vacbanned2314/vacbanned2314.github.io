@@ -2,21 +2,47 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal({ skipInside: ['#about', '#services', '#trust'] });
 
     const reducedMotion = prefersReducedMotion();
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const mobileMedia = window.matchMedia('(max-width: 768px)');
+    const boilerMedia = window.matchMedia('(min-width: 769px)');
+    const isMobile = mobileMedia.matches;
     const heroDecorBlock = document.getElementById('hero-decor-block');
     const boilerWidget = heroDecorBlock?.querySelector('.boiler-widget');
     const skipHeavyMotion = reducedMotion || isMobile;
-    const showBoilerWidget = Boolean(boilerWidget);
+    const showBoilerWidget = Boolean(boilerWidget) && boilerMedia.matches;
+    let boilerInstance = null;
+    let boilerSyncVersion = 0;
 
     initHomePortfolioPreview();
     initAboutScope();
+    initMobileConversionBar();
 
-    if (showBoilerWidget && typeof initBoilerWidget === 'function') {
-        initBoilerWidget(boilerWidget, {
-            reducedMotion: skipHeavyMotion,
-            mobile: isMobile
-        });
-    }
+    const syncBoilerWidget = () => {
+        const syncVersion = ++boilerSyncVersion;
+
+        if (!boilerWidget || !boilerMedia.matches) {
+            boilerInstance?.destroy?.();
+            boilerInstance = null;
+            return;
+        }
+
+        if (boilerInstance || typeof window.loadDesktopBoiler !== 'function') return;
+
+        window.loadDesktopBoiler()
+            .then((initializer) => {
+                if (syncVersion !== boilerSyncVersion || !boilerMedia.matches || !initializer || boilerInstance) return;
+                boilerInstance = initializer(boilerWidget, {
+                    reducedMotion,
+                    mobile: false
+                });
+            })
+            .catch(() => {
+                if (syncVersion !== boilerSyncVersion) return;
+                boilerWidget.querySelector('.boiler-widget__fallback')?.removeAttribute('hidden');
+            });
+    };
+
+    syncBoilerWidget();
+    boilerMedia.addEventListener('change', syncBoilerWidget);
 
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
@@ -330,11 +356,6 @@ function initHomePortfolioPreview() {
     });
 
     render(active, false);
-    projects.slice(1).forEach((project) => {
-        const preloader = new Image();
-        preloader.decoding = 'async';
-        preloader.src = project.dataset.src;
-    });
 }
 
 function updatePipelinePath() {
@@ -361,70 +382,68 @@ function initReviewReadMore() {
     const section = document.querySelector('#trust');
     if (!section) return;
 
-    const mq = window.matchMedia('(max-width: 1024px)');
+    const mobileMedia = window.matchMedia('(max-width: 768px)');
+    const toggle = section.querySelector('.reviews-mobile-toggle');
+    const extraItems = [...section.querySelectorAll('[data-mobile-review-extra]')];
+    if (!toggle || !extraItems.length) return;
 
-    section.querySelectorAll('.review-card').forEach((card) => {
-        const text = card.querySelector('.review-text');
-        if (!text) return;
+    let expanded = false;
 
-        let btn = card.querySelector('.review-expand');
-        if (!btn) {
-            btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = 'review-expand';
-            text.insertAdjacentElement('afterend', btn);
+    const sync = () => {
+        if (!mobileMedia.matches) {
+            extraItems.forEach((item) => { item.hidden = false; });
+            toggle.hidden = true;
+            toggle.setAttribute('aria-expanded', 'true');
+            return;
         }
 
-        const sync = () => {
-            if (!mq.matches) {
-                btn.hidden = true;
-                card.classList.remove('is-expanded');
-                return;
-            }
+        extraItems.forEach((item) => { item.hidden = !expanded; });
+        toggle.hidden = false;
+        toggle.setAttribute('aria-expanded', String(expanded));
+        toggle.textContent = expanded ? 'Скрыть дополнительные отзывы' : 'Показать ещё 2 отзыва';
+    };
 
-            if (card.classList.contains('is-expanded')) {
-                btn.hidden = false;
-                btn.textContent = 'Свернуть';
-                return;
-            }
-
-            btn.textContent = 'Читать полностью';
-            btn.hidden = text.scrollHeight <= text.clientHeight + 1;
-        };
-
-        btn.addEventListener('click', () => {
-            card.classList.toggle('is-expanded');
-            sync();
-        });
-
+    toggle.addEventListener('click', () => {
+        expanded = !expanded;
         sync();
     });
 
-    const onChange = () => {
-        section.querySelectorAll('.review-card').forEach((card) => {
-            const text = card.querySelector('.review-text');
-            const btn = card.querySelector('.review-expand');
-            if (!text || !btn) return;
+    mobileMedia.addEventListener('change', sync);
+    sync();
+}
 
-            if (!mq.matches) {
-                btn.hidden = true;
-                card.classList.remove('is-expanded');
-                return;
-            }
+function initMobileConversionBar() {
+    const bar = document.querySelector('[data-mobile-conversion]');
+    const hero = document.querySelector('.hero');
+    const formSection = document.querySelector('#calc');
+    const footer = document.querySelector('.main-footer');
+    if (!bar || !hero || !formSection || !footer) return;
 
-            if (card.classList.contains('is-expanded')) {
-                btn.hidden = false;
-                btn.textContent = 'Свернуть';
-                return;
-            }
+    const mobileMedia = window.matchMedia('(max-width: 768px)');
+    const visibility = new Map([[hero, true], [formSection, false], [footer, false]]);
 
-            btn.textContent = 'Читать полностью';
-            btn.hidden = text.scrollHeight <= text.clientHeight + 1;
-        });
+    const sync = () => {
+        const shouldShow = mobileMedia.matches
+            && !visibility.get(hero)
+            && !visibility.get(formSection)
+            && !visibility.get(footer);
+
+        bar.classList.toggle('is-visible', shouldShow);
+        bar.setAttribute('aria-hidden', String(!shouldShow));
+        if (shouldShow) bar.removeAttribute('inert');
+        else bar.setAttribute('inert', '');
     };
 
-    mq.addEventListener('change', onChange);
-    window.addEventListener('resize', onChange);
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => visibility.set(entry.target, entry.isIntersecting));
+        sync();
+    }, { threshold: 0.01 });
+
+    observer.observe(hero);
+    observer.observe(formSection);
+    observer.observe(footer);
+    mobileMedia.addEventListener('change', sync);
+    sync();
 }
 
 function initReviewsCarousel() {
