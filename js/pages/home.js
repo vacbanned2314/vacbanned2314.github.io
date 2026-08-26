@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const showBoilerWidget = Boolean(boilerWidget);
 
     initHomePortfolioPreview();
+    initAboutScope();
 
     if (showBoilerWidget && typeof initBoilerWidget === 'function') {
         initBoilerWidget(boilerWidget, {
@@ -156,6 +157,31 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('orientationchange', refreshScroll);
 });
 
+function initAboutScope() {
+    const rows = [...document.querySelectorAll('#about .about-route-scope-row')];
+    if (!rows.length) return;
+
+    rows.forEach((row) => {
+        const button = row.querySelector('[data-about-scope-toggle]');
+        const detail = row.querySelector('p');
+        if (!button || !detail) return;
+
+        button.addEventListener('click', () => {
+            const willOpen = button.getAttribute('aria-expanded') !== 'true';
+
+            rows.forEach((item) => {
+                const itemButton = item.querySelector('[data-about-scope-toggle]');
+                const itemDetail = item.querySelector('p');
+                const open = item === row && willOpen;
+
+                item.classList.toggle('is-open', open);
+                itemButton?.setAttribute('aria-expanded', String(open));
+                if (itemDetail) itemDetail.hidden = !open;
+            });
+        });
+    });
+}
+
 function initHomePortfolioPreview() {
     const section = document.getElementById('portfolio-preview');
     if (!section) return;
@@ -179,25 +205,49 @@ function initHomePortfolioPreview() {
     let shown = 0;
     let touchStartX = 0;
     let lastFocus = null;
-    let swapTimer = 0;
+    let swapSequence = 0;
 
     if (!gallery || !projects.length || !image || !imageButton || !prevBtn || !nextBtn) return;
 
-    const render = (index, animate = true) => {
+    const applyProjectImage = (project) => {
+        image.src = project.dataset.src;
+        image.alt = project.dataset.alt;
+        image.classList.toggle('is-floor-photo', project.dataset.photoFit === 'level-floor');
+    };
+
+    const preloadAndApplyProjectImage = (project, sequence) => {
+        const preloader = new Image();
+        let committed = false;
+
+        const commit = () => {
+            if (committed || sequence !== swapSequence || preloader.naturalWidth === 0) return;
+            committed = true;
+            applyProjectImage(project);
+        };
+
+        const decodeAndCommit = () => {
+            if (typeof preloader.decode === 'function') {
+                preloader.decode().catch(() => {}).then(commit);
+            } else {
+                commit();
+            }
+        };
+
+        preloader.onload = decodeAndCommit;
+        preloader.onerror = () => {};
+        preloader.src = project.dataset.src;
+        if (preloader.complete && preloader.naturalWidth > 0) decodeAndCommit();
+    };
+
+    const render = (index, waitForLoad = true) => {
         const project = projects[index];
         shown = index;
-        window.clearTimeout(swapTimer);
-        if (animate && image.getAttribute('src') !== project.dataset.src) {
-            image.classList.add('is-changing');
-            swapTimer = window.setTimeout(() => {
-                image.src = project.dataset.src;
-                image.alt = project.dataset.alt;
-                image.classList.remove('is-changing');
-            }, 140);
+        const sequence = ++swapSequence;
+
+        if (waitForLoad && image.getAttribute('src') !== project.dataset.src) {
+            preloadAndApplyProjectImage(project, sequence);
         } else {
-            image.src = project.dataset.src;
-            image.alt = project.dataset.alt;
-            image.classList.remove('is-changing');
+            applyProjectImage(project);
         }
         imageButton.setAttribute('aria-label', `Открыть фото: ${project.dataset.title}`);
         currentEl.textContent = String(index + 1).padStart(2, '0');
@@ -280,6 +330,11 @@ function initHomePortfolioPreview() {
     });
 
     render(active, false);
+    projects.slice(1).forEach((project) => {
+        const preloader = new Image();
+        preloader.decoding = 'async';
+        preloader.src = project.dataset.src;
+    });
 }
 
 function updatePipelinePath() {

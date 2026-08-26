@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лаборатория светлой темы — ТеплоРемСервис</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            font-family: "Segoe UI", system-ui, sans-serif;
+            --lab-bg: #101719;
+            --lab-panel: #172124;
+            --lab-line: rgba(221, 231, 230, 0.14);
+            --lab-text: #edf1ee;
+            --lab-dim: #9eaaa9;
+            --lab-copper: #d27a43;
+        }
+
+        * { box-sizing: border-box; }
+
+        html, body { margin: 0; min-width: 320px; min-height: 100%; }
+
+        body {
+            color: var(--lab-text);
+            background:
+                linear-gradient(rgba(211, 225, 225, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(211, 225, 225, 0.035) 1px, transparent 1px),
+                var(--lab-bg);
+            background-size: 48px 48px;
+        }
+
+        button { font: inherit; }
+
+        .lab-shell {
+            display: grid;
+            grid-template-rows: auto minmax(0, 1fr);
+            min-height: 100dvh;
+        }
+
+        .lab-console {
+            position: relative;
+            z-index: 2;
+            padding: 18px clamp(18px, 3vw, 42px) 20px;
+            border-bottom: 1px solid var(--lab-line);
+            background: rgba(13, 20, 22, 0.96);
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+        }
+
+        .lab-heading {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 20px;
+            align-items: end;
+            margin-bottom: 16px;
+        }
+
+        .lab-eyebrow {
+            margin: 0 0 5px;
+            color: var(--lab-copper);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(22px, 3vw, 36px);
+            line-height: 1.05;
+            letter-spacing: -0.035em;
+        }
+
+        .lab-status {
+            margin: 0;
+            max-width: 520px;
+            color: var(--lab-dim);
+            font-size: 12px;
+            line-height: 1.5;
+            text-align: right;
+        }
+
+        .variant-tabs {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            border: 1px solid var(--lab-line);
+            border-radius: 14px;
+            overflow: hidden;
+            background: var(--lab-panel);
+        }
+
+        .variant-tab {
+            position: relative;
+            display: grid;
+            min-height: 72px;
+            grid-template-columns: 24px minmax(0, 1fr);
+            gap: 10px;
+            align-content: center;
+            padding: 12px 14px;
+            border: 0;
+            border-right: 1px solid var(--lab-line);
+            color: var(--lab-dim);
+            background: transparent;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .variant-tab:last-child { border-right: 0; }
+        .variant-tab:hover { color: var(--lab-text); background: rgba(255, 255, 255, 0.025); }
+        .variant-tab.is-active { color: var(--lab-text); background: rgba(210, 122, 67, 0.09); }
+        .variant-tab.is-active::after {
+            content: "";
+            position: absolute;
+            right: 14px;
+            bottom: 0;
+            left: 14px;
+            height: 2px;
+            background: var(--lab-copper);
+        }
+
+        .variant-index {
+            grid-row: 1 / 3;
+            align-self: center;
+            color: var(--lab-copper);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+        }
+
+        .variant-tab strong { font-size: 12px; line-height: 1.15; }
+        .variant-tab small { color: #768281; font-size: 10px; line-height: 1.25; }
+
+        .lab-detail {
+            display: grid;
+            grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+            gap: 18px;
+            margin-top: 14px;
+        }
+
+        .variant-note,
+        .audit-note {
+            min-height: 88px;
+            padding: 14px 16px;
+            border-left: 2px solid var(--lab-copper);
+            background: rgba(255, 255, 255, 0.025);
+        }
+
+        .variant-note h2,
+        .audit-note h2 {
+            margin: 0 0 7px;
+            font-size: 13px;
+            letter-spacing: -0.01em;
+        }
+
+        .variant-note p,
+        .audit-note p {
+            margin: 0;
+            color: var(--lab-dim);
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        .audit-note { border-left-color: #667476; }
+        .ratio-good { color: #aab9a2; }
+        .ratio-bad { color: #e09a70; }
+
+        .preview-shell {
+            position: relative;
+            min-height: 760px;
+            background: #f3eee7;
+        }
+
+        .preview-label {
+            position: absolute;
+            z-index: 2;
+            top: 14px;
+            right: 16px;
+            padding: 7px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 8px;
+            color: #edf1ee;
+            background: rgba(13, 20, 22, 0.86);
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            pointer-events: none;
+        }
+
+        iframe {
+            display: block;
+            width: 100%;
+            height: max(760px, calc(100dvh - 285px));
+            border: 0;
+            background: #f3eee7;
+        }
+
+        @media (min-width: 981px) {
+            .lab-shell { height: 100dvh; overflow: hidden; }
+            .preview-shell { min-height: 0; }
+            iframe { height: 100%; }
+        }
+
+        @media (max-width: 980px) {
+            .lab-heading { grid-template-columns: 1fr; }
+            .lab-status { text-align: left; }
+            .variant-tabs { grid-template-columns: 1fr 1fr; }
+            .variant-tab { border-bottom: 1px solid var(--lab-line); }
+            .variant-tab:nth-child(2n) { border-right: 0; }
+            .variant-tab:last-child { grid-column: 1 / -1; border-bottom: 0; }
+            .lab-detail { grid-template-columns: 1fr; }
+            iframe { height: 760px; }
+        }
+
+        @media (max-width: 560px) {
+            .lab-console { padding-inline: 12px; }
+            .variant-tabs { grid-template-columns: 1fr; }
+            .variant-tab,
+            .variant-tab:nth-child(2n) { border-right: 0; border-bottom: 1px solid var(--lab-line); }
+            .variant-tab:last-child { grid-column: auto; }
+            .lab-status { display: none; }
+            .preview-label { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <main class="lab-shell">
+        <section class="lab-console" aria-labelledby="lab-title">
+            <div class="lab-heading">
+                <div>
+                    <p class="lab-eyebrow">Светлая тема · index.html</p>
+                    <h1 id="lab-title">Проверка яркости и разделения блоков</h1>
+                </div>
+                <p class="lab-status">Живая копия главной страницы. Тёмная тема и основной файл не изменены. Прокручивайте макет внутри области предпросмотра.</p>
+            </div>
+
+            <div class="variant-tabs" role="tablist" aria-label="Варианты светлой темы">
+                <button class="variant-tab is-active" type="button" role="tab" aria-selected="true" data-variant="current">
+                    <span class="variant-index">00</span><strong>Сейчас</strong><small>реализованная тема</small>
+                </button>
+                <button class="variant-tab" type="button" role="tab" aria-selected="false" data-variant="inverse">
+                    <span class="variant-index">01</span><strong>Светлый графит</strong><small>инверсия логики dark</small>
+                </button>
+                <button class="variant-tab" type="button" role="tab" aria-selected="false" data-variant="blueprint">
+                    <span class="variant-index">02</span><strong>Чертёжная бумага</strong><small>независимая палитра</small>
+                </button>
+                <button class="variant-tab" type="button" role="tab" aria-selected="false" data-variant="structure">
+                    <span class="variant-index">03</span><strong>Каркас и границы</strong><small>текущие цвета + глубина</small>
+                </button>
+                <button class="variant-tab" type="button" role="tab" aria-selected="false" data-variant="muted">
+                    <span class="variant-index">04</span><strong>Приглушённое тепло</strong><small>меньше белого</small>
+                </button>
+            </div>
+
+            <div class="lab-detail">
+                <article class="variant-note" aria-live="polite">
+                    <h2 data-note-title>Реализованная светлая тема</h2>
+                    <p data-note-copy>Фоновые зоны слегка осветлены: #E3DDD5 / #D8D1C8 / #EAE5DE. Карточки немного темнее: #D0CCC6–#D6D3CD; медь #9F431D.</p>
+                </article>
+                <article class="audit-note">
+                    <h2>Исходный аудит</h2>
+                    <p><span class="ratio-good">Текст 14.38:1 · вторичный 4.81:1</span><br><span class="ratio-bad">секция/блок 1.00–1.09:1 · линия 1.29:1 · медный мелкий текст 3.00:1</span></p>
+                </article>
+            </div>
+        </section>
+
+        <section class="preview-shell" aria-label="Предпросмотр варианта">
+            <span class="preview-label" data-preview-label>Исходная светлая тема</span>
+            <iframe id="site-preview" src="index.html" title="Предпросмотр светлой темы index.html"></iframe>
+        </section>
+    </main>
+
+    <script>
+        const variants = {
+            current: {
+                label: 'Реализованная светлая тема',
+                title: 'Реализованная светлая тема',
+                copy: 'Фоновые зоны слегка осветлены: #E3DDD5 / #D8D1C8 / #EAE5DE. Карточки немного темнее: #D0CCC6–#D6D3CD; медь #9F431D.',
+                css: ''
+            },
+            inverse: {
+                label: '01 · Светлый графит',
+                title: 'Семантическая инверсия тёмной темы',
+                copy: 'Фон #EEF0EE / #E4E9E7 / #E9ECEA, модуль #D8DFDD, текст #172023, линия rgba(33,43,45,.24). Сохраняет холодный инженерный характер dark-темы и переносит её уровни глубины в светлый диапазон.',
+                css: `
+                    [data-theme="light"] body.home-page {
+                        --boiler-zone-a: #eef0ee; --boiler-zone-b: #e4e9e7; --boiler-zone-c: #e9ecea;
+                        --boiler-card: rgba(241, 244, 241, .94); --boiler-card-soft: rgba(222, 228, 226, .92);
+                        --boiler-module-shell: #d8dfdd; --boiler-module-pane: rgba(255, 255, 255, .28);
+                        --boiler-module-pane-active: rgba(255, 255, 255, .58);
+                        --boiler-line: rgba(33, 43, 45, .24); --boiler-line-soft: rgba(33, 43, 45, .13);
+                        --home-grid-line: rgba(33, 43, 45, .055); --home-grain-dot: rgba(33, 43, 45, .038);
+                        --bg-base: var(--boiler-zone-a); --bg-surface: var(--boiler-zone-b); --bg-card: #e1e7e5;
+                        --text-pure: #172023; --text-dim: #515d60; --header-bg: rgba(228, 233, 231, .93);
+                        --footer-bg: #cbd3d1; --mobile-nav-bg: rgba(228, 233, 231, .98);
+                        --surface-card: var(--boiler-card); --shadow-card: 0 14px 34px rgba(29, 42, 44, .14);
+                        --shadow-hover: 0 18px 42px rgba(29, 42, 44, .19);
+                    }
+                    [data-theme="light"] body.home-page .hero-decor-block {
+                        background: radial-gradient(circle at 52% 42%, rgba(255,255,255,.32), transparent 40%), linear-gradient(145deg, #d6dddb, #c6d0ce);
+                        box-shadow: inset 0 1px 0 rgba(255,255,255,.58), 0 18px 38px rgba(29,42,44,.14);
+                    }
+                    [data-theme="light"] body.home-page .cta-form-block :is(input,select,textarea) {
+                        color: #172023; background: rgba(255,255,255,.48);
+                    }
+                `
+            },
+            blueprint: {
+                label: '02 · Чертёжная бумага',
+                title: 'Независимая инженерная палитра',
+                copy: 'Серо-зелёная бумага #DCE3E2 / #CFDAD9 сочетается с тёплыми листами #F1E7D9 и тёмной медью #8F492E. Цветовые температуры, а не только тени, отделяют содержательные листы от рабочего поля.',
+                css: `
+                    [data-theme="light"] body.home-page {
+                        --boiler-copper: #8f492e; --boiler-copper-rgb: 143, 73, 46;
+                        --boiler-copper-hi: #783c28; --boiler-copper-deep: #693220;
+                        --boiler-zone-a: #dce3e2; --boiler-zone-b: #cfdad9; --boiler-zone-c: #e7e2d9;
+                        --boiler-card: rgba(241, 231, 217, .96); --boiler-card-soft: rgba(233, 224, 210, .94);
+                        --boiler-module-shell: #c5d0cf; --boiler-module-pane: rgba(247, 242, 232, .62);
+                        --boiler-module-pane-active: rgba(255, 250, 240, .82);
+                        --boiler-line: rgba(32, 49, 51, .24); --boiler-line-soft: rgba(32, 49, 51, .13);
+                        --home-grid-line: rgba(32, 49, 51, .065); --home-grid-major: rgba(143,73,46,.07);
+                        --home-grain-dot: rgba(32, 49, 51, .04); --home-pipe-line: rgba(143,73,46,.34);
+                        --bg-base: var(--boiler-zone-a); --bg-surface: var(--boiler-zone-b); --bg-card: #f1e7d9;
+                        --accent: var(--boiler-copper); --accent-rgb: var(--boiler-copper-rgb);
+                        --accent-action: var(--boiler-copper); --accent-action-rgb: var(--boiler-copper-rgb);
+                        --accent-secondary: var(--boiler-copper-hi); --accent-secondary-rgb: 120, 60, 40;
+                        --hero-stats-accent: var(--boiler-copper); --hero-stats-accent-rgb: var(--boiler-copper-rgb);
+                        --text-pure: #1b292b; --text-dim: #4f5c5e; --header-bg: rgba(220, 227, 226, .94);
+                        --footer-bg: #bac7c5; --mobile-nav-bg: rgba(220,227,226,.98);
+                        --surface-card: var(--boiler-card); --shadow-card: 0 12px 30px rgba(30,48,50,.14);
+                        --shadow-hover: 0 17px 38px rgba(30,48,50,.2);
+                    }
+                    [data-theme="light"] body.home-page .hero-decor-block {
+                        background: linear-gradient(rgba(32,49,51,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(32,49,51,.07) 1px, transparent 1px), #c5d0cf;
+                        background-size: 32px 32px; box-shadow: 0 15px 34px rgba(30,48,50,.15);
+                    }
+                    [data-theme="light"] body.home-page .cta-form-block :is(input,select,textarea) {
+                        color: #1b292b; background: rgba(255,250,240,.76);
+                    }
+                `
+            },
+            structure: {
+                label: '03 · Каркас и границы',
+                title: 'Текущая палитра, но явная конструкция',
+                copy: 'Базовые зоны остаются #F3EEE7 / #EBE4DB / #F8F4EE. Линия усилена с 14% до 26%, внешняя тень сокращена до 0 10px 26px, внутренние разделители — 20%. Вариант лечит слияние блоков, почти не меняя цветовой характер.',
+                css: `
+                    [data-theme="light"] body.home-page {
+                        --boiler-line: rgba(54, 47, 40, .26); --boiler-line-soft: rgba(54, 47, 40, .15);
+                        --home-grid-line: rgba(54,47,40,.045); --home-zone-edge: rgba(54,47,40,.12);
+                        --surface-card-gradient: var(--surface-card);
+                        --shadow-card: 0 10px 26px rgba(71, 52, 35, .16);
+                        --shadow-hover: 0 14px 34px rgba(71, 52, 35, .21);
+                    }
+                    [data-theme="light"] body.home-page :is(.hero-stats-block,.home-portfolio-stage,.about-route-metrics,.services-pipeline,.info-grid,.licenses-proof,.reviews-evidence,.cta-wrapper) {
+                        border-color: rgba(54,47,40,.26); box-shadow: 0 10px 26px rgba(71,52,35,.16);
+                    }
+                    [data-theme="light"] body.home-page :is(.service-card-inner,.pricing-sheet,.service-area,.reviews-source,.review-entry,.about-route-proof-main) {
+                        border-color: rgba(54,47,40,.2);
+                    }
+                    [data-theme="light"] body.home-page .cta-form-block :is(input,select,textarea) {
+                        color: #211e1a; background: rgba(255,252,247,.72); border-color: rgba(54,47,40,.3);
+                    }
+                `
+            },
+            muted: {
+                label: '04 · Приглушённое тепло',
+                title: 'Та же идея, ниже общая светлота',
+                copy: 'Фоновые зоны #E3DDD5 / #D8D1C8 / #EAE5DE чуть светлее. Оболочки #D0CCC6 и панели #D6D3CD чуть темнее; акцент #9F431D.',
+                css: `
+                    [data-theme="light"] body.home-page {
+                        --boiler-copper: #9f431d; --boiler-copper-rgb: 159, 67, 29;
+                        --boiler-copper-hi: #b85a27; --boiler-copper-deep: #783018;
+                        --boiler-zone-a: #e3ddd5; --boiler-zone-b: #d8d1c8; --boiler-zone-c: #eae5de;
+                        --boiler-card: rgba(214, 211, 206, .97); --boiler-card-soft: rgba(211, 208, 202, .96);
+                        --boiler-module-shell: #d0ccc6; --boiler-module-pane: rgba(48, 45, 41, .055);
+                        --boiler-module-pane-active: rgba(48, 45, 41, .105);
+                        --boiler-line: rgba(58, 47, 38, .22); --boiler-line-soft: rgba(58, 47, 38, .13);
+                        --home-grid-line: rgba(58,47,38,.05); --home-grain-dot: rgba(58,47,38,.035);
+                        --bg-base: var(--boiler-zone-a); --bg-surface: var(--boiler-zone-b); --bg-card: #d6d3cd;
+                        --accent: var(--boiler-copper); --accent-rgb: var(--boiler-copper-rgb);
+                        --accent-action: var(--boiler-copper); --accent-action-rgb: var(--boiler-copper-rgb);
+                        --accent-secondary: var(--boiler-copper-hi); --accent-secondary-rgb: 129,63,39;
+                        --hero-stats-accent: var(--boiler-copper); --hero-stats-accent-rgb: var(--boiler-copper-rgb);
+                        --text-pure: #27221d; --text-dim: #5e554c; --header-bg: rgba(222,215,206,.94);
+                        --footer-bg: #c5bbaf; --mobile-nav-bg: rgba(222,215,206,.98);
+                        --surface-card: var(--boiler-card); --surface-card-gradient: var(--surface-card);
+                        --shadow-card: 0 11px 28px rgba(65,49,36,.13); --shadow-hover: 0 15px 36px rgba(65,49,36,.18);
+                    }
+                    [data-theme="light"] body.home-page .hero-decor-block {
+                        background: radial-gradient(circle at 52% 42%, rgba(255,255,255,.18), transparent 40%), linear-gradient(145deg, #d7cfc5, #c9c0b5);
+                        box-shadow: inset 0 1px 0 rgba(255,255,255,.3), 0 14px 30px rgba(65,49,36,.14);
+                    }
+                    [data-theme="light"] body.home-page .cta-form-block :is(input,select,textarea) {
+                        color: #27221d; background: rgba(255,250,242,.58);
+                    }
+                `
+            }
+        };
+
+        const frame = document.querySelector('#site-preview');
+        const tabs = [...document.querySelectorAll('[data-variant]')];
+        const noteTitle = document.querySelector('[data-note-title]');
+        const noteCopy = document.querySelector('[data-note-copy]');
+        const previewLabel = document.querySelector('[data-preview-label]');
+        let activeVariant = 'current';
+
+        function preparePreview(doc) {
+            doc.documentElement.setAttribute('data-theme', 'light');
+
+            let inspectionStyle = doc.querySelector('#light-lab-inspection');
+            if (!inspectionStyle) {
+                inspectionStyle = doc.createElement('style');
+                inspectionStyle.id = 'light-lab-inspection';
+                inspectionStyle.textContent = `
+                    .gsap-text, .gsap-fade, .gsap-stat, .scroll-reveal,
+                    .about-route-scope-row, .about-route-principle, .about-route-metrics {
+                        opacity: 1 !important; visibility: visible !important; transform: none !important;
+                    }
+                    html { scroll-behavior: auto !important; }
+                    *, *::before, *::after { animation: none !important; transition-duration: 0s !important; }
+                    #theme-toggle { pointer-events: none; }
+                `;
+                doc.head.appendChild(inspectionStyle);
+                doc.addEventListener('click', event => {
+                    if (event.target.closest('a')) event.preventDefault();
+                });
+                doc.addEventListener('submit', event => event.preventDefault());
+            }
+
+            let variantStyle = doc.querySelector('#light-lab-variant');
+            if (!variantStyle) {
+                variantStyle = doc.createElement('style');
+                variantStyle.id = 'light-lab-variant';
+                doc.head.appendChild(variantStyle);
+            }
+            variantStyle.textContent = variants[activeVariant].css;
+        }
+
+        function selectVariant(id) {
+            activeVariant = id;
+            const variant = variants[id];
+            tabs.forEach(tab => {
+                const selected = tab.dataset.variant === id;
+                tab.classList.toggle('is-active', selected);
+                tab.setAttribute('aria-selected', String(selected));
+            });
+            noteTitle.textContent = variant.title;
+            noteCopy.textContent = variant.copy;
+            previewLabel.textContent = variant.label;
+            if (frame.contentDocument) preparePreview(frame.contentDocument);
+        }
+
+        tabs.forEach(tab => tab.addEventListener('click', () => selectVariant(tab.dataset.variant)));
+        frame.addEventListener('load', () => preparePreview(frame.contentDocument));
+    </script>
+</body>
+</html>

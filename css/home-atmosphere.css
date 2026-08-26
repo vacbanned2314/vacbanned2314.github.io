@@ -13,6 +13,11 @@ body.home-page {
     --home-zone-edge: rgba(203, 222, 224, 0.045);
     --home-pipe-line: rgba(240, 138, 36, 0.22);
     --home-seam-color: var(--home-zone-a);
+    --home-seam-upper-opacity: 78%;
+    --home-seam-upper-stop: 4.5rem;
+    --home-seam-lower-opacity: 34%;
+    --home-seam-lower-stop: 11rem;
+    --home-seam-end: 18rem;
 }
 
 /* Variant 1: engineering graphite + amber signal. Scoped to the homepage so
@@ -87,15 +92,20 @@ body.home-page #calc {
     border-top: 0;
     border-bottom: 0;
     background-image:
-        linear-gradient(180deg, color-mix(in srgb, var(--home-seam-color) 76%, transparent), transparent 7rem),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.012), transparent 18rem),
-        radial-gradient(ellipse 44% 30% at var(--zone-glow-x, 84%) var(--zone-glow-y, 22%), rgba(var(--accent-rgb), 0.045), transparent 72%),
-        linear-gradient(var(--home-grid-line) 1px, transparent 1px),
         linear-gradient(90deg, var(--home-grid-line) 1px, transparent 1px),
-        radial-gradient(circle, var(--home-grain-dot) 0 0.45px, transparent 0.7px);
-    background-size: auto, auto, auto, var(--home-grid-size) var(--home-grid-size), var(--home-grid-size) var(--home-grid-size), 0.25rem 0.25rem;
-    background-position: 0 0, 0 0, 0 0, center top, center top, 0 0;
-    background-attachment: scroll, scroll, scroll, fixed, fixed, fixed;
+        radial-gradient(circle, var(--home-grain-dot) 0 0.45px, transparent 0.7px),
+        linear-gradient(
+            180deg,
+            var(--home-seam-color) 0,
+            color-mix(in srgb, var(--home-seam-color) var(--home-seam-upper-opacity), transparent) var(--home-seam-upper-stop),
+            color-mix(in srgb, var(--home-seam-color) var(--home-seam-lower-opacity), transparent) var(--home-seam-lower-stop),
+            transparent var(--home-seam-end)
+        ),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.012), transparent 18rem),
+        radial-gradient(ellipse 44% 30% at var(--zone-glow-x, 84%) var(--zone-glow-y, 22%), rgba(var(--accent-rgb), 0.045), transparent 72%);
+    background-size: var(--home-grid-size) var(--home-grid-size), 0.25rem 0.25rem, auto, auto, auto;
+    background-position: center top, 0 0, 0 0, 0 0, 0 0;
+    background-attachment: fixed, fixed, scroll, scroll, scroll;
     transition: background-color 0.4s ease, border-color 0.4s ease;
 }
 
@@ -134,11 +144,10 @@ body.home-page .hero {
     background-color: transparent;
     background-image:
         radial-gradient(ellipse 40% 34% at 84% 24%, rgba(var(--accent-rgb), 0.055), transparent 72%),
-        linear-gradient(var(--home-grid-line) 1px, transparent 1px),
         linear-gradient(90deg, var(--home-grid-line) 1px, transparent 1px);
-    background-size: auto, var(--home-grid-size) var(--home-grid-size), var(--home-grid-size) var(--home-grid-size);
-    background-position: 0 0, center top, center top;
-    background-attachment: scroll, fixed, fixed;
+    background-size: auto, var(--home-grid-size) var(--home-grid-size);
+    background-position: 0 0, center top;
+    background-attachment: scroll, fixed;
 }
 
 body.home-page .home-portfolio {
@@ -146,28 +155,25 @@ body.home-page .home-portfolio {
     border-bottom: 0;
     background-image:
         radial-gradient(ellipse 46% 34% at 76% 18%, rgba(var(--accent-rgb), 0.04), transparent 72%),
-        linear-gradient(var(--home-grid-line) 1px, transparent 1px),
         linear-gradient(90deg, var(--home-grid-line) 1px, transparent 1px),
         radial-gradient(circle, var(--home-grain-dot) 0 0.45px, transparent 0.7px);
-    background-size: auto, var(--home-grid-size) var(--home-grid-size), var(--home-grid-size) var(--home-grid-size), 0.25rem 0.25rem;
-    background-position: 0 0, center top, center top, 0 0;
-    background-attachment: scroll, fixed, fixed, fixed;
+    background-size: auto, var(--home-grid-size) var(--home-grid-size), 0.25rem 0.25rem;
+    background-position: 0 0, center top, 0 0;
+    background-attachment: scroll, fixed, fixed;
 }
 
 body.home-page .main-footer {
     border-top: 0;
     background:
         linear-gradient(180deg, var(--home-zone-a) 0, transparent 5.5rem),
-        linear-gradient(var(--home-grid-line) 1px, transparent 1px),
         linear-gradient(90deg, var(--home-grid-line) 1px, transparent 1px),
         var(--footer-bg);
     background-size:
         auto,
         var(--home-grid-size) var(--home-grid-size),
-        var(--home-grid-size) var(--home-grid-size),
         auto;
-    background-position: 0 0, center top, center top, 0 0;
-    background-attachment: scroll, fixed, fixed, scroll;
+    background-position: 0 0, center top, 0 0;
+    background-attachment: scroll, fixed, scroll;
 }
 
 /* The base component layer used a second 40px grid in these sections. Keep
@@ -179,7 +185,6 @@ body.home-page .reviews::before {
 }
 
 /* Sparse pipe-route marks make the grid feel intentional rather than decorative. */
-body.home-page #about::after,
 body.home-page #pricing::after,
 body.home-page #trust::after {
     content: "";
@@ -195,12 +200,6 @@ body.home-page #trust::after {
         radial-gradient(circle at 100% 100%, var(--accent) 0 0.16rem, transparent 0.21rem);
     opacity: 0.72;
     pointer-events: none;
-}
-
-body.home-page #about::after {
-    top: clamp(2rem, 6vw, 5rem);
-    right: -2.5rem;
-    transform: rotate(180deg);
 }
 
 body.home-page #pricing::after {
@@ -245,17 +244,17 @@ body.home-page main > section > .container {
 @media (max-width: 768px) {
     body.home-page {
         --home-grid-size: 3rem;
+        --home-seam-upper-opacity: 72%;
+        --home-seam-upper-stop: 3.5rem;
+        --home-seam-lower-opacity: 28%;
+        --home-seam-lower-stop: 8.5rem;
+        --home-seam-end: 14rem;
     }
 
     body.home-page .ambient-bg {
         background-size: auto, auto;
     }
 
-    body.home-page #about::after {
-        display: none;
-    }
-
-    body.home-page #about::after,
     body.home-page #pricing::after,
     body.home-page #trust::after {
         opacity: 0.46;

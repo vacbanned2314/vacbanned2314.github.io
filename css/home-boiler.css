@@ -70,35 +70,62 @@ body.home-page,
 }
 
 [data-theme="light"] body.home-page {
-    --boiler-zone-a: #f3eee7;
-    --boiler-zone-b: #ebe4db;
-    --boiler-zone-c: #f8f4ee;
-    --boiler-card: rgba(255, 252, 247, 0.9);
-    --boiler-card-soft: rgba(255, 252, 247, 0.72);
-    --boiler-module-shell: #fcf8f2;
-    --boiler-module-pane: rgba(255, 252, 247, 0.2);
-    --boiler-module-pane-active: rgba(255, 255, 255, 0.5);
-    --boiler-line: rgba(54, 47, 40, 0.14);
-    --boiler-line-soft: rgba(54, 47, 40, 0.08);
-    --home-grid-line: rgba(54, 47, 40, 0.035);
-    --home-grid-major: rgba(var(--boiler-copper-rgb), 0.045);
-    --home-grain-dot: rgba(54, 47, 40, 0.028);
+    --boiler-copper: #9f431d;
+    --boiler-copper-rgb: 159, 67, 29;
+    --boiler-copper-hi: #b85a27;
+    --boiler-copper-deep: #783018;
+    --boiler-zone-a: #e3ddd5;
+    --boiler-zone-b: #d8d1c8;
+    --boiler-zone-c: #eae5de;
+    --boiler-card: rgba(214, 211, 206, 0.97);
+    --boiler-card-soft: rgba(211, 208, 202, 0.96);
+    --boiler-module-shell: #d0ccc6;
+    --boiler-module-pane: rgba(48, 45, 41, 0.055);
+    --boiler-module-pane-active: rgba(48, 45, 41, 0.105);
+    --boiler-line: rgba(58, 47, 38, 0.22);
+    --boiler-line-soft: rgba(58, 47, 38, 0.13);
+    --home-zone-a: var(--boiler-zone-a);
+    --home-zone-b: var(--boiler-zone-b);
+    --home-zone-c: var(--boiler-zone-c);
+    --home-grid-line: rgba(58, 47, 38, 0.05);
+    --home-grid-major: rgba(var(--boiler-copper-rgb), 0.075);
+    --home-grain-dot: rgba(58, 47, 38, 0.035);
     --home-zone-edge: var(--boiler-line-soft);
+    --home-pipe-line: rgba(var(--boiler-copper-rgb), 0.4);
     --bg-base: var(--boiler-zone-a);
     --bg-surface: var(--boiler-zone-b);
-    --bg-card: #fffaf4;
-    --text-pure: #211e1a;
-    --text-dim: #6f675f;
-    --header-bg: rgba(255, 250, 244, 0.9);
-    --input-bg: rgba(44, 34, 25, 0.035);
-    --footer-bg: #e2d9ce;
-    --mobile-nav-bg: rgba(255, 250, 244, 0.98);
+    --bg-card: #d6d3cd;
+    --text-pure: #27221d;
+    --text-dim: #5e554c;
+    --header-bg: rgba(222, 215, 206, 0.94);
+    --ambient-glow: rgba(var(--boiler-copper-rgb), 0.065);
+    --input-bg: rgba(245, 244, 241, 0.78);
+    --footer-bg: #c5bbaf;
+    --mobile-nav-bg: rgba(222, 215, 206, 0.98);
     --border-default: var(--boiler-line);
     --border-subtle: var(--boiler-line-soft);
     --surface-card: var(--boiler-card);
-    --surface-card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.72), transparent 62%), var(--boiler-card);
-    --shadow-card: 0 18px 42px rgba(71, 52, 35, 0.12);
-    --shadow-hover: 0 22px 48px rgba(71, 52, 35, 0.16);
+    --surface-card-gradient: var(--surface-card);
+    --shadow-card: 0 10px 26px rgba(65, 49, 36, 0.16);
+    --shadow-hover: 0 14px 34px rgba(65, 49, 36, 0.21);
+    --shadow-control: 0 8px 22px rgba(var(--boiler-copper-rgb), 0.2);
+}
+
+[data-theme="light"] body.home-page .hero-decor-block {
+    background:
+        radial-gradient(circle at 52% 42%, rgba(255, 255, 255, 0.18), transparent 40%),
+        linear-gradient(145deg, #d0cdc8, #c6c2bc);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        0 14px 30px rgba(65, 49, 36, 0.14);
+}
+
+[data-theme="light"] body.home-page .pill-header {
+    background: color-mix(in srgb, var(--boiler-card-soft) 86%, transparent);
+}
+
+[data-theme="light"] body.home-page .home-portfolio-stage {
+    background: var(--boiler-module-shell);
 }
 
 /* The header and hero are the control room entrance. */
@@ -165,27 +192,6 @@ body.home-page .service-icon-wrap {
     border-radius: var(--boiler-radius-card);
     background: rgba(var(--boiler-copper-rgb), 0.12);
     color: var(--boiler-copper-hi);
-}
-
-/* Portfolio becomes a rounded equipment dossier; the photo remains the hero. */
-body.home-page .home-portfolio-shell {
-    border: 1px solid var(--boiler-line);
-    border-radius: var(--boiler-radius-panel);
-    background:
-        linear-gradient(135deg, rgba(var(--boiler-copper-rgb), 0.08), transparent 35%),
-        var(--boiler-card-soft);
-    box-shadow: var(--shadow-card), inset 0 1px 0 rgba(238, 244, 240, 0.04);
-}
-
-body.home-page .home-portfolio-stage {
-    border: 1px solid var(--boiler-line-soft);
-    border-radius: var(--boiler-radius-card);
-    box-shadow: 0 14px 34px rgba(5, 9, 10, 0.24);
-}
-
-body.home-page .home-portfolio-photo-label {
-    border-radius: 0.625rem;
-    border-color: var(--boiler-line);
 }
 
 /* About and services use one rounded vessel with internal seams. */
@@ -293,7 +299,6 @@ body.home-page #services .service-desc {
 
 /* Pricing, proof and reviews are rounded technical instruments, not floating cards. */
 body.home-page .info-grid,
-body.home-page .licenses-proof,
 body.home-page .reviews-evidence,
 body.home-page .cta-wrapper {
     border: 1px solid var(--boiler-line);
@@ -311,14 +316,9 @@ body.home-page .info-grid {
 
 body.home-page .pricing-sheet,
 body.home-page .service-area,
-body.home-page .licenses-proof__document,
 body.home-page .reviews-source {
     border-radius: 0;
     background: var(--boiler-module-pane);
-}
-
-body.home-page .licenses-proof__document {
-    background: rgba(var(--boiler-copper-rgb), 0.045);
 }
 
 body.home-page .pricing-sheet {
@@ -381,6 +381,131 @@ body.home-page .info-grid::after {
     display: none;
 }
 
+/* Reviews use the same flat two-pane information system as pricing and service area. */
+body.home-page .reviews-evidence {
+    grid-template-columns: minmax(18rem, 0.9fr) minmax(0, 1.1fr);
+    border: 1px solid var(--boiler-line);
+    border-radius: var(--boiler-radius-panel);
+    background: var(--boiler-module-shell);
+    box-shadow: inset 0 1px 0 rgba(238, 244, 240, 0.04);
+}
+
+body.home-page .reviews-evidence::after {
+    display: none;
+}
+
+body.home-page .reviews-source {
+    padding: clamp(2rem, 4vw, 3rem);
+    border-right: 1px solid var(--boiler-line);
+    border-left: 0;
+    background: var(--boiler-module-pane);
+}
+
+body.home-page .reviews-source-kicker {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    letter-spacing: 0.09em;
+}
+
+body.home-page .reviews-source-kicker::before {
+    content: '';
+    width: 0.4375rem;
+    height: 0.4375rem;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: var(--boiler-copper);
+}
+
+body.home-page .reviews-source-brand {
+    margin-top: 1.5rem;
+}
+
+body.home-page .reviews-source-score {
+    width: 100%;
+    margin-top: 0.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--boiler-line);
+    color: var(--boiler-copper);
+    font-size: clamp(4.5rem, 7vw, 6rem);
+}
+
+body.home-page .reviews-source-stars {
+    width: 100%;
+    margin-top: 0.75rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--boiler-line);
+    color: var(--boiler-copper);
+}
+
+body.home-page .reviews-source-note {
+    max-width: 15rem;
+    margin-bottom: 1.25rem;
+}
+
+body.home-page .reviews-source-link {
+    margin-top: auto;
+}
+
+body.home-page .review-ledger {
+    background: transparent;
+}
+
+body.home-page .review-entry {
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    gap: 1rem;
+    padding: clamp(1.75rem, 3vw, 2.25rem);
+    border-bottom: 1px solid var(--boiler-line);
+    background: transparent;
+}
+
+body.home-page .review-entry-number {
+    justify-content: flex-start;
+    width: auto;
+    padding-top: 0.1rem;
+    border-top: 0;
+    line-height: 1.2;
+}
+
+body.home-page .review-entry-meta {
+    letter-spacing: 0.09em;
+}
+
+body.home-page .review-entry blockquote {
+    max-width: none;
+    margin: 0.75rem 0 1.1rem;
+    font-size: clamp(1rem, 1.45vw, 1.125rem);
+    line-height: 1.55;
+}
+
+body.home-page .review-more {
+    padding: clamp(1.5rem, 3vw, 2rem) clamp(1.75rem, 3vw, 2.25rem);
+}
+
+body.home-page .review-more ul {
+    border-top-color: var(--boiler-line);
+}
+
+body.home-page .review-more li,
+body.home-page .review-more li + li {
+    border-color: var(--boiler-line);
+}
+
+@media (max-width: 720px) {
+    body.home-page .reviews-evidence {
+        grid-template-columns: 1fr;
+    }
+
+    body.home-page .reviews-source {
+        border-right: 0;
+        border-bottom: 1px solid var(--boiler-line);
+    }
+
+    body.home-page .reviews-source-link {
+        margin-top: 0;
+    }
+}
+
 body.home-page .cta-wrapper {
     border-top: 1px solid var(--boiler-line);
     background:
@@ -409,6 +534,17 @@ body.home-page .cta-form-block .form-field textarea {
     border-radius: 0.625rem;
     border-color: var(--boiler-line);
     background: rgba(8, 14, 16, 0.5);
+}
+
+[data-theme="light"] body.home-page .cta-form-block .form-field input,
+[data-theme="light"] body.home-page .cta-form-block .form-field select,
+[data-theme="light"] body.home-page .cta-form-block .form-field textarea {
+    color: var(--text-pure);
+    background: var(--input-bg);
+}
+
+[data-theme="light"] body.home-page #services .service-tag {
+    color: var(--boiler-copper-deep);
 }
 
 body.home-page .cta-form-block .form-field input:focus,
@@ -467,11 +603,9 @@ body.home-page .hero-decor-grid {
     }
 
     body.home-page .hero-stats-block,
-    body.home-page .home-portfolio-shell,
     body.home-page #about .about-route-metrics,
     body.home-page #services .services-pipeline,
     body.home-page .info-grid,
-    body.home-page .licenses-proof,
     body.home-page .reviews-evidence,
     body.home-page .cta-wrapper {
         border-radius: 1rem;
