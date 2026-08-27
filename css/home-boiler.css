@@ -1,9 +1,9 @@
-/* Homepage direction 06: boiler room.
+/* Shared index/team direction: boiler room.
    Copper / amber replaces the cold green signal; rounded vessels and panels
    make the interface feel like a maintained piece of equipment. */
 
-body.home-page,
-[data-theme="dark"] body.home-page {
+body:is(.home-page, .team-page),
+[data-theme="dark"] body:is(.home-page, .team-page) {
     --boiler-copper: #d27a43;
     --boiler-copper-rgb: 210, 122, 67;
     --boiler-copper-hi: #e19a66;
@@ -70,7 +70,7 @@ body.home-page,
     --panel-shadow: var(--shadow-card);
 }
 
-[data-theme="light"] body.home-page {
+[data-theme="light"] body:is(.home-page, .team-page) {
     --boiler-copper: #9f431d;
     --boiler-copper-rgb: 159, 67, 29;
     --boiler-copper-hi: #b85a27;
@@ -122,7 +122,7 @@ body.home-page,
         0 14px 30px rgba(65, 49, 36, 0.14);
 }
 
-[data-theme="light"] body.home-page .pill-header {
+[data-theme="light"] body:is(.home-page, .team-page) .pill-header {
     background: color-mix(in srgb, var(--boiler-card-soft) 86%, transparent);
 }
 
@@ -131,7 +131,7 @@ body.home-page,
 }
 
 /* The header and hero are the control room entrance. */
-body.home-page .pill-header {
+body:is(.home-page, .team-page) .pill-header {
     border-radius: 60px;
     border-color: var(--boiler-line);
     background: var(--header-bg);

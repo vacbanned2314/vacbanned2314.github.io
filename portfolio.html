@@ -3,253 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Портфолио ТеплоРемСервис — реализованные котельные и инженерные системы в Казани и области. Фильтр по типу объекта, флагманский проект и статистика.">
-    <meta property="og:title" content="Портфолио объектов | ТеплоРемСервис">
-    <meta property="og:description" content="Реализованные котельные, модернизация, автоматизация — каталог объектов ТеплоРемСервис, Казань.">
+    <meta name="description" content="Портфолио ТеплоРемСервис — монтаж котельных, отопительных контуров, автоматики, пусконаладка и обслуживание в Казани и пригороде.">
+    <meta property="og:title" content="Выполненные проекты | ТеплоРемСервис">
+    <meta property="og:description" content="Реальные инженерные проекты ТеплоРемСервис: котельные, отопление, автоматика и сервис.">
     <meta property="og:image" content="assets/images/og-cover.svg">
     <meta property="og:type" content="website">
-    <title>Портфолио объектов | ТеплоРемСервис</title>
-
-    <script>
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-    </script>
-
-    <link rel="stylesheet" href="css/main.css?v=20260817-1635">
-    <link rel="stylesheet" href="css/portfolio-catalog.css?v=20260817-1635">
+    <title>Выполненные проекты | ТеплоРемСервис</title>
+    <script>const savedTheme = localStorage.getItem('theme') || 'dark'; document.documentElement.setAttribute('data-theme', savedTheme);</script>
+    <link rel="stylesheet" href="css/variables.css?v=20260817-1635">
+    <link rel="stylesheet" href="css/base.css?v=20260825-font-1">
+    <link rel="stylesheet" href="css/components.css?v=20260817-1635">
+    <link rel="stylesheet" href="css/animations.css?v=20260817-1635">
+    <link rel="stylesheet" href="css/mobile.css?v=20260817-1635">
+    <link rel="stylesheet" href="css/design-system.css?v=20260825-font-1">
+    <link rel="stylesheet" href="css/home-atmosphere.css?v=20260827-portfolio-1">
+    <link rel="stylesheet" href="css/portfolio-concepts.css?v=20260827-21">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="portfolio-concepts-page portfolio-live-page">
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="pc-symbols">
+        <symbol id="icon-logo-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+        <symbol id="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" fill="currentColor"/><path d="M12 2V4M12 20V22M4 12H2M22 12H20M19.071 19.071 17.657 17.657M6.343 6.343 4.929 4.929M19.071 4.929 17.657 6.343M6.343 17.657 4.929 19.071" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+        <symbol id="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+        <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+        <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+        <symbol id="icon-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></symbol>
+        <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></symbol>
+        <symbol id="icon-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4 16 7h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h3l1.5-3h5Z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+    </svg>
 
-<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
-  <symbol id="icon-logo-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
-  </symbol>
-  <symbol id="icon-sun" viewBox="0 0 24 24" fill="none">
-    <circle cx="12" cy="12" r="5" fill="currentColor"/>
-    <path d="M12 2V4M12 20V22M4 12H2M22 12H20M19.0711 19.0711L17.6569 17.6569M6.34315 6.34315L4.92893 4.92893M19.0711 4.92893L17.6569 6.34315M6.34315 17.6569L4.92893 19.0711" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-  </symbol>
-  <symbol id="icon-moon" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-  </symbol>
-  <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M18 6L6 18M6 6l12 12"/>
-  </symbol>
-</svg>
-
-    <div class="ambient-bg"></div>
-
+    <div class="ambient-bg" aria-hidden="true"></div>
     <button type="button" class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true" tabindex="-1"></button>
 
     <header class="pill-header">
         <div class="header-wrap">
-            <a href="index.html" class="logo-box">
-                <svg class="logo-icon" width="36" height="36" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-logo-flame"></use></svg>
-                <div class="logo-text-wrap">
-                    <div class="logo-main">Тепло<span>Рем</span>Сервис</div>
-                    <div class="logo-sub">Инженерная группа</div>
-                </div>
-            </a>
-
-            <nav class="nav-links" id="main-nav" aria-label="Основная навигация">
-                <a href="team.html">О нас</a>
-                <a href="services.html">Услуги</a>
-                <a href="portfolio.html" class="nav-active">Портфолио</a>
-                <a href="licenses.html">Допуски</a>
-                <a href="faq.html">FAQ</a>
-                <a href="index.html#trust">Отзывы</a>
-                <div class="mobile-nav-contacts">
-                    <a href="tel:+79376254703" class="mobile-nav-phone">+7 937 625-47-03</a>
-                    <a href="https://t.me/teplorem" class="mobile-nav-tg" target="_blank" rel="noopener noreferrer">Telegram</a>
-                </div>
-                <a href="index.html#calc" class="mobile-cta">Заказать выезд</a>
-            </nav>
-
-            <div class="contact-box">
-                <a href="tel:+79376254703" class="phone-link">+7 937 625-47-03</a>
-                <a href="https://t.me/teplorem" class="btn-ghost" target="_blank" rel="noopener noreferrer">Telegram</a>
-
-                <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Переключить тему" aria-pressed="true">
-                    <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-sun"></use></svg>
-                    <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-moon"></use></svg>
-                </button>
-
-                <button type="button" class="burger-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+            <a href="index.html" class="logo-box" aria-label="ТеплоРемСервис — на главную"><svg class="logo-icon" width="36" height="36" aria-hidden="true"><use href="#icon-logo-flame"></use></svg><div class="logo-text-wrap"><div class="logo-main">Тепло<span>Рем</span>Сервис</div><div class="logo-sub">Инженерная группа</div></div></a>
+            <nav class="nav-links" id="main-nav" aria-label="Основная навигация"><a href="team.html">Наша команда</a><a href="services.html">Услуги</a><a href="portfolio.html" class="nav-active">Портфолио</a><a href="licenses.html">Допуски</a><a href="faq.html">FAQ</a><a href="index.html#trust">Отзывы</a><div class="mobile-nav-contacts"><a href="tel:+79376254703" class="mobile-nav-phone">+7 937 625-47-03</a><a href="https://t.me/teplorem" class="mobile-nav-tg" target="_blank" rel="noopener noreferrer">Telegram</a></div><a href="index.html#calc" class="mobile-cta">Получить консультацию</a></nav>
+            <div class="contact-box"><a href="tel:+79376254703" class="phone-link">+7 937 625-47-03</a><a href="https://t.me/teplorem" class="btn-ghost" target="_blank" rel="noopener noreferrer">Telegram</a><button type="button" id="theme-toggle" class="theme-toggle" aria-label="Переключить тему" aria-pressed="true"><svg class="icon-sun" aria-hidden="true"><use href="#icon-sun"></use></svg><svg class="icon-moon" aria-hidden="true"><use href="#icon-moon"></use></svg></button><button type="button" class="burger-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button></div>
         </div>
     </header>
 
-    <main class="portfolio-catalog">
-        <section class="hero" id="featured">
-            <div class="container">
-                <a href="index.html" class="page-breadcrumb scroll-reveal">← На главную</a>
-                <div class="hero-grid scroll-reveal">
-                    <div class="hero-info">
-                        <span class="hero-badge">Флагманский проект</span>
-                        <h1 class="hero-title">Котельная, ул. Баумана, 48</h1>
-                        <p class="hero-sub">
-                            Монтаж системы отопления, котельного оборудования Vaillant, тёплых полов,
-                            гидравлической разводки и автоматики ZONT. Проектирование, пусконаладка
-                            и сдача объекта под ключ — 340 м².
-                        </p>
-                        <div class="hero-cta">
-                            <button type="button" class="btn-glow" data-pf-hero-details>Подробнее о проекте</button>
-                            <a href="#projects" class="btn-outline">Все объекты</a>
-                        </div>
-                        <dl class="hero-meta">
-                            <div class="hero-meta-item">
-                                <dt>Площадь</dt>
-                                <dd>340 м²</dd>
-                            </div>
-                            <div class="hero-meta-item">
-                                <dt>Тип</dt>
-                                <dd>Газовая</dd>
-                            </div>
-                            <div class="hero-meta-item">
-                                <dt>Город</dt>
-                                <dd>Казань</dd>
-                            </div>
-                            <div class="hero-meta-item">
-                                <dt>Год</dt>
-                                <dd>2024</dd>
-                            </div>
-                        </dl>
-                    </div>
-                    <div class="hero-image">
-                        <svg class="hero-image-svg" viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <rect x="20" y="60" width="160" height="70" rx="4" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                            <rect x="35" y="80" width="40" height="30" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                            <rect x="90" y="75" width="30" height="40" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                            <rect x="135" y="70" width="25" height="50" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                            <circle cx="55" cy="95" r="6" stroke="currentColor" stroke-width="1.2"/>
-                            <circle cx="105" cy="95" r="6" stroke="currentColor" stroke-width="1.2"/>
-                            <circle cx="148" cy="95" r="6" stroke="currentColor" stroke-width="1.2"/>
-                            <rect x="60" y="35" width="80" height="25" rx="3" stroke="currentColor" stroke-width="1.5"/>
-                            <line x1="100" y1="35" x2="100" y2="60" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3"/>
-                            <rect x="55" y="15" width="90" height="18" rx="9" stroke="currentColor" stroke-width="1.2"/>
-                            <path d="M 100 38 L 100 15" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/>
-                        </svg>
-                        <span class="hero-image-label">Схема теплового узла</span>
-                    </div>
+    <main class="portfolio-live">
+        <section class="concept-case" id="projects">
+            <div class="case-hero">
+                <div class="container case-hero__grid">
+                    <div class="case-hero__copy"><p class="pc-kicker"><span></span> Наши объекты</p><h1>Котельные, <em>отопление</em> и автоматика</h1><p class="case-hero__lead">Собрали объекты, на которых работали: монтаж котельных, настройка автоматики и сервис. В каждой карточке — фотографии и коротко о том, что сделали.</p><div class="pc-actions"><a class="pc-btn pc-btn--accent" href="index.html#calc">Обсудить объект <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></a><a class="pc-text-link" href="#case-catalog">Смотреть объекты</a></div></div>
+                    <div class="case-placeholder" aria-label="Фото объекта готовятся к публикации"><div class="case-placeholder__grid" aria-hidden="true"></div><div class="case-placeholder__project"><p>Лаишево</p><h2>Котельная и автоматика</h2></div><div class="case-placeholder__mark"><span>LA</span><i>Фото готовим</i></div><div class="case-placeholder__note"><svg aria-hidden="true"><use href="#icon-camera"></use></svg><p><strong>Объект завершён</strong>Фото с объекта готовим к публикации.</p></div></div>
                 </div>
+                <div class="container case-scope" aria-label="Кратко об объекте"><div><span>01 / Объект</span><strong>Частный дом</strong></div><div><span>02 / Сделали</span><strong>Смонтировали котельную</strong></div><div><span>03 / Дополнительно</span><strong>Настроили автоматику</strong></div><div><span>04 / Фото</span><strong>Добавим позже</strong></div></div>
             </div>
+
+            <section class="case-catalog pc-section" id="case-catalog"><div class="container"><div class="pc-section-heading pc-section-heading--row"><div><p class="pc-kicker"><span></span> Работы на объектах</p><h2>Выполненные работы</h2></div><p>Фотографии с объектов и короткое описание того, что сделали.</p></div><div class="case-grid" data-project-list="case"></div><div class="pc-more-wrap"><button class="pc-btn pc-btn--outline" type="button" data-show-more="case">Показать ещё <span data-remaining-count></span></button></div></div></section>
+
+            <section class="pc-contact pc-contact--case" aria-labelledby="case-contact-title"><div class="container"><div class="case-contact__panel"><div class="case-contact__intro"><p class="case-contact__kicker">Можно начать с фото</p><h2 id="case-contact-title">Нужен похожий результат?</h2></div><div class="case-contact__action"><p class="case-contact__label">Фото или короткое описание</p><p>Пришлите фото объекта или опишите задачу в двух словах. Посмотрим, что уже есть, и подскажем, с чего начать.</p><a class="pc-btn pc-btn--accent" href="index.html#calc">Обсудить объект <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></a></div></div></div></section>
         </section>
-
-        <section class="section section--projects" id="projects">
-            <div class="container">
-                <div class="section-header">
-                    <p class="label">Наши работы</p>
-                    <h2 class="h1 section-title">Реализованные <span class="accent-text">проекты</span></h2>
-                </div>
-
-                <div class="filters">
-                    <button type="button" class="filter-btn active" data-filter="all">Все проекты</button>
-                    <button type="button" class="filter-btn" data-filter="gas">Монтаж котельной</button>
-                    <button type="button" class="filter-btn" data-filter="solid">Техническое обслуживание</button>
-                    <button type="button" class="filter-btn" data-filter="modernisation">Ввод в эксплуатацию</button>
-                    <button type="button" class="filter-btn" data-filter="auto">Установка автоматики</button>
-                </div>
-
-                <div class="project-grid" id="projectGrid"></div>
-            </div>
-        </section>
-
-        <section class="pf-cta" id="contact">
-            <div class="container">
-                <div class="pf-cta-inner scroll-reveal">
-                    <h2 class="h1">Нужна котельная?</h2>
-                    <p>Проектирование, монтаж, модернизация и сервисное обслуживание инженерных систем любой сложности в Казани и области</p>
-                    <a href="index.html#calc" class="btn-glow">Заказать выезд инженера</a>
-                </div>
-            </div>
-        </section>
-
-        <div class="pf-modal-overlay" id="pf-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-            <div class="pf-modal">
-                <button type="button" class="pf-modal-close" id="pfModalClose" aria-label="Закрыть">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-close"></use></svg>
-                </button>
-                <div class="pf-modal-img" id="modalImg">
-                    <svg viewBox="0 0 200 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <rect x="20" y="60" width="160" height="70" rx="4" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                        <rect x="35" y="80" width="40" height="30" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                        <rect x="90" y="75" width="30" height="40" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                        <rect x="135" y="70" width="25" height="50" rx="2" stroke="currentColor" stroke-width="1.5"/>
-                    </svg>
-                </div>
-                <div class="pf-modal-body">
-                    <p class="label" id="modalCat">—</p>
-                    <h2 class="h2" id="modalTitle">—</h2>
-                    <p id="modalDesc">—</p>
-                    <div class="pf-modal-meta">
-                        <div class="pf-modal-meta-item">
-                            <dt>Мощность</dt>
-                            <dd id="modalPower">—</dd>
-                        </div>
-                        <div class="pf-modal-meta-item">
-                            <dt>Статус</dt>
-                            <dd id="modalStatus">—</dd>
-                        </div>
-                        <div class="pf-modal-meta-item">
-                            <dt>Заказчик</dt>
-                            <dd id="modalClient">—</dd>
-                        </div>
-                        <div class="pf-modal-meta-item">
-                            <dt>Год</dt>
-                            <dd id="modalYear">—</dd>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
 
-    <footer class="main-footer">
-        <div class="footer-main">
-            <div class="container footer-flex scroll-reveal">
-                <div class="footer-brand">
-                    <div class="logo-main">Тепло<span>Рем</span>Сервис</div>
-                    <p class="footer-desc">Премиальные инженерные системы под ключ. Работаем в Казани и пригороде.</p>
-                </div>
+    <footer class="main-footer"><div class="footer-main"><div class="container footer-flex"><div class="footer-brand"><div class="logo-main">Тепло<span>Рем</span>Сервис</div><p class="footer-desc">Отопление, котельные и сервис в Казани и пригороде.</p></div><div class="footer-links"><div class="nav-col"><h4>Услуги</h4><a href="services.html">Расчёт и подбор</a><a href="services.html">Монтаж котельных</a><a href="services.html">Автоматика</a><a href="services.html">Сервис котлов</a><a href="portfolio.html">Портфолио</a></div></div><div class="footer-contacts-clean"><h4>Связаться с нами</h4><a href="tel:+79376254703" class="footer-phone">+7 (937) 625-47-03</a><a href="mailto:info@teplorem.ru" class="footer-mail">info@teplorem.ru</a><a href="https://t.me/teplorem" class="footer-tg-link" target="_blank" rel="noopener noreferrer">Написать в Telegram</a></div></div></div><div class="footer-legal"><div class="container footer-legal-inner"><p class="footer-legal-copy">© 2026 ООО «ТеплоРемСервис». Все права защищены.</p><p class="footer-legal-reqs">ИНН: 1661071059 | ОГРН: 1211600075642</p><a href="privacy.html" class="footer-legal-link">Политика конфиденциальности</a></div></div></footer>
 
-                <div class="footer-links">
-                    <div class="nav-col">
-                        <h4>Услуги</h4>
-                        <a href="services.html">Проектирование</a>
-                        <a href="index.html#services">Монтаж котельных</a>
-                        <a href="index.html#services">Автоматика</a>
-                        <a href="portfolio.html">Портфолио</a>
-                        <a href="licenses.html">Допуски и сертификаты</a>
-                        <a href="team.html">Наша команда</a>
-                        <a href="faq.html">FAQ</a>
-                    </div>
-                </div>
-
-                <div class="footer-contacts-clean">
-                    <h4>Связаться с нами</h4>
-                    <a href="tel:+79376254703" class="footer-phone">+7 (937) 625-47-03</a>
-                    <a href="mailto:info@teplorem.ru" class="footer-mail">info@teplorem.ru</a>
-                    <a href="https://t.me/teplorem" class="footer-tg-link" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-legal">
-            <div class="container footer-legal-inner scroll-reveal">
-                <p class="footer-legal-copy">© 2026 ООО «ТеплоРемСервис». Все права защищены.</p>
-                <p class="footer-legal-reqs">ИНН: 1661071059 | ОГРН: 1211600075642</p>
-                <a href="privacy.html" class="footer-legal-link">Политика конфиденциальности</a>
-            </div>
-        </div>
-    </footer>
+    <div class="pc-modal" id="project-gallery" role="dialog" aria-modal="true" aria-labelledby="gallery-title" hidden><div class="pc-modal__backdrop" data-gallery-close></div><div class="pc-modal__dialog"><header class="pc-modal__header"><div><p id="gallery-location"></p><h2 id="gallery-title"></h2></div><button type="button" class="pc-modal__close" data-gallery-close aria-label="Закрыть галерею"><svg aria-hidden="true"><use href="#icon-close"></use></svg></button></header><div class="pc-modal__stage"><div class="pc-modal__placeholder" id="gallery-placeholder" hidden><span>Фотографии появятся здесь</span><p>Работы завершены. Фотографии объекта добавим позже.</p></div><img id="gallery-image" alt="" hidden><button type="button" class="pc-modal__nav pc-modal__nav--prev" data-gallery-prev aria-label="Предыдущее фото"><svg aria-hidden="true"><use href="#icon-chevron-left"></use></svg></button><button type="button" class="pc-modal__nav pc-modal__nav--next" data-gallery-next aria-label="Следующее фото"><svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg></button></div><footer class="pc-modal__footer"><p id="gallery-caption"></p><span id="gallery-counter"></span></footer></div></div>
 
     <script defer src="js/core/common.js?v=20260817-1635"></script>
-    <script defer src="js/pages/portfolio-catalog.js?v=20260817-1635"></script>
+    <script defer src="js/pages/portfolio-concepts.js?v=20260827-7"></script>
 </body>
 </html>

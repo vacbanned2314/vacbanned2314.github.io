@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Три концепции портфолио ТеплоРемСервис — демонстрационная страница.">
+    <title>Концепции портфолио | ТеплоРемСервис</title>
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+    <link rel="stylesheet" href="css/variables.css?v=20260817-1635">
+    <link rel="stylesheet" href="css/base.css?v=20260825-font-1">
+    <link rel="stylesheet" href="css/components.css?v=20260817-1635">
+    <link rel="stylesheet" href="css/animations.css?v=20260817-1635">
+    <link rel="stylesheet" href="css/mobile.css?v=20260817-1635">
+    <link rel="stylesheet" href="css/design-system.css?v=20260825-font-1">
+    <link rel="stylesheet" href="css/portfolio-concepts.css?v=20260827-4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+</head>
+<body class="portfolio-concepts-page">
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="pc-symbols">
+        <symbol id="icon-logo-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+        <symbol id="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" fill="currentColor"/><path d="M12 2V4M12 20V22M4 12H2M22 12H20M19.071 19.071 17.657 17.657M6.343 6.343 4.929 4.929M19.071 4.929 17.657 6.343M6.343 17.657 4.929 19.071" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+        <symbol id="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+        <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+        <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+        <symbol id="icon-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></symbol>
+        <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></symbol>
+        <symbol id="icon-location" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+        <symbol id="icon-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4 16 7h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h3l1.5-3h5Z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+    </svg>
+
+    <div class="ambient-bg" aria-hidden="true"></div>
+
+    <button type="button" class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true" tabindex="-1"></button>
+
+    <header class="pill-header">
+        <div class="header-wrap">
+            <a href="index.html" class="logo-box" aria-label="ТеплоРемСервис — на главную">
+                <svg class="logo-icon" width="36" height="36" aria-hidden="true"><use href="#icon-logo-flame"></use></svg>
+                <div class="logo-text-wrap"><div class="logo-main">Тепло<span>Рем</span>Сервис</div><div class="logo-sub">Инженерная группа</div></div>
+            </a>
+            <nav class="nav-links" id="main-nav" aria-label="Основная навигация">
+                <a href="team.html">Наша команда</a><a href="services.html">Услуги</a><a href="portfolio.html" class="nav-active">Портфолио</a><a href="licenses.html">Допуски</a><a href="faq.html">FAQ</a>
+                <div class="mobile-nav-contacts"><a href="tel:+79376254703" class="mobile-nav-phone">+7 937 625-47-03</a><a href="https://t.me/teplorem" class="mobile-nav-tg" target="_blank" rel="noopener noreferrer">Telegram</a></div>
+                <a href="index.html#calc" class="mobile-cta">Получить консультацию</a>
+            </nav>
+            <div class="contact-box">
+                <a href="tel:+79376254703" class="phone-link">+7 937 625-47-03</a>
+                <a href="https://t.me/teplorem" class="btn-ghost" target="_blank" rel="noopener noreferrer">Telegram</a>
+                <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Переключить тему" aria-pressed="true"><svg class="icon-sun" aria-hidden="true"><use href="#icon-sun"></use></svg><svg class="icon-moon" aria-hidden="true"><use href="#icon-moon"></use></svg></button>
+                <button type="button" class="burger-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="concept-switcher" aria-labelledby="concept-switcher-title">
+            <div class="container concept-switcher__inner">
+                <div class="concept-switcher__intro">
+                    <span>Демонстрация</span>
+                    <strong id="concept-switcher-title">Выберите устройство портфолио</strong>
+                </div>
+                <div class="concept-tabs" role="tablist" aria-label="Концепции портфолио">
+                    <button type="button" role="tab" id="tab-case" aria-controls="concept-case" aria-selected="true" data-concept-tab="case"><span>01</span> Один проект крупно</button>
+                    <button type="button" role="tab" id="tab-tasks" aria-controls="concept-tasks" aria-selected="false" tabindex="-1" data-concept-tab="tasks"><span>02</span> Каталог по задачам</button>
+                    <button type="button" role="tab" id="tab-report" aria-controls="concept-report" aria-selected="false" tabindex="-1" data-concept-tab="report"><span>03</span> Фотоотчёт</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="concept-panel concept-case" id="concept-case" role="tabpanel" aria-labelledby="tab-case" data-concept-panel="case">
+            <div class="case-hero">
+                <div class="container case-hero__grid">
+                    <div class="case-hero__copy">
+                        <p class="pc-kicker"><span></span> Выполненные проекты</p>
+                        <h1>Котельные, <em>отопление</em> и автоматика</h1>
+                        <p class="case-hero__lead">Показываем реальные монтажи, пусконаладку и сервис инженерных систем. В карточках — только подтверждённые сведения и фотографии с объектов.</p>
+                        <div class="pc-actions"><a class="pc-btn pc-btn--accent" href="index.html#calc">Получить консультацию <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></a><a class="pc-text-link" href="#case-catalog">Все проекты</a></div>
+                    </div>
+                    <div class="case-placeholder" aria-label="Фотографии проекта появятся позже">
+                        <div class="case-placeholder__grid" aria-hidden="true"></div>
+                        <div class="case-placeholder__project"><p>Флагманский объект · Лаишево</p><h2>Монтаж котельного оборудования и автоматики</h2></div>
+                        <div class="case-placeholder__mark"><span>LA</span><i>Объект принят</i></div>
+                        <div class="case-placeholder__note"><svg aria-hidden="true"><use href="#icon-camera"></use></svg><p><strong>Работы завершены</strong>Фотографии объекта добавим позже.</p></div>
+                    </div>
+                </div>
+                <div class="container case-scope" aria-label="Состав проекта"><div><span>01 / Объект</span><strong>Частная котельная</strong></div><div><span>02 / Работы</span><strong>Полный монтаж оборудования</strong></div><div><span>03 / Управление</span><strong>Установка автоматики</strong></div><div><span>04 / Статус</span><strong>Работы завершены</strong></div></div>
+            </div>
+
+            <section class="case-story pc-section">
+                <div class="container">
+                    <p class="pc-kicker case-story__kicker"><span></span> Как читается кейс</p>
+                    <div class="case-story__grid">
+                        <div class="pc-section-heading"><h2>Сначала суть работы, затем — доказательства</h2></div>
+                        <div class="case-story__steps"><article><b>01</b><div><h3>Задача</h3><p>Собрать котельный узел и подготовить управление системой в рамках одного полного монтажа.</p></div></article><article><b>02</b><div><h3>Что выполнено</h3><p>Смонтировано котельное оборудование и установлена автоматика. Детали состава уточним после загрузки фотоархива.</p></div></article><article class="is-muted"><b>03</b><div><h3>Фотоматериалы</h3><p>До получения реальных кадров раздел остаётся без стоковых и сгенерированных изображений.</p></div></article></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="case-catalog pc-section" id="case-catalog">
+                <div class="container"><div class="pc-section-heading pc-section-heading--row"><div><p class="pc-kicker"><span></span> Другие объекты</p><h2>Каталог выполненных работ</h2></div><p>Реальные технические кадры без выдуманных характеристик и декоративной ретуши.</p></div><div class="case-grid" data-project-list="case"></div><div class="pc-more-wrap"><button class="pc-btn pc-btn--outline" type="button" data-show-more="case">Показать ещё <span data-remaining-count></span></button></div></div>
+            </section>
+            <section class="pc-contact pc-contact--case"><div class="container pc-contact__inner"><p>Есть похожая задача?</p><h2>Покажите объект инженеру —<br>разберём состав работ.</h2><a class="pc-btn pc-btn--accent" href="index.html#calc">Получить консультацию <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></a></div></section>
+        </section>
+
+        <section class="concept-panel concept-tasks" id="concept-tasks" role="tabpanel" aria-labelledby="tab-tasks" data-concept-panel="tasks" hidden>
+            <div class="tasks-hero">
+                <div class="container tasks-hero__top"><div><p class="pc-kicker"><span></span> Портфолио по типу работ</p><h1>Найдите проект<br><em>под вашу задачу</em></h1></div><p>Не нужно разбираться в названиях объектов. Выберите, что требуется сделать, и посмотрите релевантный опыт команды.</p></div>
+                <div class="container task-selector-wrap"><div class="task-selector" role="toolbar" aria-label="Фильтр проектов по задаче" data-filter-group="tasks"></div><div class="task-selector__hint"><span data-task-result-count>15 проектов</span><small>Один проект может относиться к нескольким задачам</small></div></div>
+            </div>
+            <section class="tasks-results pc-section"><div class="container"><div class="tasks-results__heading"><p class="pc-kicker"><span></span> Подтверждённые объекты</p><h2 data-task-heading>Все работы</h2></div><div class="tasks-list" data-project-list="tasks"></div><div class="pc-more-wrap"><button class="pc-btn pc-btn--outline" type="button" data-show-more="tasks">Показать ещё <span data-remaining-count></span></button></div></div></section>
+            <section class="tasks-guide pc-section"><div class="container tasks-guide__grid"><div><p class="pc-kicker"><span></span> Если тип работ пока неясен</p><h2>Начните с фотографии вашей котельной</h2></div><div><p>Инженер посмотрит текущую систему, уточнит задачу и скажет, какой формат работ подходит: монтаж, настройка, обслуживание или реконструкция.</p><a class="pc-btn pc-btn--dark" href="index.html#calc">Получить консультацию <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></a></div></div></section>
+        </section>
+
+        <section class="concept-panel concept-report" id="concept-report" role="tabpanel" aria-labelledby="tab-report" data-concept-panel="report" hidden>
+            <div class="report-hero">
+                <div class="container report-hero__grid"><div class="report-hero__copy"><p class="pc-kicker"><span></span> Инженерный фотоархив</p><h1>Работа видна<br><em>в деталях</em></h1><p>Последовательный фотоотчёт: общий план, узлы и элементы системы. Подписи говорят только о том, что действительно видно в кадре.</p><a class="pc-text-link" href="#report-sequence">Смотреть последовательность <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></a></div><button class="report-hero__image" type="button" data-open-project="golubyatnikova" aria-label="Открыть фото проекта на улице Голубятникова"><img src="assets/portfolio/Казань, ул.Голубятникова/20240911_184138.webp" alt="Насосные группы и металлическая разводка в котельной"><span>Казань · ул. Голубятникова</span></button></div>
+            </div>
+            <section class="report-sequence pc-section" id="report-sequence"><div class="container"><div class="report-sequence__intro"><div><p class="pc-kicker"><span></span> Объект 01</p><h2>Котельная на улице Голубятникова</h2></div><p>Два напольных котла, насосные группы и распределение отопительных контуров.</p></div><div class="report-frames"><figure class="report-frame report-frame--wide"><button type="button" data-open-project="golubyatnikova" data-photo-index="0"><img src="assets/portfolio/Казань, ул.Голубятникова/20240911_184138.webp" alt="Фронтальный вид насосных групп"></button><figcaption><span>01 / Общий узел</span><p>Насосные группы и металлическая трубная разводка.</p></figcaption></figure><figure class="report-frame report-frame--portrait"><button type="button" data-open-project="golubyatnikova" data-photo-index="1"><img src="assets/portfolio/Казань, ул.Голубятникова/20240911_184252.webp" alt="Напольные котлы в техническом помещении"></button><figcaption><span>02 / Оборудование</span><p>Два напольных котла в готовом техническом помещении.</p></figcaption></figure><figure class="report-frame report-frame--detail"><button type="button" data-open-project="golubyatnikova" data-photo-index="2"><img src="assets/portfolio/Казань, ул.Голубятникова/20240911_184511.webp" alt="Распределительные узлы отопительных контуров"></button><figcaption><span>03 / Распределение</span><p>Коллекторы и подключение отдельных отопительных контуров.</p></figcaption></figure></div></div></section>
+            <section class="report-ledger pc-section"><div class="container"><div class="pc-section-heading pc-section-heading--row"><div><p class="pc-kicker"><span></span> Журнал объектов</p><h2>Остальные фотоотчёты</h2></div><p>Каждая строка ведёт в отдельную галерею проекта.</p></div><div class="report-list" data-project-list="report"></div><div class="pc-more-wrap"><button class="pc-btn pc-btn--outline" type="button" data-show-more="report">Показать ещё <span data-remaining-count></span></button></div></div></section>
+            <section class="pc-contact pc-contact--report"><div class="container pc-contact__inner"><p>Нужен такой же понятный результат?</p><h2>Обсудим вашу систему<br>без лишних обещаний.</h2><a class="pc-btn pc-btn--accent" href="index.html#calc">Получить консультацию <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></a></div></section>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-main"><div class="container footer-flex"><div class="footer-brand"><div class="logo-main">Тепло<span>Рем</span>Сервис</div><p class="footer-desc">Отопление, котельные и сервис в Казани и пригороде.</p></div><div class="footer-links"><div class="nav-col"><h4>Услуги</h4><a href="services.html">Расчёт и подбор</a><a href="services.html">Монтаж котельных</a><a href="services.html">Автоматика</a><a href="services.html">Сервис котлов</a><a href="portfolio.html">Портфолио</a></div></div><div class="footer-contacts-clean"><h4>Связаться с нами</h4><a href="tel:+79376254703" class="footer-phone">+7 (937) 625-47-03</a><a href="mailto:info@teplorem.ru" class="footer-mail">info@teplorem.ru</a><a href="https://t.me/teplorem" class="footer-tg-link" target="_blank" rel="noopener noreferrer">Написать в Telegram</a></div></div></div>
+        <div class="footer-legal"><div class="container footer-legal-inner"><p class="footer-legal-copy">© 2026 ООО «ТеплоРемСервис». Все права защищены.</p><p class="footer-legal-reqs">ИНН: 1661071059 | ОГРН: 1211600075642</p><a href="privacy.html" class="footer-legal-link">Политика конфиденциальности</a></div></div>
+    </footer>
+
+    <div class="pc-modal" id="project-gallery" role="dialog" aria-modal="true" aria-labelledby="gallery-title" hidden>
+        <div class="pc-modal__backdrop" data-gallery-close></div>
+        <div class="pc-modal__dialog">
+            <header class="pc-modal__header"><div><p id="gallery-location"></p><h2 id="gallery-title"></h2></div><button type="button" class="pc-modal__close" data-gallery-close aria-label="Закрыть галерею"><svg aria-hidden="true"><use href="#icon-close"></use></svg></button></header>
+            <div class="pc-modal__stage"><div class="pc-modal__placeholder" id="gallery-placeholder" hidden><span>Фотографии появятся здесь</span><p>Работы завершены. Фотографии объекта добавим позже.</p></div><img id="gallery-image" alt="" hidden><button type="button" class="pc-modal__nav pc-modal__nav--prev" data-gallery-prev aria-label="Предыдущее фото"><svg aria-hidden="true"><use href="#icon-chevron-left"></use></svg></button><button type="button" class="pc-modal__nav pc-modal__nav--next" data-gallery-next aria-label="Следующее фото"><svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg></button></div>
+            <footer class="pc-modal__footer"><p id="gallery-caption"></p><span id="gallery-counter"></span></footer>
+        </div>
+    </div>
+
+    <script defer src="js/core/common.js?v=20260817-1635"></script>
+    <script defer src="js/pages/portfolio-concepts.js?v=20260827-1"></script>
+</body>
+</html>

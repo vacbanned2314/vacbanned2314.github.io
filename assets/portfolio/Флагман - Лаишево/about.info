@@ -1,0 +1,38 @@
+format = "portfolio-about-v1"
+status = "confirmed-no-photos"
+source_folder = "Флагман - Лаишево"
+review_basis = "Подтверждённые сведения заказчика; фотографий проекта пока нет"
+
+[public]
+title = "Монтаж котельного оборудования и автоматики в Лаишево"
+location = "Лаишево"
+location_basis = "Подтверждено заказчиком; улица пока не указана"
+
+[visual]
+summary = "Работы завершены. Фотографии объекта добавим позже."
+card_text = "Полный монтаж котельного оборудования с установкой автоматики."
+visible_equipment = []
+visible_brands = []
+
+[classification]
+confirmed_by_photos = []
+confirmed_by_customer = [
+  "монтаж котельной",
+  "автоматика"
+]
+requires_text_confirmation = []
+
+[limits]
+not_determined_from_photos = [
+  "состав установленного оборудования",
+  "бренды",
+  "модели и мощность оборудования",
+  "площадь объекта",
+  "результат эксплуатации",
+  "улица",
+  "точный адрес",
+  "данные заказчика"
+]
+before_after_pair = false
+photo_placeholder = "Работы завершены. Фотографии объекта добавим позже."
+
