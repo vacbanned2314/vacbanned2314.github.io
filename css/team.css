@@ -29,24 +29,6 @@ body.team-page .ambient-bg {
     align-items: center;
 }
 
-.team-breadcrumbs {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 2.5rem;
-    color: var(--text-dim);
-    font-size: var(--fs-12);
-}
-
-.team-breadcrumbs a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.team-breadcrumbs a:hover {
-    color: var(--accent);
-}
-
 .team-kicker {
     margin: 0 0 0.75rem;
     color: var(--accent);
@@ -133,8 +115,7 @@ body.team-page .ambient-bg {
 }
 
 .team-action:focus-visible,
-.team-text-link:focus-visible,
-.team-breadcrumbs a:focus-visible {
+.team-text-link:focus-visible {
     outline: 2px solid var(--focus-ring);
     outline-offset: 3px;
 }
@@ -777,10 +758,6 @@ body.team-page main > section:not(.team-hero)::before {
     .team-hero {
         padding-top: calc(var(--header-offset) + 2.5rem);
         padding-bottom: 4rem;
-    }
-
-    .team-breadcrumbs {
-        margin-bottom: 2rem;
     }
 
     .team-hero h1 {

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Услуги ТеплоРемСервис: предварительный расчёт, подбор оборудования, монтаж, автоматика и обслуживание систем отопления в Казани.">
+    <meta property="og:title" content="Услуги и цены | ТеплоРемСервис">
+    <meta property="og:description" content="Расчёт, подбор оборудования, монтаж и сервис систем отопления. Предварительный прайс и консультация инженера.">
+    <meta property="og:image" content="assets/images/og-cover.svg">
+    <meta property="og:type" content="website">
+    <title>Услуги и цены | ТеплоРемСервис</title>
+    <script>
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+    </script>
+    <link rel="stylesheet" href="css/main.css?v=20260817-1635">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-logo-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+    <symbol id="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" fill="currentColor"/><path d="M12 2V4M12 20V22M4 12H2M22 12H20M19.071 19.071l-1.414-1.414M6.343 6.343 4.929 4.929M19.071 4.929l-1.414 1.414M6.343 17.657l-1.414 1.414" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+</svg>
+
+<div class="ambient-bg"></div>
+<button type="button" class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true" tabindex="-1"></button>
+<header class="pill-header">
+    <div class="header-wrap">
+        <a href="index.html" class="logo-box"><svg class="logo-icon" width="36" height="36" viewBox="0 0 24 24"><use href="#icon-logo-flame"></use></svg><div class="logo-text-wrap"><div class="logo-main">Тепло<span>Рем</span>Сервис</div><div class="logo-sub">Инженерная группа</div></div></a>
+        <nav class="nav-links" id="main-nav" aria-label="Основная навигация">
+            <a href="team.html">Наша команда</a><a href="services.html" class="nav-active">Услуги</a><a href="portfolio.html">Портфолио</a><a href="licenses.html">Допуски</a><a href="faq.html">FAQ</a><a href="index.html#trust">Отзывы</a>
+            <div class="mobile-nav-contacts"><a href="tel:+79376254703" class="mobile-nav-phone">+7 937 625-47-03</a><a href="https://t.me/teplorem" class="mobile-nav-tg" target="_blank" rel="noopener noreferrer">Telegram</a></div>
+            <a href="index.html#calc" class="mobile-cta">Получить расчёт</a>
+        </nav>
+        <div class="contact-box"><a href="tel:+79376254703" class="phone-link">+7 937 625-47-03</a><a href="https://t.me/teplorem" class="btn-ghost" target="_blank" rel="noopener noreferrer">Telegram</a><button type="button" id="theme-toggle" class="theme-toggle" aria-label="Переключить тему" aria-pressed="true"><svg class="icon-sun" viewBox="0 0 24 24"><use href="#icon-sun"></use></svg><svg class="icon-moon" viewBox="0 0 24 24"><use href="#icon-moon"></use></svg></button><button type="button" class="burger-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button></div>
+    </div>
+</header>
+
+<main class="services-page">
+    <section class="services-hero">
+        <div class="container services-hero__grid">
+            <div class="services-hero__content scroll-reveal">
+                <a href="index.html" class="page-breadcrumb">← На главную</a>
+                <h1 class="services-hero__title">Ваши инвестиции в комфорт</h1>
+                <p>От первого расчёта до сезонного обслуживания. Подбираем решение, монтируем и берём на сервис системы отопления для частных домов. Согласуем состав работ до начала монтажа и остаёмся на связи после запуска.</p>
+                <div class="services-hero__actions"><a href="#price" class="btn-glow">Смотреть прайс <svg width="18" height="18" viewBox="0 0 24 24"><use href="#icon-arrow"></use></svg></a><a href="index.html#calc" class="btn-outline">Оставить заявку</a></div>
+            </div>
+            <aside class="services-hero__brief scroll-reveal" aria-label="Что происходит перед началом работ">
+                <h2>Сначала понимаем<br>ваш объект.</h2>
+                <ol>
+                    <li><span>01</span><div><strong>Осматриваем</strong><p>Учитываем планировку, мощности и ограничения.</p></div></li>
+                    <li><span>02</span><div><strong>Собираем решение</strong><p>Подбираем оборудование и объясняем смету.</p></div></li>
+                    <li><span>03</span><div><strong>Фиксируем план</strong><p>Согласуем сроки и состав работ до старта.</p></div></li>
+                </ol>
+                <p class="services-hero__brief-note">Один инженер ведёт задачу от первого звонка до запуска системы.</p>
+            </aside>
+        </div>
+    </section>
+
+    <section class="services-overview container" aria-labelledby="directions-title">
+        <div class="services-section-heading section-header scroll-reveal"><h2 class="section-title" id="directions-title">Всё для надёжной<br>инженерной системы</h2></div>
+        <div class="service-directions">
+            <article class="service-direction scroll-reveal"><span class="service-direction__number">01</span><h3>Расчёт и подбор</h3><p>Осматриваем объект, предварительно рассчитываем систему, подбираем оборудование и готовим спецификацию.</p><a href="#price" data-price-filter="design">В прайс <svg width="18" height="18" viewBox="0 0 24 24"><use href="#icon-arrow"></use></svg></a></article>
+            <article class="service-direction scroll-reveal"><span class="service-direction__number">02</span><h3>Монтаж и запуск</h3><p>Собираем котельные, отопление и водоснабжение. Проверяем систему под нагрузкой.</p><a href="#price" data-price-filter="install">В прайс <svg width="18" height="18" viewBox="0 0 24 24"><use href="#icon-arrow"></use></svg></a></article>
+            <article class="service-direction scroll-reveal"><span class="service-direction__number">03</span><h3>Автоматика</h3><p>Настраиваем управление климатом и контроль оборудования со смартфона.</p><a href="#price" data-price-filter="automation">В прайс <svg width="18" height="18" viewBox="0 0 24 24"><use href="#icon-arrow"></use></svg></a></article>
+            <article class="service-direction scroll-reveal"><span class="service-direction__number">04</span><h3>Сервис</h3><p>Проводим обслуживание, диагностику и ремонт, чтобы оборудование работало спокойно.</p><a href="#price" data-price-filter="service">В прайс <svg width="18" height="18" viewBox="0 0 24 24"><use href="#icon-arrow"></use></svg></a></article>
+        </div>
+    </section>
+
+    <section class="price-section" id="price" aria-labelledby="price-title">
+        <div class="container">
+            <div class="price-intro section-header scroll-reveal"><div><h2 class="section-title" id="price-title">Прайс-курант</h2></div><p class="section-subtitle">Цены предварительные и будут уточняться после осмотра объекта. Материалы и оборудование рассчитываются отдельно.</p></div>
+            <div class="price-filter scroll-reveal" role="tablist" aria-label="Категории услуг"><button class="is-active" type="button" role="tab" aria-selected="true" data-filter="all">Все услуги</button><button type="button" role="tab" aria-selected="false" data-filter="design">Расчёт и подбор</button><button type="button" role="tab" aria-selected="false" data-filter="install">Монтаж</button><button type="button" role="tab" aria-selected="false" data-filter="automation">Автоматика</button><button type="button" role="tab" aria-selected="false" data-filter="service">Сервис</button></div>
+            <div class="price-list" aria-live="polite">
+                <article class="price-row scroll-reveal" data-category="design"><div class="price-row__index">01</div><div><h3>Выезд инженера и первичная консультация</h3><p>Осмотр объекта, обсуждение задачи, предварительные рекомендации.</p></div><strong>от 3 000 ₽</strong></article>
+                <article class="price-row scroll-reveal" data-category="design"><div class="price-row__index">02</div><div><h3>Расчёт и подбор котельной</h3><p>Предварительный расчёт, подбор оборудования и спецификация для частного дома.</p></div><strong>от 18 000 ₽</strong></article>
+                <article class="price-row scroll-reveal" data-category="install"><div class="price-row__index">03</div><div><h3>Монтаж настенного котла</h3><p>Установка, подключение к контурам и проверка основных узлов.</p></div><strong>от 25 000 ₽</strong></article>
+                <article class="price-row scroll-reveal" data-category="install"><div class="price-row__index">04</div><div><h3>Монтаж системы отопления</h3><p>Монтаж трубопроводов, коллекторов, радиаторов и тёплого пола по согласованному решению.</p></div><strong>от 1 800 ₽/м²</strong></article>
+                <article class="price-row scroll-reveal" data-category="automation"><div class="price-row__index">05</div><div><h3>Установка автоматики ZONT / MyHeat</h3><p>Подключение, настройка сценариев и передача доступа владельцу.</p></div><strong>от 12 000 ₽</strong></article>
+                <article class="price-row scroll-reveal" data-category="service"><div class="price-row__index">06</div><div><h3>Техническое обслуживание котла</h3><p>Чистка, диагностика, проверка безопасности и рабочих параметров.</p></div><strong>от 6 500 ₽</strong></article>
+                <article class="price-row scroll-reveal" data-category="service"><div class="price-row__index">07</div><div><h3>Аварийный выезд и диагностика</h3><p>Поиск неисправности, рекомендации по ремонту и оценка сроков.</p></div><strong>от 4 500 ₽</strong></article>
+            </div>
+            <p class="price-note scroll-reveal">Прайс демонстрационный: замените позиции и цены на актуальные перед публикацией.</p>
+        </div>
+    </section>
+
+    <section class="service-cta container" aria-label="Консультация по услугам"><div class="licenses-cta scroll-reveal"><div class="licenses-cta-text"><h2>Нужна консультация по услугам?</h2><p>Подскажем, с чего начать, и сориентируем по срокам и составу работ для вашего объекта.</p></div><a href="index.html#calc" class="btn-glow">Оставить заявку</a></div></section>
+</main>
+
+<footer class="main-footer"><div class="footer-main"><div class="container footer-flex scroll-reveal"><div class="footer-brand"><div class="logo-main">Тепло<span>Рем</span>Сервис</div><p class="footer-desc">Отопление, котельные, автоматика и сервис в Казани и пригороде.</p></div><div class="footer-links"><div class="nav-col"><h4>Услуги</h4><a href="services.html">Расчёт и подбор</a><a href="services.html">Монтаж котельных</a><a href="services.html">Автоматика</a><a href="services.html">Сервис котлов</a><a href="portfolio.html">Портфолио</a></div></div><div class="footer-contacts-clean"><h4>Связаться с нами</h4><a href="tel:+79376254703" class="footer-phone">+7 (937) 625-47-03</a><a href="mailto:info@teplorem.ru" class="footer-mail">info@teplorem.ru</a><a href="https://t.me/teplorem" class="footer-tg-link" target="_blank" rel="noopener noreferrer">Написать в Telegram</a></div></div></div><div class="footer-legal"><div class="container footer-legal-inner scroll-reveal"><p class="footer-legal-copy">© 2026 ООО «ТеплоРемСервис». Все права защищены.</p><p class="footer-legal-reqs">ИНН: 1661071059 | ОГРН: 1211600075642</p><a href="privacy.html" class="footer-legal-link">Политика конфиденциальности</a></div></div></footer>
+<script defer src="js/core/common.js?v=20260817-1635"></script><script defer src="js/pages/services.js?v=20260817-1635"></script>
+</body>
+</html>

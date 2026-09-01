@@ -1,27 +1,33 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Официальные допуски и сертификаты ТеплоРемСервис — регистрация ВДГО/ВКГО, авторизованный сервис Vaillant, Protherm, Baxi, De Dietrich, ITALTHERM.">
+    <meta name="description" content="Допуски и сервисные документы ТеплоРемСервис: регистрация ВДГО/ВКГО и сертификаты сервисных центров в Казани.">
     <meta property="og:title" content="Допуски и сертификаты | ТеплоРемСервис">
-    <meta property="og:description" content="Официальные допуски и сертификаты ТеплоРемСервис — регистрация ВДГО/ВКГО, авторизованный сервис Vaillant, Protherm, Baxi, De Dietrich, ITALTHERM.">
+    <meta property="og:description" content="Оригиналы документов, сроки действия и сведения об организациях, указанных в сертификатах.">
     <meta property="og:image" content="assets/images/og-cover.svg">
     <meta property="og:type" content="website">
     <title>Допуски и сертификаты | ТеплоРемСервис</title>
-
     <script>
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.documentElement.setAttribute('data-theme', savedTheme);
     </script>
-
-    <link rel="stylesheet" href="css/main.css?v=20260817-1635">
+    <link rel="stylesheet" href="css/variables.css?v=20260817-1635">
+    <link rel="stylesheet" href="css/base.css?v=20260825-font-1">
+    <link rel="stylesheet" href="css/components.css?v=20260817-1635">
+    <link rel="stylesheet" href="css/animations.css?v=20260817-1635">
+    <link rel="stylesheet" href="css/mobile.css?v=20260817-1635">
+    <link rel="stylesheet" href="css/design-system.css?v=20260825-font-1">
+    <link rel="stylesheet" href="css/about-route.css?v=20260825-about-scope-2">
+    <link rel="stylesheet" href="css/home-atmosphere.css?v=20260826-soft-seams-2">
+    <link rel="stylesheet" href="css/home-boiler.css?v=20260826-mobile-services-11">
+    <link rel="stylesheet" href="css/licenses.css?v=20260831-fresh-1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="licenses-page-body">
-
+<body class="home-page permit-page">
 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
 <symbol id="icon-logo-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
@@ -91,7 +97,6 @@
     <path d="M18 6L6 18M6 6l12 12"/>
   </symbol>
 </svg>
-
     <div class="ambient-bg"></div>
 
     <button type="button" class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true" tabindex="-1"></button>
@@ -100,7 +105,7 @@
         <div class="header-wrap">
             <a href="index.html" class="logo-box">
                 <svg class="logo-icon" width="36" height="36" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-logo-flame"></use></svg>
-                <div class="logo-text-wrap">        
+                <div class="logo-text-wrap">
                     <div class="logo-main">Тепло<span>Рем</span>Сервис</div>
                     <div class="logo-sub">Инженерная группа</div>
                 </div>
@@ -137,220 +142,132 @@
             </div>
         </div>
     </header>
+    <main class="permit-main">
+        <section class="hero permit-hero" aria-labelledby="permit-title">
+            <div class="container hero-grid">
+                <div class="hero-text-block">
+                    <p class="permit-kicker">Допуски и сертификаты · Казань</p>
+                    <h1 class="hero-title permit-hero__title" id="permit-title">
+                        <span class="line-wrap"><span>Допуски</span></span>
+                        <span class="line-wrap"><span>и сервисные</span></span>
+                        <span class="line-wrap"><span class="accent-text">документы</span></span>
+                    </h1>
+                    <p class="hero-lead">Здесь собраны оригиналы документов, точные сроки и сведения об организациях, указанных в сертификатах.</p>
+                    <div class="hero-actions-group">
+                        <a href="#licenses" class="btn-glow hero-action--vertical-primary">
+                            <span class="btn-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"><use href="#icon-file-text"></use></svg></span>
+                            <span class="btn-content">Посмотреть документы</span>
+                        </a>
+                        <div class="hero-action-underlinks">
+                            <a href="index.html#calc" class="btn-outline hero-action--inline">
+                                <span class="btn-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"><use href="#icon-wrench"></use></svg></span>
+                                <span class="btn-content">Получить консультацию</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-    <section class="licenses-hero">
-        <div class="container licenses-hero__grid">
-            <div class="licenses-hero__content scroll-reveal">
-                <a href="index.html" class="page-breadcrumb">← На главную</a>
-                <h1 class="page-title">Допуски и <span class="accent-text">сертификаты</span></h1>
-                <p class="page-lead">Работаем с газовым оборудованием легально и сохраняем заводскую гарантию на котлы ведущих брендов.</p>
-                <a href="#documents" class="btn-outline licenses-hero__link">Смотреть документы</a>
+                <div class="hero-decor-block permit-hero__document" aria-label="Главный документ страницы">
+                    <div class="hero-decor-glow" aria-hidden="true"></div>
+                    <div class="hero-decor-grid" aria-hidden="true"></div>
+                    <article class="permit-feature" data-permit-document data-src="assets/docs/goszhilinspektsiya-vdgo.webp" data-title="Регистрация ВДГО и ВКГО" data-meta="Госжилинспекция РТ · письмо № 06-22/1285 от 12.02.2021">
+                        <div class="permit-feature__head">
+                            <span class="permit-status"><i aria-hidden="true"></i> Действует</span>
+                            <span>Госжилинспекция РТ</span>
+                        </div>
+                        <h2>Регистрация ВДГО и ВКГО</h2>
+                        <button type="button" class="permit-document-button permit-feature__preview" aria-label="Открыть письмо Госжилинспекции РТ">
+                            <img src="assets/docs/goszhilinspektsiya-vdgo.webp" alt="Письмо Госжилинспекции РТ о регистрации уведомления ВДГО и ВКГО" width="742" height="1024" decoding="async">
+                            <span><svg aria-hidden="true"><use href="#icon-zoom-in"></use></svg> Открыть оригинал</span>
+                        </button>
+                        <dl class="permit-feature__meta">
+                            <div><dt>Уведомление</dt><dd>№ 1800</dd></div>
+                            <div><dt>Оформлено на</dt><dd>ИП Минсалимов Р. Ф.</dd></div>
+                        </dl>
+                    </article>
+                </div>
             </div>
+        </section>
 
-            <aside class="licenses-hero__registry scroll-reveal" aria-label="Подтверждённые статусы компании">
-                <div class="licenses-hero__registry-head">
-                    <span class="licenses-hero__registry-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-shield-check"></use></svg>
-                    </span>
-                    <div>
-                        <strong>Подтверждено документами</strong>
-                        <span>Актуальные статусы и сервисные полномочия</span>
-                    </div>
-                </div>
+        <section class="permit-continuity" aria-labelledby="permit-continuity-title">
+            <div class="container permit-continuity__grid scroll-reveal">
+                <p class="section-kicker">Документы ИП и текущая работа ООО</p>
+                <h2 id="permit-continuity-title">Практика работы началась в 2018 году в статусе ИП</h2>
+                <p>Сейчас деятельность ведёт ООО «ТеплоРемСервис». Часть сервисных документов оформлена на прежний статус — ИП Минсалимова Рунара Фаритовича.</p>
+            </div>
+        </section>
 
-                <dl class="licenses-hero__facts">
-                    <div>
-                        <dt>Госрегистрация</dt>
-                        <dd>ВДГО / ВКГО</dd>
-                    </div>
-                    <div>
-                        <dt>Авторизации</dt>
-                        <dd>5 брендов</dd>
-                    </div>
-                    <div>
-                        <dt>Статус сервиса</dt>
-                        <dd>Класс C</dd>
-                    </div>
-                </dl>
-
-                <div class="license-legal-notice">
-                    <p><strong>ООО «ТеплоРемСервис»</strong> в прошлом было <strong>ИП Минсалимов</strong> — юридически это одна и та же компания. Документы выданы на ИП Минсалимов Р.Ф., г. Казань.</p>
-                </div>
-            </aside>
-        </div>
-    </section>
-
-    <main>
-        <section class="licenses-page section-padding" id="documents" aria-labelledby="licenses-directory-title">
+        <section class="permit-directory" id="licenses" aria-labelledby="permit-directory-title">
             <div class="container">
-                <div class="licenses-directory-head scroll-reveal">
+                <header class="permit-directory__head scroll-reveal">
                     <div>
-                        <h2 id="licenses-directory-title">Реестр документов</h2>
-                        <p>Откройте любой документ, чтобы рассмотреть оригинал и реквизиты.</p>
+                        <p class="section-kicker">Оригиналы и реквизиты</p>
+                        <h2 id="permit-directory-title">Сервисные документы по брендам</h2>
                     </div>
-                    <span class="licenses-directory-count">6 документов</span>
+                    <p>Срок указан отдельно для каждого документа. Класс C относится только к Vaillant и Protherm.</p>
+                </header>
+
+                <div class="permit-list">
+                    <article class="permit-row permit-row--primary-mobile" data-permit-document data-src="assets/docs/goszhilinspektsiya-vdgo.webp" data-title="Регистрация ВДГО и ВКГО" data-meta="Госжилинспекция РТ · письмо № 06-22/1285 от 12.02.2021">
+                        <button type="button" class="permit-document-button permit-row__preview" aria-label="Открыть письмо Госжилинспекции РТ"><img src="assets/docs/goszhilinspektsiya-vdgo.webp" alt="Письмо Госжилинспекции РТ" width="742" height="1024" loading="lazy" decoding="async"><span><svg aria-hidden="true"><use href="#icon-zoom-in"></use></svg></span></button>
+                        <div class="permit-row__identity"><strong>ВДГО / ВКГО</strong><h3>Регистрация уведомления № 1800</h3></div>
+                        <dl class="permit-row__details"><div><dt>Оформлено на</dt><dd>ИП Минсалимов Р. Ф.</dd></div><div><dt>Организация</dt><dd>Госжилинспекция РТ</dd></div></dl>
+                        <div class="permit-row__term"><span>Статус</span><strong>Действует</strong></div>
+                        <button type="button" class="permit-row__open" aria-label="Открыть письмо Госжилинспекции РТ"><svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg></button>
+                    </article>
+
+                    <article class="permit-row scroll-reveal" data-permit-document data-src="assets/docs/vaillant.webp" data-title="Vaillant · сервисный центр класса C" data-meta="ООО «ВГР» · действует до 04.07.2028">
+                        <button type="button" class="permit-document-button permit-row__preview permit-row__preview--landscape" aria-label="Открыть сертификат Vaillant"><img src="assets/docs/vaillant.webp" alt="Сертификат сервисного центра Vaillant" width="1024" height="708" loading="lazy" decoding="async"><span><svg aria-hidden="true"><use href="#icon-zoom-in"></use></svg></span></button>
+                        <div class="permit-row__identity"><strong>Vaillant</strong><h3>Сервисный центр класса C</h3></div>
+                        <dl class="permit-row__details"><div><dt>Оформлено на</dt><dd>ИП Минсалимов Р. Ф.</dd></div><div><dt>Организация</dt><dd>ООО «ВГР»</dd></div></dl>
+                        <div class="permit-row__term"><span>Действует до</span><strong>04.07.2028</strong></div>
+                        <button type="button" class="permit-row__open" aria-label="Открыть сертификат Vaillant"><svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg></button>
+                    </article>
+
+                    <article class="permit-row scroll-reveal" data-permit-document data-src="assets/docs/protherm.webp" data-title="Protherm · сервисный центр класса C" data-meta="ООО «ВГР» · действует до 04.07.2028">
+                        <button type="button" class="permit-document-button permit-row__preview permit-row__preview--landscape" aria-label="Открыть сертификат Protherm"><img src="assets/docs/protherm.webp" alt="Сертификат сервисного центра Protherm" width="1024" height="708" loading="lazy" decoding="async"><span><svg aria-hidden="true"><use href="#icon-zoom-in"></use></svg></span></button>
+                        <div class="permit-row__identity"><strong>Protherm</strong><h3>Сервисный центр класса C</h3></div>
+                        <dl class="permit-row__details"><div><dt>Оформлено на</dt><dd>ИП Минсалимов Р. Ф.</dd></div><div><dt>Организация</dt><dd>ООО «ВГР»</dd></div></dl>
+                        <div class="permit-row__term"><span>Действует до</span><strong>04.07.2028</strong></div>
+                        <button type="button" class="permit-row__open" aria-label="Открыть сертификат Protherm"><svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg></button>
+                    </article>
+
+                    <article class="permit-row scroll-reveal" data-permit-document data-src="assets/docs/baxi.webp" data-title="BAXI · авторизованный сервисный партнёр" data-meta="BDR Thermea Group · действует до 31.12.2026">
+                        <button type="button" class="permit-document-button permit-row__preview" aria-label="Открыть сертификат BAXI"><img src="assets/docs/baxi.webp" alt="Сертификат авторизованного сервисного партнёра BAXI" width="724" height="1024" loading="lazy" decoding="async"><span><svg aria-hidden="true"><use href="#icon-zoom-in"></use></svg></span></button>
+                        <div class="permit-row__identity"><strong>BAXI</strong><h3>Авторизованный сервисный партнёр</h3></div>
+                        <dl class="permit-row__details"><div><dt>Оформлено на</dt><dd>ИП Минсалимов Р. Ф.</dd></div><div><dt>Организация</dt><dd>BDR Thermea Group</dd></div></dl>
+                        <div class="permit-row__term"><span>Действует до</span><strong>31.12.2026</strong></div>
+                        <button type="button" class="permit-row__open" aria-label="Открыть сертификат BAXI"><svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg></button>
+                    </article>
+
+                    <article class="permit-row scroll-reveal" data-permit-document data-src="assets/docs/de-dietrich.webp" data-title="De Dietrich · авторизованный сервисный центр" data-meta="De Dietrich · действует до 26.10.2027">
+                        <button type="button" class="permit-document-button permit-row__preview" aria-label="Открыть сертификат De Dietrich"><img src="assets/docs/de-dietrich.webp" alt="Сертификат авторизованного сервисного центра De Dietrich" width="724" height="1024" loading="lazy" decoding="async"><span><svg aria-hidden="true"><use href="#icon-zoom-in"></use></svg></span></button>
+                        <div class="permit-row__identity"><strong>De Dietrich</strong><h3>Авторизованный сервисный центр</h3></div>
+                        <dl class="permit-row__details"><div><dt>Оформлено на</dt><dd>ИП Минсалимов Р. Ф.</dd></div><div><dt>Организация</dt><dd>De Dietrich</dd></div></dl>
+                        <div class="permit-row__term"><span>Действует до</span><strong>26.10.2027</strong></div>
+                        <button type="button" class="permit-row__open" aria-label="Открыть сертификат De Dietrich"><svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg></button>
+                    </article>
+
+                    <article class="permit-row scroll-reveal" data-permit-document data-src="assets/docs/italtherm.webp" data-title="ITALTHERM · авторизованный сервисный центр" data-meta="В документе указано ООО «Тёплый Рим» как эксклюзивный представитель · действует">
+                        <button type="button" class="permit-document-button permit-row__preview" aria-label="Открыть сертификат ITALTHERM"><img src="assets/docs/italtherm.webp" alt="Сертификат авторизованного сервисного центра ITALTHERM" width="725" height="1024" loading="lazy" decoding="async"><span><svg aria-hidden="true"><use href="#icon-zoom-in"></use></svg></span></button>
+                        <div class="permit-row__identity"><strong>ITALTHERM</strong><h3>Авторизованный сервисный центр</h3></div>
+                        <dl class="permit-row__details"><div><dt>Оформлено на</dt><dd>ИП Минсалимов Р. Ф.</dd></div><div><dt>В документе указано</dt><dd>ООО «Тёплый Рим» — эксклюзивный представитель</dd></div></dl>
+                        <div class="permit-row__term"><span>Статус</span><strong>Действует</strong></div>
+                        <button type="button" class="permit-row__open" aria-label="Открыть сертификат ITALTHERM"><svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg></button>
+                    </article>
                 </div>
+            </div>
+        </section>
 
-                <div class="license-category scroll-reveal">
-                    <div class="license-grid">
-                        <article class="license-card scroll-reveal" data-lightbox="assets/docs/goszhilinspektsiya-vdgo.webp" data-caption="Госжилинспекция РТ — регистрация ВДГО/ВКГО, № 06-22/1285 от 12.02.2021">
-                            <button type="button" class="license-preview" aria-label="Открыть документ Госжилинспекции">
-                                <div class="doc-shelf doc-shelf--card">
-                                    <div class="doc-paper">
-                                        <img src="assets/docs/goszhilinspektsiya-vdgo.webp" alt="Письмо Госжилинспекции РТ о регистрации ВДГО и ВКГО" loading="lazy" decoding="async">
-                                    </div>
-                                </div>
-                                <span class="license-zoom">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-zoom-in"></use></svg>
-                                </span>
-                            </button>
-                            <div class="license-body">
-                                <div class="license-tags">
-                                    <span class="license-tag license-tag--gov">Госжилинспекция РТ</span>
-                                    <span class="license-tag license-tag--active">Действует</span>
-                                </div>
-                                <h3 class="license-name">Регистрация ВДГО и ВКГО</h3>
-                                <p class="license-desc">Уведомление № 1800 зарегистрировано в реестре. ТО, ремонт и диагностика внутридомового и внутриквартирного газового оборудования (412-ФЗ).</p>
-                                <dl class="license-meta">
-                                    <div><dt>Кому выдан</dt><dd>ИП Минсалимов</dd></div>
-                                    <div><dt>Кем выдан</dt><dd>Госжилинспекция РТ</dd></div>
-                                </dl>
-                            </div>
-                        </article>
-
-                        <article class="license-card scroll-reveal" data-lightbox="assets/docs/vaillant.webp" data-caption="Сертификат Vaillant класса C — действителен до 04.07.2028">
-                            <button type="button" class="license-preview" aria-label="Открыть сертификат Vaillant">
-                                <div class="doc-shelf doc-shelf--card">
-                                    <div class="doc-paper">
-                                        <img src="assets/docs/vaillant.webp" alt="Сертификат авторизованного сервисного центра Vaillant" loading="lazy" decoding="async">
-                                    </div>
-                                </div>
-                                <span class="license-zoom">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-zoom-in"></use></svg>
-                                </span>
-                            </button>
-                            <div class="license-body">
-                                <div class="license-tags">
-                                    <span class="license-tag">Vaillant</span>
-                                    <span class="license-tag license-tag--active">до 04.07.2028</span>
-                                </div>
-                                <h3 class="license-name">Сервисный центр класса C</h3>
-                                <p class="license-desc">Официальный сервисный центр ООО «ВГР». Право на работу с оборудованием торговых марок Vaillant и VGR на территории РФ.</p>
-                                <dl class="license-meta">
-                                    <div><dt>Кому выдан</dt><dd>ИП Минсалимов</dd></div>
-                                    <div><dt>Кем выдан</dt><dd>ООО «ВГР»</dd></div>
-                                </dl>
-                            </div>
-                        </article>
-
-                        <article class="license-card scroll-reveal" data-lightbox="assets/docs/protherm.webp" data-caption="Сертификат Protherm класса C — действителен до 04.07.2028">
-                            <button type="button" class="license-preview" aria-label="Открыть сертификат Protherm">
-                                <div class="doc-shelf doc-shelf--card">
-                                    <div class="doc-paper">
-                                        <img src="assets/docs/protherm.webp" alt="Сертификат авторизованного сервисного центра Protherm" loading="lazy" decoding="async">
-                                    </div>
-                                </div>
-                                <span class="license-zoom">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-zoom-in"></use></svg>
-                                </span>
-                            </button>
-                            <div class="license-body">
-                                <div class="license-tags">
-                                    <span class="license-tag">Protherm</span>
-                                    <span class="license-tag license-tag--active">до 04.07.2028</span>
-                                </div>
-                                <h3 class="license-name">Сервисный центр класса C</h3>
-                                <p class="license-desc">Официальный сервисный центр ООО «ВГР». Право на работу с оборудованием торговых марок Protherm и VGR на территории РФ.</p>
-                                <dl class="license-meta">
-                                    <div><dt>Кому выдан</dt><dd>ИП Минсалимов</dd></div>
-                                    <div><dt>Кем выдан</dt><dd>ООО «ВГР»</dd></div>
-                                </dl>
-                            </div>
-                        </article>
-
-                        <article class="license-card scroll-reveal" data-lightbox="assets/docs/baxi.webp" data-caption="Сертификат BAXI — действителен до 31.12.2026">
-                            <button type="button" class="license-preview" aria-label="Открыть сертификат BAXI">
-                                <div class="doc-shelf doc-shelf--card">
-                                    <div class="doc-paper">
-                                        <img src="assets/docs/baxi.webp" alt="Сертификат авторизованного сервисного партнёра BAXI" loading="lazy" decoding="async">
-                                    </div>
-                                </div>
-                                <span class="license-zoom">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-zoom-in"></use></svg>
-                                </span>
-                            </button>
-                            <div class="license-body">
-                                <div class="license-tags">
-                                    <span class="license-tag">BAXI</span>
-                                    <span class="license-tag license-tag--active">до 31.12.2026</span>
-                                </div>
-                                <h3 class="license-name">Авторизованный сервисный партнёр</h3>
-                                <p class="license-desc">Право на техническое обслуживание и ремонт оборудования BAXI в соответствии с условиями договора на территории г. Казани.</p>
-                                <dl class="license-meta">
-                                    <div><dt>Кому выдан</dt><dd>ИП Минсалимов</dd></div>
-                                    <div><dt>Кем выдан</dt><dd>BDR Thermea Group</dd></div>
-                                </dl>
-                            </div>
-                        </article>
-
-                        <article class="license-card scroll-reveal" data-lightbox="assets/docs/de-dietrich.webp" data-caption="Сертификат De Dietrich — действителен до 26.10.2027">
-                            <button type="button" class="license-preview" aria-label="Открыть сертификат De Dietrich">
-                                <div class="doc-shelf doc-shelf--card">
-                                    <div class="doc-paper">
-                                        <img src="assets/docs/de-dietrich.webp" alt="Сертификат авторизованного сервисного центра De Dietrich" loading="lazy" decoding="async">
-                                    </div>
-                                </div>
-                                <span class="license-zoom">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-zoom-in"></use></svg>
-                                </span>
-                            </button>
-                            <div class="license-body">
-                                <div class="license-tags">
-                                    <span class="license-tag">De Dietrich</span>
-                                    <span class="license-tag license-tag--active">до 26.10.2027</span>
-                                </div>
-                                <h3 class="license-name">Авторизованный сервисный центр</h3>
-                                <p class="license-desc">Право на монтаж, пусконаладку, сервисное и гарантийное обслуживание отопительного оборудования De Dietrich.</p>
-                                <dl class="license-meta">
-                                    <div><dt>Кому выдан</dt><dd>ИП Минсалимов</dd></div>
-                                    <div><dt>Кем выдан</dt><dd>De Dietrich</dd></div>
-                                </dl>
-                            </div>
-                        </article>
-
-                        <article class="license-card scroll-reveal" data-lightbox="assets/docs/italtherm.webp" data-caption="Сертификат ITALTHERM — авторизованный сервисный центр">
-                            <button type="button" class="license-preview" aria-label="Открыть сертификат ITALTHERM">
-                                <div class="doc-shelf doc-shelf--card">
-                                    <div class="doc-paper">
-                                        <img src="assets/docs/italtherm.webp" alt="Сертификат авторизованного сервисного центра ITALTHERM" loading="lazy" decoding="async">
-                                    </div>
-                                </div>
-                                <span class="license-zoom">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-zoom-in"></use></svg>
-                                </span>
-                            </button>
-                            <div class="license-body">
-                                <div class="license-tags">
-                                    <span class="license-tag">ITALTHERM</span>
-                                    <span class="license-tag license-tag--active">Действует</span>
-                                </div>
-                                <h3 class="license-name">Авторизованный сервисный центр</h3>
-                                <p class="license-desc">Официальный статус сервисного центра газового оборудования ITALTHERM. Эксклюзивный представитель — ООО «Тёплый Рим».</p>
-                                <dl class="license-meta">
-                                    <div><dt>Кому выдан</dt><dd>ИП Минсалимов</dd></div>
-                                    <div><dt>Кем выдан</dt><dd>ООО «Тёплый Рим»</dd></div>
-                                </dl>
-                            </div>
-                        </article>
+        <section class="permit-cta">
+            <div class="container">
+                <div class="permit-cta__inner scroll-reveal">
+                    <div>
+                        <p class="section-kicker">Связаться с инженером</p>
+                        <h2>Остались вопросы?</h2>
+                        <p>Позвоните — объясним, какой документ относится к вашему оборудованию, и развеем сомнения перед началом работ.</p>
                     </div>
-                </div>
-
-                <div class="licenses-cta scroll-reveal">
-                    <div class="licenses-cta-text">
-                        <h2>Нужна консультация по допускам?</h2>
-                        <p>Пришлём копии документов или ответим на вопросы заказчика и управляющей компании.</p>
-                    </div>
-                    <a href="index.html#calc" class="btn-glow">Оставить заявку</a>
+                    <a href="tel:+79376254703" class="btn-glow">Позвонить инженеру</a>
                 </div>
             </div>
         </section>
@@ -361,17 +278,18 @@
             <div class="container footer-flex scroll-reveal">
                 <div class="footer-brand">
                     <div class="logo-main">Тепло<span>Рем</span>Сервис</div>
-                    <p class="footer-desc">Премиальные инженерные системы под ключ. Работаем в Казани и пригороде.</p>
+                    <p class="footer-desc">Отопление, котельные и сервис в Казани и пригороде.</p>
                 </div>
 
                 <div class="footer-links">
                     <div class="nav-col">
                         <h4>Услуги</h4>
-                        <a href="services.html">Расчёт и подбор</a>
-                        <a href="index.html#services">Монтаж котельных</a>
-                        <a href="index.html#services">Автоматика</a>
+                        <a href="#services">Расчёт и подбор</a>
+                        <a href="#services">Монтаж котельных</a>
+                        <a href="#services">Автоматика</a>
+                        <a href="#services">Сервис котлов</a>
                         <a href="portfolio.html">Портфолио</a>
-                        <a href="licenses.html">Допуски и сертификаты</a>
+                        <a href="licenses.html">Допуски</a>
                         <a href="team.html">Наша команда</a>
                         <a href="faq.html">FAQ</a>
                     </div>
@@ -395,18 +313,16 @@
         </div>
     </footer>
 
-    <div class="lightbox" id="lightbox" hidden>
-        <div class="lightbox-backdrop" data-close-lightbox></div>
-        <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Просмотр документа">
-            <button type="button" class="lightbox-close" aria-label="Закрыть" data-close-lightbox>
-                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-close"></use></svg>
-            </button>
-            <img class="lightbox-img" src="" alt="">
-            <p class="lightbox-caption"></p>
+    <div class="permit-lightbox" id="permit-lightbox" hidden>
+        <div class="permit-lightbox__backdrop" data-permit-close></div>
+        <div class="permit-lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="permit-lightbox-title" aria-describedby="permit-lightbox-meta">
+            <button type="button" class="permit-lightbox__close" data-permit-close aria-label="Закрыть просмотр документа"><svg aria-hidden="true"><use href="#icon-close"></use></svg></button>
+            <img class="permit-lightbox__image" src="" alt="">
+            <div class="permit-lightbox__caption"><strong id="permit-lightbox-title"></strong><span id="permit-lightbox-meta"></span></div>
         </div>
     </div>
 
     <script defer src="js/core/common.js?v=20260817-1635"></script>
-    <script defer src="js/pages/licenses.js?v=20260817-1635"></script>
+    <script defer src="js/pages/licenses.js?v=20260831-fresh-1"></script>
 </body>
 </html>
