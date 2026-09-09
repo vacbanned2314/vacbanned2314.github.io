@@ -49,20 +49,12 @@
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.documentElement.setAttribute('data-theme', savedTheme);
     </script>
-    <link rel="stylesheet" href="css/variables.css?v=20260817-1635">
-    <link rel="stylesheet" href="css/base.css?v=20260825-font-1">
-    <link rel="stylesheet" href="css/components.css?v=20260817-1635">
-    <link rel="stylesheet" href="css/animations.css?v=20260817-1635">
-    <link rel="stylesheet" href="css/mobile.css?v=20260817-1635">
-    <link rel="stylesheet" href="css/design-system.css?v=20260825-font-1">
-    <link rel="stylesheet" href="css/home-atmosphere.css?v=20260827-team-palette-1">
-    <link rel="stylesheet" href="css/home-boiler.css?v=20260827-team-palette-1">
-    <link rel="stylesheet" href="css/team.css?v=20260827-team-palette-1">
+    <link rel="stylesheet" href="css/site.css?v=20260908-3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="team-page">
+<body class="team-page site-background">
     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
         <symbol id="icon-logo-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
@@ -113,7 +105,7 @@
         </div>
     </header>
     <main>
-        <section class="team-hero" aria-labelledby="team-title">
+        <section class="team-hero site-grid-surface" aria-labelledby="team-title">
             <div class="container team-hero__grid">
                 <div class="team-hero__copy">
                     <p class="team-kicker">Наша команда · Казань</p>
@@ -149,7 +141,7 @@
                 </div>
             </div>
         </section>
-        <section class="team-route section-padding" aria-labelledby="route-title">
+        <section class="team-route site-grid-surface" aria-labelledby="route-title">
             <div class="container team-route__grid scroll-reveal">
                 <header class="team-section-intro">
                     <p class="team-kicker">Как мы работаем</p>
@@ -180,7 +172,7 @@
                 </ol>
             </div>
         </section>
-        <section class="team-people section-padding" aria-labelledby="people-title">
+        <section class="team-people site-grid-surface" aria-labelledby="people-title">
             <div class="container">
                 <header class="team-section-heading scroll-reveal">
                     <p class="team-kicker">Люди на объекте</p>
@@ -225,36 +217,31 @@
                 </article>
             </div>
         </section>
-        <section class="team-evidence section-padding" aria-labelledby="evidence-title">
+        <section class="team-evidence site-grid-surface" aria-labelledby="evidence-title">
             <div class="container">
                 <header class="team-section-heading scroll-reveal">
-                    <p class="team-kicker">Документы и автоматика</p><h2 id="evidence-title">То, что можно проверить</h2>
-                    <p>Документы вынесены в отдельный раздел, а автоматику показываем на реальном объекте.</p>
+                    <p class="team-kicker">Квалификация подтверждена</p><h2 id="evidence-title">Документы, допуски и сертификаты</h2>
+                    <p>В отдельном разделе собрали документы, по которым можно проверить квалификацию компании и специалистов.</p>
                 </header>
-                <div class="team-evidence__grid">
-                    <article class="team-evidence-card scroll-reveal">
-                        <a class="team-evidence-card__media team-evidence-card__media--document" href="licenses.html" aria-label="Посмотреть допуски и сертификаты"><img src="assets/docs/goszhilinspektsiya-vdgo.webp" alt="Документ о регистрации ВДГО и ВКГО" loading="lazy" decoding="async"></a>
-                        <div class="team-evidence-card__copy">
-                            <p class="team-kicker">Официальная работа</p><h3>Допуски и сертификаты</h3>
-                            <p>У нас есть регистрация ВДГО/ВКГО, дипломы, сертификаты и документы по обслуживаемым брендам. Здесь показываем один документ, остальные собраны в отдельном разделе.</p>
-                            <a href="licenses.html" class="team-text-link">Посмотреть документы <span aria-hidden="true">→</span></a>
-                        </div>
-                    </article>
-                    <article class="team-evidence-card scroll-reveal">
-                        <figure class="team-evidence-card__media">
-                            <img src="assets/portfolio/Автоматизация системы отопления и водоснабжения дома ZONT/20241023_112451.webp" alt="Контроллер ZONT в электрическом щите на объекте" loading="lazy" decoding="async">
-                            <figcaption>Автоматика ZONT на одном из наших объектов</figcaption>
-                        </figure>
-                        <div class="team-evidence-card__copy">
-                            <p class="team-kicker">Автоматика</p><h3>ZONT и MyHeat</h3>
-                            <p>Устанавливаем и настраиваем управление отоплением. После запуска показываем владельцу, как пользоваться системой со смартфона и что именно она контролирует.</p>
-                            <a href="portfolio.html" class="team-text-link">Посмотреть объект <span aria-hidden="true">→</span></a>
-                        </div>
-                    </article>
-                </div>
+                <article class="team-evidence__panel scroll-reveal">
+                    <a class="team-evidence__media" href="licenses.html" aria-label="Посмотреть допуски и сертификаты">
+                        <img src="assets/docs/goszhilinspektsiya-vdgo.webp" alt="Документ о регистрации ВДГО и ВКГО" loading="lazy" decoding="async">
+                    </a>
+                    <div class="team-evidence__copy">
+                        <p class="team-kicker">Официальная работа</p>
+                        <h3>Допуски и сертификаты</h3>
+                        <p>Регистрация ВДГО/ВКГО, дипломы специалистов и документы по обслуживаемым брендам собраны в отдельном разделе.</p>
+                        <ul class="team-evidence__tags" aria-label="Виды документов">
+                            <li>ВДГО / ВКГО</li>
+                            <li>Дипломы</li>
+                            <li>Сертификаты</li>
+                        </ul>
+                    </div>
+                    <a href="licenses.html" class="team-evidence__action">Посмотреть документы <span aria-hidden="true">→</span></a>
+                </article>
             </div>
         </section>
-        <section class="team-work section-padding" aria-labelledby="work-title">
+        <section class="team-work site-grid-surface" aria-labelledby="work-title">
             <div class="container">
                 <article class="team-work__panel scroll-reveal">
                     <div class="team-work__copy">
@@ -266,7 +253,7 @@
                 </article>
             </div>
         </section>
-        <section class="team-contact section-padding" aria-labelledby="contact-title">
+        <section class="team-contact site-grid-surface" aria-labelledby="contact-title">
             <div class="container">
                 <div class="team-contact__panel scroll-reveal">
                     <div class="team-contact__intro">

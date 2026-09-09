@@ -1,0 +1,31 @@
+/*
+ * ТеплоРемСервис — единая точка входа для стилей публичного сайта.
+ * Порядок слоёв зафиксирован здесь, чтобы страницы не собирали собственный
+ * каскад из разных наборов файлов.
+ */
+
+/* Основа и общие компоненты */
+@import url("variables.css?v=20260908-1");
+@import url("base.css?v=20260908-1");
+@import url("components.css?v=20260908-1");
+@import url("boiler-widget.css?v=20260908-1");
+@import url("animations.css?v=20260908-1");
+@import url("mobile.css?v=20260908-1");
+@import url("design-system.css?v=20260908-1");
+
+/* Общая визуальная среда */
+@import url("about-route.css?v=20260908-1");
+@import url("home-atmosphere.css?v=20260908-1");
+@import url("home-boiler.css?v=20260908-1");
+
+/* Структура отдельных разделов. Все селекторы ограничены классом страницы. */
+@import url("services-variants.css?v=20260908-1");
+@import url("portfolio-concepts.css?v=20260908-1");
+@import url("licenses.css?v=20260908-1");
+
+/* Финальный общий контракт и утверждённые страницы */
+@import url("unified-components.css?v=20260908-1");
+@import url("site-background.css?v=20260908-1");
+@import url("portfolio-unified.css?v=20260908-1");
+@import url("team.css?v=20260908-3");
+@import url("design-preview.css?v=20260908-1");

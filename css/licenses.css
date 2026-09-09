@@ -167,6 +167,77 @@
     line-height: 1.35;
 }
 
+/* Главный документ — витрина одного оригинала, без второй карточки вокруг него. */
+.permit-feature--document {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    gap: 0;
+    overflow: visible;
+    border: 0;
+    border-radius: inherit;
+    background: transparent;
+    padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.permit-feature--document .permit-feature__document-head,
+.permit-feature--document .permit-feature__document-foot {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    color: var(--text-dim);
+    font-size: var(--fs-12);
+}
+
+.permit-feature--document .permit-feature__document-head {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line-soft);
+}
+
+.permit-feature--document .permit-feature__preview {
+    display: grid;
+    min-height: 0;
+    padding: 0;
+    place-items: center;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+
+.permit-feature--document .permit-feature__preview img {
+    width: min(76%, 15.5rem);
+    max-width: 100%;
+    height: auto;
+    max-height: calc(100% - 2rem);
+    padding: 0.35rem;
+    box-shadow: var(--doc-paper-shadow);
+}
+
+.permit-feature--document .permit-feature__open {
+    min-height: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--text-dim);
+    font-size: var(--fs-12);
+    font-weight: var(--font-weight-semibold);
+}
+
+.permit-feature--document .permit-feature__open:hover {
+    color: var(--text-pure);
+    background: transparent;
+}
+
+.permit-feature--document .permit-feature__open svg {
+    width: 0.9rem;
+    height: 0.9rem;
+}
+
+.permit-feature--document .permit-feature__document-foot {
+    padding-top: 1rem;
+    border-top: 1px solid var(--line-soft);
+}
+
 .permit-continuity {
     background: var(--home-zone-b);
     border-block: 1px solid var(--line-soft);
@@ -495,6 +566,20 @@
 }
 
 @media (max-width: 768px) {
+    .permit-feature--document {
+        padding: 1rem;
+    }
+
+    .permit-feature--document .permit-feature__document-head,
+    .permit-feature--document .permit-feature__document-foot {
+        gap: 0.75rem;
+        font-size: var(--fs-11);
+    }
+
+    .permit-feature--document .permit-feature__open {
+        font-size: var(--fs-11);
+    }
+
     .permit-row--primary-mobile {
         display: grid;
     }

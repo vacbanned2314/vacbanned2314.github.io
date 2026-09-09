@@ -1,10 +1,2 @@
-@import url("variables.css?v=20260817-1635");
-@import url("base.css?v=20260825-font-1");
-@import url("components.css?v=20260817-1635");
-@import url("boiler-widget.css?v=20260820-boiler-9");
-@import url("animations.css?v=20260817-1635");
-@import url("mobile.css?v=20260817-1635");
-@import url("design-system.css?v=20260825-font-1");
-@import url("about-route.css?v=20260825-about-scope-2");
-@import url("home-atmosphere.css?v=20260826-soft-seams-2");
-@import url("home-boiler.css?v=20260825-light-blocks-5");
+/* Обратная совместимость для архивных страниц. Новая единая точка — site.css. */
+@import url("site.css?v=20260908-1");

@@ -13,16 +13,7 @@
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.documentElement.setAttribute('data-theme', savedTheme);
     </script>
-    <link rel="stylesheet" href="css/variables.css?v=20260817-1635">
-    <link rel="stylesheet" href="css/base.css?v=20260825-font-1">
-    <link rel="stylesheet" href="css/components.css?v=20260817-1635">
-    <link rel="stylesheet" href="css/animations.css?v=20260817-1635">
-    <link rel="stylesheet" href="css/mobile.css?v=20260817-1635">
-    <link rel="stylesheet" href="css/design-system.css?v=20260825-font-1">
-    <link rel="stylesheet" href="css/about-route.css?v=20260825-about-scope-2">
-    <link rel="stylesheet" href="css/home-atmosphere.css?v=20260826-soft-seams-2">
-    <link rel="stylesheet" href="css/home-boiler.css?v=20260826-mobile-services-11">
-    <link rel="stylesheet" href="css/licenses.css?v=20260831-fresh-1">
+    <link rel="stylesheet" href="css/site.css?v=20260908-1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -170,20 +161,20 @@
                 <div class="hero-decor-block permit-hero__document" aria-label="Главный документ страницы">
                     <div class="hero-decor-glow" aria-hidden="true"></div>
                     <div class="hero-decor-grid" aria-hidden="true"></div>
-                    <article class="permit-feature" data-permit-document data-src="assets/docs/goszhilinspektsiya-vdgo.webp" data-title="Регистрация ВДГО и ВКГО" data-meta="Госжилинспекция РТ · письмо № 06-22/1285 от 12.02.2021">
-                        <div class="permit-feature__head">
+                    <article class="permit-feature permit-feature--document" data-permit-document data-src="assets/docs/goszhilinspektsiya-vdgo.webp" data-title="Регистрация ВДГО и ВКГО" data-meta="Госжилинспекция РТ · письмо № 06-22/1285 от 12.02.2021">
+                        <div class="permit-feature__document-head">
                             <span class="permit-status"><i aria-hidden="true"></i> Действует</span>
-                            <span>Госжилинспекция РТ</span>
+                            <span>Регистрация ВДГО / ВКГО</span>
                         </div>
-                        <h2>Регистрация ВДГО и ВКГО</h2>
                         <button type="button" class="permit-document-button permit-feature__preview" aria-label="Открыть письмо Госжилинспекции РТ">
                             <img src="assets/docs/goszhilinspektsiya-vdgo.webp" alt="Письмо Госжилинспекции РТ о регистрации уведомления ВДГО и ВКГО" width="742" height="1024" decoding="async">
-                            <span><svg aria-hidden="true"><use href="#icon-zoom-in"></use></svg> Открыть оригинал</span>
                         </button>
-                        <dl class="permit-feature__meta">
-                            <div><dt>Уведомление</dt><dd>№ 1800</dd></div>
-                            <div><dt>Оформлено на</dt><dd>ИП Минсалимов Р. Ф.</dd></div>
-                        </dl>
+                        <div class="permit-feature__document-foot">
+                            <span>Госжилинспекция РТ · № 1800</span>
+                            <button type="button" class="permit-document-button permit-feature__open" aria-label="Открыть оригинал письма Госжилинспекции РТ">
+                                <svg aria-hidden="true"><use href="#icon-zoom-in"></use></svg> Открыть оригинал
+                            </button>
+                        </div>
                     </article>
                 </div>
             </div>

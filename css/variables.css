@@ -1,4 +1,6 @@
 :root {
+    --brand-accent: #e88731;
+    --brand-accent-rgb: 232, 135, 49;
 
     --font-sans: 'Golos Text', system-ui, -apple-system, sans-serif;
     --font-weight-body: 400;
@@ -14,26 +16,26 @@
 
     --bg-card: #302D29;
 
-    --accent: #FF6B00;
+    --accent: var(--brand-accent);
 
-    --accent-rgb: 255, 107, 0;
+    --accent-rgb: var(--brand-accent-rgb);
 
     --accent-action: var(--accent);
 
     --accent-action-hover: color-mix(in srgb, var(--accent) 84%, black);
 
-    --accent-action-rgb: 255, 107, 0;
+    --accent-action-rgb: var(--brand-accent-rgb);
 
     --focus-ring: var(--accent);
 
     --accent-secondary: var(--accent);
 
-    --accent-secondary-rgb: 255, 107, 0;
+    --accent-secondary-rgb: var(--brand-accent-rgb);
 
     /* Muted copper palette for the hero trust cards */
     --hero-stats-accent: var(--accent);
 
-    --hero-stats-accent-rgb: 255, 107, 0;
+    --hero-stats-accent-rgb: var(--brand-accent-rgb);
 
     --hero-stats-action: var(--accent);
 
@@ -202,6 +204,8 @@
 
 
 [data-theme="light"] {
+    --brand-accent: #b95720;
+    --brand-accent-rgb: 185, 87, 32;
 
     --bg-base: #F7F4EF;
 
@@ -209,23 +213,23 @@
 
     --bg-card: #EEE9E1;
 
-    --accent: #FF6B00;
+    --accent: var(--brand-accent);
 
-    --accent-rgb: 255, 107, 0;
+    --accent-rgb: var(--brand-accent-rgb);
 
-    --accent-secondary-rgb: 255, 107, 0;
+    --accent-secondary-rgb: var(--brand-accent-rgb);
 
     --accent-action: var(--accent);
 
     --accent-action-hover: color-mix(in srgb, var(--accent) 84%, black);
 
-    --accent-action-rgb: 255, 107, 0;
+    --accent-action-rgb: var(--brand-accent-rgb);
 
     --focus-ring: var(--accent);
 
     --hero-stats-accent: var(--accent);
 
-    --hero-stats-accent-rgb: 255, 107, 0;
+    --hero-stats-accent-rgb: var(--brand-accent-rgb);
 
     --hero-stats-action: var(--accent);
 

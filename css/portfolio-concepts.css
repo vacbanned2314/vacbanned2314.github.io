@@ -6,7 +6,7 @@ html { overflow-x: clip; }
     --home-zone-c: #141a1c;
     --home-grid-size: 4rem;
     --home-grid-line: rgba(193, 215, 219, 0.04);
-    --home-grid-major: rgba(240, 138, 36, 0.026);
+    --home-grid-major: rgba(var(--brand-accent-rgb), 0.026);
     --home-grain-dot: rgba(209, 226, 228, 0.016);
     --pc-ink: var(--text-pure);
     --pc-muted: var(--text-dim);
@@ -26,15 +26,15 @@ html { overflow-x: clip; }
     --bg-base: #151a1c;
     --bg-surface: #20292c;
     --bg-card: #2a3438;
-    --accent: #f08a24;
-    --accent-rgb: 240, 138, 36;
+    --accent: var(--brand-accent);
+    --accent-rgb: var(--brand-accent-rgb);
     --accent-action: var(--accent);
     --accent-action-hover: color-mix(in srgb, var(--accent) 84%, black);
-    --accent-action-rgb: 240, 138, 36;
+    --accent-action-rgb: var(--brand-accent-rgb);
     --text-pure: #f3f1ea;
     --text-dim: #9da8aa;
     --header-bg: rgba(28, 36, 39, 0.88);
-    --ambient-glow: rgba(240, 138, 36, 0.035);
+    --ambient-glow: rgba(var(--brand-accent-rgb), 0.035);
     --footer-bg: #0b0f10;
     --mobile-nav-bg: rgba(11, 15, 16, 0.98);
     --border-default: rgba(203, 222, 224, 0.12);
@@ -51,7 +51,7 @@ html { overflow-x: clip; }
     --home-zone-b: #f0ebe4;
     --home-zone-c: #fbf8f3;
     --home-grid-line: rgba(35, 29, 22, 0.026);
-    --home-grid-major: rgba(255, 107, 0, 0.035);
+    --home-grid-major: rgba(var(--brand-accent-rgb), 0.035);
     --home-grain-dot: rgba(35, 29, 22, 0.032);
     --case-info-bg: #252d30;
 }

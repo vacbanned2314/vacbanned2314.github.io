@@ -7,10 +7,10 @@ body:is(.home-page, .team-page, .portfolio-live-page) {
     --home-zone-c: #141a1c;
     --home-grid-size: 4rem;
     --home-grid-line: rgba(193, 215, 219, 0.04);
-    --home-grid-major: rgba(240, 138, 36, 0.026);
+    --home-grid-major: rgba(var(--brand-accent-rgb), 0.026);
     --home-grain-dot: rgba(209, 226, 228, 0.016);
     --home-zone-edge: rgba(203, 222, 224, 0.045);
-    --home-pipe-line: rgba(240, 138, 36, 0.22);
+    --home-pipe-line: rgba(var(--brand-accent-rgb), 0.22);
     --home-seam-color: var(--home-zone-a);
     --home-seam-upper-opacity: 78%;
     --home-seam-upper-stop: 4.5rem;
@@ -25,15 +25,15 @@ body:is(.home-page, .team-page, .portfolio-live-page) {
     --bg-surface: #20292c;
     --bg-card: #2a3438;
 
-    --accent: #f08a24;
-    --accent-rgb: 240, 138, 36;
+    --accent: var(--brand-accent);
+    --accent-rgb: var(--brand-accent-rgb);
     --accent-action: var(--accent);
     --accent-action-hover: color-mix(in srgb, var(--accent) 84%, black);
-    --accent-action-rgb: 240, 138, 36;
+    --accent-action-rgb: var(--brand-accent-rgb);
     --accent-secondary: var(--accent);
-    --accent-secondary-rgb: 240, 138, 36;
+    --accent-secondary-rgb: var(--brand-accent-rgb);
     --hero-stats-accent: var(--accent);
-    --hero-stats-accent-rgb: 240, 138, 36;
+    --hero-stats-accent-rgb: var(--brand-accent-rgb);
     --hero-stats-action: var(--accent);
 
     --text-pure: #f3f1ea;
@@ -63,7 +63,7 @@ body:is(.home-page, .team-page, .portfolio-live-page) {
     --home-zone-b: #f0ebe4;
     --home-zone-c: #fbf8f3;
     --home-grid-line: rgba(35, 29, 22, 0.026);
-    --home-grid-major: rgba(255, 107, 0, 0.035);
+    --home-grid-major: rgba(var(--brand-accent-rgb), 0.035);
     --home-grain-dot: rgba(35, 29, 22, 0.032);
     --home-zone-edge: rgba(35, 29, 22, 0.07);
     --home-pipe-line: rgba(214, 86, 0, 0.18);

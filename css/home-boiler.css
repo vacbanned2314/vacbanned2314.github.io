@@ -4,8 +4,8 @@
 
 body:is(.home-page, .team-page),
 [data-theme="dark"] body:is(.home-page, .team-page) {
-    --boiler-copper: #d27a43;
-    --boiler-copper-rgb: 210, 122, 67;
+    --boiler-copper: var(--brand-accent);
+    --boiler-copper-rgb: var(--brand-accent-rgb);
     --boiler-copper-hi: #e19a66;
     --boiler-copper-deep: #a95a32;
     --boiler-copper-ink: #e19a66;
@@ -71,8 +71,8 @@ body:is(.home-page, .team-page),
 }
 
 [data-theme="light"] body:is(.home-page, .team-page) {
-    --boiler-copper: #9f431d;
-    --boiler-copper-rgb: 159, 67, 29;
+    --boiler-copper: var(--brand-accent);
+    --boiler-copper-rgb: var(--brand-accent-rgb);
     --boiler-copper-hi: #b85a27;
     --boiler-copper-deep: #783018;
     --boiler-copper-ink: #783018;

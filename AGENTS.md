@@ -6,6 +6,10 @@
 - [frontend-design-principles](.agents/skills/frontend-design-principles/SKILL.md)
 - [design-md](.agents/skills/design-md/SKILL.md)
 
+## Quick Links
+
+- [Design Language](DESIGN.md)
+
 ## Правила работы над редизайном
 
 1. Перед существенными изменениями сначала изучай существующую страницу, компоненты, стили и связанные файлы.

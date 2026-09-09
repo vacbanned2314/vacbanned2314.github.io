@@ -7,15 +7,6 @@
 
     const projects = [
         {
-            id: 'laishevo-flagship',
-            title: 'Монтаж котельного оборудования и автоматики в Лаишево',
-            location: 'Лаишево',
-            card: 'Смонтировали котельное оборудование и подключили автоматику.',
-            categories: ['монтаж котельной', 'автоматика'],
-            gallery: [],
-            placeholder: true
-        },
-        {
             id: 'automation-zont',
             title: 'Автоматика отопления и водоснабжения',
             location: 'Адрес не публикуем',
@@ -23,11 +14,10 @@
             categories: ['отопительные контуры', 'автоматика'],
             gallery: [
                 asset('Автоматизация системы отопления и водоснабжения дома ZONT', '20241023_112915.webp', 0, 'Общий вид гидравлических модулей и щита управления.'),
-                asset('Автоматизация системы отопления и водоснабжения дома ZONT', '20241023_112850.webp', 0, 'Настенное оборудование нескольких контуров системы.'),
+                asset('Автоматизация системы отопления и водоснабжения дома ZONT', '20241023_112850.webp', 90, 'Настенное оборудование нескольких контуров системы.'),
                 asset('Автоматизация системы отопления и водоснабжения дома ZONT', '20241023_112451.webp', 0, 'Элементы установленного щита управления.'),
                 asset('Автоматизация системы отопления и водоснабжения дома ZONT', '20241023_112509.webp', 0, 'Подключения внутри блока автоматики.'),
-                asset('Автоматизация системы отопления и водоснабжения дома ZONT', '20241023_112859.webp', 0, 'Гидравлические модули и трубная разводка.'),
-                asset('Автоматизация системы отопления и водоснабжения дома ZONT', '20241023_112933.webp', 0, 'Завершающий кадр с инженером рядом с оборудованием.')
+                asset('Автоматизация системы отопления и водоснабжения дома ZONT', '20241023_112859.webp', 90, 'Гидравлические модули и трубная разводка.')
             ]
         },
         {
@@ -39,8 +29,7 @@
             gallery: [
                 asset('Ввод котлов в эксплуатацию - п. Мирный котельная Вайллант', '20221205_101825.webp', 90, 'Открытый котёл и панель во время пусконаладки.'),
                 asset('Ввод котлов в эксплуатацию - п. Мирный котельная Вайллант', '20221202_142309.webp', 90, 'Подключённое измерительное оборудование.'),
-                asset('Ввод котлов в эксплуатацию - п. Мирный котельная Вайллант', '20221202_142759.webp', 90, 'Проверка оборудования в техническом помещении.'),
-                asset('Ввод котлов в эксплуатацию - п. Мирный котельная Вайллант', '20221205_101833.webp', 90, 'Инженер у открытого котла после проверки узлов.')
+                asset('Ввод котлов в эксплуатацию - п. Мирный котельная Вайллант', '20221202_142759.webp', 90, 'Проверка оборудования в техническом помещении.')
             ]
         },
         {
@@ -70,8 +59,7 @@
                 asset('Казань, ул.Голубятникова', '20240911_184242.webp', 0, 'Общий вид котельного оборудования.'),
                 asset('Казань, ул.Голубятникова', '20240911_184412.webp', 0, 'Установленные насосные группы.'),
                 asset('Казань, ул.Голубятникова', '20240911_184428.webp', 0, 'Металлическая трубная обвязка.'),
-                asset('Казань, ул.Голубятникова', '20240911_184350.webp', 0, 'Фрагмент распределения контуров.'),
-                asset('Казань, ул.Голубятникова', '20240911_184716.webp', 90, 'Завершающий кадр с инженером в котельной.')
+                asset('Казань, ул.Голубятникова', '20240911_184350.webp', 0, 'Фрагмент распределения контуров.')
             ]
         },
         {
@@ -84,8 +72,7 @@
                 asset('Монтаж - Веденская Слобода', '20221207_120945.webp', 180, 'Общий вид котельной с тремя настенными котлами.'),
                 asset('Монтаж - Веденская Слобода', '20221207_120900.webp', 180, 'Медная трубная обвязка котельного оборудования.'),
                 asset('Монтаж - Веденская Слобода', '20221207_120954.webp', 180, 'Распределительные узлы отопления.'),
-                asset('Монтаж - Веденская Слобода', '20221207_121000.webp', 180, 'Настенные котлы и подключённые коммуникации.'),
-                asset('Монтаж - Веденская Слобода', '20240430_105633.webp', 0, 'Завершающий кадр с инженером на объекте.')
+                asset('Монтаж - Веденская Слобода', '20221207_121000.webp', 180, 'Настенные котлы и подключённые коммуникации.')
             ]
         },
         {
@@ -98,7 +85,7 @@
                 asset('Монтаж - Вороновка, Заказчик Эдуард', '20220811_140908.webp', 0, 'Фронтальный вид насосных групп и разводки.'),
                 asset('Монтаж - Вороновка, Заказчик Эдуард', '20220811_140936.webp', 0, 'Металлическая многоконтурная обвязка.'),
                 asset('Монтаж - Вороновка, Заказчик Эдуард', '20220811_140949.webp', 0, 'Насосные группы котельного узла.'),
-                asset('Монтаж - Вороновка, Заказчик Эдуард', '20220811_140858.webp', 90, 'Общий вид котельного оборудования.')
+                asset('Монтаж - Вороновка, Заказчик Эдуард', '20220811_140858.webp', 180, 'Общий вид котельного оборудования.')
             ]
         },
         {
@@ -152,8 +139,8 @@
             gallery: [
                 asset('Монтаж - Лаишево ул. Садовая', '20240506_182453.webp', 0, 'Фронтальный вид группы отопительных контуров.'),
                 asset('Монтаж - Лаишево ул. Садовая', '20240506_182418.webp', 0, 'Котельный агрегат и трубная обвязка.'),
-                asset('Монтаж - Лаишево ул. Садовая', '20240506_182410.webp', 0, 'Оборудование водоподготовки.'),
-                asset('Монтаж - Лаишево ул. Садовая', '20240506_182442.webp', 0, 'Распределительные гидравлические модули.'),
+                asset('Монтаж - Лаишево ул. Садовая', '20240506_182410.webp', 90, 'Оборудование водоподготовки.'),
+                asset('Монтаж - Лаишево ул. Садовая', '20240506_182442.webp', 90, 'Распределительные гидравлические модули.'),
                 asset('Монтаж - Лаишево ул. Садовая', '20240430_105747.webp', 0, 'Установленный настенный радиатор.')
             ]
         },
@@ -165,8 +152,6 @@
             categories: ['обслуживание и ремонт'],
             gallery: [
                 asset('Обслуживание конденсационного котла - Высокая гора', '20221013_150308.webp', 0, 'Открытый настенный котёл во время обслуживания.'),
-                asset('Обслуживание конденсационного котла - Высокая гора', '20221013_150321.webp', 0, 'Камера котла с видимыми отложениями.'),
-                asset('Обслуживание конденсационного котла - Высокая гора', '20221013_150334.webp', 0, 'Снятый узел котельного оборудования.'),
                 asset('Обслуживание конденсационного котла - Высокая гора', '20221013_151102.webp', 0, 'Общий план оборудования во время обслуживания.')
             ]
         },
@@ -177,8 +162,8 @@
             card: 'На монтажном этапе собрали насосные группы, коллектор и обвязку.',
             categories: ['монтаж котельной', 'отопительные контуры'],
             gallery: [
-                asset('пос.Сокуры ул.Дорожная', '20230913_152517.webp', 0, 'Насосные группы, коллектор и трубная разводка.'),
-                asset('пос.Сокуры ул.Дорожная', '20230913_152527.webp', 0, 'Котельный узел на монтажном этапе.')
+                asset('пос.Сокуры ул.Дорожная', '20230913_152517.webp', 90, 'Насосные группы, коллектор и трубная разводка.'),
+                asset('пос.Сокуры ул.Дорожная', '20230913_152527.webp', 90, 'Котельный узел на монтажном этапе.')
             ]
         },
         {
@@ -189,9 +174,9 @@
             categories: ['реконструкция', 'монтаж котельной', 'отопительные контуры'],
             gallery: [
                 asset('Реконструкция котельного узла - Щурячий', '20230121_151013.webp', 0, 'Четыре гидравлических модуля и металлическая обвязка.'),
-                asset('Реконструкция котельного узла - Щурячий', '20230121_150638.webp', 0, 'Накопительный бак и элементы котельного узла.'),
+                asset('Реконструкция котельного узла - Щурячий', '20230121_150638.webp', 90, 'Накопительный бак и элементы котельного узла.'),
                 asset('Реконструкция котельного узла - Щурячий', '20230121_150706.webp', 0, 'Распределительный коллектор отопительных контуров.'),
-                asset('Реконструкция котельного узла - Щурячий', '20230121_151049.webp', 0, 'Фильтр и изолированный вертикальный модуль.')
+                asset('Реконструкция котельного узла - Щурячий', '20230121_151049.webp', 90, 'Фильтр и изолированный вертикальный модуль.')
             ]
         },
         {
@@ -203,16 +188,33 @@
             gallery: [
                 asset('Техническое обслуживание конденсационных котлов в поселке Вороновка', '20221123_094812.webp', 0, 'Общий вид открытого напольного котла.'),
                 asset('Техническое обслуживание конденсационных котлов в поселке Вороновка', '20221123_094821.webp', 0, 'Камера котла с видимыми отложениями.'),
-                asset('Техническое обслуживание конденсационных котлов в поселке Вороновка', '20221123_100617.webp', 0, 'Снятые узлы котельного оборудования.'),
-                asset('Техническое обслуживание конденсационных котлов в поселке Вороновка', '20221123_111249.webp', 0, 'Измерительные приборы в ходе обслуживания.'),
+                asset('Техническое обслуживание конденсационных котлов в поселке Вороновка', '20221123_100617.webp', 90, 'Снятые узлы котельного оборудования.'),
+                asset('Техническое обслуживание конденсационных котлов в поселке Вороновка', '20221123_111249.webp', 90, 'Измерительные приборы в ходе обслуживания.'),
                 asset('Техническое обслуживание конденсационных котлов в поселке Вороновка', '20221123_163232.webp', 0, 'Крупный план детали с видимой коррозией.')
             ]
         }
     ];
 
+    const compactTitles = {
+        'automation-zont': 'Автоматика и гидромодули',
+        mirny: 'Пусконаладка котельной',
+        usady: 'Пусконаладка котельной',
+        golubyatnikova: 'Котельная с двумя котлами',
+        vedenskaya: 'Котельная и контуры отопления',
+        'voronovka-mount': 'Котельная и обвязка',
+        nagorny: 'Котельная и автоматика',
+        fedoseevskaya: 'Котельная с двумя котлами',
+        'laishevo-floor': 'Контуры тёплого пола',
+        sadovaya: 'Котельная и отопление',
+        'vysokaya-gora-service': 'Обслуживание котлов',
+        sokury: 'Котельный узел',
+        shuryachiy: 'Котельный узел',
+        'voronovka-service': 'Обслуживание котлов'
+    };
+
     const projectById = new Map(projects.map(project => [project.id, project]));
     const state = { case: { expanded: false }, tasks: { expanded: false, filter: 'all' }, report: { expanded: false } };
-    const limits = { case: 7, tasks: 6, report: 6 };
+    const limits = { case: 6, tasks: 6, report: 6 };
     const categories = ['all', 'монтаж котельной', 'отопительные контуры', 'обслуживание и ремонт', 'реконструкция', 'автоматика', 'ввод в эксплуатацию'];
     const labels = { all: 'Все проекты', 'монтаж котельной': 'Монтаж котельной', 'отопительные контуры': 'Отопительные контуры', 'обслуживание и ремонт': 'Обслуживание и ремонт', 'реконструкция': 'Реконструкция', 'автоматика': 'Автоматика', 'ввод в эксплуатацию': 'Ввод в эксплуатацию' };
 
@@ -226,7 +228,7 @@
         <button type="button" class="case-card" data-open-project="${project.id}">
             <span class="case-card__content">
                 <span class="case-card__meta"><span>${project.location}</span><span>${project.gallery.length ? `${project.gallery.length} фото` : 'Фото готовим'}</span></span>
-                <h3>${project.title}</h3><p>${project.card}</p>
+                <h3>${compactTitles[project.id] || project.title}</h3><p>${project.card}</p>
             </span>
             ${project.placeholder ? '<span class="case-card__placeholder" aria-hidden="true">LA</span>' : `<img src="${project.gallery[0].src}" alt="" loading="lazy" style="--image-rotation:${project.gallery[0].rotation}deg">`}
         </button>`;
@@ -338,6 +340,8 @@
     const modal = document.getElementById('project-gallery');
     const modalImage = document.getElementById('gallery-image');
     const modalPlaceholder = document.getElementById('gallery-placeholder');
+    const modalStage = modal?.querySelector('.pc-modal__stage');
+    const galleryThumbs = document.getElementById('gallery-thumbs');
     const modalPrev = modal?.querySelector('[data-gallery-prev]');
     const modalNext = modal?.querySelector('[data-gallery-next]');
 
@@ -357,6 +361,11 @@
         galleryReturnFocus = trigger || document.activeElement;
         document.getElementById('gallery-title').textContent = project.title;
         document.getElementById('gallery-location').textContent = project.location;
+        document.getElementById('gallery-summary').textContent = project.card;
+        galleryThumbs.innerHTML = project.gallery.map((photo, photoIndex) => `
+            <button type="button" class="pc-modal__thumb" data-gallery-index="${photoIndex}" aria-label="Открыть фото ${photoIndex + 1}">
+                <img src="${photo.src}" alt="" loading="lazy" style="--thumb-rotation:${photo.rotation}deg;--thumb-scale:${Math.abs(photo.rotation) % 180 === 90 ? 0.72 : 1}">
+            </button>`).join('');
         modal.hidden = false;
         document.body.classList.add('gallery-open');
         renderGallery();
@@ -371,18 +380,43 @@
         modalPrev.hidden = !hasPhotos || galleryProject.gallery.length < 2;
         modalNext.hidden = !hasPhotos || galleryProject.gallery.length < 2;
         if (!hasPhotos) {
+            modalStage.style.removeProperty('--gallery-backdrop');
+            galleryThumbs.hidden = true;
             document.getElementById('gallery-caption').textContent = galleryProject.card;
             document.getElementById('gallery-counter').textContent = 'Фото готовим';
             return;
         }
+        galleryThumbs.hidden = false;
         const photo = galleryProject.gallery[galleryIndex];
+        modalStage.style.setProperty('--gallery-backdrop', `url('${photo.src.replaceAll("'", '%27')}')`);
+        modalImage.onload = () => fitGalleryImage(photo);
         modalImage.src = photo.src;
         modalImage.alt = photo.caption;
-        modalImage.style.transform = `rotate(${photo.rotation}deg)`;
-        modalImage.style.maxWidth = Math.abs(photo.rotation) === 90 ? '78%' : '';
-        modalImage.style.maxHeight = Math.abs(photo.rotation) === 90 ? '78%' : '';
+        if (modalImage.complete) requestAnimationFrame(() => fitGalleryImage(photo));
         document.getElementById('gallery-caption').textContent = photo.caption;
-        document.getElementById('gallery-counter').textContent = `${galleryIndex + 1} / ${galleryProject.gallery.length}`;
+        document.getElementById('gallery-counter').textContent = `${String(galleryIndex + 1).padStart(2, '0')} / ${String(galleryProject.gallery.length).padStart(2, '0')}`;
+        galleryThumbs.querySelectorAll('[data-gallery-index]').forEach((button, index) => {
+            const active = index === galleryIndex;
+            button.classList.toggle('is-active', active);
+            if (active) button.setAttribute('aria-current', 'true');
+            else button.removeAttribute('aria-current');
+        });
+    }
+
+    function fitGalleryImage(photo) {
+        if (!modalStage || !modalImage.naturalWidth || !modalImage.naturalHeight) return;
+        const inset = window.innerWidth <= 768 ? 6 : 10;
+        const availableWidth = Math.max(1, modalStage.clientWidth - inset * 2);
+        const availableHeight = Math.max(1, modalStage.clientHeight - inset * 2);
+        const quarterTurn = Math.abs(photo.rotation) % 180 === 90;
+        const visualWidth = quarterTurn ? modalImage.naturalHeight : modalImage.naturalWidth;
+        const visualHeight = quarterTurn ? modalImage.naturalWidth : modalImage.naturalHeight;
+        const scale = Math.min(availableWidth / visualWidth, availableHeight / visualHeight);
+        modalImage.style.width = `${Math.floor(modalImage.naturalWidth * scale)}px`;
+        modalImage.style.height = `${Math.floor(modalImage.naturalHeight * scale)}px`;
+        modalImage.style.maxWidth = 'none';
+        modalImage.style.maxHeight = 'none';
+        modalImage.style.transform = `rotate(${photo.rotation}deg)`;
     }
 
     function closeGallery() {
@@ -390,6 +424,8 @@
         modal.hidden = true;
         document.body.classList.remove('gallery-open');
         modalImage.src = '';
+        modalStage.style.removeProperty('--gallery-backdrop');
+        galleryThumbs.innerHTML = '';
         galleryProject = null;
         galleryReturnFocus?.focus();
         galleryReturnFocus = null;
@@ -406,6 +442,15 @@
         modal.querySelectorAll('[data-gallery-close]').forEach(button => button.addEventListener('click', closeGallery));
         modalPrev.addEventListener('click', () => moveGallery(-1));
         modalNext.addEventListener('click', () => moveGallery(1));
+        galleryThumbs.addEventListener('click', event => {
+            const button = event.target.closest('[data-gallery-index]');
+            if (!button) return;
+            galleryIndex = Number(button.dataset.galleryIndex);
+            renderGallery();
+        });
+        window.addEventListener('resize', () => {
+            if (!modal.hidden && galleryProject?.gallery.length) fitGalleryImage(galleryProject.gallery[galleryIndex]);
+        });
         document.addEventListener('keydown', event => {
             if (modal.hidden) return;
             if (event.key === 'Escape') { event.preventDefault(); closeGallery(); return; }

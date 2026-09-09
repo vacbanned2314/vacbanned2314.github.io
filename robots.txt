@@ -3,8 +3,4 @@ Disallow: /admin/
 Disallow: /api/
 Allow: /
 
-<<<<<<< HEAD
 Sitemap: https://vacbanned2314.github.io/sitemap.xml
-=======
-Sitemap: https://vacbanned2314.github.io/sitemap.xml
->>>>>>> origin/main
