@@ -3,4 +3,4 @@ Disallow: /admin/
 Disallow: /api/
 Allow: /
 
-Sitemap: https://vacbanned2314.github.io/sitemap.xml
+Sitemap: https://xn--b1afaaqoiohmdkeb.xn--p1ai/sitemap.xml

@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         title.textContent = card.dataset.title || 'Документ';
         meta.textContent = card.dataset.meta || '';
         lightbox.hidden = false;
+        window.setModalBackgroundInert?.(lightbox, true);
 
         if (scrollbarWidth > 0) document.body.style.paddingRight = `${scrollbarWidth}px`;
         document.body.style.overflow = 'hidden';
@@ -37,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lightbox.hidden = true;
         image.removeAttribute('src');
         image.alt = '';
+        window.setModalBackgroundInert?.(lightbox, false);
         document.body.style.overflow = '';
         document.body.style.paddingRight = previousBodyPadding;
         lastTrigger?.focus();

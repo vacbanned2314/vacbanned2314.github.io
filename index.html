@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="dark">
+<html lang="ru" data-theme="dark" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ТеплоРемСервис — расчёт, монтаж и сервис систем отопления и котельных в Казани и пригороде.">
+    <link rel="canonical" href="https://xn--b1afaaqoiohmdkeb.xn--p1ai/">
     <meta property="og:title" content="ТеплоРемСервис | Отопление и котельные в Казани">
     <meta property="og:description" content="ТеплоРемСервис — расчёт, монтаж и сервис систем отопления и котельных в Казани и пригороде.">
-    <meta property="og:image" content="assets/images/og-cover.svg">
+    <meta property="og:image" content="https://xn--b1afaaqoiohmdkeb.xn--p1ai/assets/images/og-cover.png">
+    <meta property="og:url" content="https://xn--b1afaaqoiohmdkeb.xn--p1ai/">
     <meta property="og:type" content="website">
     <title>ТеплоРемСервис | Отопление и котельные в Казани</title>
     <script type="application/ld+json">
@@ -14,6 +16,7 @@
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "ООО ТеплоРемСервис",
+        "url": "https://xn--b1afaaqoiohmdkeb.xn--p1ai/",
         "telephone": "+79376254703",
         "email": "info@teplorem.ru",
         "address": {
@@ -35,19 +38,19 @@
     </script>
     
     <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.documentElement.setAttribute('data-theme', savedTheme);
     </script>
 
-    <link rel="stylesheet" href="css/site.css?v=20260908-1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/pages/home.css">
     
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-<body class="home-page">
+<body class="site-page home-page">
 
 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
 <symbol id="icon-logo-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -831,9 +834,6 @@
         </div>
     </footer>
 
-    <script>
-        window.TEPLOREM_API = window.TEPLOREM_API || 'http://localhost:3001';
-    </script>
     <script defer src="js/core/common.js?v=20260817-1635"></script>
     <script defer src="js/core/custom-select.js?v=20260817-1635"></script>
     <script defer src="js/components/form.js?v=20260817-1635"></script>

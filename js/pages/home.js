@@ -343,6 +343,7 @@ function initHomePortfolioPreview() {
         lightboxImage.alt = project.dataset.alt;
         lightboxCaption.textContent = project.dataset.title;
         lightbox.hidden = false;
+        window.setModalBackgroundInert?.(lightbox, true);
         document.body.style.overflow = 'hidden';
         lightbox.querySelector('.home-portfolio-lightbox-close')?.focus();
     };
@@ -351,6 +352,7 @@ function initHomePortfolioPreview() {
         if (!lightbox) return;
         lightbox.hidden = true;
         lightboxImage.removeAttribute('src');
+        window.setModalBackgroundInert?.(lightbox, false);
         document.body.style.overflow = '';
         lastFocus?.focus();
     };
@@ -391,7 +393,25 @@ function initHomePortfolioPreview() {
         if (Math.abs(diff) > 45) goTo(active + (diff > 0 ? 1 : -1));
     }, { passive: true });
     document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && lightbox && !lightbox.hidden) closeLightbox();
+        if (!lightbox || lightbox.hidden) return;
+        if (event.key === 'Escape') {
+            event.preventDefault();
+            closeLightbox();
+            return;
+        }
+        if (event.key !== 'Tab') return;
+
+        const focusable = window.getFocusableElements?.(lightbox) || [];
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+        }
     });
 
     render(active, false);

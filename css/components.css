@@ -4414,13 +4414,15 @@
 }
 
 .custom-select__option:hover,
-.custom-select__option:focus-visible {
+.custom-select__option:focus-visible,
+.custom-select__option.is-highlighted {
     background: rgba(255, 255, 255, 0.08);
     color: #ffffff;
 }
 
 [data-theme="light"] .custom-select__option:hover,
-[data-theme="light"] .custom-select__option:focus-visible {
+[data-theme="light"] .custom-select__option:focus-visible,
+[data-theme="light"] .custom-select__option.is-highlighted {
     background: rgba(var(--accent-rgb), 0.1);
     color: var(--text-pure);
 }

@@ -1,0 +1,3 @@
+/* Общие утверждённые компоненты и фон, применяемые после page-specific слоя. */
+@import url("unified-components.css");
+@import url("site-background.css");

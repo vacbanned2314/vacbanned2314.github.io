@@ -367,6 +367,7 @@
                 <img src="${photo.src}" alt="" loading="lazy" style="--thumb-rotation:${photo.rotation}deg;--thumb-scale:${Math.abs(photo.rotation) % 180 === 90 ? 0.72 : 1}">
             </button>`).join('');
         modal.hidden = false;
+        window.setModalBackgroundInert?.(modal, true);
         document.body.classList.add('gallery-open');
         renderGallery();
         requestAnimationFrame(() => modal.querySelector('[data-gallery-close]').focus());
@@ -422,6 +423,7 @@
     function closeGallery() {
         if (!modal || modal.hidden) return;
         modal.hidden = true;
+        window.setModalBackgroundInert?.(modal, false);
         document.body.classList.remove('gallery-open');
         modalImage.src = '';
         modalStage.style.removeProperty('--gallery-backdrop');

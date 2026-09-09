@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="dark">
+<html lang="ru" data-theme="dark" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Наша команда: Рунар, Алишер, Алексей, Ренат и Гузель. Монтаж, запуск, ремонт и обслуживание котельных в Казани и ближайших населённых пунктах.">
+    <link rel="canonical" href="https://xn--b1afaaqoiohmdkeb.xn--p1ai/team.html">
     <meta property="og:title" content="Наша команда | ТеплоРемСервис">
     <meta property="og:description" content="Кто принимает заявку, выезжает на объект, собирает котельную и остаётся на связи после запуска.">
-    <meta property="og:image" content="assets/images/og-cover.svg">
+    <meta property="og:image" content="https://xn--b1afaaqoiohmdkeb.xn--p1ai/assets/images/og-cover.png">
+    <meta property="og:url" content="https://xn--b1afaaqoiohmdkeb.xn--p1ai/team.html">
     <meta property="og:type" content="website">
     <title>Наша команда | ТеплоРемСервис, Казань</title>
     <script type="application/ld+json">
@@ -18,11 +20,13 @@
                 "name": "Наша команда",
                 "description": "Команда ТеплоРемСервис: монтаж, запуск, ремонт и обслуживание котельных в Казани и ближайших населённых пунктах.",
                 "inLanguage": "ru-RU",
-                "mainEntity": { "@id": "#organization" }
+                "url": "https://xn--b1afaaqoiohmdkeb.xn--p1ai/team.html",
+                "mainEntity": { "@id": "https://xn--b1afaaqoiohmdkeb.xn--p1ai/#organization" }
             },
             {
                 "@type": "Organization",
-                "@id": "#organization",
+                "@id": "https://xn--b1afaaqoiohmdkeb.xn--p1ai/#organization",
+                "url": "https://xn--b1afaaqoiohmdkeb.xn--p1ai/",
                 "name": "ТеплоРемСервис",
                 "legalName": "ООО «ТеплоРемСервис»",
                 "taxID": "1661071059",
@@ -38,23 +42,23 @@
             {
                 "@type": "BreadcrumbList",
                 "itemListElement": [
-                    { "@type": "ListItem", "position": 1, "name": "Главная", "item": "index.html" },
-                    { "@type": "ListItem", "position": 2, "name": "Наша команда", "item": "team.html" }
+                    { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://xn--b1afaaqoiohmdkeb.xn--p1ai/" },
+                    { "@type": "ListItem", "position": 2, "name": "Наша команда", "item": "https://xn--b1afaaqoiohmdkeb.xn--p1ai/team.html" }
                 ]
             }
         ]
     }
     </script>
     <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.documentElement.setAttribute('data-theme', savedTheme);
     </script>
-    <link rel="stylesheet" href="css/site.css?v=20260908-3">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/pages/team.css">
 </head>
-<body class="team-page site-background">
+<body class="site-page team-page site-background">
     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
         <symbol id="icon-logo-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>

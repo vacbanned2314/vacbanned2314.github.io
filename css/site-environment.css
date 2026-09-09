@@ -1,0 +1,7 @@
+/* Общая среда сайта. Порядок сохранён относительно прежнего site.css. */
+@import url("animations.css");
+@import url("mobile.css");
+@import url("design-system.css");
+@import url("about-route.css");
+@import url("home-atmosphere.css");
+@import url("home-boiler.css");

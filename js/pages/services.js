@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         filterButtons.forEach((button) => {
             const active = button.dataset.filter === filter;
             button.classList.toggle('is-active', active);
-            button.setAttribute('aria-selected', String(active));
+            button.setAttribute('aria-pressed', String(active));
         });
         rows.forEach((row) => {
             const visible = filter === 'all' || row.dataset.category === filter;

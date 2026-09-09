@@ -7,6 +7,31 @@ function getHeaderOffset(extra = 16) {
     return header.getBoundingClientRect().height + extra;
 }
 
+function getFocusableElements(root) {
+    return [...root.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )].filter((element) => !element.hidden && element.getAttribute('aria-hidden') !== 'true' && element.offsetParent !== null);
+}
+
+function setModalBackgroundInert(modal, inert) {
+    [...document.body.children].forEach((element) => {
+        if (element === modal || element.contains(modal) || element.tagName === 'SCRIPT') return;
+
+        if (inert) {
+            if (!element.inert) {
+                element.inert = true;
+                element.dataset.modalInertAdded = 'true';
+            }
+        } else if (element.dataset.modalInertAdded === 'true') {
+            element.inert = false;
+            delete element.dataset.modalInertAdded;
+        }
+    });
+}
+
+window.getFocusableElements = getFocusableElements;
+window.setModalBackgroundInert = setModalBackgroundInert;
+
 function initTheme() {
     const themeToggleBtn = document.getElementById('theme-toggle');
     const root = document.documentElement;
@@ -40,6 +65,23 @@ function initMobileNav() {
     if (!burger || !nav) return;
 
     let lastFocus = null;
+    const inertTargets = [...document.body.children].filter((element) => (
+        !element.matches('header, #nav-backdrop, script')
+    ));
+
+    const setBackgroundInert = (open) => {
+        inertTargets.forEach((element) => {
+            if (open) {
+                if (!element.inert) {
+                    element.inert = true;
+                    element.dataset.navInertAdded = 'true';
+                }
+            } else if (element.dataset.navInertAdded === 'true') {
+                element.inert = false;
+                delete element.dataset.navInertAdded;
+            }
+        });
+    };
 
     const setOpen = (open) => {
         nav.classList.toggle('active', open);
@@ -47,6 +89,7 @@ function initMobileNav() {
         burger.setAttribute('aria-expanded', String(open));
         burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
         document.body.classList.toggle('nav-open', open);
+        setBackgroundInert(open);
 
         if (backdrop) {
             backdrop.hidden = !open;
@@ -78,9 +121,26 @@ function initMobileNav() {
     }
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && nav.classList.contains('active')) {
+        if (!nav.classList.contains('active')) return;
+
+        if (e.key === 'Escape') {
             e.preventDefault();
             close();
+            return;
+        }
+
+        if (e.key === 'Tab') {
+            const focusable = getFocusableElements(burger.closest('header') || nav);
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
         }
     });
 
