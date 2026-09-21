@@ -768,27 +768,6 @@
     border-radius: 24px;
 }
 
-.hero-decor-glow {
-    position: absolute;
-    inset: 8%;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(var(--accent-secondary-rgb), 0.18) 0%, transparent 70%);
-    pointer-events: none;
-}
-
-.hero-decor-glow::before {
-    content: '';
-    position: absolute;
-    top: -20%;
-    right: -10%;
-    width: 50%;
-    height: 50%;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(var(--accent-secondary-rgb), 0.1) 0%, transparent 70%);
-}
-
-
-
 .hero-decor-grid {
     position: absolute;
     inset: 0;
@@ -1291,30 +1270,6 @@
     overflow: hidden;
 }
 
-.about::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(ellipse 55% 45% at 75% 50%, var(--ambient-glow), transparent 70%),
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 39px,
-            rgba(255, 255, 255, 0.02) 39px,
-            rgba(255, 255, 255, 0.02) 40px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 39px,
-            rgba(255, 255, 255, 0.02) 39px,
-            rgba(255, 255, 255, 0.02) 40px
-        );
-    pointer-events: none;
-    z-index: 0;
-}
-
 .about .container {
     position: relative;
     z-index: 1;
@@ -1662,48 +1617,6 @@
     background: var(--bg-base); 
     transition: background 0.4s;
     overflow: hidden;
-}
-
-.services::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(ellipse 60% 50% at 50% 40%, var(--ambient-glow), transparent 70%),
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 39px,
-            rgba(255, 255, 255, 0.02) 39px,
-            rgba(255, 255, 255, 0.02) 40px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 39px,
-            rgba(255, 255, 255, 0.02) 39px,
-            rgba(255, 255, 255, 0.02) 40px
-        );
-    pointer-events: none;
-}
-
-[data-theme="light"] .services::before {
-    background:
-        radial-gradient(ellipse 60% 50% at 50% 40%, var(--ambient-glow), transparent 70%),
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 39px,
-            rgba(0, 0, 0, 0.03) 39px,
-            rgba(0, 0, 0, 0.03) 40px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 39px,
-            rgba(0, 0, 0, 0.03) 39px,
-            rgba(0, 0, 0, 0.03) 40px
-        );
 }
 
 .services .container {
@@ -2251,48 +2164,6 @@
     background: var(--bg-base); 
     transition: background 0.4s;
     overflow: hidden;
-}
-
-.reviews::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(ellipse 60% 50% at 50% 60%, var(--ambient-glow), transparent 70%),
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 39px,
-            rgba(255, 255, 255, 0.02) 39px,
-            rgba(255, 255, 255, 0.02) 40px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 39px,
-            rgba(255, 255, 255, 0.02) 39px,
-            rgba(255, 255, 255, 0.02) 40px
-        );
-    pointer-events: none;
-}
-
-[data-theme="light"] .reviews::before {
-    background:
-        radial-gradient(ellipse 60% 50% at 50% 60%, var(--ambient-glow), transparent 70%),
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 39px,
-            rgba(0, 0, 0, 0.03) 39px,
-            rgba(0, 0, 0, 0.03) 40px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 39px,
-            rgba(0, 0, 0, 0.03) 39px,
-            rgba(0, 0, 0, 0.03) 40px
-        );
 }
 
 .reviews .container {
@@ -3261,10 +3132,6 @@
     padding-block: var(--space-section);
 }
 
-#about::before {
-    background: radial-gradient(ellipse 52% 46% at 76% 48%, var(--ambient-glow), transparent 72%);
-}
-
 @media (min-width: 1025px) {
     #about .about-grid {
         grid-template-columns: minmax(0, 1.04fr) minmax(430px, 0.96fr);
@@ -3472,18 +3339,6 @@
     overflow: hidden;
     padding: clamp(9.5rem, 13vw, 11.5rem) 0 clamp(4rem, 6vw, 5.5rem);
     background: var(--bg-base);
-}
-
-.licenses-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(ellipse 52% 62% at 82% 38%, rgba(var(--hero-stats-accent-rgb), 0.1), transparent 68%),
-        repeating-linear-gradient(0deg, transparent 0 39px, var(--line-soft) 39px 40px),
-        repeating-linear-gradient(90deg, transparent 0 39px, var(--line-soft) 39px 40px);
-    opacity: 0.72;
-    pointer-events: none;
 }
 
 .licenses-hero__grid {
@@ -5934,29 +5789,6 @@
     overflow: hidden;
 }
 
-.page-hero--team::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(ellipse 50% 60% at 85% 40%, var(--ambient-glow), transparent 65%),
-        repeating-linear-gradient(
-            0deg,
-            transparent,
-            transparent 39px,
-            rgba(255, 255, 255, 0.02) 39px,
-            rgba(255, 255, 255, 0.02) 40px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 39px,
-            rgba(255, 255, 255, 0.02) 39px,
-            rgba(255, 255, 255, 0.02) 40px
-        );
-    pointer-events: none;
-}
-
 .page-hero--team .container {
     position: relative;
     z-index: 1;
@@ -7359,11 +7191,19 @@
 
 /* Tighter vertical rhythm for the homepage only. */
 .home-page {
-    --space-section: clamp(3rem, 5vw, 5rem);
+    --space-section: clamp(2.5rem, 4vw, 4rem);
 }
 
-.home-page .hero {
-    padding-bottom: clamp(3.25rem, 4.5vw, 4.5rem);
+@media (min-width: 1025px) {
+    .home-page .hero {
+        padding-top: clamp(9rem, 14vw, 10.5rem);
+        padding-bottom: clamp(2.75rem, 4vw, 3.75rem);
+        min-height: auto;
+    }
+
+    .home-page .hero-grid {
+        gap: 40px;
+    }
 }
 
 .home-page .home-portfolio {

@@ -6,8 +6,9 @@ body:is(.home-page, .team-page, .portfolio-live-page) {
     --home-zone-b: #1b2326;
     --home-zone-c: #141a1c;
     --home-grid-size: 4rem;
-    --home-grid-line: rgba(193, 215, 219, 0.04);
+    --home-grid-line: rgba(var(--brand-accent-rgb), 0.05);
     --home-grid-major: rgba(var(--brand-accent-rgb), 0.026);
+    --home-grid-fade: radial-gradient(ellipse 65% 60% at center, transparent 8%, black 82%);
     --home-grain-dot: rgba(209, 226, 228, 0.016);
     --home-zone-edge: rgba(203, 222, 224, 0.045);
     --home-pipe-line: rgba(var(--brand-accent-rgb), 0.22);
@@ -62,7 +63,7 @@ body:is(.home-page, .team-page, .portfolio-live-page) {
     --home-zone-a: #f7f4ef;
     --home-zone-b: #f0ebe4;
     --home-zone-c: #fbf8f3;
-    --home-grid-line: rgba(35, 29, 22, 0.026);
+    --home-grid-line: rgba(var(--brand-accent-rgb), 0.035);
     --home-grid-major: rgba(var(--brand-accent-rgb), 0.035);
     --home-grain-dot: rgba(35, 29, 22, 0.032);
     --home-zone-edge: rgba(35, 29, 22, 0.07);
@@ -90,12 +91,11 @@ body.portfolio-live-page .case-hero,
 body.portfolio-live-page .case-story,
 body.portfolio-live-page .case-catalog,
 body.portfolio-live-page .pc-contact--case {
+    position: relative;
     isolation: isolate;
     border-top: 0;
     border-bottom: 0;
     background-image:
-        linear-gradient(90deg, var(--home-grid-line) 1px, transparent 1px),
-        radial-gradient(circle, var(--home-grain-dot) 0 0.45px, transparent 0.7px),
         linear-gradient(
             180deg,
             var(--home-seam-color) 0,
@@ -105,10 +105,40 @@ body.portfolio-live-page .pc-contact--case {
         ),
         linear-gradient(180deg, rgba(255, 255, 255, 0.012), transparent 18rem),
         radial-gradient(ellipse 44% 30% at var(--zone-glow-x, 84%) var(--zone-glow-y, 22%), rgba(var(--accent-rgb), 0.045), transparent 72%);
-    background-size: var(--home-grid-size) var(--home-grid-size), 0.25rem 0.25rem, auto, auto, auto;
-    background-position: center top, 0 0, 0 0, 0 0, 0 0;
-    background-attachment: fixed, fixed, scroll, scroll, scroll;
+    background-size: auto, auto, auto;
+    background-position: 0 0, 0 0, 0 0;
+    background-attachment: scroll, scroll, scroll;
     transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+/* Ruled grid + grain sit on their own layer so they can fade out toward
+   the section's center instead of washing over the copy sitting there. */
+body.home-page .hero::before,
+body.home-page .home-portfolio::before,
+body.home-page #about::before,
+body.home-page #services::before,
+body.home-page #pricing::before,
+body.home-page #licenses::before,
+body.home-page #trust::before,
+body.home-page #calc::before,
+body.team-page main > section::before,
+body.portfolio-live-page .case-hero::before,
+body.portfolio-live-page .case-story::before,
+body.portfolio-live-page .case-catalog::before,
+body.portfolio-live-page .pc-contact--case::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(90deg, var(--home-grid-line) 1px, transparent 1px),
+        radial-gradient(circle, var(--home-grain-dot) 0 0.45px, transparent 0.7px);
+    background-size: var(--home-grid-size) var(--home-grid-size), 0.25rem 0.25rem;
+    background-position: center top, 0 0;
+    background-attachment: fixed, fixed;
+    -webkit-mask-image: var(--home-grid-fade);
+    mask-image: var(--home-grid-fade);
 }
 
 body.home-page .hero,
@@ -277,6 +307,8 @@ body.home-page #trust::after {
 /* Match the visible card edges to the portfolio shell below. The original
    horizontal padding made the trust cards look narrower than their container. */
 body.home-page .hero-stats-block {
+    position: relative;
+    z-index: 1;
     padding-inline: 0;
 }
 

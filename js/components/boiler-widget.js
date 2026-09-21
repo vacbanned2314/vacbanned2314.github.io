@@ -471,7 +471,6 @@ function initBoilerWidget(wrapper, options = {}) {
         logoMesh.castShadow = false;
         logoMesh.receiveShadow = false;
         frontPanel.add(logoMesh);
-        applyEdges(logoMesh);
         for (let x = -2.7; x <= 2.7; x += 0.6) {
             addDetail(frontPanel, new THREE.BoxGeometry(0.32, 0.06, 0.08), mats.seam, [x, 10.8, 2.75]);
         }

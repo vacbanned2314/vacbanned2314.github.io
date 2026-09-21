@@ -1,4 +1,4 @@
-/* Страница команды следует visual reference из design-preview.html. */
+/* Стили рабочей страницы команды. */
 
 body.team-page {
     --team-line: color-mix(in srgb, var(--border-default) 42%, transparent);

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Три направления страницы допусков и сертификатов ТеплоРемСервис для согласования.">
+    <title>Концепции страницы допусков | ТеплоРемСервис</title>
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+    </script>
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/site-foundation.css">
+    <link rel="stylesheet" href="css/site-environment.css">
+    <link rel="stylesheet" href="css/licenses-concepts.css">
+    <link rel="stylesheet" href="css/site-final.css">
+</head>
+<body class="site-page home-page licenses-concepts-page site-background">
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+        <symbol id="icon-logo-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+        <symbol id="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" fill="currentColor"/><path d="M12 2V4M12 20V22M4 12H2M22 12H20M19.1 19.1 17.7 17.7M6.3 6.3 4.9 4.9M19.1 4.9 17.7 6.3M6.3 17.7 4.9 19.1" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+        <symbol id="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+        <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+        <symbol id="icon-zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></symbol>
+        <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+        <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></symbol>
+    </svg>
+
+    <div class="ambient-bg"></div>
+    <button type="button" class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true" tabindex="-1"></button>
+
+    <header class="pill-header">
+        <div class="header-wrap">
+            <a href="index.html" class="logo-box">
+                <svg class="logo-icon" width="36" height="36" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-logo-flame"></use></svg>
+                <div class="logo-text-wrap"><div class="logo-main">Тепло<span>Рем</span>Сервис</div><div class="logo-sub">Инженерная группа</div></div>
+            </a>
+            <nav class="nav-links" id="main-nav" aria-label="Основная навигация">
+                <a href="team.html">Наша команда</a><a href="services.html">Услуги</a><a href="portfolio.html">Портфолио</a><a href="licenses.html" aria-current="page">Допуски</a><a href="faq.html">FAQ</a><a href="index.html#trust">Отзывы</a>
+                <div class="mobile-nav-contacts"><a href="tel:+79376254703" class="mobile-nav-phone">+7 937 625-47-03</a><a href="https://t.me/teplorem" class="mobile-nav-tg" target="_blank" rel="noopener noreferrer">Telegram</a></div>
+                <a href="index.html#calc" class="mobile-cta">Получить консультацию</a>
+            </nav>
+            <div class="contact-box">
+                <a href="tel:+79376254703" class="phone-link">+7 937 625-47-03</a><a href="https://t.me/teplorem" class="btn-ghost" target="_blank" rel="noopener noreferrer">Telegram</a>
+                <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Переключить тему" aria-pressed="true"><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-sun"></use></svg><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-moon"></use></svg></button>
+                <button type="button" class="burger-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="lc-picker" aria-labelledby="lc-picker-title">
+            <div class="container">
+                <div class="lc-picker__head">
+                    <div><p class="lc-kicker">Этап 4 · доработка выбранного направления</p><h1 id="lc-picker-title">Выбранная логика проверки документов</h1></div>
+                    <p>Направление «Проверка по бренду» открыто по умолчанию. Остальные варианты сохранены для сравнения.</p>
+                </div>
+                <div class="lc-tabs" role="tablist" aria-label="Визуальные направления">
+                    <button type="button" role="tab" id="lc-tab-registry" aria-controls="lc-registry" aria-selected="false" tabindex="-1" data-concept="registry"><span>01</span> Открытый инженерный реестр</button>
+                    <button type="button" role="tab" id="lc-tab-document" aria-controls="lc-document" aria-selected="false" tabindex="-1" data-concept="document"><span>02</span> Оригинал — главный герой</button>
+                    <button type="button" role="tab" id="lc-tab-brand" aria-controls="lc-brand" aria-selected="true" data-concept="brand"><span>03</span> Проверка по бренду</button>
+                </div>
+            </div>
+        </section>
+
+        <article class="lc-concept lc-concept--registry" id="lc-registry" role="tabpanel" aria-labelledby="lc-tab-registry" data-panel="registry" hidden>
+            <section class="lc-brief"><div class="container"><div class="lc-brief__lead"><p class="lc-kicker">Направление 1</p><h2>Открытый инженерный реестр</h2><p>Страница начинается с государственного подтверждения и позволяет сравнить остальные документы строка за строкой.</p></div><dl class="lc-brief__facts"><div><dt>Сильная сторона</dt><dd>Быстро снимает сомнение в официальном статусе.</dd></div><div><dt>Риск</dt><dd>Самое формальное и сухое направление.</dd></div><div><dt>Запоминающийся элемент</dt><dd>Строка доказательства: документ, владелец, срок и оригинал.</dd></div><div><dt>Мобильная логика</dt><dd>Каждая строка становится компактной записью без горизонтальной таблицы.</dd></div></dl><div class="lc-brief__sources"><p><strong>Порядок:</strong> первый экран → ВДГО/ВКГО → пояснение ИП/ООО → реестр → CTA.</p><p><strong>С главной:</strong> шапка, темы, кнопки, стальные поверхности.</p><p><strong>Со страницы команды:</strong> спокойная фактическая подача и разделение смысловых зон.</p><p><strong>Специально:</strong> строка реестра и статус документа.</p></div></div></section>
+
+            <section class="lc-registry-hero"><div class="container lc-registry-hero__grid"><div class="lc-page-intro"><p class="lc-kicker">Допуски и сертификаты</p><h2>Документы открыты для проверки</h2><p>Регистрация работ с ВДГО/ВКГО, сервисные сертификаты, владельцы документов и сроки действия — без рекламных трактовок.</p><a class="btn-glow" href="index.html#calc">Получить консультацию <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></a></div><article class="lc-main-proof" data-doc-id="vdgo"><button class="lc-paper lc-open-document" type="button" aria-label="Открыть оригинал регистрации ВДГО и ВКГО"><img src="assets/docs/goszhilinspektsiya-vdgo.webp" alt="Письмо Госжилинспекции РТ о регистрации уведомления ВДГО и ВКГО" width="742" height="1024"></button><div class="lc-main-proof__data"><span class="lc-status lc-status--valid"><svg aria-hidden="true"><use href="#icon-check"></use></svg> Действует</span><p>Основное подтверждение</p><h3>Регистрация уведомления № 1800</h3><dl><div><dt>Вид работ</dt><dd>ВДГО / ВКГО</dd></div><div><dt>Оформлено на</dt><dd>ИП Минсалимов Р. Ф.</dd></div><div><dt>Источник</dt><dd>Госжилинспекция РТ</dd></div><div><dt>Основание</dt><dd>Письмо № 06-22/1285 от 12.02.2021</dd></div></dl><button class="lc-text-action lc-open-document" type="button">Открыть оригинал <svg aria-hidden="true"><use href="#icon-zoom"></use></svg></button></div></article></div></section>
+
+            <section class="lc-continuity"><div class="container"><p class="lc-kicker">Документы ИП и текущая работа ООО</p><div class="lc-continuity__grid"><h2>Практика началась в 2018 году в статусе ИП</h2><p>Сейчас деятельность ведёт ООО «ТеплоРемСервис». Часть сервисных документов оформлена на прежний статус — ИП Минсалимова Рунара Фаритовича. ИП и ООО не являются одним юридическим лицом.</p></div></div></section>
+            <section class="lc-section"><div class="container"><header class="lc-section-head"><div><p class="lc-kicker">Сервисные документы</p><h2>Сравнимый реестр</h2></div><p>Класс C указан только для Vaillant и Protherm. Срок и организация читаются до открытия скана.</p></header><div class="lc-proof-register" data-registry-list></div></div></section>
+            <section class="lc-cta"><div class="container"><div class="lc-cta__inner"><div><p class="lc-kicker">Следующий шаг</p><h2>Нужно проверить марку или документ?</h2><p>Уточним оборудование и подскажем, какой документ относится к вашей задаче.</p></div><a class="btn-glow" href="index.html#calc">Получить консультацию <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></a></div></div></section>
+        </article>
+
+        <article class="lc-concept lc-concept--document" id="lc-document" role="tabpanel" aria-labelledby="lc-tab-document" data-panel="document" hidden>
+            <section class="lc-brief"><div class="container"><div class="lc-brief__lead"><p class="lc-kicker">Направление 2</p><h2>Оригинал документа — главный герой</h2><p>Скан занимает центральное место, а интерфейс только объясняет, что именно подтверждает документ.</p></div><dl class="lc-brief__facts"><div><dt>Сильная сторона</dt><dd>Максимальная визуальная доказательность.</dd></div><div><dt>Риск</dt><dd>Разные пропорции сканов усложняют ритм страницы.</dd></div><div><dt>Запоминающийся элемент</dt><dd>Крупный лист настоящего документа без декоративной имитации.</dd></div><div><dt>Мобильная логика</dt><dd>Сначала читаемый скан, сразу после него — реквизиты и срок.</dd></div></dl><div class="lc-brief__sources"><p><strong>Порядок:</strong> крупный оригинал → каталог 02–06 → пояснение ИП/ООО → CTA.</p><p><strong>С главной:</strong> шапка, темы, типографика и CTA.</p><p><strong>Со страницы команды:</strong> крупный доказательный материал рядом с коротким текстом.</p><p><strong>Специально:</strong> документальная поверхность и последовательная нумерация оригиналов.</p></div></div></section>
+
+            <section class="lc-document-hero"><div class="container"><div class="lc-document-hero__heading"><div><p class="lc-kicker">Допуски и сертификаты</p><h2>Сначала — оригинал</h2></div><p>Нажмите на документ, чтобы изучить его без обрезки. Рядом указаны только сведения, которые есть в оригинале.</p></div><div class="lc-document-stage" data-doc-id="vdgo"><button class="lc-document-stage__paper lc-open-document" type="button"><img src="assets/docs/goszhilinspektsiya-vdgo.webp" alt="Письмо Госжилинспекции РТ о регистрации уведомления ВДГО и ВКГО" width="742" height="1024"></button><div class="lc-document-stage__caption"><span class="lc-status lc-status--valid"><svg aria-hidden="true"><use href="#icon-check"></use></svg> Действует</span><p class="lc-document-stage__number">01 / 06</p><h3>Регистрация ВДГО и ВКГО</h3><p>Госжилинспекция РТ · письмо № 06-22/1285 от 12.02.2021</p><dl><div><dt>Оформлено на</dt><dd>ИП Минсалимов Р. Ф.</dd></div><div><dt>Регистрация</dt><dd>Уведомление № 1800</dd></div></dl><button class="lc-text-action lc-open-document" type="button">Открыть оригинал <svg aria-hidden="true"><use href="#icon-zoom"></use></svg></button></div></div></div></section>
+            <section class="lc-section"><div class="container"><header class="lc-section-head"><div><p class="lc-kicker">Оригиналы 02–06</p><h2>Документальный каталог</h2></div><p>Каждый скан показан целиком. Подпись не заменяет оригинал и не расширяет его смысл.</p></header><div class="lc-document-sequence" data-document-sequence></div></div></section>
+            <section class="lc-continuity"><div class="container"><p class="lc-kicker">Юридическая точность</p><div class="lc-continuity__grid"><h2>Документы отражают разные периоды работы</h2><p>Практика началась в 2018 году в статусе ИП Минсалимова Рунара Фаритовича. Сейчас деятельность ведёт ООО «ТеплоРемСервис». Это не означает юридического тождества ИП и ООО.</p></div></div></section>
+            <section class="lc-cta"><div class="container"><div class="lc-cta__inner"><div><p class="lc-kicker">Консультация</p><h2>Нужно сопоставить документ и оборудование?</h2><p>Назовите марку котла и задачу — уточним применимый сервисный документ.</p></div><a class="btn-glow" href="index.html#calc">Получить консультацию <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></a></div></div></section>
+        </article>
+
+        <article class="lc-concept lc-concept--brand" id="lc-brand" role="tabpanel" aria-labelledby="lc-tab-brand" data-panel="brand">
+            <section class="lc-brief"><div class="container"><div class="lc-brief__lead"><p class="lc-kicker">Направление 3</p><h2>Проверка по бренду и задаче</h2><p>Посетитель начинает с марки своего котла, но государственная регистрация остаётся отдельным базовым доказательством.</p></div><dl class="lc-brief__facts"><div><dt>Сильная сторона</dt><dd>Быстро отвечает владельцу конкретного оборудования.</dd></div><div><dt>Риск</dt><dd>Бренды могут перетянуть внимание с регистрации ВДГО/ВКГО.</dd></div><div><dt>Запоминающийся элемент</dt><dd>Сервисная карта: бренд, полномочие, срок и оригинал в одной строке.</dd></div><div><dt>Мобильная логика</dt><dd>Бренд остаётся первым, срок — вторым, оригинал открывается одной кнопкой.</dd></div></dl><div class="lc-brief__sources"><p><strong>Порядок:</strong> короткий ответ → карта брендов → ВДГО/ВКГО → пояснение ИП/ООО → CTA.</p><p><strong>С главной:</strong> шапка, темы, кнопки и контраст секций.</p><p><strong>Со страницы команды:</strong> ясная ролевая структура и короткие доказательные подписи.</p><p><strong>Специально:</strong> сервисная карта брендов с оригиналом в каждой строке.</p></div></div></section>
+
+            <section class="lc-brand-hero"><div class="container lc-brand-hero__grid"><div><p class="lc-kicker">Сервисные документы</p><h2>Можно ли работать с вашим котлом?</h2><p>Найдите марку, проверьте вид документа и срок. Оригинал каждого сертификата открывается рядом.</p><div class="lc-brand-hero__actions"><a class="lc-action lc-action--primary" href="index.html#calc">Получить консультацию <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></a><a class="lc-action lc-action--secondary" href="#lc-brand-map">Перейти к брендам <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></a></div></div><div class="lc-brand-hero__aside"><aside class="lc-state-summary" aria-label="Основное подтверждение официального статуса"><div class="lc-state-summary__head"><span>ВДГО / ВКГО</span><span class="lc-status lc-status--valid"><svg aria-hidden="true"><use href="#icon-check"></use></svg> Действует</span></div><strong>Регистрация уведомления № 1800</strong><p>Госжилинспекция РТ</p><button class="lc-open-document" type="button" data-doc-id="vdgo">Открыть оригинал <svg aria-hidden="true"><use href="#icon-zoom"></use></svg></button></aside><div class="lc-brand-index" aria-label="Марки оборудования"><span>Vaillant</span><span>Protherm</span><span>BAXI</span><span>De Dietrich</span><span>ITALTHERM</span></div></div></div></section>
+            <section class="lc-section" id="lc-brand-map"><div class="container"><header class="lc-section-head"><div><p class="lc-kicker">Карта сервисных документов</p><h2>Бренд, статус, оригинал</h2></div><p>Полномочие сформулировано так, как указано в соответствующем документе.</p></header><div class="lc-brand-map" data-brand-map></div></div></section>
+            <section class="lc-state-proof"><div class="container lc-state-proof__grid"><div class="lc-state-proof__copy"><p class="lc-kicker">Базовое подтверждение</p><h2>Регистрация уведомления ВДГО/ВКГО</h2><span class="lc-status lc-status--valid"><svg aria-hidden="true"><use href="#icon-check"></use></svg> Действует</span><dl><div><dt>Регистрация</dt><dd>№ 1800</dd></div><div><dt>Оформлено на</dt><dd>ИП Минсалимов Р. Ф.</dd></div><div><dt>Источник</dt><dd>Госжилинспекция РТ</dd></div><div><dt>Письмо</dt><dd>№ 06-22/1285 от 12.02.2021</dd></div></dl><button class="lc-text-action lc-open-document" type="button" data-doc-id="vdgo">Открыть оригинал <svg aria-hidden="true"><use href="#icon-zoom"></use></svg></button></div><button class="lc-state-proof__paper lc-open-document" type="button" data-doc-id="vdgo"><img src="assets/docs/goszhilinspektsiya-vdgo.webp" alt="Письмо Госжилинспекции РТ о регистрации уведомления ВДГО и ВКГО" width="742" height="1024" loading="lazy"></button></div></section>
+            <section class="lc-continuity"><div class="container"><p class="lc-kicker">Документы и текущий статус</p><div class="lc-continuity__grid"><h2>ИП и ООО указаны раздельно</h2><p>Практика работы началась в 2018 году в статусе ИП Минсалимова Рунара Фаритовича. Сейчас деятельность ведёт ООО «ТеплоРемСервис». Сервисные документы на ИП не представляются как документы ООО.</p></div></div></section>
+            <section class="lc-cta"><div class="container"><div class="lc-cta__inner"><div><p class="lc-kicker">Следующий шаг</p><h2>Нашли марку своего оборудования?</h2><p>Опишите задачу — уточним состав работ и необходимость выезда.</p></div><a class="lc-action lc-action--primary" href="index.html#calc">Получить консультацию <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></a></div></div></section>
+        </article>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-main"><div class="container footer-flex"><div class="footer-brand"><div class="logo-main">Тепло<span>Рем</span>Сервис</div><p class="footer-desc">Отопление, котельные и сервис в Казани и пригороде.</p></div><div class="footer-links"><div class="nav-col"><h4>Услуги</h4><a href="index.html#services">Расчёт и подбор</a><a href="index.html#services">Монтаж котельных</a><a href="index.html#services">Автоматика</a><a href="index.html#services">Сервис котлов</a><a href="portfolio.html">Портфолио</a><a href="licenses.html">Допуски</a><a href="team.html">Наша команда</a><a href="faq.html">FAQ</a></div></div><div class="footer-contacts-clean"><h4>Связаться с нами</h4><a href="tel:+79376254703" class="footer-phone">+7 (937) 625-47-03</a><a href="mailto:info@teplorem.ru" class="footer-mail">info@teplorem.ru</a><a class="footer-tg-link" href="https://t.me/teplorem" target="_blank" rel="noopener noreferrer">Написать в Telegram</a></div></div></div>
+        <div class="footer-legal"><div class="container footer-legal-inner"><p class="footer-legal-copy">© 2026 ООО «ТеплоРемСервис». Все права защищены.</p><p class="footer-legal-reqs">ИНН: 1661071059 | ОГРН: 1211600075642</p><a href="privacy.html" class="footer-legal-link">Политика конфиденциальности</a></div></div>
+    </footer>
+
+    <div class="lc-lightbox" id="lc-lightbox" hidden>
+        <button class="lc-lightbox__backdrop" type="button" data-lightbox-close aria-label="Закрыть просмотр"></button>
+        <div class="lc-lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="lc-lightbox-title" aria-describedby="lc-lightbox-meta">
+            <button class="lc-lightbox__close" type="button" data-lightbox-close aria-label="Закрыть"><svg aria-hidden="true"><use href="#icon-close"></use></svg></button>
+            <div class="lc-lightbox__paper"><img class="lc-lightbox__image" alt=""></div>
+            <div class="lc-lightbox__caption"><h2 id="lc-lightbox-title"></h2><p id="lc-lightbox-meta"></p></div>
+        </div>
+    </div>
+
+    <script defer src="js/core/common.js?v=20260817-1635"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const documents = [
+                { id: 'vdgo', brand: 'ВДГО / ВКГО', title: 'Регистрация уведомления № 1800', owner: 'ИП Минсалимов Р. Ф.', organization: 'Госжилинспекция РТ', termLabel: 'Статус', term: 'Действует', src: 'assets/docs/goszhilinspektsiya-vdgo.webp', alt: 'Письмо Госжилинспекции РТ о регистрации уведомления ВДГО и ВКГО', width: 742, height: 1024, meta: 'Госжилинспекция РТ · письмо № 06-22/1285 от 12.02.2021' },
+                { id: 'vaillant', brand: 'Vaillant', title: 'Сервисный центр класса C', owner: 'ИП Минсалимов Р. Ф.', organization: 'ООО «ВГР»', termLabel: 'Действует до', term: '04.07.2028', src: 'assets/docs/vaillant.webp', alt: 'Сертификат сервисного центра Vaillant', width: 1024, height: 708, meta: 'ООО «ВГР» · действует до 04.07.2028' },
+                { id: 'protherm', brand: 'Protherm', title: 'Сервисный центр класса C', owner: 'ИП Минсалимов Р. Ф.', organization: 'ООО «ВГР»', termLabel: 'Действует до', term: '04.07.2028', src: 'assets/docs/protherm.webp', alt: 'Сертификат сервисного центра Protherm', width: 1024, height: 708, meta: 'ООО «ВГР» · действует до 04.07.2028' },
+                { id: 'baxi', brand: 'BAXI', title: 'Авторизованный сервисный партнёр', owner: 'ИП Минсалимов Р. Ф.', organization: 'BDR Thermea Group', termLabel: 'Действует до', term: '31.12.2026', src: 'assets/docs/baxi.webp', alt: 'Сертификат авторизованного сервисного партнёра BAXI', width: 724, height: 1024, meta: 'BDR Thermea Group · действует до 31.12.2026' },
+                { id: 'de-dietrich', brand: 'De Dietrich', title: 'Авторизованный сервисный центр', owner: 'ИП Минсалимов Р. Ф.', organization: 'De Dietrich', termLabel: 'Действует до', term: '26.10.2027', src: 'assets/docs/de-dietrich.webp', alt: 'Сертификат авторизованного сервисного центра De Dietrich', width: 724, height: 1024, meta: 'De Dietrich · действует до 26.10.2027' },
+                { id: 'italtherm', brand: 'ITALTHERM', title: 'Авторизованный сервисный центр', owner: 'ИП Минсалимов Р. Ф.', organization: 'ООО «Тёплый Рим» — эксклюзивный представитель', termLabel: 'Статус', term: 'Действует', src: 'assets/docs/italtherm.webp', alt: 'Сертификат авторизованного сервисного центра ITALTHERM', width: 725, height: 1024, meta: 'В документе указано ООО «Тёплый Рим» как эксклюзивный представитель · действует' }
+            ];
+            const byId = new Map(documents.map((document) => [document.id, document]));
+            const serviceDocuments = documents.slice(1);
+
+            document.querySelector('[data-registry-list]').innerHTML = serviceDocuments.map((document) => `
+                <article class="lc-register-row" data-doc-id="${document.id}">
+                    <button class="lc-register-row__thumb lc-open-document" type="button" aria-label="Открыть оригинал ${document.brand}"><img src="${document.src}" alt="${document.alt}" width="${document.width}" height="${document.height}" loading="lazy"></button>
+                    <div class="lc-register-row__identity"><strong>${document.brand}</strong><h3>${document.title}</h3></div>
+                    <dl><div><dt>Оформлено на</dt><dd>${document.owner}</dd></div><div><dt>Организация</dt><dd>${document.organization}</dd></div></dl>
+                    <div class="lc-register-row__term"><span>${document.termLabel}</span><strong>${document.term}</strong></div>
+                    <button class="lc-register-row__open lc-open-document" type="button" aria-label="Открыть оригинал ${document.brand}"><span>Оригинал</span><svg aria-hidden="true"><use href="#icon-arrow"></use></svg></button>
+                </article>`).join('');
+
+            document.querySelector('[data-document-sequence]').innerHTML = serviceDocuments.map((document, index) => `
+                <article class="lc-sequence-item" data-doc-id="${document.id}">
+                    <button class="lc-sequence-item__paper lc-open-document" type="button" aria-label="Открыть оригинал ${document.brand}"><img src="${document.src}" alt="${document.alt}" width="${document.width}" height="${document.height}" loading="lazy"><span><svg aria-hidden="true"><use href="#icon-zoom"></use></svg> Увеличить</span></button>
+                    <div class="lc-sequence-item__copy"><p class="lc-document-stage__number">${String(index + 2).padStart(2, '0')} / 06</p><strong class="lc-sequence-item__brand">${document.brand}</strong><h3>${document.title}</h3><span class="lc-status ${document.term === 'Действует' ? 'lc-status--valid' : ''}">${document.termLabel}: ${document.term}</span><dl><div><dt>Оформлено на</dt><dd>${document.owner}</dd></div><div><dt>Организация</dt><dd>${document.organization}</dd></div></dl><button class="lc-text-action lc-open-document" type="button">Открыть оригинал <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></button></div>
+                </article>`).join('');
+
+            document.querySelector('[data-brand-map]').innerHTML = serviceDocuments.map((document) => `
+                <article class="lc-brand-row" data-doc-id="${document.id}">
+                    <div class="lc-brand-row__name"><strong>${document.brand}</strong><span>${document.title}</span></div>
+                    <div class="lc-brand-row__term"><span>${document.termLabel}</span><strong>${document.term}</strong></div>
+                    <div class="lc-brand-row__owner"><span>Оформлено на</span><strong>${document.owner}</strong><small>${document.organization}</small></div>
+                    <button class="lc-brand-row__document lc-open-document" type="button" aria-label="Открыть оригинал ${document.brand}"><img src="${document.src}" alt="" width="${document.width}" height="${document.height}" loading="lazy"><span>Оригинал <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></span></button>
+                </article>`).join('');
+
+            const tabs = [...document.querySelectorAll('[data-concept]')];
+            const panels = [...document.querySelectorAll('[data-panel]')];
+            const activateConcept = (name, focus = false) => {
+                tabs.forEach((tab) => { const active = tab.dataset.concept === name; tab.setAttribute('aria-selected', String(active)); tab.tabIndex = active ? 0 : -1; if (active && focus) tab.focus(); });
+                panels.forEach((panel) => { panel.hidden = panel.dataset.panel !== name; });
+                window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+            };
+            tabs.forEach((tab, index) => {
+                tab.addEventListener('click', () => activateConcept(tab.dataset.concept));
+                tab.addEventListener('keydown', (event) => { if (!['ArrowLeft', 'ArrowRight'].includes(event.key)) return; event.preventDefault(); const step = event.key === 'ArrowRight' ? 1 : -1; const next = tabs[(index + step + tabs.length) % tabs.length]; activateConcept(next.dataset.concept, true); });
+            });
+
+            const lightbox = document.getElementById('lc-lightbox');
+            const dialog = lightbox.querySelector('.lc-lightbox__dialog');
+            const image = lightbox.querySelector('.lc-lightbox__image');
+            const title = document.getElementById('lc-lightbox-title');
+            const meta = document.getElementById('lc-lightbox-meta');
+            const closeButton = lightbox.querySelector('.lc-lightbox__close');
+            let lastTrigger = null;
+            let previousBodyPadding = '';
+            const resolveDocument = (trigger) => byId.get(trigger.closest('[data-doc-id]')?.dataset.docId || trigger.dataset.docId);
+            const openLightbox = (trigger) => {
+                const documentData = resolveDocument(trigger); if (!documentData) return;
+                const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+                previousBodyPadding = document.body.style.paddingRight;
+                lastTrigger = trigger; image.src = documentData.src; image.alt = documentData.alt; title.textContent = `${documentData.brand} · ${documentData.title}`; meta.textContent = documentData.meta; lightbox.hidden = false; window.setModalBackgroundInert?.(lightbox, true); if (scrollbarWidth > 0) document.body.style.paddingRight = `${scrollbarWidth}px`; document.body.style.overflow = 'hidden'; closeButton.focus();
+            };
+            const closeLightbox = () => { if (lightbox.hidden) return; lightbox.hidden = true; image.removeAttribute('src'); image.alt = ''; window.setModalBackgroundInert?.(lightbox, false); document.body.style.overflow = ''; document.body.style.paddingRight = previousBodyPadding; lastTrigger?.focus(); };
+            document.addEventListener('click', (event) => { const trigger = event.target.closest('.lc-open-document'); if (trigger) openLightbox(trigger); });
+            lightbox.querySelectorAll('[data-lightbox-close]').forEach((button) => button.addEventListener('click', closeLightbox));
+            document.addEventListener('keydown', (event) => {
+                if (lightbox.hidden) return;
+                if (event.key === 'Escape') { event.preventDefault(); closeLightbox(); return; }
+                if (event.key !== 'Tab') return;
+                const focusable = [...dialog.querySelectorAll('button:not([disabled]), a[href]')].filter((item) => item.offsetParent !== null); const first = focusable[0]; const last = focusable.at(-1);
+                if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); } else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+            });
+        });
+    </script>
+</body>
+</html>

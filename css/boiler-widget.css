@@ -21,11 +21,9 @@
     font-family: var(--font-sans);
     z-index: 2;
     background:
-        linear-gradient(var(--bw-chamber-grid) 1px, transparent 1px),
-        linear-gradient(90deg, var(--bw-chamber-grid) 1px, transparent 1px),
         radial-gradient(ellipse 72% 62% at 48% 47%, rgba(189, 176, 151, 0.3) 0%, rgba(102, 111, 107, 0.24) 38%, transparent 72%),
         linear-gradient(145deg, #303839 0%, #242c2d 56%, #182123 100%);
-    background-size: 42px 42px, 42px 42px, auto, auto;
+    background-size: auto, auto;
     box-shadow:
         inset 0 0 0 1px var(--bw-chamber-edge),
         inset 0 1px 0 rgba(245, 248, 246, 0.06),
@@ -358,11 +356,9 @@
     --bw-chamber-grid: rgba(70, 65, 58, 0.055);
     --bw-chamber-edge: rgba(72, 66, 58, 0.12);
     background:
-        linear-gradient(var(--bw-chamber-grid) 1px, transparent 1px),
-        linear-gradient(90deg, var(--bw-chamber-grid) 1px, transparent 1px),
         radial-gradient(ellipse 72% 62% at 48% 47%, rgba(255, 250, 239, 0.62) 0%, rgba(211, 205, 190, 0.42) 40%, transparent 72%),
         linear-gradient(145deg, #d4d2c9 0%, #bfc1bc 58%, #a9aeaa 100%);
-    background-size: 42px 42px, 42px 42px, auto, auto;
+    background-size: auto, auto;
     box-shadow:
         inset 0 0 0 1px var(--bw-chamber-edge),
         inset 0 1px 0 rgba(255, 255, 255, 0.5),

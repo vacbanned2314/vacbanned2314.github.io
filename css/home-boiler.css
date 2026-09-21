@@ -14,7 +14,7 @@ body:is(.home-page, .team-page),
     --boiler-zone-b: #192124;
     --boiler-zone-c: #141c1f;
     --boiler-card: rgba(35, 47, 51, 0.9);
-    --boiler-card-soft: rgba(35, 47, 51, 0.64);
+    --boiler-card-soft: rgba(35, 47, 51, 0.96);
     --boiler-module-shell: #1d272a;
     --boiler-module-pane: rgba(16, 23, 25, 0.2);
     --boiler-module-pane-active: rgba(35, 47, 51, 0.54);
@@ -26,7 +26,7 @@ body:is(.home-page, .team-page),
     --home-zone-a: var(--boiler-zone-a);
     --home-zone-b: var(--boiler-zone-b);
     --home-zone-c: var(--boiler-zone-c);
-    --home-grid-line: rgba(211, 225, 225, 0.045);
+    --home-grid-line: rgba(var(--boiler-copper-rgb), 0.05);
     --home-grid-major: rgba(var(--boiler-copper-rgb), 0.035);
     --home-grain-dot: rgba(211, 225, 225, 0.018);
     --home-zone-edge: var(--boiler-line-soft);
@@ -89,7 +89,7 @@ body:is(.home-page, .team-page),
     --home-zone-a: var(--boiler-zone-a);
     --home-zone-b: var(--boiler-zone-b);
     --home-zone-c: var(--boiler-zone-c);
-    --home-grid-line: rgba(58, 47, 38, 0.05);
+    --home-grid-line: rgba(var(--boiler-copper-rgb), 0.05);
     --home-grid-major: rgba(var(--boiler-copper-rgb), 0.075);
     --home-grain-dot: rgba(58, 47, 38, 0.035);
     --home-zone-edge: var(--boiler-line-soft);
@@ -145,7 +145,10 @@ body:is(.home-page, .team-page) .pill-header {
 
 body.home-page .hero-decor-block {
     border: 1px solid var(--boiler-line);
-    border-radius: var(--boiler-radius-panel);
+    /* Matches .boiler-widget's own 24px radius (components.css/boiler-widget.css) —
+       the widget fills this box edge-to-edge, so a mismatched radius here left a
+       sliver of this panel's own background poking past the widget's rounder corner. */
+    border-radius: 24px;
     background:
         radial-gradient(circle at 52% 42%, rgba(239, 245, 242, 0.065), transparent 38%),
         linear-gradient(145deg, rgba(10, 17, 19, 0.38), rgba(26, 35, 38, 0.14));
@@ -494,8 +497,37 @@ body.home-page .licenses-proof__facts span {
     letter-spacing: 0.06em;
 }
 
+body.home-page [data-mobile-review-extra][hidden] {
+    display: none !important;
+}
+
 body.home-page .reviews-mobile-toggle {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: var(--touch-min);
+    padding: 0.9rem 1rem;
+    color: var(--text-pure);
+    font: inherit;
+    font-size: var(--fs-14);
+    font-weight: var(--font-weight-semibold);
+    text-align: left;
+    background: var(--boiler-module-pane);
+    border: 0;
+    border-top: 1px solid var(--boiler-line);
+    cursor: pointer;
+}
+
+body.home-page .reviews-mobile-toggle::after {
+    content: '+';
+    color: var(--boiler-copper-ink);
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+body.home-page .reviews-mobile-toggle[aria-expanded="true"]::after {
+    content: '−';
 }
 
 body.home-page .mobile-conversion-bar {
@@ -1078,39 +1110,6 @@ body.home-page .hero-decor-grid {
     body.home-page .review-entry,
     body.home-page .review-more {
         padding: 1.25rem 1rem;
-    }
-
-    body.home-page [data-mobile-review-extra][hidden] {
-        display: none !important;
-    }
-
-    body.home-page .reviews-mobile-toggle {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        min-height: var(--touch-min);
-        padding: 0.9rem 1rem;
-        color: var(--text-pure);
-        font: inherit;
-        font-size: var(--fs-14);
-        font-weight: var(--font-weight-semibold);
-        text-align: left;
-        background: var(--boiler-module-pane);
-        border: 0;
-        border-top: 1px solid var(--boiler-line);
-        cursor: pointer;
-    }
-
-    body.home-page .reviews-mobile-toggle::after {
-        content: '+';
-        color: var(--boiler-copper-ink);
-        font-size: 1.25rem;
-        line-height: 1;
-    }
-
-    body.home-page .reviews-mobile-toggle[aria-expanded="true"]::after {
-        content: '−';
     }
 
     body.home-page .mobile-conversion-bar {

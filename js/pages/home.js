@@ -441,23 +441,15 @@ function initReviewReadMore() {
     const section = document.querySelector('#trust');
     if (!section) return;
 
-    const mobileMedia = window.matchMedia('(max-width: 768px)');
     const toggle = section.querySelector('.reviews-mobile-toggle');
     const extraItems = [...section.querySelectorAll('[data-mobile-review-extra]')];
     if (!toggle || !extraItems.length) return;
 
     let expanded = false;
+    toggle.hidden = false;
 
     const sync = () => {
-        if (!mobileMedia.matches) {
-            extraItems.forEach((item) => { item.hidden = false; });
-            toggle.hidden = true;
-            toggle.setAttribute('aria-expanded', 'true');
-            return;
-        }
-
         extraItems.forEach((item) => { item.hidden = !expanded; });
-        toggle.hidden = false;
         toggle.setAttribute('aria-expanded', String(expanded));
         toggle.textContent = expanded ? 'Скрыть дополнительные отзывы' : 'Показать ещё 2 отзыва';
     };
@@ -467,7 +459,6 @@ function initReviewReadMore() {
         sync();
     });
 
-    mobileMedia.addEventListener('change', sync);
     sync();
 }
 

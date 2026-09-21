@@ -7,3 +7,4 @@ node_modules/
 Thumbs.db
 .DS_Store
 dist/
+.claude/settings.local.json

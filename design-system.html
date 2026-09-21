@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Рабочая витрина дизайн-системы сайта ТеплоРемСервис: темы, типографика, компоненты и композиции страниц.">
+    <title>Дизайн-система | ТеплоРемСервис</title>
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+    </script>
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/site-foundation.css">
+    <link rel="stylesheet" href="css/site-environment.css">
+    <link rel="stylesheet" href="css/design-system-showcase.css">
+    <link rel="stylesheet" href="css/site-final.css">
+</head>
+<body class="site-page home-page design-system-page site-background">
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+        <symbol id="icon-logo-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+        <symbol id="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" fill="currentColor"/><path d="M12 2V4M12 20V22M4 12H2M22 12H20M19.1 19.1 17.7 17.7M6.3 6.3 4.9 4.9M19.1 4.9 17.7 6.3M6.3 17.7 4.9 19.1" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+        <symbol id="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+        <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+        <symbol id="icon-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></symbol>
+        <symbol id="icon-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></symbol>
+        <symbol id="icon-zoom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></symbol>
+        <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    </svg>
+
+    <div class="ambient-bg"></div>
+    <button type="button" class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true" tabindex="-1"></button>
+
+    <header class="pill-header">
+        <div class="header-wrap">
+            <a href="index.html" class="logo-box">
+                <svg class="logo-icon" width="36" height="36" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-logo-flame"></use></svg>
+                <div class="logo-text-wrap"><div class="logo-main">Тепло<span>Рем</span>Сервис</div><div class="logo-sub">Инженерная группа</div></div>
+            </a>
+            <nav class="nav-links" id="main-nav" aria-label="Основная навигация">
+                <a href="team.html">Наша команда</a><a href="services.html">Услуги</a><a href="portfolio.html">Портфолио</a><a href="licenses.html">Допуски</a><a href="faq.html">FAQ</a><a href="index.html#trust">Отзывы</a>
+                <div class="mobile-nav-contacts"><a href="tel:+79376254703" class="mobile-nav-phone">+7 937 625-47-03</a><a href="https://t.me/teplorem" class="mobile-nav-tg" target="_blank" rel="noopener noreferrer">Telegram</a></div>
+                <a href="index.html#calc" class="mobile-cta">Получить консультацию</a>
+            </nav>
+            <div class="contact-box">
+                <a href="tel:+79376254703" class="phone-link">+7 937 625-47-03</a><a href="https://t.me/teplorem" class="btn-ghost" target="_blank" rel="noopener noreferrer">Telegram</a>
+                <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Переключить тему" aria-pressed="true"><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-sun"></use></svg><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-moon"></use></svg></button>
+                <button type="button" class="burger-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="ds-hero" aria-labelledby="ds-title">
+            <div class="container ds-hero__grid">
+                <div>
+                    <p class="ds-kicker">Рабочий стандарт сайта · версия для согласования</p>
+                    <h1 id="ds-title">Инженерный язык страниц</h1>
+                    <p class="ds-hero__lead">Общий визуальный и технический эталон «ТеплоРемСервис»: спокойные поверхности, реальные материалы, ясные доказательства и действия без рекламного шума.</p>
+                    <div class="ds-actions"><a class="ds-btn ds-btn--primary" href="#colors">Смотреть систему</a><a class="ds-btn ds-btn--secondary" href="#compositions">Примеры страниц</a></div>
+                </div>
+                <dl class="ds-hero__meta">
+                    <div><dt>Основа</dt><dd>Главная страница и «Наша команда»</dd></div>
+                    <div><dt>Гарнитура</dt><dd>Golos Text · 400 / 500 / 600 / 700</dd></div>
+                    <div><dt>Материал</dt><dd>Тёмная сталь, эмаль, бумага, медь</dd></div>
+                    <div><dt>Принцип</dt><dd>Структура сообщает факты, акцент обозначает действие</dd></div>
+                </dl>
+            </div>
+        </section>
+
+        <div class="ds-anchor-wrap">
+            <div class="container">
+                <nav class="ds-anchor-nav" aria-label="Разделы дизайн-системы">
+                    <a href="#colors">Цвет</a><a href="#type">Типографика</a><a href="#buttons">Кнопки</a><a href="#grid">Сетка</a><a href="#surfaces">Блоки</a><a href="#media">Медиа</a><a href="#navigation">Навигация</a><a href="#forms">Формы</a><a href="#states">Состояния</a><a href="#motion">Движение</a><a href="#compositions">Композиции</a>
+                </nav>
+            </div>
+        </div>
+
+        <section class="ds-section" id="colors">
+            <div class="container">
+                <header class="ds-section__head"><p class="ds-section__index">01 · Цветовая система</p><div><h2>Сталь задаёт структуру. Медь сообщает действие.</h2><p>Обе темы используют одну и ту же иерархию ролей. Цвет статуса не конкурирует с медным акцентом и всегда сопровождается текстом.</p></div></header>
+                <div class="ds-theme-grid">
+                    <article class="ds-theme-board ds-theme-board--dark">
+                        <header class="ds-theme-board__head"><strong>Тёмная тема</strong><span>Основная среда сайта</span></header>
+                        <dl class="ds-swatch-list">
+                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:#111719"></span><dt>Холст</dt><code>--boiler-zone-a</code><dd>#111719 · основной фон</dd></div>
+                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:#192124"></span><dt>Чередование</dt><code>--boiler-zone-b</code><dd>#192124 · соседняя секция</dd></div>
+                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:rgba(35,47,51,.9)"></span><dt>Панель</dt><code>--boiler-card</code><dd>rgba(35,47,51,.9)</dd></div>
+                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:#1d272a"></span><dt>Карточка</dt><code>--boiler-module-shell</code><dd>#1d272a · вложенная поверхность</dd></div>
+                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:#f4f0e9"></span><dt>Текст</dt><code>--text-pure</code><dd>#f4f0e9 · заголовки и факты</dd></div>
+                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:#a7b1b4"></span><dt>Вторичный</dt><code>--text-dim</code><dd>#a7b1b4 · пояснения</dd></div>
+                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:rgba(211,225,225,.14)"></span><dt>Линия</dt><code>--boiler-line</code><dd>rgba(211,225,225,.14)</dd></div>
+                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:#e88731"></span><dt>Медь</dt><code>--boiler-copper</code><dd>#e88731 · действие и важный факт</dd></div>
+                        </dl>
+                    </article>
+                    <article class="ds-theme-board ds-theme-board--light">
+                        <header class="ds-theme-board__head"><strong>Светлая тема</strong><span>Тёплые нейтрали</span></header>
+                        <dl class="ds-swatch-list">
+                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:#e3ddd5"></span><dt>Холст</dt><code>--boiler-zone-a</code><dd>#e3ddd5 · основной фон</dd></div>
+                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:#d8d1c8"></span><dt>Чередование</dt><code>--boiler-zone-b</code><dd>#d8d1c8 · соседняя секция</dd></div>
+                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:#d6d3ce"></span><dt>Панель</dt><code>--boiler-card</code><dd>rgba(214,211,206,.97)</dd></div>
+                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:#d0ccc6"></span><dt>Карточка</dt><code>--boiler-module-shell</code><dd>#d0ccc6 · вложенная поверхность</dd></div>
+                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:#27221d"></span><dt>Текст</dt><code>--text-pure</code><dd>#27221d · заголовки и факты</dd></div>
+                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:#5e554c"></span><dt>Вторичный</dt><code>--text-dim</code><dd>#5e554c · пояснения</dd></div>
+                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:rgba(58,47,38,.22)"></span><dt>Линия</dt><code>--boiler-line</code><dd>rgba(58,47,38,.22)</dd></div>
+                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:#b95720"></span><dt>Медь</dt><code>--boiler-copper</code><dd>#b95720 · действие и важный факт</dd></div>
+                        </dl>
+                    </article>
+                </div>
+                <div class="ds-state-swatches" aria-label="Предлагаемые семантические цвета статусов">
+                    <div class="ds-state-swatch" style="--state:var(--text-dim)"><i></i><strong>Нейтральный</strong><span>--text-dim · #a7b1b4 / #5e554c</span></div>
+                    <div class="ds-state-swatch" style="--state:var(--ds-ok)"><i></i><strong>Подтверждено</strong><span>--status-confirmed · #76a786 / #347250</span></div>
+                    <div class="ds-state-swatch" style="--state:var(--ds-warning)"><i></i><strong>Предупреждение</strong><span>--status-warning · #d5a35b / #8a5d18</span></div>
+                    <div class="ds-state-swatch" style="--state:var(--ds-error)"><i></i><strong>Ошибка</strong><span>--status-error · #d5766e / #a6403c</span></div>
+                </div>
+                <p class="ds-note"><strong>Интерактивные роли:</strong> default — `--accent-action`; hover — `--accent-action-hover`; active затемняет тот же медный тон; focus — `--focus-ring`; disabled сохраняет цвет компонента с opacity 0.44. <strong>Не централизовано:</strong> три статусных цвета показаны как кандидаты и до согласования существуют только в демонстрационном файле.</p>
+            </div>
+        </section>
+
+        <section class="ds-section ds-section--contrast" id="type">
+            <div class="container">
+                <header class="ds-section__head"><p class="ds-section__index">02 · Типографика</p><div><h2>Одна гарнитура, одна шкала, разные роли.</h2><p>Golos Text остаётся единственной гарнитурой. Характер создаётся плотностью, масштабом и реестровой подачей данных, а не сменой шрифта.</p></div></header>
+                <div class="ds-type-list">
+                    <div class="ds-type-row"><div class="ds-type-row__meta"><strong>Kicker</strong><code>.trs-kicker / --fs-11</code></div><p class="ds-type-row__sample ds-type--kicker">Техническое обслуживание</p><p class="ds-type-row__rules">11px · 700 · 1.35 · только короткие рубрики</p></div>
+                    <div class="ds-type-row"><div class="ds-type-row__meta"><strong>H1</strong><code>--trs-page-title</code></div><p class="ds-type-row__sample ds-type--h1">Монтаж котельной</p><p class="ds-type-row__rules">clamp 44–72px · 700 · 1.04 · один раз на странице</p></div>
+                    <div class="ds-type-row"><div class="ds-type-row__meta"><strong>H2</strong><code>--trs-section-title</code></div><p class="ds-type-row__sample ds-type--h2">Как проходит работа</p><p class="ds-type-row__rules">clamp 32–52px · 700 · 1.1 · заголовок раздела</p></div>
+                    <div class="ds-type-row"><div class="ds-type-row__meta"><strong>H3</strong><code>--fs-24</code></div><p class="ds-type-row__sample ds-type--h3">Первичный осмотр</p><p class="ds-type-row__rules">24px · 600 · 1.2 · крупный блок</p></div>
+                    <div class="ds-type-row"><div class="ds-type-row__meta"><strong>H4</strong><code>--fs-18</code></div><p class="ds-type-row__sample ds-type--h4">Состав работ</p><p class="ds-type-row__rules">18px · 600 · 1.3 · вложенный подраздел</p></div>
+                    <div class="ds-type-row"><div class="ds-type-row__meta"><strong>Лид</strong><code>--trs-lead-size</code></div><p class="ds-type-row__sample ds-type--lead">Проверяем систему на месте, объясняем решение и согласуем состав работ.</p><p class="ds-type-row__rules">16–18px · 400 · 1.65 · вводный абзац</p></div>
+                    <div class="ds-type-row"><div class="ds-type-row__meta"><strong>Основной текст</strong><code>--fs-16</code></div><p class="ds-type-row__sample ds-type--body">Мастер учитывает оборудование, обвязку, параметры дома и фактическое состояние системы.</p><p class="ds-type-row__rules">16px · 400 · 1.65 · основной рассказ</p></div>
+                    <div class="ds-type-row"><div class="ds-type-row__meta"><strong>Вторичный</strong><code>--fs-15 / --text-dim</code></div><p class="ds-type-row__sample ds-type--secondary">Точная стоимость определяется после осмотра объекта.</p><p class="ds-type-row__rules">15px · 400 · 1.6 · пояснения и ограничения</p></div>
+                    <div class="ds-type-row"><div class="ds-type-row__meta"><strong>Подпись</strong><code>--fs-12</code></div><p class="ds-type-row__sample ds-type--caption">Котельная после монтажа · Казань</p><p class="ds-type-row__rules">12px · 400 · 1.45 · медиа и служебные подписи</p></div>
+                    <div class="ds-type-row"><div class="ds-type-row__meta"><strong>Реквизиты</strong><code>--fs-13</code></div><p class="ds-type-row__sample ds-type--requisite">ИНН 1661071059 · ОГРН 1211600075642</p><p class="ds-type-row__rules">13px · 600 · 1.5 · длинные идентификаторы</p></div>
+                    <div class="ds-type-row"><div class="ds-type-row__meta"><strong>Дата / срок</strong><code>--fs-15</code></div><p class="ds-type-row__sample ds-type--date">Действует до 26.10.2027</p><p class="ds-type-row__rules">15px · 700 · 1.3 · всегда заметно и полностью</p></div>
+                    <div class="ds-type-row"><div class="ds-type-row__meta"><strong>Число</strong><code>--fs-32</code></div><p class="ds-type-row__sample ds-type--number">52 °C</p><p class="ds-type-row__rules">32px · 700 · 1.0 · измерение или подтверждённый факт</p></div>
+                    <div class="ds-type-row"><div class="ds-type-row__meta"><strong>Ссылка</strong><code>.team-text-link</code></div><a class="ds-type-row__sample ds-type--link" href="#buttons">Посмотреть состояния кнопок →</a><p class="ds-type-row__rules">14px · 600 · действие внутри текста</p></div>
+                    <div class="ds-type-row"><div class="ds-type-row__meta"><strong>Списки</strong><code>--fs-15</code></div><div class="ds-type-row__sample ds-grid-2"><ul class="ds-type-list-sample"><li>Диагностика</li><li>Настройка автоматики</li></ul><ol class="ds-type-list-sample"><li>Осмотр</li><li>Согласование</li></ol></div><p class="ds-type-row__rules">15px · 400 · 1.55 · только реальные перечни или последовательности</p></div>
+                    <div class="ds-type-row"><div class="ds-type-row__meta"><strong>Цитата</strong><code>.ds-type--quote</code></div><blockquote class="ds-type-row__sample ds-type--quote">Сначала проверяем систему, затем предлагаем решение.</blockquote><p class="ds-type-row__rules">18px · 500 · 1.55 · короткая прямая речь или принцип</p></div>
+                    <div class="ds-type-row"><div class="ds-type-row__meta"><strong>Важный факт</strong><code>strong / --accent-rgb</code></div><p class="ds-type-row__sample ds-type--body">Выезд согласуем <strong class="ds-type--fact">после уточнения задачи</strong>.</p><p class="ds-type-row__rules">Жирность 700; выделяется только значимая часть</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ds-section" id="buttons">
+            <div class="container">
+                <header class="ds-section__head"><p class="ds-section__index">03 · Кнопки и ссылки</p><div><h2>Оранжевый — действие, не декор.</h2><p>Матрица фиксирует состояния для каждой разрешённой разновидности. Минимальная интерактивная область — 44px, основная высота — 52px.</p></div></header>
+                <div class="ds-button-table" tabindex="0" aria-label="Матрица состояний кнопок; на узком экране прокручивается горизонтально">
+                    <div class="ds-button-matrix">
+                        <div class="ds-button-matrix__head">Вариант</div><div class="ds-button-matrix__head">Default</div><div class="ds-button-matrix__head">Hover</div><div class="ds-button-matrix__head">Active</div><div class="ds-button-matrix__head">Focus</div><div class="ds-button-matrix__head">Disabled</div><div class="ds-button-matrix__head">Loading</div>
+                        <div class="ds-button-matrix__name">Основная</div><button class="ds-btn ds-btn--primary">Консультация</button><button class="ds-btn ds-btn--primary is-hover">Консультация</button><button class="ds-btn ds-btn--primary is-active">Консультация</button><button class="ds-btn ds-btn--primary is-focus">Консультация</button><button class="ds-btn ds-btn--primary" disabled>Консультация</button><button class="ds-btn ds-btn--primary is-loading" aria-label="Загрузка">Консультация</button>
+                        <div class="ds-button-matrix__name">Вторичная</div><button class="ds-btn ds-btn--secondary">Посмотреть</button><button class="ds-btn ds-btn--secondary is-hover">Посмотреть</button><button class="ds-btn ds-btn--secondary is-active">Посмотреть</button><button class="ds-btn ds-btn--secondary is-focus">Посмотреть</button><button class="ds-btn ds-btn--secondary" disabled>Посмотреть</button><button class="ds-btn ds-btn--secondary is-loading" aria-label="Загрузка">Посмотреть</button>
+                        <div class="ds-button-matrix__name">Контурная</div><button class="ds-btn ds-btn--outline">Все услуги</button><button class="ds-btn ds-btn--outline is-hover">Все услуги</button><button class="ds-btn ds-btn--outline is-active">Все услуги</button><button class="ds-btn ds-btn--outline is-focus">Все услуги</button><button class="ds-btn ds-btn--outline" disabled>Все услуги</button><button class="ds-btn ds-btn--outline is-loading" aria-label="Загрузка">Все услуги</button>
+                        <div class="ds-button-matrix__name">Текстовая</div><button class="ds-btn ds-btn--text">Подробнее</button><button class="ds-btn ds-btn--text is-hover">Подробнее</button><button class="ds-btn ds-btn--text is-active">Подробнее</button><button class="ds-btn ds-btn--text is-focus">Подробнее</button><button class="ds-btn ds-btn--text" disabled>Подробнее</button><button class="ds-btn ds-btn--text is-loading" aria-label="Загрузка">Подробнее</button>
+                        <div class="ds-button-matrix__name">Со стрелкой</div><button class="ds-btn ds-btn--arrow">Открыть <svg><use href="#icon-arrow"></use></svg></button><button class="ds-btn ds-btn--arrow is-hover">Открыть <svg><use href="#icon-arrow"></use></svg></button><button class="ds-btn ds-btn--arrow is-active">Открыть <svg><use href="#icon-arrow"></use></svg></button><button class="ds-btn ds-btn--arrow is-focus">Открыть <svg><use href="#icon-arrow"></use></svg></button><button class="ds-btn ds-btn--arrow" disabled>Открыть <svg><use href="#icon-arrow"></use></svg></button><button class="ds-btn ds-btn--arrow is-loading" aria-label="Загрузка">Открыть</button>
+                        <div class="ds-button-matrix__name">С иконкой</div><button class="ds-btn"><svg><use href="#icon-file"></use></svg> Документы</button><button class="ds-btn is-hover"><svg><use href="#icon-file"></use></svg> Документы</button><button class="ds-btn is-active"><svg><use href="#icon-file"></use></svg> Документы</button><button class="ds-btn is-focus"><svg><use href="#icon-file"></use></svg> Документы</button><button class="ds-btn" disabled><svg><use href="#icon-file"></use></svg> Документы</button><button class="ds-btn is-loading" aria-label="Загрузка">Документы</button>
+                        <div class="ds-button-matrix__name">Компактная</div><button class="ds-btn ds-btn--compact">Показать</button><button class="ds-btn ds-btn--compact is-hover">Показать</button><button class="ds-btn ds-btn--compact is-active">Показать</button><button class="ds-btn ds-btn--compact is-focus">Показать</button><button class="ds-btn ds-btn--compact" disabled>Показать</button><button class="ds-btn ds-btn--compact is-loading" aria-label="Загрузка">Показать</button>
+                        <div class="ds-button-matrix__name">На тёмной</div><button class="ds-btn ds-btn--dark">Связаться</button><button class="ds-btn ds-btn--dark is-hover">Связаться</button><button class="ds-btn ds-btn--dark is-active">Связаться</button><button class="ds-btn ds-btn--dark is-focus">Связаться</button><button class="ds-btn ds-btn--dark" disabled>Связаться</button><button class="ds-btn ds-btn--dark is-loading" aria-label="Загрузка">Связаться</button>
+                        <div class="ds-button-matrix__name">На светлой</div><button class="ds-btn ds-btn--light">Связаться</button><button class="ds-btn ds-btn--light is-hover">Связаться</button><button class="ds-btn ds-btn--light is-active">Связаться</button><button class="ds-btn ds-btn--light is-focus">Связаться</button><button class="ds-btn ds-btn--light" disabled>Связаться</button><button class="ds-btn ds-btn--light is-loading" aria-label="Загрузка">Связаться</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ds-section ds-section--contrast" id="grid">
+            <div class="container">
+                <header class="ds-section__head"><p class="ds-section__index">04 · Сетка и интервалы</p><div><h2>Один контейнер, предсказуемый ритм.</h2><p>Ширина страницы — до 1300px. Узкие тексты не растягиваются до краёв, а колонки переходят в один столбец по смыслу, не по случайному числу.</p></div></header>
+                <div class="ds-container-demo"><strong>Основной .container · max-width 1300px · padding-inline --space-container</strong><div class="ds-container-demo__wide">Широкая область · медиа, реестры, сравнительные данные</div><div class="ds-container-demo__narrow">Узкая область · длинный текст, пояснение, юридическая формулировка</div></div>
+                <div class="ds-grid-demo"><p class="ds-specimen-label">Одноколоночная</p><div class="ds-grid-cell">1 × minmax(0, 1fr)</div></div>
+                <div class="ds-grid-demo"><p class="ds-specimen-label">Двухколоночная</p><div class="ds-grid-2"><div class="ds-grid-cell">Текст / 0.8fr</div><div class="ds-grid-cell">Доказательство / 1.2fr</div></div></div>
+                <div class="ds-grid-demo"><p class="ds-specimen-label">Трёхколоночная</p><div class="ds-grid-3"><div class="ds-grid-cell">Факт</div><div class="ds-grid-cell">Факт</div><div class="ds-grid-cell">Факт</div></div></div>
+                <p class="ds-note"><strong>Шкала:</strong> внутренние интервалы используют `--space-1`…`--space-8`; секции — `--space-section`; заголовочная группа — `--trs-heading-gap`. На экране до 700–980px смысловые колонки становятся одной колонкой.</p>
+            </div>
+        </section>
+
+        <section class="ds-section" id="surfaces">
+            <div class="container">
+                <header class="ds-section__head"><p class="ds-section__index">05 · Поверхности и блоки</p><div><h2>Карточка — только один из способов организации.</h2><p>Сравнимые данные представлены строками и реестром. Панели отделяют смысловые зоны, а карточки используются там, где объект действительно самостоятелен.</p></div></header>
+                <div class="ds-grid-2">
+                    <article class="ds-panel"><h3>Обычная секция</h3><p>Продолжает холст страницы и отделяется вертикальным ритмом.</p></article>
+                    <article class="ds-info-panel"><h3>Информационная панель</h3><p>Коротко объясняет условие, ограничение или порядок действий.</p></article>
+                </div>
+                <div class="ds-grid-3" style="margin-top:var(--space-5)">
+                    <article class="ds-card"><div class="ds-card__body"><h3>Обычная карточка</h3><p>Для самостоятельного объекта с коротким описанием.</p></div></article>
+                    <article class="ds-card"><div class="ds-card__body"><h3>Карточка со ссылкой</h3><p>Вся логика ведёт к одному следующему действию.</p></div><a class="ds-card__link" href="#compositions">Открыть пример <span>→</span></a></article>
+                    <button class="ds-case-card" type="button" aria-label="Открыть объект: Котельная с двумя котлами, Казань, улица Федосеевская, 6 фотографий">
+                        <img src="assets/portfolio/Монтаж - Казань ул Федосеевская/20240902_131117.webp" alt="Котельная с двумя котлами" loading="lazy">
+                        <span class="ds-case-card__content">
+                            <span class="ds-case-card__meta"><span>Казань, ул. Федосеевская</span><span>6 фото</span></span>
+                            <h3>Котельная с двумя котлами</h3>
+                        </span>
+                    </button>
+                </div>
+                <div class="ds-grid-2" style="margin-top:var(--space-5)">
+                    <article class="ds-requisites"><p class="ds-specimen-label">Блок реквизитов</p><dl><div><dt>Организация</dt><dd>ООО «ТеплоРемСервис»</dd></div><div><dt>ИНН</dt><dd>1661071059</dd></div><div><dt>ОГРН</dt><dd>1211600075642</dd></div></dl></article>
+                    <article class="ds-warning"><h3>Примечание</h3><p>Если факт требует уточнения, интерфейс прямо сообщает об этом и показывает следующее действие.</p></article>
+                </div>
+                <div style="margin-top:var(--space-7)"><p class="ds-specimen-label">Строка списка и строка реестра</p><div class="ds-registry"><div class="ds-registry__row"><strong>Техническое обслуживание</strong><span>Газовый котёл и обвязка</span><span>По результату осмотра</span><a class="ds-btn ds-btn--compact" href="services.html">Подробнее</a></div><div class="ds-registry__row"><strong>Регистрация уведомления</strong><span>Госжилинспекция РТ</span><span class="ds-status ds-status--ok">Подтверждено</span><button class="ds-btn ds-btn--compact">Открыть</button></div></div></div>
+                <div class="ds-grid-2" style="margin-top:var(--space-7)"><div class="ds-empty"><div><strong>Материалов пока нет</strong><p>Добавьте документ или вернитесь к разделу позже.</p></div></div><div class="ds-panel"><p class="ds-specimen-label">Текстовый блок</p><h3>Когда нужен спокойный рассказ</h3><p>Длинный текст получает узкую колонку, ясный заголовок и достаточный межстрочный интервал без дополнительной карточной сетки.</p></div></div>
+                <div class="ds-cta" style="margin-top:var(--space-7)"><div><p class="ds-specimen-label">Компактный CTA</p><h3>Нужно обсудить систему отопления?</h3><p>Опишите задачу. Уточним оборудование и согласуем следующий шаг.</p></div><div class="ds-cta__action"><a class="ds-btn ds-btn--primary" href="index.html#calc"><svg><use href="#icon-wrench"></use></svg> Получить консультацию</a></div></div>
+            </div>
+        </section>
+
+        <section class="ds-section ds-section--contrast" id="media">
+            <div class="container">
+                <header class="ds-section__head"><p class="ds-section__index">06 · Изображения и медиа</p><div><h2>Изображение подтверждает, а не заполняет место.</h2><p>Фотографии объектов и людей допускают осмысленное кадрирование. Документы и технические материалы показываются целиком без обрезки значимых реквизитов.</p></div></header>
+                <div class="ds-media-grid">
+                    <figure class="ds-media"><div class="ds-media__frame ds-media__frame--landscape"><img src="assets/portfolio/Монтаж - Казань ул Федосеевская/20240902_131548.webp" alt="Готовая котельная после монтажа" loading="lazy"></div><figcaption>Объект · горизонтальное фото · `object-fit: cover`, если оборудование не обрезано.</figcaption></figure>
+                    <figure class="ds-media"><div class="ds-media__frame ds-media__frame--portrait"><img src="assets/images/team/рунар.jpg" alt="Рунар в рабочей форме" loading="lazy"></div><figcaption>Портрет · 4:5 · лицо и рабочий контекст сохраняются.</figcaption></figure>
+                    <figure class="ds-media"><div class="ds-media__frame ds-media__frame--document"><button class="ds-media-button" type="button" data-ds-media-open aria-label="Увеличить письмо Госжилинспекции"><img src="assets/docs/goszhilinspektsiya-vdgo.webp" alt="Письмо Госжилинспекции РТ о регистрации уведомления" loading="lazy"></button></div><figcaption>Документ · `object-fit: contain` · нажмите для увеличения.</figcaption></figure>
+                </div>
+                <div class="ds-grid-3 ds-media-rules"><article class="ds-panel"><h3>Техническая схема</h3><p>Только реальная и подписанная схема. Линии не используются как псевдотехнический декор.</p></article><article class="ds-panel"><h3>Логотип производителя</h3><p>Сохраняет пропорции и защитное поле; не становится самостоятельным акцентом страницы.</p></article><article class="ds-panel"><h3>Масштабирование</h3><p>Значимый материал открывается в модальном просмотре с подписью, Escape и возвратом фокуса.</p></article></div>
+            </div>
+        </section>
+
+        <section class="ds-section" id="navigation">
+            <div class="container">
+                <header class="ds-section__head"><p class="ds-section__index">07 · Навигация</p><div><h2>Текущая шапка и подвал остаются общей рамкой.</h2><p>Демонстрационная страница использует настоящую шапку, мобильное меню, переключатель темы и подвал сайта. Ниже показаны активный пункт, хлебные крошки и якорный уровень.</p></div></header>
+                <div class="ds-nav-sample"><div class="ds-nav-sample__bar"><div class="ds-nav-sample__brand">Тепло<span>Рем</span>Сервис</div><nav class="ds-nav-sample__links" aria-label="Пример навигации"><a href="#">Команда</a><a href="#" aria-current="page">Услуги</a><a href="#">Работы</a></nav><span class="ds-status ds-status--active">Активно</span></div><nav class="ds-breadcrumbs" aria-label="Хлебные крошки"><a href="index.html">Главная</a><span aria-hidden="true">/</span><a href="services.html">Услуги</a><span aria-hidden="true">/</span><span aria-current="page">Монтаж котельной</span></nav></div>
+                <div class="ds-grid-2" style="margin-top:var(--space-5)"><article class="ds-info-panel"><h3>Мобильное меню</h3><p>Выезжает справа, блокирует фон, переводит фокус на первую ссылку и возвращает его в кнопку после закрытия.</p></article><article class="ds-panel"><h3>Keyboard focus</h3><p>Все ссылки и кнопки используют видимую медную обводку. Попробуйте пройти страницу клавишей Tab.</p></article></div>
+            </div>
+        </section>
+
+        <section class="ds-section ds-section--contrast" id="forms">
+            <div class="container">
+                <header class="ds-section__head"><p class="ds-section__index">08 · Формы</p><div><h2>Поля продолжают язык панелей.</h2><p>Высота, радиус, граница и фокус совпадают с остальными контролами. Ошибка сообщает, что исправить; успешное состояние подтверждает результат.</p></div></header>
+                <div class="cta-wrapper">
+                    <div class="cta-content">
+                        <p class="cta-kicker">Выезд инженера</p>
+                        <h2>Смета после выезда на объект</h2>
+                        <p>Оставьте номер — главный инженер перезвонит в течение 15 минут. Он уточнит площадь и тип котла и договорится о выезде для замера и расчёта стоимости.</p>
+                    </div>
+                    <div class="cta-form-block">
+                        <p class="cta-form-kicker">Контакты для связи</p>
+                        <form class="sleek-form" id="showcase-lead-form" novalidate onsubmit="return false">
+                            <div class="input-group input-group--primary">
+                                <div class="form-field"><label for="showcase-lead-name">Ваше имя</label><input type="text" id="showcase-lead-name" name="name" placeholder="Ваше имя" autocomplete="name" required></div>
+                                <div class="form-field"><label for="showcase-lead-phone">Номер телефона</label><input type="tel" id="showcase-lead-phone" name="phone" placeholder="+7 (999) 000-00-00" autocomplete="tel" inputmode="tel" required></div>
+                            </div>
+                            <div class="form-details-prompt">
+                                <span class="form-details-prompt__text">Уже знаете, что нужно?</span>
+                                <label class="form-switch"><input type="checkbox" class="form-switch__input" id="showcase-details-toggle" aria-controls="showcase-form-details" aria-expanded="false"><span class="form-switch__track" aria-hidden="true"><span class="form-switch__thumb"></span></span></label>
+                            </div>
+                            <div class="form-details" id="showcase-form-details" inert>
+                                <div class="form-details__inner">
+                                    <div class="input-group input-group--secondary">
+                                        <div class="form-field"><label for="showcase-service">Интересующая услуга</label><select id="showcase-service" name="service_code"><option value="" selected disabled hidden>Выберите услугу</option><option value="design">Расчёт и подбор</option><option value="installation">Монтаж котельной</option><option value="automation">Автоматика ZONT</option><option value="service">Сервис и ТО</option><option value="reconstruction">Реконструкция</option></select></div>
+                                        <div class="form-field"><label for="showcase-lead-area">Площадь объекта</label><input type="number" id="showcase-lead-area" name="area_sqm" placeholder="Площадь, м²" min="1" max="100000" step="1" inputmode="numeric"></div>
+                                        <div class="form-field"><label for="showcase-heating">Тип отопления</label><select id="showcase-heating" name="heating_type"><option value="" selected disabled hidden>Тип котла</option><option value="gas_boiler">Газовый котёл</option><option value="electric">Электрический</option><option value="solid_fuel">Твёрдотопливный</option><option value="heat_pump">Тепловой насос</option><option value="centralized">Центральное</option><option value="unknown">Не знаю</option></select></div>
+                                    </div>
+                                    <div class="form-field"><label for="showcase-lead-message">Комментарий к заявке</label><textarea id="showcase-lead-message" name="message" rows="2" placeholder="Комментарий: адрес объекта, сроки, пожелания…"></textarea></div>
+                                </div>
+                            </div>
+                            <div class="privacy-consent"><input type="checkbox" name="privacy_consent" id="showcase-privacy-consent" required><label for="showcase-privacy-consent">Я соглашаюсь с <a href="privacy.html" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a> и даю согласие на обработку персональных данных.</label></div>
+                            <button type="submit" class="btn-glow btn-submit">Оставить заявку</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="ds-form-states" aria-label="Состояния полей формы">
+                    <div class="form-field ds-form-field--error"><label for="showcase-error">Ошибка</label><input id="showcase-error" type="tel" value="+7 12" aria-invalid="true" aria-describedby="showcase-error-note"><p class="ds-form-state-note" id="showcase-error-note">Введите телефон полностью</p></div>
+                    <div class="form-field ds-form-field--success"><label for="showcase-success">Успешное состояние</label><input id="showcase-success" type="text" value="Адрес принят" readonly><p class="ds-form-state-note">Данные сохранены</p></div>
+                    <div class="form-field"><label for="showcase-disabled">Недоступное поле</label><input id="showcase-disabled" type="text" value="Недоступно" disabled><p class="ds-form-state-note">Состояние обозначено текстом и прозрачностью</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ds-section" id="states">
+            <div class="container">
+                <header class="ds-section__head"><p class="ds-section__index">09 · Состояния</p><div><h2>Смысл читается без зависимости от цвета.</h2><p>Каждое состояние имеет подпись, форму или символ. Hover и focus показывают возможность действия, а не создают декоративный эффект.</p></div></header>
+                <div class="ds-status-list">
+                    <div class="ds-status-row"><strong>Нейтральный</strong><p>Информация доступна, но не требует действия.</p><span class="ds-status">Сведения</span></div>
+                    <div class="ds-status-row"><strong>Активный</strong><p>Выбранный фильтр или текущий пункт.</p><span class="ds-status ds-status--active">Выбрано</span></div>
+                    <div class="ds-status-row"><strong>Подтверждённый</strong><p>Факт проверен указанным источником.</p><span class="ds-status ds-status--ok">Подтверждено</span></div>
+                    <div class="ds-status-row"><strong>Предупреждение</strong><p>Нужна проверка срока или дополнительное условие.</p><span class="ds-status ds-status--warning">Проверьте срок</span></div>
+                    <div class="ds-status-row"><strong>Ошибка</strong><p>Действие не выполнено; рядом указано исправление.</p><span class="ds-status ds-status--error">Ошибка</span></div>
+                    <div class="ds-status-row"><strong>Загрузка</strong><p>Контент обновляется, повторное действие временно недоступно.</p><span class="ds-spinner" role="status" aria-label="Загрузка"></span></div>
+                </div>
+                <div class="ds-grid-2" style="margin-top:var(--space-5)"><details class="ds-disclosure"><summary>Закрытый блок</summary><p>После раскрытия показывается дополнительное пояснение без перехода на новую страницу.</p></details><details class="ds-disclosure" open><summary>Раскрытый блок</summary><p>Состояние обозначено знаком «минус», границей и видимым содержанием.</p></details></div>
+            </div>
+        </section>
+
+        <section class="ds-section ds-section--contrast" id="motion">
+            <div class="container">
+                <header class="ds-section__head"><p class="ds-section__index">10 · Движение</p><div><h2>Движение объясняет изменение состояния.</h2><p>Базовый темп — 180ms ease. Более длинное движение допустимо только для открытия меню или модального слоя. При reduced motion оно отключается.</p></div></header>
+                <div class="ds-motion-track"><article class="ds-motion-item"><strong>Hover</strong><i></i><span>180ms ease · цвет, граница, смещение до 2px</span></article><article class="ds-motion-item"><strong>Появление секции</strong><i></i><span>существующий `.scroll-reveal`; без обязательной анимации</span></article><article class="ds-motion-item"><strong>Модальное окно</strong><i></i><span>быстрое появление слоя, затем перевод фокуса</span></article><article class="ds-motion-item"><strong>Мобильное меню</strong><i></i><span>350ms; движение панели сообщает направление</span></article></div>
+                <p class="ds-note"><strong>Reduced motion:</strong> трансформации и бесконечные индикаторы отключаются; содержимое остаётся доступным без ожидания анимации.</p>
+            </div>
+        </section>
+
+        <section class="ds-section" id="compositions">
+            <div class="container">
+                <header class="ds-section__head"><p class="ds-section__index">11 · Универсальные композиции</p><div><h2>Фрагменты реальных страниц, а не набор деталей.</h2><p>Эти примеры показывают правильную сборку общей системы. Они не являются готовыми страницами и не задают структуру страницы допусков.</p></div></header>
+                <div class="ds-composition-grid">
+                    <article class="ds-composition ds-composition--hero"><p class="ds-composition__label">Первый экран внутренней страницы + доказательство</p><div class="ds-composition__inner"><div><p class="ds-kicker">Сервис котельного оборудования</p><h3>Сначала проверяем систему на месте</h3><p>Уточняем задачу, оборудование и состояние обвязки. После осмотра объясняем решение и согласуем работы.</p><div class="ds-actions"><a class="ds-btn ds-btn--primary" href="index.html#calc">Получить консультацию</a><a class="ds-btn ds-btn--secondary" href="services.html">Услуги и цены</a></div></div><div class="ds-composition__proof"><img src="assets/docs/goszhilinspektsiya-vdgo.webp" alt="Пример реального документа" loading="lazy"></div></div></article>
+                    <article class="ds-composition"><p class="ds-composition__label">Вводный текстовый раздел</p><div class="ds-composition__inner"><h3>Что происходит после обращения</h3><p>Менеджер записывает адрес и оборудование. Мастер получает информацию до выезда, поэтому на объекте начинает с проверки системы, а не повторного сбора исходных данных.</p></div></article>
+                    <article class="ds-composition ds-composition--split"><p class="ds-composition__label">Изображение + текст</p><div class="ds-composition__inner"><img src="assets/portfolio/Монтаж - Казань ул Федосеевская/20240902_131548.webp" alt="Котельная после монтажа" loading="lazy"><div><p class="ds-kicker">Реальный объект</p><h3>Фото показывает результат без декоративной обработки</h3><p>Оборудование, обвязка и качество монтажа остаются читаемыми. Подпись сообщает место и состав работ.</p><a class="ds-type--link" href="portfolio.html">Открыть портфолио →</a></div></div></article>
+                    <article class="ds-composition"><p class="ds-composition__label">Перечень услуг</p><div class="ds-composition__inner"><h3>Работы с котельной</h3><ol class="ds-service-list"><li><span>01</span><strong>Диагностика и осмотр</strong><small>до начала работ</small></li><li><span>02</span><strong>Монтаж и реконструкция</strong><small>по согласованному составу</small></li><li><span>03</span><strong>Запуск и настройка</strong><small>оборудование и автоматика</small></li></ol></div></article>
+                    <article class="ds-composition"><p class="ds-composition__label">Блок команды</p><div class="ds-composition__inner"><h3>Люди, которые приезжают на объект</h3><p>Реальные портреты, имя и практическая зона ответственности.</p><div class="ds-team-strip"><figure><img src="assets/images/team/рунар.jpg" alt="Рунар" loading="lazy"><figcaption>Рунар · руководит работами</figcaption></figure><figure><img src="assets/images/team/алишер.jpg" alt="Алишер" loading="lazy"><figcaption>Алишер · монтаж и сервис</figcaption></figure><figure><img src="assets/images/team/алексей.jpg" alt="Алексей" loading="lazy"><figcaption>Алексей · ремонт и запуск</figcaption></figure><figure><img src="assets/images/team/ренат.jpg" alt="Ренат" loading="lazy"><figcaption>Ренат · обслуживание</figcaption></figure></div></div></article>
+                    <article class="ds-composition"><p class="ds-composition__label">Реестр / сравнительный список</p><div class="ds-composition__inner"><h3>Сравнимые сведения</h3><div class="ds-registry"><div class="ds-registry__row"><strong>Монтаж котельной</strong><span>Состав после осмотра</span><span>Казань и пригород</span><a class="ds-btn ds-btn--compact" href="services.html">Условия</a></div><div class="ds-registry__row"><strong>Обслуживание котла</strong><span>По марке оборудования</span><span>По согласованию</span><a class="ds-btn ds-btn--compact" href="services.html">Условия</a></div></div></div></article>
+                    <article class="ds-composition"><p class="ds-composition__label">Компактный CTA и финальный переход</p><div class="ds-composition__inner"><div class="ds-cta"><div><p class="ds-kicker">Следующий шаг</p><h3>Расскажите, что установлено и что произошло</h3><p>Уточним детали и подскажем, нужен ли выезд мастера.</p></div><div class="ds-cta__action"><a class="ds-btn ds-btn--primary" href="index.html#calc">Получить консультацию</a></div></div></div></article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-main"><div class="container footer-flex"><div class="footer-brand"><div class="logo-main">Тепло<span>Рем</span>Сервис</div><p class="footer-desc">Отопление, котельные и сервис в Казани и пригороде.</p></div><div class="footer-links"><div class="nav-col"><h4>Услуги</h4><a href="index.html#services">Расчёт и подбор</a><a href="index.html#services">Монтаж котельных</a><a href="index.html#services">Автоматика</a><a href="index.html#services">Сервис котлов</a><a href="portfolio.html">Портфолио</a><a href="licenses.html">Допуски</a><a href="team.html">Наша команда</a><a href="faq.html">FAQ</a></div></div><div class="footer-contacts-clean"><h4>Связаться с нами</h4><a href="tel:+79376254703" class="footer-phone">+7 (937) 625-47-03</a><a href="mailto:info@teplorem.ru" class="footer-mail">info@teplorem.ru</a><a class="footer-tg-link" href="https://t.me/teplorem" target="_blank" rel="noopener noreferrer">Написать в Telegram</a></div></div></div>
+        <div class="footer-legal"><div class="container footer-legal-inner"><p class="footer-legal-copy">© 2026 ООО «ТеплоРемСервис». Все права защищены.</p><p class="footer-legal-reqs">ИНН: 1661071059 | ОГРН: 1211600075642</p><a href="privacy.html" class="footer-legal-link">Политика конфиденциальности</a></div></div>
+    </footer>
+
+    <div class="ds-media-modal" id="ds-media-modal" hidden>
+        <button type="button" class="ds-media-modal__backdrop" data-ds-media-close aria-label="Закрыть просмотр"></button>
+        <div class="ds-media-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="ds-media-title">
+            <button type="button" class="ds-media-modal__close" data-ds-media-close aria-label="Закрыть просмотр"><svg width="18" height="18" aria-hidden="true"><use href="#icon-close"></use></svg></button>
+            <img src="assets/docs/goszhilinspektsiya-vdgo.webp" alt="Письмо Госжилинспекции РТ о регистрации уведомления">
+            <p class="ds-media-modal__caption" id="ds-media-title">Документ показывается целиком. Значимые реквизиты не обрезаются.</p>
+        </div>
+    </div>
+
+    <script defer src="js/core/common.js?v=20260817-1635"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const detailsToggle = document.getElementById('showcase-details-toggle');
+            const formDetails = document.getElementById('showcase-form-details');
+            detailsToggle?.addEventListener('change', () => {
+                const isOpen = detailsToggle.checked;
+                detailsToggle.setAttribute('aria-expanded', String(isOpen));
+                formDetails.classList.toggle('is-open', isOpen);
+                formDetails.inert = !isOpen;
+            });
+
+            const modal = document.getElementById('ds-media-modal');
+            const trigger = document.querySelector('[data-ds-media-open]');
+            const close = modal.querySelector('.ds-media-modal__close');
+            const closeModal = () => {
+                if (modal.hidden) return;
+                modal.hidden = true;
+                window.setModalBackgroundInert?.(modal, false);
+                document.body.style.overflow = '';
+                trigger.focus();
+            };
+            trigger.addEventListener('click', () => {
+                modal.hidden = false;
+                window.setModalBackgroundInert?.(modal, true);
+                document.body.style.overflow = 'hidden';
+                close.focus();
+            });
+            modal.querySelectorAll('[data-ds-media-close]').forEach((item) => item.addEventListener('click', closeModal));
+            document.addEventListener('keydown', (event) => {
+                if (!modal.hidden && event.key === 'Escape') closeModal();
+            });
+        });
+    </script>
+</body>
+</html>

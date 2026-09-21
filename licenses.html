@@ -14,308 +14,52 @@
     <script>
         document.documentElement.classList.remove('no-js');
         document.documentElement.classList.add('js');
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
     </script>
     <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/pages/licenses.css">
 </head>
 <body class="site-page home-page permit-page">
-<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
-<symbol id="icon-logo-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
-  </symbol>
-  <symbol id="icon-sun" viewBox="0 0 24 24" fill="none">
-    <circle cx="12" cy="12" r="5" fill="currentColor"/>
-    <path d="M12 2V4M12 20V22M4 12H2M22 12H20M19.0711 19.0711L17.6569 17.6569M6.34315 6.34315L4.92893 4.92893M19.0711 4.92893L17.6569 6.34315M6.34315 17.6569L4.92893 19.0711" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-  </symbol>
-  <symbol id="icon-moon" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-  </symbol>
-  <symbol id="icon-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
-  </symbol>
-  <symbol id="icon-file-detail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
-  </symbol>
-  <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-  </symbol>
-  <symbol id="icon-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
-  </symbol>
-  <symbol id="icon-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
-  </symbol>
-  <symbol id="icon-floor-grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/>
-  </symbol>
-  <symbol id="icon-smartphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
-  </symbol>
-  <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-  </symbol>
-  <symbol id="icon-wifi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/>
-  </symbol>
-  <symbol id="icon-wifi-smart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/><path d="M12 14v3"/>
-  </symbol>
-  <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-  </symbol>
-  <symbol id="icon-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-  </symbol>
-  <symbol id="icon-pencil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/><path d="m15 5 3 3"/>
-  </symbol>
-  <symbol id="icon-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z"/>
-  </symbol>
-  <symbol id="icon-quote" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-7 0c0-1.016.463-1.94 1.192-2.549zm12 0C15.553 16.227 15 15 15 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-7 0c0-1.016.463-1.94 1.192-2.549z"/>
-  </symbol>
-  <symbol id="icon-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M15 18l-6-6 6-6"/>
-  </symbol>
-  <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M9 18l6-6-6-6"/>
-  </symbol>
-  <symbol id="icon-zoom-in" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/>
-  </symbol>
-  <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M18 6L6 18M6 6l12 12"/>
-  </symbol>
-</svg>
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
+        <symbol id="icon-logo-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+        <symbol id="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" fill="currentColor"/><path d="M12 2V4M12 20V22M4 12H2M22 12H20M19.1 19.1 17.7 17.7M6.3 6.3 4.9 4.9M19.1 4.9 17.7 6.3M6.3 17.7 4.9 19.1" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+        <symbol id="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+        <symbol id="icon-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></symbol>
+        <symbol id="icon-zoom-in" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/></symbol>
+        <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    </svg>
     <div class="ambient-bg"></div>
-
     <button type="button" class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true" tabindex="-1"></button>
 
     <header class="pill-header">
         <div class="header-wrap">
-            <a href="index.html" class="logo-box">
-                <svg class="logo-icon" width="36" height="36" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-logo-flame"></use></svg>
-                <div class="logo-text-wrap">
-                    <div class="logo-main">Тепло<span>Рем</span>Сервис</div>
-                    <div class="logo-sub">Инженерная группа</div>
-                </div>
-            </a>
-
-            <nav class="nav-links" id="main-nav" aria-label="Основная навигация">
-                <a href="team.html">Наша команда</a>
-                <a href="services.html">Услуги</a>
-                <a href="portfolio.html">Портфолио</a>
-                <a href="licenses.html" class="nav-active">Допуски</a>
-                <a href="faq.html">FAQ</a>
-                <a href="index.html#trust">Отзывы</a>
-                <div class="mobile-nav-contacts">
-                    <a href="tel:+79376254703" class="mobile-nav-phone">+7 937 625-47-03</a>
-                    <a href="https://t.me/teplorem" class="mobile-nav-tg" target="_blank" rel="noopener noreferrer">Telegram</a>
-                </div>
-                <a href="index.html#calc" class="mobile-cta">Заказать выезд</a>
-            </nav>
-
-            <div class="contact-box">
-                <a href="tel:+79376254703" class="phone-link">+7 937 625-47-03</a>
-                <a href="https://t.me/teplorem" class="btn-ghost" target="_blank" rel="noopener noreferrer">Telegram</a>
-
-                <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Переключить тему" aria-pressed="true">
-                    <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-sun"></use></svg>
-                    <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-moon"></use></svg>
-                </button>
-
-                <button type="button" class="burger-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+            <a href="index.html" class="logo-box"><svg class="logo-icon" width="36" height="36" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-logo-flame"></use></svg><div class="logo-text-wrap"><div class="logo-main">Тепло<span>Рем</span>Сервис</div><div class="logo-sub">Инженерная группа</div></div></a>
+            <nav class="nav-links" id="main-nav" aria-label="Основная навигация"><a href="team.html">Наша команда</a><a href="services.html">Услуги</a><a href="portfolio.html">Портфолио</a><a href="licenses.html" class="nav-active" aria-current="page">Допуски</a><a href="faq.html">FAQ</a><a href="index.html#trust">Отзывы</a><div class="mobile-nav-contacts"><a href="tel:+79376254703" class="mobile-nav-phone">+7 937 625-47-03</a><a href="https://t.me/teplorem" class="mobile-nav-tg" target="_blank" rel="noopener noreferrer">Telegram</a></div><a href="index.html#calc" class="mobile-cta">Получить консультацию</a></nav>
+            <div class="contact-box"><a href="tel:+79376254703" class="phone-link">+7 937 625-47-03</a><a href="https://t.me/teplorem" class="btn-ghost" target="_blank" rel="noopener noreferrer">Telegram</a><button type="button" id="theme-toggle" class="theme-toggle" aria-label="Переключить тему" aria-pressed="true"><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-sun"></use></svg><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-moon"></use></svg></button><button type="button" class="burger-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button></div>
         </div>
     </header>
+
     <main class="permit-main">
-        <section class="hero permit-hero" aria-labelledby="permit-title">
-            <div class="container hero-grid">
-                <div class="hero-text-block">
-                    <p class="permit-kicker">Допуски и сертификаты · Казань</p>
-                    <h1 class="hero-title permit-hero__title" id="permit-title">
-                        <span class="line-wrap"><span>Допуски</span></span>
-                        <span class="line-wrap"><span>и сервисные</span></span>
-                        <span class="line-wrap"><span class="accent-text">документы</span></span>
-                    </h1>
-                    <p class="hero-lead">Здесь собраны оригиналы документов, точные сроки и сведения об организациях, указанных в сертификатах.</p>
-                    <div class="hero-actions-group">
-                        <a href="#licenses" class="btn-glow hero-action--vertical-primary">
-                            <span class="btn-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"><use href="#icon-file-text"></use></svg></span>
-                            <span class="btn-content">Посмотреть документы</span>
-                        </a>
-                        <div class="hero-action-underlinks">
-                            <a href="index.html#calc" class="btn-outline hero-action--inline">
-                                <span class="btn-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24"><use href="#icon-wrench"></use></svg></span>
-                                <span class="btn-content">Получить консультацию</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <section class="permit-hero" aria-labelledby="permit-title"><div class="container permit-hero__grid"><div class="permit-hero__copy"><p class="permit-kicker">Допуски и сертификаты</p><h1 id="permit-title">Можно ли работать с вашим котлом?</h1><p class="permit-lead">Найдите марку, проверьте вид документа и срок. Оригинал каждого сертификата открывается рядом.</p><div class="permit-actions"><a class="permit-action permit-action--primary" href="index.html#calc">Получить консультацию <svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg></a><a class="permit-action permit-action--secondary" href="#licenses">Перейти к брендам <svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg></a></div></div><div class="permit-hero__aside"><article class="permit-primary-proof" data-permit-document data-src="assets/docs/goszhilinspektsiya-vdgo.webp" data-title="ВДГО / ВКГО · Регистрация уведомления № 1800" data-meta="Госжилинспекция РТ · письмо № 06-22/1285 от 12.02.2021"><div class="permit-primary-proof__copy"><span>ВДГО / ВКГО</span><strong>Регистрация уведомления № 1800</strong><small>Госжилинспекция РТ</small></div><span class="permit-status"><i aria-hidden="true"></i> Действует</span><button class="permit-document-button permit-proof-action" type="button">Посмотреть документ <span aria-hidden="true">→</span></button></article><div class="permit-brand-index" aria-label="Марки оборудования"><span>Vaillant</span><span>Protherm</span><span>BAXI</span><span>De Dietrich</span><span>ITALTHERM</span></div></div></div></section>
 
-                <div class="hero-decor-block permit-hero__document" aria-label="Главный документ страницы">
-                    <div class="hero-decor-glow" aria-hidden="true"></div>
-                    <div class="hero-decor-grid" aria-hidden="true"></div>
-                    <article class="permit-feature permit-feature--document" data-permit-document data-src="assets/docs/goszhilinspektsiya-vdgo.webp" data-title="Регистрация ВДГО и ВКГО" data-meta="Госжилинспекция РТ · письмо № 06-22/1285 от 12.02.2021">
-                        <div class="permit-feature__document-head">
-                            <span class="permit-status"><i aria-hidden="true"></i> Действует</span>
-                            <span>Регистрация ВДГО / ВКГО</span>
-                        </div>
-                        <button type="button" class="permit-document-button permit-feature__preview" aria-label="Открыть письмо Госжилинспекции РТ">
-                            <img src="assets/docs/goszhilinspektsiya-vdgo.webp" alt="Письмо Госжилинспекции РТ о регистрации уведомления ВДГО и ВКГО" width="742" height="1024" decoding="async">
-                        </button>
-                        <div class="permit-feature__document-foot">
-                            <span>Госжилинспекция РТ · № 1800</span>
-                            <button type="button" class="permit-document-button permit-feature__open" aria-label="Открыть оригинал письма Госжилинспекции РТ">
-                                <svg aria-hidden="true"><use href="#icon-zoom-in"></use></svg> Открыть оригинал
-                            </button>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
+        <section class="permit-directory" id="licenses" aria-labelledby="permit-directory-title"><div class="container"><header class="permit-section-head scroll-reveal"><div><p class="permit-kicker">Карта сервисных документов</p><h2 id="permit-directory-title">Бренд, статус, оригинал</h2></div><p>Полномочие сформулировано так, как указано в соответствующем документе. Класс C относится только к Vaillant и Protherm.</p></header><div class="permit-brand-map">
+            <article class="permit-brand-row" data-permit-document data-src="assets/docs/vaillant.webp" data-title="Vaillant · сервисный центр класса C" data-meta="ООО «ВГР» · действует до 04.07.2028"><div class="permit-brand-row__name"><strong>Vaillant</strong><span>Сервисный центр класса C</span></div><div class="permit-brand-row__term"><span>Действует до</span><strong>04.07.2028</strong></div><div class="permit-brand-row__owner"><span>Оформлено на</span><strong>ИП Минсалимов Р. Ф.</strong><small>ООО «ВГР»</small></div><button class="permit-document-button permit-brand-row__document" type="button" aria-label="Открыть оригинал Vaillant"><img src="assets/docs/vaillant.webp" alt="Сертификат сервисного центра Vaillant" width="1024" height="708" loading="lazy" decoding="async"><span>Оригинал <svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg></span></button></article>
+            <article class="permit-brand-row" data-permit-document data-src="assets/docs/protherm.webp" data-title="Protherm · сервисный центр класса C" data-meta="ООО «ВГР» · действует до 04.07.2028"><div class="permit-brand-row__name"><strong>Protherm</strong><span>Сервисный центр класса C</span></div><div class="permit-brand-row__term"><span>Действует до</span><strong>04.07.2028</strong></div><div class="permit-brand-row__owner"><span>Оформлено на</span><strong>ИП Минсалимов Р. Ф.</strong><small>ООО «ВГР»</small></div><button class="permit-document-button permit-brand-row__document" type="button" aria-label="Открыть оригинал Protherm"><img src="assets/docs/protherm.webp" alt="Сертификат сервисного центра Protherm" width="1024" height="708" loading="lazy" decoding="async"><span>Оригинал <svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg></span></button></article>
+            <article class="permit-brand-row" data-permit-document data-src="assets/docs/baxi.webp" data-title="BAXI · авторизованный сервисный партнёр" data-meta="BDR Thermea Group · действует до 31.12.2026"><div class="permit-brand-row__name"><strong>BAXI</strong><span>Авторизованный сервисный партнёр</span></div><div class="permit-brand-row__term"><span>Действует до</span><strong>31.12.2026</strong></div><div class="permit-brand-row__owner"><span>Оформлено на</span><strong>ИП Минсалимов Р. Ф.</strong><small>BDR Thermea Group</small></div><button class="permit-document-button permit-brand-row__document" type="button" aria-label="Открыть оригинал BAXI"><img src="assets/docs/baxi.webp" alt="Сертификат авторизованного сервисного партнёра BAXI" width="723" height="1024" loading="lazy" decoding="async"><span>Оригинал <svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg></span></button></article>
+            <article class="permit-brand-row" data-permit-document data-src="assets/docs/de-dietrich.webp" data-title="De Dietrich · авторизованный сервисный центр" data-meta="Действует до 26.10.2027"><div class="permit-brand-row__name"><strong>De Dietrich</strong><span>Авторизованный сервисный центр</span></div><div class="permit-brand-row__term"><span>Действует до</span><strong>26.10.2027</strong></div><div class="permit-brand-row__owner"><span>Оформлено на</span><strong>ИП Минсалимов Р. Ф.</strong><small>De Dietrich</small></div><button class="permit-document-button permit-brand-row__document" type="button" aria-label="Открыть оригинал De Dietrich"><img src="assets/docs/de-dietrich.webp" alt="Сертификат авторизованного сервисного центра De Dietrich" width="1024" height="724" loading="lazy" decoding="async"><span>Оригинал <svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg></span></button></article>
+            <article class="permit-brand-row" data-permit-document data-src="assets/docs/italtherm.webp" data-title="ITALTHERM · авторизованный сервисный центр" data-meta="ООО «Тёплый Рим» — эксклюзивный представитель · документ действует"><div class="permit-brand-row__name"><strong>ITALTHERM</strong><span>Авторизованный сервисный центр</span></div><div class="permit-brand-row__term"><span>Статус</span><strong>Действует</strong></div><div class="permit-brand-row__owner"><span>Оформлено на</span><strong>ИП Минсалимов Р. Ф.</strong><small>ООО «Тёплый Рим» — эксклюзивный представитель</small></div><button class="permit-document-button permit-brand-row__document" type="button" aria-label="Открыть оригинал ITALTHERM"><img src="assets/docs/italtherm.webp" alt="Сертификат авторизованного сервисного центра ITALTHERM" width="724" height="1024" loading="lazy" decoding="async"><span>Оригинал <svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg></span></button></article>
+        </div></div></section>
 
-        <section class="permit-continuity" aria-labelledby="permit-continuity-title">
-            <div class="container permit-continuity__grid scroll-reveal">
-                <p class="section-kicker">Документы ИП и текущая работа ООО</p>
-                <h2 id="permit-continuity-title">Практика работы началась в 2018 году в статусе ИП</h2>
-                <p>Сейчас деятельность ведёт ООО «ТеплоРемСервис». Часть сервисных документов оформлена на прежний статус — ИП Минсалимова Рунара Фаритовича.</p>
-            </div>
-        </section>
+        <section class="permit-state" aria-labelledby="permit-state-title"><div class="container permit-state__grid"><div class="permit-state__copy scroll-reveal"><p class="permit-kicker">Базовое подтверждение</p><h2 id="permit-state-title">Регистрация уведомления ВДГО/ВКГО</h2><span class="permit-status"><i aria-hidden="true"></i> Действует</span><dl><div><dt>Регистрация</dt><dd>№ 1800</dd></div><div><dt>Оформлено на</dt><dd>ИП Минсалимов Р. Ф.</dd></div><div><dt>Источник</dt><dd>Госжилинспекция РТ</dd></div><div><dt>Письмо</dt><dd>№ 06-22/1285 от 12.02.2021</dd></div></dl></div><article class="permit-state__media" data-permit-document data-src="assets/docs/goszhilinspektsiya-vdgo.webp" data-title="ВДГО / ВКГО · Регистрация уведомления № 1800" data-meta="Госжилинспекция РТ · письмо № 06-22/1285 от 12.02.2021"><button class="permit-document-button permit-state__paper" type="button" aria-label="Посмотреть документ Госжилинспекции РТ"><img src="assets/docs/goszhilinspektsiya-vdgo.webp" alt="Письмо Госжилинспекции РТ о регистрации уведомления ВДГО и ВКГО" width="742" height="1024" loading="lazy" decoding="async"><span>Посмотреть документ <b aria-hidden="true">→</b></span></button></article></div></section>
 
-        <section class="permit-directory" id="licenses" aria-labelledby="permit-directory-title">
-            <div class="container">
-                <header class="permit-directory__head scroll-reveal">
-                    <div>
-                        <p class="section-kicker">Оригиналы и реквизиты</p>
-                        <h2 id="permit-directory-title">Сервисные документы по брендам</h2>
-                    </div>
-                    <p>Срок указан отдельно для каждого документа. Класс C относится только к Vaillant и Protherm.</p>
-                </header>
-
-                <div class="permit-list">
-                    <article class="permit-row permit-row--primary-mobile" data-permit-document data-src="assets/docs/goszhilinspektsiya-vdgo.webp" data-title="Регистрация ВДГО и ВКГО" data-meta="Госжилинспекция РТ · письмо № 06-22/1285 от 12.02.2021">
-                        <button type="button" class="permit-document-button permit-row__preview" aria-label="Открыть письмо Госжилинспекции РТ"><img src="assets/docs/goszhilinspektsiya-vdgo.webp" alt="Письмо Госжилинспекции РТ" width="742" height="1024" loading="lazy" decoding="async"><span><svg aria-hidden="true"><use href="#icon-zoom-in"></use></svg></span></button>
-                        <div class="permit-row__identity"><strong>ВДГО / ВКГО</strong><h3>Регистрация уведомления № 1800</h3></div>
-                        <dl class="permit-row__details"><div><dt>Оформлено на</dt><dd>ИП Минсалимов Р. Ф.</dd></div><div><dt>Организация</dt><dd>Госжилинспекция РТ</dd></div></dl>
-                        <div class="permit-row__term"><span>Статус</span><strong>Действует</strong></div>
-                        <button type="button" class="permit-row__open" aria-label="Открыть письмо Госжилинспекции РТ"><svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg></button>
-                    </article>
-
-                    <article class="permit-row scroll-reveal" data-permit-document data-src="assets/docs/vaillant.webp" data-title="Vaillant · сервисный центр класса C" data-meta="ООО «ВГР» · действует до 04.07.2028">
-                        <button type="button" class="permit-document-button permit-row__preview permit-row__preview--landscape" aria-label="Открыть сертификат Vaillant"><img src="assets/docs/vaillant.webp" alt="Сертификат сервисного центра Vaillant" width="1024" height="708" loading="lazy" decoding="async"><span><svg aria-hidden="true"><use href="#icon-zoom-in"></use></svg></span></button>
-                        <div class="permit-row__identity"><strong>Vaillant</strong><h3>Сервисный центр класса C</h3></div>
-                        <dl class="permit-row__details"><div><dt>Оформлено на</dt><dd>ИП Минсалимов Р. Ф.</dd></div><div><dt>Организация</dt><dd>ООО «ВГР»</dd></div></dl>
-                        <div class="permit-row__term"><span>Действует до</span><strong>04.07.2028</strong></div>
-                        <button type="button" class="permit-row__open" aria-label="Открыть сертификат Vaillant"><svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg></button>
-                    </article>
-
-                    <article class="permit-row scroll-reveal" data-permit-document data-src="assets/docs/protherm.webp" data-title="Protherm · сервисный центр класса C" data-meta="ООО «ВГР» · действует до 04.07.2028">
-                        <button type="button" class="permit-document-button permit-row__preview permit-row__preview--landscape" aria-label="Открыть сертификат Protherm"><img src="assets/docs/protherm.webp" alt="Сертификат сервисного центра Protherm" width="1024" height="708" loading="lazy" decoding="async"><span><svg aria-hidden="true"><use href="#icon-zoom-in"></use></svg></span></button>
-                        <div class="permit-row__identity"><strong>Protherm</strong><h3>Сервисный центр класса C</h3></div>
-                        <dl class="permit-row__details"><div><dt>Оформлено на</dt><dd>ИП Минсалимов Р. Ф.</dd></div><div><dt>Организация</dt><dd>ООО «ВГР»</dd></div></dl>
-                        <div class="permit-row__term"><span>Действует до</span><strong>04.07.2028</strong></div>
-                        <button type="button" class="permit-row__open" aria-label="Открыть сертификат Protherm"><svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg></button>
-                    </article>
-
-                    <article class="permit-row scroll-reveal" data-permit-document data-src="assets/docs/baxi.webp" data-title="BAXI · авторизованный сервисный партнёр" data-meta="BDR Thermea Group · действует до 31.12.2026">
-                        <button type="button" class="permit-document-button permit-row__preview" aria-label="Открыть сертификат BAXI"><img src="assets/docs/baxi.webp" alt="Сертификат авторизованного сервисного партнёра BAXI" width="724" height="1024" loading="lazy" decoding="async"><span><svg aria-hidden="true"><use href="#icon-zoom-in"></use></svg></span></button>
-                        <div class="permit-row__identity"><strong>BAXI</strong><h3>Авторизованный сервисный партнёр</h3></div>
-                        <dl class="permit-row__details"><div><dt>Оформлено на</dt><dd>ИП Минсалимов Р. Ф.</dd></div><div><dt>Организация</dt><dd>BDR Thermea Group</dd></div></dl>
-                        <div class="permit-row__term"><span>Действует до</span><strong>31.12.2026</strong></div>
-                        <button type="button" class="permit-row__open" aria-label="Открыть сертификат BAXI"><svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg></button>
-                    </article>
-
-                    <article class="permit-row scroll-reveal" data-permit-document data-src="assets/docs/de-dietrich.webp" data-title="De Dietrich · авторизованный сервисный центр" data-meta="De Dietrich · действует до 26.10.2027">
-                        <button type="button" class="permit-document-button permit-row__preview" aria-label="Открыть сертификат De Dietrich"><img src="assets/docs/de-dietrich.webp" alt="Сертификат авторизованного сервисного центра De Dietrich" width="724" height="1024" loading="lazy" decoding="async"><span><svg aria-hidden="true"><use href="#icon-zoom-in"></use></svg></span></button>
-                        <div class="permit-row__identity"><strong>De Dietrich</strong><h3>Авторизованный сервисный центр</h3></div>
-                        <dl class="permit-row__details"><div><dt>Оформлено на</dt><dd>ИП Минсалимов Р. Ф.</dd></div><div><dt>Организация</dt><dd>De Dietrich</dd></div></dl>
-                        <div class="permit-row__term"><span>Действует до</span><strong>26.10.2027</strong></div>
-                        <button type="button" class="permit-row__open" aria-label="Открыть сертификат De Dietrich"><svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg></button>
-                    </article>
-
-                    <article class="permit-row scroll-reveal" data-permit-document data-src="assets/docs/italtherm.webp" data-title="ITALTHERM · авторизованный сервисный центр" data-meta="В документе указано ООО «Тёплый Рим» как эксклюзивный представитель · действует">
-                        <button type="button" class="permit-document-button permit-row__preview" aria-label="Открыть сертификат ITALTHERM"><img src="assets/docs/italtherm.webp" alt="Сертификат авторизованного сервисного центра ITALTHERM" width="725" height="1024" loading="lazy" decoding="async"><span><svg aria-hidden="true"><use href="#icon-zoom-in"></use></svg></span></button>
-                        <div class="permit-row__identity"><strong>ITALTHERM</strong><h3>Авторизованный сервисный центр</h3></div>
-                        <dl class="permit-row__details"><div><dt>Оформлено на</dt><dd>ИП Минсалимов Р. Ф.</dd></div><div><dt>В документе указано</dt><dd>ООО «Тёплый Рим» — эксклюзивный представитель</dd></div></dl>
-                        <div class="permit-row__term"><span>Статус</span><strong>Действует</strong></div>
-                        <button type="button" class="permit-row__open" aria-label="Открыть сертификат ITALTHERM"><svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg></button>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="permit-cta">
-            <div class="container">
-                <div class="permit-cta__inner scroll-reveal">
-                    <div>
-                        <p class="section-kicker">Связаться с инженером</p>
-                        <h2>Остались вопросы?</h2>
-                        <p>Позвоните — объясним, какой документ относится к вашему оборудованию, и развеем сомнения перед началом работ.</p>
-                    </div>
-                    <a href="tel:+79376254703" class="btn-glow">Позвонить инженеру</a>
-                </div>
-            </div>
-        </section>
+        <section class="permit-continuity" aria-labelledby="permit-continuity-title"><div class="container"><p class="permit-kicker">Документы и текущий статус</p><div class="permit-continuity__grid scroll-reveal"><h2 id="permit-continuity-title">ИП и ООО указаны раздельно</h2><p>Практика работы началась в 2018 году в статусе ИП Минсалимова Рунара Фаритовича. Сейчас деятельность ведёт ООО «ТеплоРемСервис». Сервисные документы на ИП не представляются как документы ООО.</p></div></div></section>
+        <section class="permit-cta" aria-labelledby="permit-cta-title"><div class="container"><div class="permit-cta__inner scroll-reveal"><div><p class="permit-kicker">Следующий шаг</p><h2 id="permit-cta-title">Нашли марку своего оборудования?</h2><p>Опишите задачу — уточним состав работ и необходимость выезда.</p></div><a class="permit-action permit-action--primary" href="index.html#calc">Получить консультацию <svg aria-hidden="true"><use href="#icon-chevron-right"></use></svg></a></div></div></section>
     </main>
 
-    <footer class="main-footer">
-        <div class="footer-main">
-            <div class="container footer-flex scroll-reveal">
-                <div class="footer-brand">
-                    <div class="logo-main">Тепло<span>Рем</span>Сервис</div>
-                    <p class="footer-desc">Отопление, котельные и сервис в Казани и пригороде.</p>
-                </div>
+    <footer class="main-footer"><div class="footer-main"><div class="container footer-flex scroll-reveal"><div class="footer-brand"><div class="logo-main">Тепло<span>Рем</span>Сервис</div><p class="footer-desc">Отопление, котельные и сервис в Казани и пригороде.</p></div><div class="footer-links"><div class="nav-col"><h4>Услуги</h4><a href="index.html#services">Расчёт и подбор</a><a href="index.html#services">Монтаж котельных</a><a href="index.html#services">Автоматика</a><a href="index.html#services">Сервис котлов</a><a href="portfolio.html">Портфолио</a><a href="licenses.html">Допуски</a><a href="team.html">Наша команда</a><a href="faq.html">FAQ</a></div></div><div class="footer-contacts-clean"><h4>Связаться с нами</h4><a href="tel:+79376254703" class="footer-phone">+7 (937) 625-47-03</a><a href="mailto:info@teplorem.ru" class="footer-mail">info@teplorem.ru</a><a href="https://t.me/teplorem" class="footer-tg-link" target="_blank" rel="noopener noreferrer">Написать в Telegram</a></div></div></div><div class="footer-legal"><div class="container footer-legal-inner scroll-reveal"><p class="footer-legal-copy">© 2026 ООО «ТеплоРемСервис». Все права защищены.</p><p class="footer-legal-reqs">ИНН: 1661071059 | ОГРН: 1211600075642</p><a href="privacy.html" class="footer-legal-link">Политика конфиденциальности</a></div></div></footer>
 
-                <div class="footer-links">
-                    <div class="nav-col">
-                        <h4>Услуги</h4>
-                        <a href="#services">Расчёт и подбор</a>
-                        <a href="#services">Монтаж котельных</a>
-                        <a href="#services">Автоматика</a>
-                        <a href="#services">Сервис котлов</a>
-                        <a href="portfolio.html">Портфолио</a>
-                        <a href="licenses.html">Допуски</a>
-                        <a href="team.html">Наша команда</a>
-                        <a href="faq.html">FAQ</a>
-                    </div>
-                </div>
-
-                <div class="footer-contacts-clean">
-                    <h4>Связаться с нами</h4>
-                    <a href="tel:+79376254703" class="footer-phone">+7 (937) 625-47-03</a>
-                    <a href="mailto:info@teplorem.ru" class="footer-mail">info@teplorem.ru</a>
-                    <a href="https://t.me/teplorem" class="footer-tg-link" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-legal">
-            <div class="container footer-legal-inner scroll-reveal">
-                <p class="footer-legal-copy">© 2026 ООО «ТеплоРемСервис». Все права защищены.</p>
-                <p class="footer-legal-reqs">ИНН: 1661071059 | ОГРН: 1211600075642</p>
-                <a href="privacy.html" class="footer-legal-link">Политика конфиденциальности</a>
-            </div>
-        </div>
-    </footer>
-
-    <div class="permit-lightbox" id="permit-lightbox" hidden>
-        <div class="permit-lightbox__backdrop" data-permit-close></div>
-        <div class="permit-lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="permit-lightbox-title" aria-describedby="permit-lightbox-meta">
-            <button type="button" class="permit-lightbox__close" data-permit-close aria-label="Закрыть просмотр документа"><svg aria-hidden="true"><use href="#icon-close"></use></svg></button>
-            <img class="permit-lightbox__image" src="" alt="">
-            <div class="permit-lightbox__caption"><strong id="permit-lightbox-title"></strong><span id="permit-lightbox-meta"></span></div>
-        </div>
-    </div>
-
+    <div class="permit-lightbox" id="permit-lightbox" hidden><button class="permit-lightbox__backdrop" type="button" data-permit-close aria-label="Закрыть просмотр"></button><div class="permit-lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="permit-lightbox-title" aria-describedby="permit-lightbox-meta"><button type="button" class="permit-lightbox__close" data-permit-close aria-label="Закрыть просмотр документа"><svg aria-hidden="true"><use href="#icon-close"></use></svg></button><div class="permit-lightbox__paper"><img class="permit-lightbox__image" src="" alt=""></div><div class="permit-lightbox__caption"><strong id="permit-lightbox-title"></strong><span id="permit-lightbox-meta"></span></div></div></div>
     <script defer src="js/core/common.js?v=20260817-1635"></script>
-    <script defer src="js/pages/licenses.js?v=20260831-fresh-1"></script>
+    <script defer src="js/pages/licenses.js?v=20260911-brand-map"></script>
 </body>
 </html>
