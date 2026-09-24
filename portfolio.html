@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111719">
     <meta name="description" content="Портфолио ТеплоРемСервис — монтаж котельных, отопительных контуров, автоматики, пусконаладка и обслуживание в Казани и пригороде.">
     <link rel="canonical" href="https://xn--b1afaaqoiohmdkeb.xn--p1ai/portfolio.html">
     <meta property="og:title" content="Выполненные проекты | ТеплоРемСервис">
@@ -11,15 +12,13 @@
     <meta property="og:url" content="https://xn--b1afaaqoiohmdkeb.xn--p1ai/portfolio.html">
     <meta property="og:type" content="website">
     <title>Выполненные проекты | ТеплоРемСервис</title>
-    <script>document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js'); const savedTheme = localStorage.getItem('theme') || 'dark'; document.documentElement.setAttribute('data-theme', savedTheme);</script>
+    <script>document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js');</script>
     <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/pages/portfolio.css">
 </head>
-<body class="site-page portfolio-concepts-page portfolio-live-page site-background">
+<body class="site-page portfolio-concepts-page portfolio-live-page">
     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="pc-symbols">
         <symbol id="icon-logo-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
-        <symbol id="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" fill="currentColor"/><path d="M12 2V4M12 20V22M4 12H2M22 12H20M19.071 19.071 17.657 17.657M6.343 6.343 4.929 4.929M19.071 4.929 17.657 6.343M6.343 17.657 4.929 19.071" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
-        <symbol id="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
         <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
         <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
         <symbol id="icon-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></symbol>
@@ -27,20 +26,19 @@
         <symbol id="icon-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4 16 7h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h3l1.5-3h5Z"/><circle cx="12" cy="13" r="3.5"/></symbol>
     </svg>
 
-    <div class="ambient-bg" aria-hidden="true"></div>
     <button type="button" class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true" tabindex="-1"></button>
 
     <header class="pill-header">
         <div class="header-wrap">
             <a href="index.html" class="logo-box" aria-label="ТеплоРемСервис — на главную"><svg class="logo-icon" width="36" height="36" aria-hidden="true"><use href="#icon-logo-flame"></use></svg><div class="logo-text-wrap"><div class="logo-main">Тепло<span>Рем</span>Сервис</div><div class="logo-sub">Инженерная группа</div></div></a>
             <nav class="nav-links" id="main-nav" aria-label="Основная навигация"><a href="team.html">Наша команда</a><a href="services.html">Услуги</a><a href="portfolio.html" class="nav-active">Портфолио</a><a href="licenses.html">Допуски</a><a href="faq.html">FAQ</a><a href="index.html#trust">Отзывы</a><div class="mobile-nav-contacts"><a href="tel:+79376254703" class="mobile-nav-phone">+7 937 625-47-03</a><a href="https://t.me/teplorem" class="mobile-nav-tg" target="_blank" rel="noopener noreferrer">Telegram</a></div><a href="index.html#calc" class="mobile-cta">Получить консультацию</a></nav>
-            <div class="contact-box"><a href="tel:+79376254703" class="phone-link">+7 937 625-47-03</a><a href="https://t.me/teplorem" class="btn-ghost" target="_blank" rel="noopener noreferrer">Telegram</a><button type="button" id="theme-toggle" class="theme-toggle" aria-label="Переключить тему" aria-pressed="true"><svg class="icon-sun" aria-hidden="true"><use href="#icon-sun"></use></svg><svg class="icon-moon" aria-hidden="true"><use href="#icon-moon"></use></svg></button><button type="button" class="burger-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button></div>
+            <div class="contact-box"><a href="tel:+79376254703" class="phone-link">+7 937 625-47-03</a><a href="https://t.me/teplorem" class="btn-ghost" target="_blank" rel="noopener noreferrer">Telegram</a><button type="button" class="burger-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button></div>
         </div>
     </header>
 
     <main class="portfolio-live">
         <section class="concept-case" id="projects">
-            <div class="case-hero site-grid-surface">
+            <div class="case-hero page-zone">
                 <div class="container case-hero__grid">
                     <div class="case-hero__copy"><p class="pc-kicker"><span></span> Наши объекты</p><h1>Котельные, <em>отопление</em> и автоматика</h1><p class="case-hero__lead">Собрали объекты, на которых работали: монтаж котельных, настройка автоматики и сервис. В каждой карточке — фотографии и коротко о том, что сделали.</p><div class="pc-actions"><a class="pc-btn pc-btn--accent" href="index.html#calc">Обсудить объект <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></a><a class="pc-text-link" href="#case-catalog">Смотреть объекты</a></div></div>
                     <button class="case-feature" type="button" data-open-project="fedoseevskaya" aria-label="Открыть фотографии котельной на улице Федосеевской"><img src="assets/portfolio/Монтаж - Казань ул Федосеевская/20240902_131117.webp" alt="Котельная с двумя напольными котлами и металлической обвязкой" fetchpriority="high"><span class="case-feature__caption"><span><b>Казань, ул. Федосеевская</b><small>Монтаж котельной · 6 фото</small></span><span class="case-feature__action">Открыть объект <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></span></span></button>
@@ -48,9 +46,9 @@
                 <div class="container case-scope" aria-label="Кратко о показанном объекте"><div><span>Место</span><strong>Казань</strong></div><div><span>Работы</span><strong>Монтаж котельной</strong></div><div><span>Система</span><strong>Отопительные контуры</strong></div><div><span>Галерея</span><strong>6 фотографий</strong></div></div>
             </div>
 
-            <section class="case-catalog pc-section site-grid-surface" id="case-catalog"><div class="container"><div class="pc-section-heading pc-section-heading--row"><div><p class="pc-kicker"><span></span> Работы на объектах</p><h2>Выполненные работы</h2></div><p>Фотографии с объектов и короткое описание того, что сделали.</p></div><div class="case-grid" data-project-list="case"></div><div class="pc-more-wrap"><button class="pc-btn pc-btn--outline" type="button" data-show-more="case">Показать ещё <span data-remaining-count></span></button></div></div></section>
+            <section class="case-catalog page-zone pc-section" id="case-catalog"><div class="container"><div class="pc-section-heading pc-section-heading--row"><div><p class="pc-kicker"><span></span> Работы на объектах</p><h2>Выполненные работы</h2></div><p>Фотографии с объектов и короткое описание того, что сделали.</p></div><div class="case-grid" data-project-list="case"></div><div class="pc-more-wrap"><button class="pc-btn pc-btn--outline" type="button" data-show-more="case">Показать ещё <span data-remaining-count></span></button></div></div></section>
 
-            <section class="pc-contact pc-contact--case site-grid-surface" aria-labelledby="case-contact-title"><div class="container"><div class="case-contact__panel"><div class="case-contact__intro"><p class="case-contact__kicker">Можно начать с фото</p><h2 id="case-contact-title">Нужен похожий результат?</h2></div><div class="case-contact__action"><p class="case-contact__label">Фото или короткое описание</p><p>Пришлите фото объекта или опишите задачу в двух словах. Посмотрим, что уже есть, и подскажем, с чего начать.</p><a class="pc-btn pc-btn--accent" href="index.html#calc">Обсудить объект <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></a></div></div></div></section>
+            <section class="pc-contact pc-contact--case page-zone page-zone--tint" aria-labelledby="case-contact-title"><div class="container"><div class="case-contact__panel"><div class="case-contact__intro"><p class="case-contact__kicker">Можно начать с фото</p><h2 id="case-contact-title">Нужен похожий результат?</h2></div><div class="case-contact__action"><p class="case-contact__label">Фото или короткое описание</p><p>Пришлите фото объекта или опишите задачу в двух словах. Посмотрим, что уже есть, и подскажем, с чего начать.</p><a class="pc-btn pc-btn--accent" href="index.html#calc">Обсудить объект <svg aria-hidden="true"><use href="#icon-arrow"></use></svg></a></div></div></div></section>
         </section>
     </main>
 

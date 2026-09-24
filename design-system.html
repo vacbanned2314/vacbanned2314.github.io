@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111719">
     <meta name="description" content="Рабочая витрина дизайн-системы сайта ТеплоРемСервис: темы, типографика, компоненты и композиции страниц.">
     <title>Дизайн-система | ТеплоРемСервис</title>
     <script>
         document.documentElement.classList.remove('no-js');
         document.documentElement.classList.add('js');
-        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+       
     </script>
     <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/site-foundation.css">
@@ -16,11 +17,9 @@
     <link rel="stylesheet" href="css/design-system-showcase.css">
     <link rel="stylesheet" href="css/site-final.css">
 </head>
-<body class="site-page home-page design-system-page site-background">
+<body class="site-page home-page design-system-page">
     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
         <symbol id="icon-logo-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
-        <symbol id="icon-sun" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" fill="currentColor"/><path d="M12 2V4M12 20V22M4 12H2M22 12H20M19.1 19.1 17.7 17.7M6.3 6.3 4.9 4.9M19.1 4.9 17.7 6.3M6.3 17.7 4.9 19.1" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
-        <symbol id="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
         <symbol id="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
         <symbol id="icon-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></symbol>
         <symbol id="icon-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></symbol>
@@ -28,7 +27,6 @@
         <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
     </svg>
 
-    <div class="ambient-bg"></div>
     <button type="button" class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true" tabindex="-1"></button>
 
     <header class="pill-header">
@@ -44,14 +42,13 @@
             </nav>
             <div class="contact-box">
                 <a href="tel:+79376254703" class="phone-link">+7 937 625-47-03</a><a href="https://t.me/teplorem" class="btn-ghost" target="_blank" rel="noopener noreferrer">Telegram</a>
-                <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Переключить тему" aria-pressed="true"><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-sun"></use></svg><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-moon"></use></svg></button>
                 <button type="button" class="burger-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="ds-hero" aria-labelledby="ds-title">
+        <section class="ds-hero page-zone" aria-labelledby="ds-title">
             <div class="container ds-hero__grid">
                 <div>
                     <p class="ds-kicker">Рабочий стандарт сайта · версия для согласования</p>
@@ -76,9 +73,9 @@
             </div>
         </div>
 
-        <section class="ds-section" id="colors">
+        <section class="ds-section page-zone" id="colors">
             <div class="container">
-                <header class="ds-section__head"><p class="ds-section__index">01 · Цветовая система</p><div><h2>Сталь задаёт структуру. Медь сообщает действие.</h2><p>Обе темы используют одну и ту же иерархию ролей. Цвет статуса не конкурирует с медным акцентом и всегда сопровождается текстом.</p></div></header>
+                <header class="ds-section__head"><p class="ds-section__index">01 · Цветовая система</p><div><h2>Сталь задаёт структуру. Медь сообщает действие.</h2><p>У сайта одна тёмная тема. Цвет статуса не конкурирует с медным акцентом и всегда сопровождается текстом.</p></div></header>
                 <div class="ds-theme-grid">
                     <article class="ds-theme-board ds-theme-board--dark">
                         <header class="ds-theme-board__head"><strong>Тёмная тема</strong><span>Основная среда сайта</span></header>
@@ -93,19 +90,6 @@
                             <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:#e88731"></span><dt>Медь</dt><code>--boiler-copper</code><dd>#e88731 · действие и важный факт</dd></div>
                         </dl>
                     </article>
-                    <article class="ds-theme-board ds-theme-board--light">
-                        <header class="ds-theme-board__head"><strong>Светлая тема</strong><span>Тёплые нейтрали</span></header>
-                        <dl class="ds-swatch-list">
-                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:#e3ddd5"></span><dt>Холст</dt><code>--boiler-zone-a</code><dd>#e3ddd5 · основной фон</dd></div>
-                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:#d8d1c8"></span><dt>Чередование</dt><code>--boiler-zone-b</code><dd>#d8d1c8 · соседняя секция</dd></div>
-                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:#d6d3ce"></span><dt>Панель</dt><code>--boiler-card</code><dd>rgba(214,211,206,.97)</dd></div>
-                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:#d0ccc6"></span><dt>Карточка</dt><code>--boiler-module-shell</code><dd>#d0ccc6 · вложенная поверхность</dd></div>
-                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:#27221d"></span><dt>Текст</dt><code>--text-pure</code><dd>#27221d · заголовки и факты</dd></div>
-                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:#5e554c"></span><dt>Вторичный</dt><code>--text-dim</code><dd>#5e554c · пояснения</dd></div>
-                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:rgba(58,47,38,.22)"></span><dt>Линия</dt><code>--boiler-line</code><dd>rgba(58,47,38,.22)</dd></div>
-                            <div class="ds-swatch"><span class="ds-swatch__color" style="--swatch:#b95720"></span><dt>Медь</dt><code>--boiler-copper</code><dd>#b95720 · действие и важный факт</dd></div>
-                        </dl>
-                    </article>
                 </div>
                 <div class="ds-state-swatches" aria-label="Предлагаемые семантические цвета статусов">
                     <div class="ds-state-swatch" style="--state:var(--text-dim)"><i></i><strong>Нейтральный</strong><span>--text-dim · #a7b1b4 / #5e554c</span></div>
@@ -117,7 +101,7 @@
             </div>
         </section>
 
-        <section class="ds-section ds-section--contrast" id="type">
+        <section class="ds-section ds-section--contrast page-zone page-zone--tint" id="type">
             <div class="container">
                 <header class="ds-section__head"><p class="ds-section__index">02 · Типографика</p><div><h2>Одна гарнитура, одна шкала, разные роли.</h2><p>Golos Text остаётся единственной гарнитурой. Характер создаётся плотностью, масштабом и реестровой подачей данных, а не сменой шрифта.</p></div></header>
                 <div class="ds-type-list">
@@ -141,7 +125,7 @@
             </div>
         </section>
 
-        <section class="ds-section" id="buttons">
+        <section class="ds-section page-zone" id="buttons">
             <div class="container">
                 <header class="ds-section__head"><p class="ds-section__index">03 · Кнопки и ссылки</p><div><h2>Оранжевый — действие, не декор.</h2><p>Матрица фиксирует состояния для каждой разрешённой разновидности. Минимальная интерактивная область — 44px, основная высота — 52px.</p></div></header>
                 <div class="ds-button-table" tabindex="0" aria-label="Матрица состояний кнопок; на узком экране прокручивается горизонтально">
@@ -161,7 +145,7 @@
             </div>
         </section>
 
-        <section class="ds-section ds-section--contrast" id="grid">
+        <section class="ds-section ds-section--contrast page-zone page-zone--tint" id="grid">
             <div class="container">
                 <header class="ds-section__head"><p class="ds-section__index">04 · Сетка и интервалы</p><div><h2>Один контейнер, предсказуемый ритм.</h2><p>Ширина страницы — до 1300px. Узкие тексты не растягиваются до краёв, а колонки переходят в один столбец по смыслу, не по случайному числу.</p></div></header>
                 <div class="ds-container-demo"><strong>Основной .container · max-width 1300px · padding-inline --space-container</strong><div class="ds-container-demo__wide">Широкая область · медиа, реестры, сравнительные данные</div><div class="ds-container-demo__narrow">Узкая область · длинный текст, пояснение, юридическая формулировка</div></div>
@@ -172,7 +156,7 @@
             </div>
         </section>
 
-        <section class="ds-section" id="surfaces">
+        <section class="ds-section page-zone" id="surfaces">
             <div class="container">
                 <header class="ds-section__head"><p class="ds-section__index">05 · Поверхности и блоки</p><div><h2>Карточка — только один из способов организации.</h2><p>Сравнимые данные представлены строками и реестром. Панели отделяют смысловые зоны, а карточки используются там, где объект действительно самостоятелен.</p></div></header>
                 <div class="ds-grid-2">
@@ -200,7 +184,7 @@
             </div>
         </section>
 
-        <section class="ds-section ds-section--contrast" id="media">
+        <section class="ds-section ds-section--contrast page-zone page-zone--tint" id="media">
             <div class="container">
                 <header class="ds-section__head"><p class="ds-section__index">06 · Изображения и медиа</p><div><h2>Изображение подтверждает, а не заполняет место.</h2><p>Фотографии объектов и людей допускают осмысленное кадрирование. Документы и технические материалы показываются целиком без обрезки значимых реквизитов.</p></div></header>
                 <div class="ds-media-grid">
@@ -212,7 +196,7 @@
             </div>
         </section>
 
-        <section class="ds-section" id="navigation">
+        <section class="ds-section page-zone" id="navigation">
             <div class="container">
                 <header class="ds-section__head"><p class="ds-section__index">07 · Навигация</p><div><h2>Текущая шапка и подвал остаются общей рамкой.</h2><p>Демонстрационная страница использует настоящую шапку, мобильное меню, переключатель темы и подвал сайта. Ниже показаны активный пункт, хлебные крошки и якорный уровень.</p></div></header>
                 <div class="ds-nav-sample"><div class="ds-nav-sample__bar"><div class="ds-nav-sample__brand">Тепло<span>Рем</span>Сервис</div><nav class="ds-nav-sample__links" aria-label="Пример навигации"><a href="#">Команда</a><a href="#" aria-current="page">Услуги</a><a href="#">Работы</a></nav><span class="ds-status ds-status--active">Активно</span></div><nav class="ds-breadcrumbs" aria-label="Хлебные крошки"><a href="index.html">Главная</a><span aria-hidden="true">/</span><a href="services.html">Услуги</a><span aria-hidden="true">/</span><span aria-current="page">Монтаж котельной</span></nav></div>
@@ -220,7 +204,7 @@
             </div>
         </section>
 
-        <section class="ds-section ds-section--contrast" id="forms">
+        <section class="ds-section ds-section--contrast page-zone page-zone--tint" id="forms">
             <div class="container">
                 <header class="ds-section__head"><p class="ds-section__index">08 · Формы</p><div><h2>Поля продолжают язык панелей.</h2><p>Высота, радиус, граница и фокус совпадают с остальными контролами. Ошибка сообщает, что исправить; успешное состояние подтверждает результат.</p></div></header>
                 <div class="cta-wrapper">
@@ -263,7 +247,7 @@
             </div>
         </section>
 
-        <section class="ds-section" id="states">
+        <section class="ds-section page-zone" id="states">
             <div class="container">
                 <header class="ds-section__head"><p class="ds-section__index">09 · Состояния</p><div><h2>Смысл читается без зависимости от цвета.</h2><p>Каждое состояние имеет подпись, форму или символ. Hover и focus показывают возможность действия, а не создают декоративный эффект.</p></div></header>
                 <div class="ds-status-list">
@@ -278,7 +262,7 @@
             </div>
         </section>
 
-        <section class="ds-section ds-section--contrast" id="motion">
+        <section class="ds-section ds-section--contrast page-zone page-zone--tint" id="motion">
             <div class="container">
                 <header class="ds-section__head"><p class="ds-section__index">10 · Движение</p><div><h2>Движение объясняет изменение состояния.</h2><p>Базовый темп — 180ms ease. Более длинное движение допустимо только для открытия меню или модального слоя. При reduced motion оно отключается.</p></div></header>
                 <div class="ds-motion-track"><article class="ds-motion-item"><strong>Hover</strong><i></i><span>180ms ease · цвет, граница, смещение до 2px</span></article><article class="ds-motion-item"><strong>Появление секции</strong><i></i><span>существующий `.scroll-reveal`; без обязательной анимации</span></article><article class="ds-motion-item"><strong>Модальное окно</strong><i></i><span>быстрое появление слоя, затем перевод фокуса</span></article><article class="ds-motion-item"><strong>Мобильное меню</strong><i></i><span>350ms; движение панели сообщает направление</span></article></div>
@@ -286,7 +270,7 @@
             </div>
         </section>
 
-        <section class="ds-section" id="compositions">
+        <section class="ds-section page-zone" id="compositions">
             <div class="container">
                 <header class="ds-section__head"><p class="ds-section__index">11 · Универсальные композиции</p><div><h2>Фрагменты реальных страниц, а не набор деталей.</h2><p>Эти примеры показывают правильную сборку общей системы. Они не являются готовыми страницами и не задают структуру страницы допусков.</p></div></header>
                 <div class="ds-composition-grid">

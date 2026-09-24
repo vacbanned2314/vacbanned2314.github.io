@@ -1,63 +1,84 @@
 /*
- * Shared site canvas.
- * This is the single source for the engineering background and millimeter grid.
- * Public pages will opt into it after the visual reference is approved.
+ * Фон сайта — единый для всех страниц, эталон — главная.
+ *
+ * Контракт разметки:
+ *   .page-zone        — секция на холсте с инженерной сеткой;
+ *   .page-zone--tint  — каждая вторая по смыслу секция: на ступень светлее,
+ *                       мягко перетекает в соседей сверху и снизу.
+ * Значения берутся из токенов --surface-*, --grid-* и --section-* в variables.css.
  */
 
 :root {
-    --site-grid-size: 4rem;
-    --site-grid-line: rgba(211, 225, 225, 0.045);
-    --site-grid-dot: rgba(211, 225, 225, 0.018);
-    --site-grid-seam: var(--bg-base);
-    --site-grid-seam-upper-opacity: 78%;
-    --site-grid-seam-upper-stop: 4.5rem;
-    --site-grid-seam-lower-opacity: 34%;
-    --site-grid-seam-lower-stop: 11rem;
-    --site-grid-seam-end: 18rem;
+    /* Плавные переходы секции --tint к холсту (smoothstep по альфе). */
+    --section-fade-in: linear-gradient(180deg,
+        color-mix(in srgb, var(--surface-canvas) 100%, transparent) 0,
+        color-mix(in srgb, var(--surface-canvas) 94%, transparent) calc(var(--section-fade-length) * 0.15),
+        color-mix(in srgb, var(--surface-canvas) 78%, transparent) calc(var(--section-fade-length) * 0.3),
+        color-mix(in srgb, var(--surface-canvas) 50%, transparent) calc(var(--section-fade-length) * 0.5),
+        color-mix(in srgb, var(--surface-canvas) 22%, transparent) calc(var(--section-fade-length) * 0.7),
+        color-mix(in srgb, var(--surface-canvas) 6%, transparent) calc(var(--section-fade-length) * 0.85),
+        transparent var(--section-fade-length));
+    --section-fade-out: linear-gradient(0deg,
+        color-mix(in srgb, var(--surface-canvas) 100%, transparent) 0,
+        color-mix(in srgb, var(--surface-canvas) 94%, transparent) calc(var(--section-fade-length) * 0.15),
+        color-mix(in srgb, var(--surface-canvas) 78%, transparent) calc(var(--section-fade-length) * 0.3),
+        color-mix(in srgb, var(--surface-canvas) 50%, transparent) calc(var(--section-fade-length) * 0.5),
+        color-mix(in srgb, var(--surface-canvas) 22%, transparent) calc(var(--section-fade-length) * 0.7),
+        color-mix(in srgb, var(--surface-canvas) 6%, transparent) calc(var(--section-fade-length) * 0.85),
+        transparent var(--section-fade-length));
 }
 
-[data-theme="light"] {
-    --site-grid-line: rgba(58, 47, 38, 0.05);
-    --site-grid-dot: rgba(58, 47, 38, 0.035);
+body.site-page {
+    background: var(--surface-canvas);
 }
 
-.site-grid-surface {
+/* Фоновое свечение не входит в визуальный язык: сетка и ритм секций его заменяют. */
+body.site-page .ambient-bg {
+    display: none;
+}
+
+body.site-page .page-zone {
+    position: relative;
     isolation: isolate;
+    border-top: 0;
+    border-bottom: 0;
+    background-color: var(--surface-canvas);
     background-image:
-        linear-gradient(90deg, var(--site-grid-line) 1px, transparent 1px),
-        radial-gradient(circle, var(--site-grid-dot) 0 0.45px, transparent 0.7px),
-        linear-gradient(
-            180deg,
-            var(--site-grid-seam) 0,
-            color-mix(in srgb, var(--site-grid-seam) var(--site-grid-seam-upper-opacity), transparent) var(--site-grid-seam-upper-stop),
-            color-mix(in srgb, var(--site-grid-seam) var(--site-grid-seam-lower-opacity), transparent) var(--site-grid-seam-lower-stop),
-            transparent var(--site-grid-seam-end)
-        ),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.012), transparent 18rem),
-        radial-gradient(
-            ellipse 44% 30% at var(--site-grid-glow-x, 84%) var(--site-grid-glow-y, 22%),
-            rgba(var(--accent-rgb), 0.045),
-            transparent 72%
-        );
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(0deg, var(--grid-line) 1px, transparent 1px);
+    background-size: var(--grid-cell) var(--grid-cell);
+    background-position: center top, 0 0;
+    background-repeat: repeat;
+    background-attachment: scroll;
+}
+
+/* Сетка --grid-* — единственная линия фона: собственные декоративные слои секций отключены. */
+body.site-page .page-zone::before {
+    display: none;
+}
+
+body.site-page .page-zone > .container {
+    position: relative;
+    z-index: 1;
+}
+
+body.site-page .page-zone--tint {
+    background-color: var(--surface-section);
+    background-image:
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(0deg, var(--grid-line) 1px, transparent 1px),
+        var(--section-fade-in),
+        var(--section-fade-out);
     background-size:
-        var(--site-grid-size) var(--site-grid-size),
-        0.25rem 0.25rem,
-        auto,
-        auto,
-        auto;
-    background-position: center top, 0 0, 0 0, 0 0, 0 0;
-    background-attachment: fixed, fixed, scroll, scroll, scroll;
-    transition: background-color 0.4s ease, border-color 0.4s ease;
+        var(--grid-cell) var(--grid-cell),
+        var(--grid-cell) var(--grid-cell),
+        100% 100%,
+        100% 100%;
+    background-position: center top, 0 0, 0 0, 0 0;
+    background-repeat: repeat, repeat, no-repeat, no-repeat;
 }
 
-@media (max-width: 768px) {
-    .site-grid-surface {
-        background-attachment: scroll;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .site-grid-surface {
-        transition: none;
-    }
+body.site-page .main-footer {
+    border-top: 0;
+    background: var(--surface-media);
 }

@@ -21,6 +21,12 @@ function extractPhoneDigits(value) {
         digits = '7' + digits;
     }
 
+    // После автоподставленного «+7» человек часто набирает номер с восьмёрки:
+    // «+7 89371234567». Лишнюю 8 убираем, когда цифр становится больше 11.
+    if (digits.length > 11 && digits.startsWith('78')) {
+        digits = '7' + digits.slice(2);
+    }
+
     return digits.slice(0, 11);
 }
 
@@ -80,6 +86,30 @@ function showFeedback(el, message, type) {
     el.className = 'form-feedback form-feedback--' + type;
 }
 
+// Ошибка показывается рядом с полем, а не баннером под кнопкой отправки.
+function setFieldError(input, anchor, message) {
+    const errorId = `${input.id}-error`;
+    let error = document.getElementById(errorId);
+
+    if (!error) {
+        error = document.createElement('p');
+        error.id = errorId;
+        error.className = 'form-field-error';
+        anchor.after(error);
+    }
+
+    error.textContent = message;
+    input.setAttribute('aria-invalid', 'true');
+    input.setAttribute('aria-describedby', errorId);
+    input.focus();
+}
+
+function clearFieldError(input) {
+    document.getElementById(`${input.id}-error`)?.remove();
+    input.removeAttribute('aria-invalid');
+    input.removeAttribute('aria-describedby');
+}
+
 function hideFeedback(el) {
     el.hidden = true;
     el.textContent = '';
@@ -124,12 +154,33 @@ function initLeadForm() {
 
     const submitBtn = document.getElementById('lead-submit');
     const feedback = document.getElementById('form-feedback');
+    const nameInput = form.querySelector('[name="name"]');
     const phoneInput = form.querySelector('[name="phone"]');
     const consentInput = form.querySelector('[name="privacy_consent"]');
     const consentLink = form.querySelector('.privacy-consent a');
 
+    consentInput?.addEventListener('change', () => clearFieldError(consentInput));
+    nameInput?.addEventListener('input', () => clearFieldError(nameInput));
+
     consentLink?.addEventListener('mousedown', (e) => {
         e.preventDefault();
+    });
+
+    // «+7» подставляется при фокусе, чтобы не искать «+» на клавиатуре.
+    const phonePrefix = '+7 ';
+    const placeCursorAtEnd = () => {
+        const end = phoneInput.value.length;
+        phoneInput.setSelectionRange(end, end);
+    };
+
+    phoneInput.addEventListener('focus', () => {
+        if (extractPhoneDigits(phoneInput.value).length > 1) return;
+        phoneInput.value = phonePrefix;
+        requestAnimationFrame(placeCursorAtEnd);
+    });
+
+    phoneInput.addEventListener('blur', () => {
+        if (extractPhoneDigits(phoneInput.value).length <= 1) phoneInput.value = '';
     });
 
     phoneInput.addEventListener('keydown', (e) => {
@@ -137,12 +188,14 @@ function initLeadForm() {
 
         const digits = extractPhoneDigits(phoneInput.value);
         if (digits.length <= 1) {
-            phoneInput.value = '';
+            phoneInput.value = phonePrefix;
+            placeCursorAtEnd();
             e.preventDefault();
         }
     });
 
     phoneInput.addEventListener('input', () => {
+        clearFieldError(phoneInput);
         const cursor = phoneInput.selectionStart ?? phoneInput.value.length;
         const digitsBeforeCursor = phoneInput.value.slice(0, cursor).replace(/\D/g, '').length;
         const formatted = formatPhoneInput(phoneInput.value);
@@ -157,8 +210,22 @@ function initLeadForm() {
         e.preventDefault();
         hideFeedback(feedback);
 
-        if (!consentInput?.checked) {
-            showFeedback(feedback, 'Подтвердите согласие на обработку персональных данных', 'error');
+        if (nameInput) clearFieldError(nameInput);
+        clearFieldError(phoneInput);
+        if (consentInput) clearFieldError(consentInput);
+
+        if (nameInput && !nameInput.value.trim()) {
+            setFieldError(nameInput, nameInput, 'Укажите, как к вам обращаться');
+            return;
+        }
+
+        if (extractPhoneDigits(phoneInput.value).length !== 11) {
+            setFieldError(phoneInput, phoneInput, 'Введите номер полностью: +7 и 10 цифр');
+            return;
+        }
+
+        if (consentInput && !consentInput.checked) {
+            setFieldError(consentInput, consentInput.closest('.privacy-consent'), 'Отметьте согласие, чтобы мы могли перезвонить');
             return;
         }
 
@@ -172,7 +239,7 @@ function initLeadForm() {
             area_sqm: formData.get('area_sqm')?.toString() || null,
             heating_type: formData.get('heating_type')?.toString() || null,
             message: formData.get('message')?.toString().trim() || null,
-            privacy_consent: consentInput?.checked ?? false,
+            privacy_consent: consentInput ? consentInput.checked : true,
             landing_page: window.location.href,
             referrer_url: document.referrer || null,
             ...utm,

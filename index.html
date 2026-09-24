@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111719">
     <meta name="description" content="ТеплоРемСервис — расчёт, монтаж и сервис систем отопления и котельных в Казани и пригороде.">
     <link rel="canonical" href="https://xn--b1afaaqoiohmdkeb.xn--p1ai/">
     <meta property="og:title" content="ТеплоРемСервис | Отопление и котельные в Казани">
@@ -40,12 +41,10 @@
     <script>
         document.documentElement.classList.remove('no-js');
         document.documentElement.classList.add('js');
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.documentElement.setAttribute('data-theme', savedTheme);
     </script>
 
     <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="css/pages/home.css">
+    <link rel="stylesheet" href="css/pages/home.css?v=20260924-e">
     
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -55,13 +54,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
 <symbol id="icon-logo-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
-  </symbol>
-  <symbol id="icon-sun" viewBox="0 0 24 24" fill="none">
-    <circle cx="12" cy="12" r="5" fill="currentColor"/>
-    <path d="M12 2V4M12 20V22M4 12H2M22 12H20M19.0711 19.0711L17.6569 17.6569M6.34315 6.34315L4.92893 4.92893M19.0711 4.92893L17.6569 6.34315M6.34315 17.6569L4.92893 19.0711" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-  </symbol>
-  <symbol id="icon-moon" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
   </symbol>
   <symbol id="icon-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
@@ -122,7 +114,6 @@
   </symbol>
 </svg>
 
-    <div class="ambient-bg"></div>
 
     <button type="button" class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true" tabindex="-1"></button>
 
@@ -153,11 +144,6 @@
             <div class="contact-box">
                 <a href="tel:+79376254703" class="phone-link">+7 937 625-47-03</a>
                 <a href="https://t.me/teplorem" class="btn-ghost" target="_blank" rel="noopener noreferrer">Telegram</a>
-                
-                <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Переключить тему" aria-pressed="true">
-                    <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-sun"></use></svg>
-                    <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-moon"></use></svg>
-                </button>
 
                 <button type="button" class="burger-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
                     <span></span>
@@ -168,7 +154,7 @@
         </div>
     </header>
 
-    <section class="hero">
+    <section class="hero page-zone">
         <div class="container hero-grid">
             <div class="hero-text-block">
                 <div class="premium-badge gsap-fade">
@@ -291,7 +277,7 @@
         </div>
     </section>
 
-    <section class="home-portfolio" id="portfolio-preview" aria-labelledby="portfolio-preview-title">
+    <section class="home-portfolio page-zone" id="portfolio-preview" aria-labelledby="portfolio-preview-title">
         <div class="container">
             <header class="home-portfolio-heading">
                 <span class="home-portfolio-title-line" aria-hidden="true"></span>
@@ -391,7 +377,7 @@
     </div>
 
     <main>
-        <section class="about about-route section-padding" id="about">
+        <section class="about page-zone page-zone--tint about-route section-padding" id="about">
             <div class="container">
                 <div class="about-route-layout">
                     <div class="about-route-intro">
@@ -470,7 +456,7 @@
             </div>
         </section>
 
-        <section class="services section-padding" id="services">
+        <section class="services page-zone section-padding" id="services">
             <div class="container">
                 <div class="section-header services-header">
                     <h2 class="section-title">Как мы работаем</h2>
@@ -559,7 +545,7 @@
             </div>
         </section>
 
-        <section class="pricing-area section-padding" id="pricing">
+        <section class="pricing-area page-zone page-zone--tint section-padding" id="pricing">
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title">Стоимость и зона обслуживания</h2>
@@ -597,10 +583,18 @@
                         <a href="faq.html#faq-order" class="info-card-link">Все вопросы о выезде <span aria-hidden="true">→</span></a>
                     </article>
                 </div>
+
+                <aside class="inline-cta">
+                    <div class="inline-cta__copy">
+                        <p class="inline-cta__kicker">Нужна точная цифра</p>
+                        <p class="inline-cta__text">Диапазон выше — ориентир. Точную смету считаем после выезда на объект и замера.</p>
+                    </div>
+                    <a href="#calc" class="trs-button inline-cta__action">Заказать выезд</a>
+                </aside>
             </div>
         </section>
 
-        <section class="licenses section-padding" id="licenses">
+        <section class="licenses page-zone section-padding" id="licenses">
             <div class="container">
                 <header class="section-header home-section-heading">
                     <h2 class="section-title">Допуски и сертификаты</h2>
@@ -636,7 +630,7 @@
             </div>
         </section>
 
-        <section class="reviews section-padding" id="trust">
+        <section class="reviews page-zone page-zone--tint section-padding" id="trust">
             <div class="container">
                 <div class="section-header reviews-header">
                     <h2 class="section-title">Что говорят заказчики</h2>
@@ -644,12 +638,8 @@
                 </div>
 
                 <div class="reviews-evidence">
-                    <aside class="reviews-source" aria-label="Рейтинг на Яндекс.Картах">
-                        <p class="reviews-source-kicker">Источник отзывов</p>
-                        <p class="reviews-source-brand">Яндекс Карты</p>
-                        <p class="reviews-source-score">5,0</p>
-                        <p class="reviews-source-stars" aria-label="5 звёзд">★★★★★</p>
-                        <p class="reviews-source-note">Рейтинг по оценкам 42 клиентов</p>
+                    <aside class="reviews-source" aria-label="Источник отзывов">
+                        <p class="reviews-source-kicker">Источник отзывов — Яндекс.Карты</p>
                         <a href="https://yandex.ru/maps/-/CTqxA4zv" class="reviews-source-link" target="_blank" rel="noopener noreferrer">Открыть профиль <span aria-hidden="true">→</span></a>
                     </aside>
 
@@ -697,7 +687,7 @@
             </div>
         </section>
 
-        <section class="cta-section" id="calc">
+        <section class="cta-section page-zone" id="calc">
             <div class="container">
                 <header class="section-header home-section-heading">
                     <h2 class="section-title">Заявка на выезд</h2>
@@ -769,11 +759,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="privacy-consent">
-                                <input type="checkbox" name="privacy_consent" id="lead-privacy-consent" required aria-required="true">
-                                <label for="lead-privacy-consent">Я соглашаюсь с <a href="privacy.html" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a> и даю согласие на обработку персональных данных.</label>
-                            </div>
                             <button type="submit" class="btn-glow btn-submit" id="lead-submit">Оставить заявку</button>
+                            <p class="form-consent-note">Отправляя форму, вы соглашаетесь с <a href="privacy.html" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a> и даёте согласие на обработку персональных данных.</p>
                             <p class="form-feedback" id="form-feedback" role="status" aria-live="polite" hidden></p>
                         </form>
                     </div>
@@ -835,8 +822,8 @@
 
     <script defer src="js/core/common.js?v=20260817-1635"></script>
     <script defer src="js/core/custom-select.js?v=20260817-1635"></script>
-    <script defer src="js/components/form.js?v=20260817-1635"></script>
+    <script defer src="js/components/form.js?v=20260923-c"></script>
     <script defer src="js/components/boiler-loader.js?v=20260826-desktop-only-7"></script>
-    <script defer src="js/pages/home.js?v=20260918-reviews-toggle"></script>
+    <script defer src="js/pages/home.js?v=20260923-c"></script>
 </body>
 </html>

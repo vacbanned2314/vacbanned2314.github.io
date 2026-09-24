@@ -41,7 +41,6 @@ function initBoilerWidget(wrapper, options = {}) {
     let animationFrameId = null;
     let frontPanelPart = null;
     let lightingRig = null;
-    let themeObserver = null;
     let mats;
     let environmentRenderTarget = null;
     let resizeObserver = null;
@@ -758,35 +757,26 @@ function initBoilerWidget(wrapper, options = {}) {
         };
     }
 
-    function applyThemeCalibration() {
-        const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
-        renderer.toneMappingExposure = isDark ? 1.2 : 1.08;
+    // The site has a single dark theme; the scene is calibrated for it once.
+    function applyLightingCalibration() {
+        renderer.toneMappingExposure = 1.2;
 
         if (lightingRig) {
-            lightingRig.ambient.intensity = isDark ? 0.5 : 0.28;
-            lightingRig.key.intensity = isDark ? 1.24 : 1.1;
-            lightingRig.fill.intensity = isDark ? 0.54 : 0.38;
-            lightingRig.rim.intensity = isDark ? 0.3 : 0.22;
-            lightingRig.hemisphere.intensity = isDark ? 0.42 : 0.3;
+            lightingRig.ambient.intensity = 0.5;
+            lightingRig.key.intensity = 1.24;
+            lightingRig.fill.intensity = 0.54;
+            lightingRig.rim.intensity = 0.3;
+            lightingRig.hemisphere.intensity = 0.42;
         }
 
         [mats?.panelPlastic, frontPanelPart?.material].filter(Boolean).forEach((material) => {
             material.color.setHex(0xffffff);
-            material.emissive.setHex(isDark ? 0x8a8174 : 0x17140f);
-            material.emissiveIntensity = isDark ? 0.46 : 0.04;
+            material.emissive.setHex(0x8a8174);
+            material.emissiveIntensity = 0.46;
             material.needsUpdate = true;
         });
 
         if (options.mobile) renderFrame();
-    }
-
-    function setupThemeSync() {
-        applyThemeCalibration();
-        themeObserver = new MutationObserver(applyThemeCalibration);
-        themeObserver.observe(document.documentElement, {
-            attributes: true,
-            attributeFilter: ['data-theme']
-        });
     }
 
     function setupGround(targetScene) {
@@ -848,7 +838,7 @@ function initBoilerWidget(wrapper, options = {}) {
     setupGround(scene);
 
     buildBoilerModel();
-    setupThemeSync();
+    applyLightingCalibration();
 
 
     if (typeof THREE.OrbitControls !== 'function') {
@@ -882,7 +872,6 @@ function initBoilerWidget(wrapper, options = {}) {
             animating = false;
             if (animationFrameId !== null) cancelAnimationFrame(animationFrameId);
             resizeObserver?.disconnect();
-            themeObserver?.disconnect();
             cleanupFns.splice(0).forEach((cleanup) => cleanup());
             clearHover();
             controls?.dispose?.();

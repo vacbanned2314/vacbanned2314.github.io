@@ -61,9 +61,9 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.set('.gsap-fade', { y: 20 });
         gsap.set('.gsap-stat', { y: 24, scale: 0.97 });
 
-        tl.to('.gsap-text', { autoAlpha: 1, y: 0, stagger: 0.1, duration: 1 })
-          .to('.gsap-fade', { autoAlpha: 1, y: 0, stagger: 0.1, duration: 1 }, '-=0.6')
-          .to('.gsap-stat', { autoAlpha: 1, y: 0, scale: 1, stagger: 0.12, duration: 0.75 }, '-=0.45');
+        tl.to('.gsap-text', { autoAlpha: 1, y: 0, stagger: 0.06, duration: 0.5 })
+          .to('.gsap-fade', { autoAlpha: 1, y: 0, stagger: 0.06, duration: 0.45 }, '-=0.3')
+          .to('.gsap-stat', { autoAlpha: 1, y: 0, scale: 1, stagger: 0.06, duration: 0.4 }, '-=0.3');
     }
 
     if (showBoilerWidget && typeof gsap !== 'undefined') {
@@ -445,11 +445,14 @@ function initReviewReadMore() {
     const extraItems = [...section.querySelectorAll('[data-mobile-review-extra]')];
     if (!toggle || !extraItems.length) return;
 
+    // Сворачиваем отзывы только на мобильном: на десктопе они стоят в три колонки.
+    const mobileMedia = window.matchMedia('(max-width: 768px)');
     let expanded = false;
-    toggle.hidden = false;
 
     const sync = () => {
-        extraItems.forEach((item) => { item.hidden = !expanded; });
+        const collapsible = mobileMedia.matches;
+        toggle.hidden = !collapsible;
+        extraItems.forEach((item) => { item.hidden = collapsible && !expanded; });
         toggle.setAttribute('aria-expanded', String(expanded));
         toggle.textContent = expanded ? 'Скрыть дополнительные отзывы' : 'Показать ещё 2 отзыва';
     };
@@ -459,6 +462,7 @@ function initReviewReadMore() {
         sync();
     });
 
+    mobileMedia.addEventListener('change', sync);
     sync();
 }
 

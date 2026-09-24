@@ -7,102 +7,12 @@
  */
 
 :root {
-    --trs-steel: #171a1a;
-    --trs-iron: #202524;
-    --trs-panel: rgba(39, 44, 42, 0.78);
-    --trs-panel-strong: rgba(49, 55, 52, 0.92);
-    --trs-ember: var(--accent);
-    --trs-line: var(--border-default);
     --trs-line-active: rgba(var(--accent-rgb), 0.58);
-    --trs-radius-control: var(--radius-button);
-    --trs-radius-panel: var(--radius-card);
-    --trs-control-height: var(--control-height);
     --trs-ease: 180ms ease;
     --trs-page-title: clamp(2.75rem, 5vw, 4.5rem);
     --trs-section-title: clamp(2rem, 4vw, 3.25rem);
     --trs-lead-size: clamp(var(--fs-16), 1.45vw, var(--fs-18));
-    --trs-section-space: var(--space-section);
     --trs-heading-gap: clamp(2rem, 4vw, 3.25rem);
-}
-
-[data-theme="light"] {
-    --trs-steel: #f7f4ef;
-    --trs-iron: #eee9e1;
-    --trs-panel: rgba(255, 253, 250, 0.84);
-    --trs-panel-strong: rgba(255, 253, 250, 0.96);
-}
-
-/* The home page is the colour authority. Services and portfolio previously
-   introduced a colder blue-grey palette of their own. */
-body.services-variant,
-body.portfolio-concepts-page {
-    --boiler-copper: var(--brand-accent);
-    --boiler-copper-rgb: var(--brand-accent-rgb);
-    --boiler-copper-hi: #e19a66;
-    --boiler-zone-a: #111719;
-    --boiler-zone-b: #192124;
-    --boiler-zone-c: #141c1f;
-    --boiler-card: rgba(35, 47, 51, 0.9);
-    --boiler-line: rgba(211, 225, 225, 0.14);
-    --boiler-line-soft: rgba(211, 225, 225, 0.08);
-    --bg-base: var(--boiler-zone-a);
-    --bg-surface: var(--boiler-zone-b);
-    --bg-card: #263236;
-    --accent: var(--boiler-copper);
-    --accent-rgb: var(--boiler-copper-rgb);
-    --accent-action: var(--boiler-copper);
-    --accent-action-hover: color-mix(in srgb, var(--boiler-copper) 82%, black);
-    --text-pure: #f4f0e9;
-    --text-dim: #a7b1b4;
-    --header-bg: rgba(17, 23, 25, 0.9);
-    --ambient-glow: rgba(var(--boiler-copper-rgb), 0.045);
-    --footer-bg: #0b1011;
-    --mobile-nav-bg: rgba(11, 16, 17, 0.98);
-    --border-default: var(--boiler-line);
-    --border-subtle: var(--boiler-line-soft);
-    --border-accent: rgba(var(--boiler-copper-rgb), 0.58);
-    --surface-card: var(--boiler-card);
-    --surface-card-gradient: linear-gradient(135deg, rgba(232, 238, 236, 0.045), transparent 62%), var(--boiler-card);
-    --shadow-card: 0 18px 42px rgba(5, 9, 10, 0.24);
-    --shadow-hover: 0 22px 48px rgba(5, 9, 10, 0.34);
-    --shadow-control: 0 9px 24px rgba(var(--boiler-copper-rgb), 0.22);
-    --home-zone-a: var(--boiler-zone-a);
-    --home-zone-b: var(--boiler-zone-b);
-    --home-zone-c: var(--boiler-zone-c);
-    --home-grid-line: rgba(211, 225, 225, 0.045);
-    --home-grid-major: rgba(var(--boiler-copper-rgb), 0.035);
-}
-
-[data-theme="light"] body.services-variant,
-[data-theme="light"] body.portfolio-concepts-page {
-    --boiler-copper: var(--brand-accent);
-    --boiler-copper-rgb: var(--brand-accent-rgb);
-    --boiler-zone-a: #e3ddd5;
-    --boiler-zone-b: #d8d1c8;
-    --boiler-zone-c: #eae5de;
-    --boiler-card: rgba(214, 211, 206, 0.97);
-    --boiler-line: rgba(58, 47, 38, 0.22);
-    --boiler-line-soft: rgba(58, 47, 38, 0.13);
-    --bg-base: var(--boiler-zone-a);
-    --bg-surface: var(--boiler-zone-b);
-    --bg-card: #d6d3cd;
-    --accent: var(--boiler-copper);
-    --accent-rgb: var(--boiler-copper-rgb);
-    --accent-action: var(--boiler-copper);
-    --accent-action-hover: color-mix(in srgb, var(--boiler-copper) 82%, black);
-    --text-pure: #27221d;
-    --text-dim: #5e554c;
-    --header-bg: rgba(222, 215, 206, 0.94);
-    --footer-bg: #c5bbaf;
-    --mobile-nav-bg: rgba(222, 215, 206, 0.98);
-    --border-default: var(--boiler-line);
-    --border-subtle: var(--boiler-line-soft);
-    --border-accent: rgba(var(--boiler-copper-rgb), 0.58);
-    --surface-card: var(--boiler-card);
-    --surface-card-gradient: var(--surface-card);
-    --home-zone-a: var(--boiler-zone-a);
-    --home-zone-b: var(--boiler-zone-b);
-    --home-zone-c: var(--boiler-zone-c);
 }
 
 /* Future markup uses .trs-button directly. Existing names are mapped here. */
@@ -111,10 +21,10 @@ body.portfolio-concepts-page {
     align-items: center;
     justify-content: center;
     gap: 0.65rem;
-    min-height: var(--trs-control-height);
+    min-height: var(--control-height);
     padding: 0.75rem 1.25rem;
-    border: 1px solid var(--trs-line);
-    border-radius: var(--trs-radius-control);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-button);
     font: var(--font-weight-semibold) var(--fs-14) / 1.15 var(--font-sans);
     letter-spacing: -0.01em;
     text-decoration: none;
@@ -122,22 +32,22 @@ body.portfolio-concepts-page {
 }
 
 :where(.trs-button, .btn-glow, .pc-btn--accent) {
-    background: var(--trs-ember);
-    border-color: var(--trs-ember);
-    color: #fff;
+    background: var(--accent-fill);
+    border-color: var(--accent-fill);
+    color: var(--on-accent);
     box-shadow: none;
 }
 
 :where(.trs-button, .btn-glow, .pc-btn--accent):hover {
-    background: var(--accent-action-hover);
-    border-color: var(--accent-action-hover);
-    color: #fff;
+    background: var(--accent-fill-hover);
+    border-color: var(--accent-fill-hover);
+    color: var(--on-accent);
     transform: translateY(-2px);
 }
 
 :where(.trs-button--outline, .btn-outline, .btn-ghost, .pc-btn--outline, .pc-btn--dark) {
-    background: var(--trs-panel);
-    border-color: var(--trs-line);
+    background: var(--surface-panel);
+    border-color: var(--border-default);
     color: var(--text-pure);
     box-shadow: none;
 }
@@ -164,7 +74,7 @@ body.portfolio-concepts-page {
 
 /* Labels carry the same small, technical cadence across all sections. */
 :where(.trs-kicker, .section-kicker, .pc-kicker, .permit-kicker, .sv-eyebrow, .case-contact__kicker) {
-    color: var(--trs-ember);
+    color: var(--accent);
     font-size: var(--fs-11);
     font-weight: var(--font-weight-bold);
     letter-spacing: 0.12em;
@@ -182,14 +92,14 @@ body.portfolio-concepts-page {
 
 /* Future markup uses .trs-panel. Existing panels are intentionally quiet. */
 :where(.trs-panel, .sv-brief, .sv-cta-panel, .case-contact__panel, .case-card, .permit-feature, .permit-row, .permit-cta__inner, .team-evidence-card, .team-contact__panel, .team-work__panel, .legal-panel, .legal-meta-card, .faq-cta) {
-    border: 1px solid var(--trs-line);
-    border-radius: var(--trs-radius-panel);
-    background: var(--trs-panel);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-panel);
+    background: var(--surface-panel);
     box-shadow: none;
 }
 
 :where(.trs-panel--strong, .sv-brief, .permit-feature, .team-evidence-card, .case-contact__panel) {
-    background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.06), transparent 48%), var(--trs-panel-strong);
+    background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.06), transparent 48%), var(--surface-panel);
 }
 
 :where(.trs-panel, .sv-brief, .sv-cta-panel, .case-contact__panel, .permit-feature, .permit-cta__inner, .team-evidence-card, .team-contact__panel, .team-work__panel, .legal-panel, .faq-cta) {
@@ -206,12 +116,12 @@ body.portfolio-concepts-page {
 
 /* Project, certificate and price cards share one border language. */
 :where(.case-card, .permit-row, .sv-price-row, .sv-direction, .sv-plan-card, .sv-route-item) {
-    border-color: var(--trs-line);
+    border-color: var(--border-default);
 }
 
 :where(.case-card h3, .permit-row__identity h3, .sv-service-title, .sv-price-row h3, .team-evidence-card h3) {
     color: var(--text-pure);
-    font-size: var(--type-card-title);
+    font-size: var(--fs-18);
     font-weight: var(--font-weight-semibold);
     letter-spacing: -0.015em;
     line-height: 1.28;
@@ -219,7 +129,7 @@ body.portfolio-concepts-page {
 
 :where(.case-card p, .permit-row p, .sv-service-copy, .sv-price-row p, .team-evidence-card p) {
     color: var(--text-dim);
-    font-size: var(--type-body);
+    font-size: var(--fs-15);
     line-height: 1.6;
 }
 
@@ -231,9 +141,9 @@ body.portfolio-concepts-page {
     gap: 0.5rem;
     min-height: 2.75rem;
     padding: 0.625rem 1rem;
-    border: 1px solid var(--trs-line);
-    border-radius: var(--trs-radius-control);
-    background: var(--trs-panel);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-button);
+    background: var(--surface-panel);
     color: var(--text-pure);
     font: var(--font-weight-semibold) var(--fs-13) / 1.15 var(--font-sans);
     text-decoration: none;
@@ -247,21 +157,21 @@ body.portfolio-concepts-page {
 }
 
 :where(.filter-btn.active, .sv-price-filter button.is-active) {
-    background: var(--trs-ember);
-    border-color: var(--trs-ember);
-    color: #fff;
+    background: var(--accent-fill);
+    border-color: var(--accent-fill);
+    color: var(--on-accent);
 }
 
 /* Every full-width closing block receives the same restrained engineering accent. */
 :where(.cta-wrapper, .pf-cta-inner, .licenses-cta, .permit-cta__inner, .sv-cta-panel, .case-contact__panel, .team-contact__panel) {
-    background: linear-gradient(105deg, rgba(var(--accent-rgb), 0.11), transparent 56%), var(--trs-panel-strong);
+    background: linear-gradient(105deg, rgba(var(--accent-rgb), 0.11), transparent 56%), var(--surface-panel);
 }
 
 /* Form controls should never visually introduce a fourth component family. */
 :where(.sleek-form input, .sleek-form textarea, .form-field input, .form-field textarea, .form-field select, .custom-select__trigger) {
-    min-height: var(--trs-control-height);
-    border: 1px solid var(--trs-line);
-    border-radius: var(--trs-radius-control);
+    min-height: var(--control-height);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-button);
     background: var(--input-bg);
     color: var(--text-pure);
     font-family: var(--font-sans);
@@ -289,10 +199,9 @@ body.portfolio-concepts-page {
 body .team-kicker,
 body .permit-kicker,
 body .pc-kicker,
-body .section-kicker,
 body .case-contact__kicker {
     margin: 0 0 1rem;
-    color: var(--trs-ember);
+    color: var(--accent);
     font-size: var(--fs-11);
     font-weight: var(--font-weight-bold);
     letter-spacing: 0.12em;
@@ -303,7 +212,7 @@ body .case-contact__kicker {
 body .pc-kicker span {
     width: 1.75rem;
     height: 1px;
-    background: var(--trs-ember);
+    background: var(--accent);
 }
 
 body.services-variant .sv-title,
@@ -329,12 +238,11 @@ body .page-lead {
 body.services-variant .sv-section,
 body.portfolio-live-page .pc-section,
 body.permit-page .permit-directory {
-    padding-block: var(--trs-section-space);
+    padding-block: var(--space-section-full);
 }
 
 body.services-variant .sv-section-head,
 body.portfolio-live-page .pc-section-heading,
-body.permit-page .permit-directory__head,
 body.team-page .team-section-heading,
 body.team-page .team-section-intro {
     margin-bottom: var(--trs-heading-gap);
@@ -342,7 +250,6 @@ body.team-page .team-section-intro {
 
 body.services-variant .sv-section-head h2,
 body.portfolio-live-page .pc-section-heading h2,
-body.permit-page .permit-directory__head h2,
 body.permit-page .permit-continuity h2,
 body.team-page .team-section-intro h2,
 body.team-page .team-section-heading h2,
@@ -358,33 +265,32 @@ body .legal-section h2 {
 
 body.services-variant .sv-section-head > p,
 body.portfolio-live-page .pc-section-heading--row > p,
-body.permit-page .permit-directory__head > p,
 body.team-page .team-section-heading > p:last-child,
 body.team-page .team-section-intro > p:last-child,
 body .faq-category-desc,
 body .legal-section p {
-    font-size: var(--type-body);
+    font-size: var(--fs-15);
     line-height: 1.65;
 }
 
 /* Page-specific aliases join the same three control variants. */
 body .team-action {
-    min-height: var(--trs-control-height);
+    min-height: var(--control-height);
     padding: 0.75rem 1.25rem;
-    border-radius: var(--trs-radius-control);
+    border-radius: var(--radius-button);
     font-size: var(--fs-14);
     font-weight: var(--font-weight-semibold);
     line-height: 1.15;
 }
 
 body .team-action--primary {
-    border-color: var(--trs-ember);
-    background: var(--trs-ember);
+    border-color: var(--accent-fill);
+    background: var(--accent-fill);
 }
 
 body .team-action--secondary {
-    border-color: var(--trs-line);
-    background: var(--trs-panel);
+    border-color: var(--border-default);
+    background: var(--surface-panel);
 }
 
 body .team-action--secondary:hover {
@@ -392,8 +298,7 @@ body .team-action--secondary:hover {
     background: rgba(var(--accent-rgb), 0.09);
 }
 
-body .pc-text-link,
-body .team-text-link {
+body .pc-text-link {
     gap: 0.5rem;
     color: var(--text-pure);
     font-size: var(--fs-14);
@@ -404,7 +309,6 @@ body .team-text-link {
 @media (max-width: 680px) {
     body.services-variant .sv-section-head,
     body.portfolio-live-page .pc-section-heading,
-    body.permit-page .permit-directory__head,
     body.team-page .team-section-heading,
     body.team-page .team-section-intro {
         margin-bottom: 2rem;

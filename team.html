@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#111719">
     <meta name="description" content="Наша команда: Рунар, Алишер, Алексей, Ренат и Гузель. Монтаж, запуск, ремонт и обслуживание котельных в Казани и ближайших населённых пунктах.">
     <link rel="canonical" href="https://xn--b1afaaqoiohmdkeb.xn--p1ai/team.html">
     <meta property="og:title" content="Наша команда | ТеплоРемСервис">
@@ -52,26 +53,16 @@
     <script>
         document.documentElement.classList.remove('no-js');
         document.documentElement.classList.add('js');
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.documentElement.setAttribute('data-theme', savedTheme);
     </script>
     <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="css/pages/team.css">
 </head>
-<body class="site-page team-page site-background">
+<body class="site-page team-page">
     <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden">
         <symbol id="icon-logo-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
         </symbol>
-        <symbol id="icon-sun" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="5" fill="currentColor"/>
-            <path d="M12 2V4M12 20V22M4 12H2M22 12H20M19.0711 19.0711L17.6569 17.6569M6.34315 6.34315L4.92893 4.92893M19.0711 4.92893L17.6569 6.34315M6.34315 17.6569L4.92893 19.0711" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-        </symbol>
-        <symbol id="icon-moon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </symbol>
     </svg>
-    <div class="ambient-bg"></div>
     <button type="button" class="nav-backdrop" id="nav-backdrop" hidden aria-hidden="true" tabindex="-1"></button>
     <header class="pill-header">
         <div class="header-wrap">
@@ -98,10 +89,6 @@
             <div class="contact-box">
                 <a href="tel:+79376254703" class="phone-link">+7 937 625-47-03</a>
                 <a href="https://t.me/teplorem" class="btn-ghost" target="_blank" rel="noopener noreferrer">Telegram</a>
-                <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Переключить тему" aria-pressed="true">
-                    <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-sun"></use></svg>
-                    <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-moon"></use></svg>
-                </button>
                 <button type="button" class="burger-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
                     <span></span><span></span><span></span>
                 </button>
@@ -109,7 +96,7 @@
         </div>
     </header>
     <main>
-        <section class="team-hero site-grid-surface" aria-labelledby="team-title">
+        <section class="team-hero page-zone" aria-labelledby="team-title">
             <div class="container team-hero__grid">
                 <div class="team-hero__copy">
                     <p class="team-kicker">Наша команда · Казань</p>
@@ -145,7 +132,7 @@
                 </div>
             </div>
         </section>
-        <section class="team-route site-grid-surface" aria-labelledby="route-title">
+        <section class="team-route page-zone page-zone--tint" aria-labelledby="route-title">
             <div class="container team-route__grid scroll-reveal">
                 <header class="team-section-intro">
                     <p class="team-kicker">Как мы работаем</p>
@@ -176,7 +163,7 @@
                 </ol>
             </div>
         </section>
-        <section class="team-people site-grid-surface" aria-labelledby="people-title">
+        <section class="team-people page-zone" aria-labelledby="people-title">
             <div class="container">
                 <header class="team-section-heading scroll-reveal">
                     <p class="team-kicker">Люди на объекте</p>
@@ -220,7 +207,7 @@
                 </article>
             </div>
         </section>
-        <section class="team-evidence site-grid-surface" aria-labelledby="evidence-title">
+        <section class="team-evidence page-zone page-zone--tint" aria-labelledby="evidence-title">
             <div class="container">
                 <header class="team-section-heading scroll-reveal">
                     <p class="team-kicker">Квалификация подтверждена</p><h2 id="evidence-title">Документы, допуски и сертификаты</h2>
@@ -244,7 +231,7 @@
                 </article>
             </div>
         </section>
-        <section class="team-work site-grid-surface" aria-labelledby="work-title">
+        <section class="team-work page-zone" aria-labelledby="work-title">
             <div class="container">
                 <article class="team-work__panel scroll-reveal">
                     <div class="team-work__copy">
@@ -256,7 +243,7 @@
                 </article>
             </div>
         </section>
-        <section class="team-contact site-grid-surface" aria-labelledby="contact-title">
+        <section class="team-contact page-zone" aria-labelledby="contact-title">
             <div class="container">
                 <div class="team-contact__panel scroll-reveal">
                     <div class="team-contact__intro">

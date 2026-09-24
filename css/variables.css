@@ -1,6 +1,7 @@
 :root {
-    --brand-accent: #e88731;
-    --brand-accent-rgb: 232, 135, 49;
+    /* Единственная тема сайта — тёмная. Браузер рисует прокрутку, автозаполнение
+       и системные списки в тёмной схеме. */
+    color-scheme: dark;
 
     --font-sans: 'Golos Text', system-ui, -apple-system, sans-serif;
     --font-weight-body: 400;
@@ -10,67 +11,90 @@
     --letter-tight: -0.02em;
     --letter-wide: 0.06em;
 
-    --bg-base: #1C1B19;
-
-    --bg-surface: #252320;
-
-    --bg-card: #302D29;
-
-    --accent: var(--brand-accent);
-
-    --accent-rgb: var(--brand-accent-rgb);
-
-    --accent-action: var(--accent);
-
-    --accent-action-hover: color-mix(in srgb, var(--accent) 84%, black);
-
-    --accent-action-rgb: var(--brand-accent-rgb);
-
+    /* ---------- Медь ----------
+       Яркая медь — текст, иконки, линии и мелкие метки на тёмном фоне (6.8:1).
+       Глубокая медь — заливка кнопок и активных фильтров под белым текстом (4.5:1). */
+    --accent: #e88731;
+    --accent-rgb: 232, 135, 49;
+    --accent-hi: #e19a66;
+    --accent-hi-rgb: 225, 154, 102;
+    --accent-fill: #c2561a;
+    --accent-fill-rgb: 194, 86, 26;
+    --accent-fill-hover: color-mix(in srgb, var(--accent-fill) 84%, black);
+    --on-accent: #ffffff;
     --focus-ring: var(--accent);
 
-    --accent-secondary: var(--accent);
 
-    --accent-secondary-rgb: var(--brand-accent-rgb);
+    /* ---------- Поверхности: четыре ступени ----------
+       canvas  — холст страницы;
+       section — каждая вторая секция, на ступень светлее холста;
+       inset   — вложенная тихая поверхность: поле, подложка, ячейка внутри панели;
+       panel   — панель и карточка. */
+    --surface-canvas: #111719;
+    --section-tint-lift: 1.5%;
+    --surface-section: color-mix(in srgb, var(--surface-canvas) calc(100% - var(--section-tint-lift)), white);
+    --surface-inset: #192124;
+    --surface-panel-rgb: 35, 47, 51;
+    --surface-panel: rgba(var(--surface-panel-rgb), 0.9);
+    /* Та же ступень panel без прозрачности — для слоёв поверх контента: списки, подсказки. */
+    --surface-panel-solid: #212d30;
 
-    /* Muted copper palette for the hero trust cards */
-    --hero-stats-accent: var(--accent);
+    /* Подложка под фото и документы: самая тёмная, чтобы изображение читалось. */
+    --surface-media: #0b1011;
 
-    --hero-stats-accent-rgb: var(--brand-accent-rgb);
+    /* Хром: шапка, подвал, мобильное меню — темнее холста, чтобы отделять контент. */
+    --header-bg: color-mix(in srgb, var(--surface-canvas) 90%, transparent);
+    --mobile-nav-bg: color-mix(in srgb, var(--surface-media) 98%, transparent);
 
-    --hero-stats-action: var(--accent);
+    /* ---------- Текст ---------- */
+    --text-pure: #f4f0e9;
+    --text-pure-rgb: 244, 240, 233;
+    --text-dim: #a7b1b4;
 
-    --text-pure: #ffffff;
+    /* ---------- Статусы: всегда вместе с текстом, не заменяют медь ---------- */
+    --status-ok: #72b095;
+    --status-ok-rgb: 114, 176, 149;
+    --status-warning: #d5a35b;
+    --status-warning-rgb: 213, 163, 91;
+    --status-error: #fca5a5;
+    --status-error-rgb: 248, 113, 113;
 
-    --text-dim: #B7B0A7;
+    /* Блик: светлые отражения, внутренние подсветки и затемнения фото строятся
+       из этих основ с прозрачностью по месту. */
+    --highlight-rgb: 255, 255, 255;
 
-    --border-glass: var(--border-default);
+    /* ---------- Линии ---------- */
+    --line-rgb: 211, 225, 225;
+    --border-width: 1px;
+    --border-default: rgba(var(--line-rgb), 0.14);
+    --border-subtle: rgba(var(--line-rgb), 0.08);
+    --border-accent: rgba(var(--accent-rgb), 0.58);
 
-    --header-bg: rgba(37, 35, 32, 0.85);
+    /* ---------- Тени ---------- */
+    --shadow-rgb: 5, 9, 10;
+    --shadow-card: 0 18px 42px rgba(var(--shadow-rgb), 0.24);
+    --shadow-hover: 0 22px 48px rgba(var(--shadow-rgb), 0.34);
+    --shadow-control: 0 9px 24px rgba(var(--accent-rgb), 0.22);
 
-    --ambient-glow: rgba(var(--accent-secondary-rgb), 0.04);
+    /* ---------- Фон страницы: инженерная сетка и тихий ритм секций ---------- */
+    --grid-line: rgba(var(--highlight-rgb), 0.04);
+    --grid-cell: 4.8rem;
+    --section-fade-length: 8rem;
 
-    --card-grad: var(--surface-card-gradient);
+    /* ---------- Прочие роли ---------- */
+    --input-bg: rgba(var(--shadow-rgb), 0.62);
+    --btn-ghost-bg: rgba(var(--highlight-rgb), 0.045);
+    --ambient-glow: rgba(var(--accent-rgb), 0.045);
+    /* Бумага: подложка сканов документов и светлых образцов. */
+    --doc-paper-bg: #f4f0e9;
+    --doc-paper-shadow: 0 16px 40px rgba(var(--shadow-rgb), 0.35);
 
-    --rating-grad: var(--surface-card-gradient);
+    /* ---------- Псевдонимы прежних имён ----------
+       Не используйте их в новом коде: они указывают на роли выше. */
+    --surface-card-gradient: linear-gradient(135deg, rgba(var(--highlight-rgb), 0.045), transparent 62%), var(--surface-panel);
 
-    --cta-grad: var(--surface-card-gradient);
-
-    --input-bg: rgba(0,0,0,0.3);
-
-    --btn-ghost-bg: rgba(255,255,255,0.03);
-
-    --footer-bg: #11100F;
-
-    --mobile-nav-bg: rgba(17, 16, 15, 0.98);
-
-    --doc-shelf-bg: rgba(255, 255, 255, 0.04);
-
-    --doc-paper-bg: rgba(250, 248, 245, 0.9);
-
-    --doc-paper-border: rgba(255, 255, 255, 0.12);
-
-    --doc-paper-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-
+    --boiler-module-pane: color-mix(in srgb, var(--surface-canvas) 20%, transparent);
+    --boiler-module-pane-active: rgba(var(--surface-panel-rgb), 0.54);
 
 
     /* Responsive design tokens */
@@ -82,6 +106,9 @@
     --touch-min: 2.75rem;
 
     --space-section: clamp(3rem, 8vw, 7.5rem);
+    /* Полный ритм сайта. Вычисляется на :root, поэтому не сжимается там,
+       где страница уплотняет --space-section (главная, портфолио). */
+    --space-section-full: var(--space-section);
 
     --space-container: clamp(1rem, 4vw, 2.5rem);
 
@@ -105,34 +132,17 @@
     --space-7: 2rem;
     --space-8: 2.5rem;
 
-    --radius-button: 0.5rem;
-    --radius-card: 1rem;
-    --radius-control: var(--radius-button);
-    --radius-icon: 0.625rem;
-
-    --border-width: 1px;
-    --border-default: rgba(255, 255, 255, 0.12);
-    --border-subtle: rgba(255, 255, 255, 0.07);
-    --border-accent: rgba(var(--accent-rgb), 0.55);
-
-    --surface-card: rgba(45, 42, 38, 0.82);
-    --surface-card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.055), transparent 64%), var(--surface-card);
-    --shadow-card: 0 18px 44px rgba(12, 10, 8, 0.2);
-    --shadow-hover: 0 22px 52px rgba(12, 10, 8, 0.28);
-    --shadow-control: 0 8px 24px rgba(var(--accent-rgb), 0.22);
+    /* Радиусы: внутренняя поверхность всегда скруглена меньше внешней. */
+    --radius-button: 0.625rem;
+    --radius-icon: 0.75rem;
+    --radius-card-inner: 0.875rem;
+    --radius-panel: 1.25rem;
 
     --icon-size-sm: 1rem;
     --icon-size-md: 1.25rem;
     --icon-size-lg: 1.5rem;
     --icon-stroke: 1.75;
 
-    --type-heading-lg: var(--text-title);
-    --type-heading-md: var(--fs-22);
-    --type-card-title: var(--fs-18);
-    --type-body: var(--fs-15);
-    --type-caption: var(--fs-13);
-    --type-heading-weight: var(--font-weight-bold);
-    --type-body-weight: var(--font-weight-body);
 
     /* Discrete type scale — every fixed font-size on the site names one of these (no raw px/rem in rules) */
 
@@ -178,104 +188,28 @@
 
     --fs-64: 4rem;
 
+    /* Одиночное число-доказательство в панели; крупнее шкалы, но меньше прежних 128px. */
+    --fs-88: 5.5rem;
+
     --text-page-title: clamp(2rem, 5vw, 3.25rem);
 
     /* Unified glow-card scale (about-feature / stat-box / service-card / review-card / rating-card) */
 
-    --card-radius-outer: var(--radius-card);
 
-    --card-radius-inner: var(--radius-card);
 
-    --card-glow-opacity: 0.5;
 
     --card-hover-lift: -8px;
 
-    --card-hover-shadow: var(--shadow-hover);
 
     /* Engineering-passport geometry */
-    --line-strong: var(--border-default);
-    --line-soft: var(--border-subtle);
-    --panel-shadow: var(--shadow-card);
-    --radius-panel: var(--radius-card);
     --control-height: 52px;
 
 }
 
 
 
-[data-theme="light"] {
-    --brand-accent: #b95720;
-    --brand-accent-rgb: 185, 87, 32;
-
-    --bg-base: #F7F4EF;
-
-    --bg-surface: #FFFDFA;
-
-    --bg-card: #EEE9E1;
-
-    --accent: var(--brand-accent);
-
-    --accent-rgb: var(--brand-accent-rgb);
-
-    --accent-secondary-rgb: var(--brand-accent-rgb);
-
-    --accent-action: var(--accent);
-
-    --accent-action-hover: color-mix(in srgb, var(--accent) 84%, black);
-
-    --accent-action-rgb: var(--brand-accent-rgb);
-
-    --focus-ring: var(--accent);
-
-    --hero-stats-accent: var(--accent);
-
-    --hero-stats-accent-rgb: var(--brand-accent-rgb);
-
-    --hero-stats-action: var(--accent);
-
-    --text-pure: #1B1A18;
-
-    --text-dim: #6E685F;
-
-    --border-glass: var(--border-default);
-
-    --header-bg: rgba(255, 253, 250, 0.85);
-
-    --ambient-glow: rgba(var(--accent-secondary-rgb), 0.03);
-
-    --card-grad: var(--surface-card-gradient);
-
-    --rating-grad: var(--surface-card-gradient);
-
-    --cta-grad: var(--surface-card-gradient);
-
-    --input-bg: rgba(0,0,0,0.03);
-
-    --btn-ghost-bg: rgba(0,0,0,0.03);
-
-    --footer-bg: #E5DED4;
-
-    --mobile-nav-bg: rgba(255, 253, 250, 0.98);
-
-    --doc-shelf-bg: linear-gradient(160deg, #FFFDFA 0%, #EEE9E1 100%);
-
-    --doc-paper-bg: #FFFDFA;
-
-    --doc-paper-border: rgba(0, 0, 0, 0.06);
-
-    --doc-paper-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
-
-    --line-strong: var(--border-default);
-    --line-soft: var(--border-subtle);
-    --panel-shadow: var(--shadow-card);
-
-    --border-default: rgba(35, 29, 22, 0.12);
-    --border-subtle: rgba(35, 29, 22, 0.07);
-    --border-accent: rgba(var(--accent-rgb), 0.55);
-    --surface-card: rgba(255, 253, 250, 0.82);
-    --surface-card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.72), transparent 64%), var(--surface-card);
-    --shadow-card: 0 18px 44px rgba(73, 55, 36, 0.1);
-    --shadow-hover: 0 22px 52px rgba(73, 55, 36, 0.15);
-    --shadow-control: 0 8px 24px rgba(var(--accent-rgb), 0.18);
-
+@media (max-width: 768px) {
+    :root {
+        --grid-cell: 3.6rem;
+    }
 }

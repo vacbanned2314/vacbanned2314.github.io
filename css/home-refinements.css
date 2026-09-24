@@ -1,0 +1,279 @@
+/* Главная, вариант А: точечная правка дефектов без изменения композиции.
+   Подключается последним в css/pages/home.css, поэтому действует только на главной.
+   Значения берутся из существующей шкалы variables.css — новых токенов не вводим. */
+
+/* ---------- Типографическая иерархия ----------
+   Три числа на странице были крупнее или равны H1 (128px, 96px, 72px против 72px).
+   Возвращаем их под заголовок, сохраняя роль акцента. */
+
+body.home-page #about .about-route-proof-value {
+    font-size: clamp(3.5rem, 8vw, var(--fs-88));
+}
+
+body.home-page .price-range span {
+    font-size: clamp(2.5rem, 5vw, var(--fs-52));
+}
+
+/* Второстепенный текст ниже комфортного минимума поднимаем до шкалы. */
+body.home-page .hero-stat-card .stat-desc {
+    font-size: var(--fs-14);
+}
+
+body.home-page .home-portfolio-project small {
+    font-size: var(--fs-14);
+}
+
+body.home-page .premium-badge__kicker {
+    font-size: var(--fs-11);
+}
+
+body.home-page .footer-legal-copy,
+body.home-page .footer-legal-reqs,
+body.home-page .footer-legal-link {
+    font-size: var(--fs-13);
+}
+
+/* ---------- Размеры контролов ----------
+   Второстепенные действия героя были 38px при --control-height 52px. */
+
+body.home-page .hero-actions-group .hero-action--inline {
+    min-height: var(--control-height);
+}
+
+/* ---------- Повторное действие после блока стоимости ---------- */
+
+.inline-cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 2rem;
+    margin-top: clamp(1.5rem, 3vw, 2.5rem);
+    padding: clamp(1.25rem, 3vw, 1.75rem) clamp(1.25rem, 3vw, 2rem);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-panel);
+    background: var(--surface-panel);
+}
+
+.inline-cta__copy {
+    flex: 1 1 18rem;
+    min-width: 0;
+}
+
+.inline-cta__kicker {
+    margin: 0 0 0.25rem;
+    font-size: var(--fs-11);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.inline-cta__text {
+    margin: 0;
+    font-size: var(--fs-15);
+    line-height: 1.55;
+    color: var(--text-dim);
+}
+
+.inline-cta__action {
+    flex: none;
+    min-height: var(--control-height);
+    padding-inline: 1.75rem;
+}
+
+@media (max-width: 640px) {
+    .inline-cta__action {
+        width: 100%;
+    }
+}
+
+/* ---------- Мобильные исправления ---------- */
+
+@media (max-width: 768px) {
+    /* Плавающая панель связи перекрывала конец страницы. */
+    body.home-page {
+        padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    /* Скан А4 в 16rem нечитаем — показываем, что документ открывается. */
+    body.home-page .licenses-proof__document {
+        position: relative;
+    }
+
+    body.home-page .licenses-proof__document::after {
+        content: "Открыть документ";
+        position: absolute;
+        right: 1.25rem;
+        bottom: 1.25rem;
+        left: 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: var(--control-height);
+        font-size: var(--fs-14);
+        font-weight: var(--font-weight-semibold);
+        color: var(--text-pure);
+        border: 1px solid var(--border-default);
+        border-radius: var(--radius-button);
+        background: color-mix(in srgb, var(--surface-inset) 88%, transparent);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+    }
+}
+
+/* ---------- Ошибки формы рядом с полем ----------
+   Цвет ошибки — --status-error, как и у .form-feedback--error. */
+
+.sleek-form {
+    --form-error-line: rgba(var(--status-error-rgb), 0.6);
+}
+
+.sleek-form .form-field-error {
+    margin: 0.375rem 0 0;
+    font-size: var(--fs-13);
+    line-height: 1.45;
+    color: var(--status-error);
+}
+
+.sleek-form input[aria-invalid="true"]:not([type="checkbox"]),
+body.home-page .cta-form-block .form-field input[aria-invalid="true"],
+body.home-page .cta-form-block .form-field input[aria-invalid="true"]:focus {
+    border-color: var(--form-error-line);
+}
+
+.sleek-form .privacy-consent input[aria-invalid="true"] {
+    outline: 2px solid var(--form-error-line);
+    outline-offset: 2px;
+}
+
+/* ---------- Согласие приписью под кнопкой вместо галочки ---------- */
+
+.sleek-form .form-consent-note {
+    margin: 0.75rem 0 0;
+    font-size: var(--fs-13);
+    line-height: 1.5;
+    color: var(--text-dim);
+    text-align: center;
+}
+
+.sleek-form .form-consent-note a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.sleek-form.is-submitted .form-consent-note {
+    display: none;
+}
+
+/* ---------- Отзывы: рейтинг полосой сверху, отзывы в три колонки ----------
+   Раньше рейтинг стоял колонкой слева: при свёрнутых отзывах справа оставалась
+   пустота, при развёрнутых блок вырастал до ~980px и не помещался в экран.
+   Мобильная раскладка (≤768px) и кнопка «Показать ещё» не меняются. */
+
+@media (min-width: 769px) {
+    body.home-page .reviews-evidence {
+        grid-template-columns: 1fr;
+    }
+
+    body.home-page .reviews-source {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.75rem 1.75rem;
+        padding: 1.25rem clamp(1.5rem, 3vw, 2.25rem);
+        border-right: 0;
+        border-bottom: 1px solid var(--border-default);
+    }
+
+    body.home-page .reviews-source-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 2.75rem;
+        margin: 0 0 0 auto;
+    }
+
+    body.home-page .review-ledger {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    body.home-page .reviews-mobile-toggle {
+        display: none;
+    }
+
+    body.home-page .review-more {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5rem 2rem;
+        padding: 1.25rem clamp(1.5rem, 3vw, 2.25rem);
+    }
+
+    body.home-page .review-more ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 2rem;
+        margin: 0;
+        border-top: 0;
+    }
+
+    body.home-page .review-more li,
+    body.home-page .review-more li + li {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 0.625rem;
+        padding: 0;
+        border: 0;
+    }
+}
+
+@media (min-width: 1025px) {
+    body.home-page .review-ledger {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    body.home-page .review-entry {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        border-bottom: 1px solid var(--border-default);
+    }
+
+    body.home-page .review-entry + .review-entry {
+        border-left: 1px solid var(--border-default);
+    }
+
+    /* Подписи авторов выравниваются по нижнему краю во всех трёх колонках. */
+    body.home-page .review-entry > div {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    body.home-page .review-entry blockquote {
+        font-size: var(--fs-16);
+    }
+
+    body.home-page .review-entry footer {
+        margin-top: auto;
+    }
+
+    body.home-page .review-more {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Отзывы: после удаления рейтинга шапка — одна компактная строка (источник слева, ссылка справа). */
+@media (min-width: 769px) {
+    body.home-page .reviews-source {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        padding-block: 0.75rem;
+    }
+}
+
+/* Прайс: под цифрой стояли две линии подряд (рамка цены и верх списка) — оставляем одну. */
+body.home-page .price-range {
+    border-bottom: 0;
+    padding-bottom: 0;
+}

@@ -2,20 +2,13 @@
    MOBILE REFACTOR — unified ≤768px / nav ≤1024px
    ==================================== */
 
-/* --- Touch targets (global) --- */
-.theme-toggle {
-    width: var(--touch-min);
-    height: var(--touch-min);
-    flex-shrink: 0;
-}
-
 /* --- Nav backdrop --- */
 .nav-backdrop {
     display: none;
     position: fixed;
     inset: 0;
     z-index: 98;
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(var(--shadow-rgb), 0.55);
     backdrop-filter: blur(4px);
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -132,18 +125,22 @@
         background: var(--mobile-nav-bg);
         backdrop-filter: blur(24px);
         border: none;
-        border-left: 1px solid var(--border-glass);
+        border-left: 1px solid var(--border-default);
         border-radius: 0;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: stretch;
         gap: 0;
-        box-shadow: -12px 0 40px rgba(0, 0, 0, 0.35);
+        box-shadow: -12px 0 40px rgba(var(--shadow-rgb), 0.35);
         opacity: 1;
         transform: translateX(105%);
         pointer-events: none;
-        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Закрытое меню скрыто полностью: его ссылки не должны попадать в порядок Tab. */
+        visibility: hidden;
+        transition:
+            transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+            visibility 0s linear 0.35s;
         z-index: 100;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
@@ -152,6 +149,8 @@
     .nav-links.active {
         transform: translateX(0);
         pointer-events: auto;
+        visibility: visible;
+        transition-delay: 0s;
     }
 
     .nav-links a:not(.mobile-cta) {
@@ -165,7 +164,7 @@
         min-height: var(--touch-min);
         display: flex;
         align-items: center;
-        border-bottom: 1px solid var(--border-glass);
+        border-bottom: 1px solid var(--border-default);
         transition: color 0.25s;
     }
 
@@ -182,7 +181,7 @@
         gap: 0.75rem;
         margin-top: 1.5rem;
         padding-top: 1.5rem;
-        border-top: 1px solid var(--border-glass);
+        border-top: 1px solid var(--border-default);
     }
 
     .mobile-nav-phone {
@@ -196,8 +195,8 @@
         color: var(--text-pure);
         text-decoration: none;
         border-radius: 0.75rem;
-        border: 1px solid var(--border-glass);
-        background: var(--bg-surface);
+        border: 1px solid var(--border-default);
+        background: var(--surface-inset);
     }
 
     .mobile-nav-tg {
@@ -211,14 +210,14 @@
         color: var(--text-pure);
         text-decoration: none;
         border-radius: 2.5rem;
-        border: 1px solid var(--border-glass);
+        border: 1px solid var(--border-default);
         background: var(--btn-ghost-bg);
     }
 
     .mobile-nav-tg:hover {
-        background: #2AABEE;
-        border-color: #2AABEE;
-        color: #fff;
+        background: var(--accent-fill);
+        border-color: var(--accent-fill);
+        color: var(--on-accent);
     }
 
     .mobile-cta {
@@ -226,8 +225,8 @@
         align-items: center;
         justify-content: center;
         margin-top: 1rem;
-        background: var(--accent-action);
-        color: #ffffff !important;
+        background: var(--accent-fill);
+        color: var(--on-accent) !important;
         font-size: var(--fs-15);
         font-weight: var(--font-weight-semibold);
         padding: 0.875rem 1rem;
@@ -236,7 +235,7 @@
         text-align: center;
         text-decoration: none;
         border-radius: 0.625rem;
-        box-shadow: 0 10px 20px rgba(var(--accent-action-rgb), 0.28);
+        box-shadow: 0 10px 20px rgba(var(--accent-fill-rgb), 0.28);
         border: none;
     }
 
@@ -326,35 +325,6 @@
         min-height: 3rem;
     }
 
-    .team-intro .about-features {
-        gap: 0.5rem;
-    }
-
-    .team-intro .about-feature-inner {
-        padding: 0.625rem 0.75rem;
-        gap: 0.625rem;
-    }
-
-    .team-intro .about-feature-icon {
-        width: 2rem;
-        height: 2rem;
-        border-radius: 0.5rem;
-    }
-
-    .team-intro .about-feature-icon svg {
-        width: 1rem;
-        height: 1rem;
-    }
-
-    .team-intro .about-feature-name {
-        font-size: var(--fs-14);
-    }
-
-    .team-intro .about-feature-desc {
-        font-size: var(--fs-12);
-        line-height: 1.45;
-    }
-
     .cta-wrapper {
         flex-direction: column;
         text-align: center;
@@ -383,75 +353,6 @@
     select,
     .custom-select__trigger {
         min-height: 3rem;
-    }
-
-    .team-hero-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .team-hero-stats {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        grid-auto-rows: 1fr;
-        gap: 0.625rem;
-        width: min(100%, 20rem);
-        max-width: none;
-        margin-inline: auto;
-    }
-
-    .team-hero-stats .stat-box {
-        min-width: 0;
-        height: 100%;
-    }
-
-    .team-hero-stats .stat-box--featured {
-        grid-column: span 1;
-    }
-
-    .team-hero-stats .stat-box-inner,
-    .team-hero-stats .stat-box--featured .stat-box-inner {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        min-height: 6.75rem;
-        padding: 0.875rem 0.5rem;
-        text-align: center;
-    }
-
-    .team-hero-stats .stat-icon-wrap {
-        width: 2rem;
-        height: 2rem;
-        margin-bottom: 0.375rem;
-    }
-
-    .team-hero-stats .stat-icon-wrap svg {
-        width: 1rem;
-        height: 1rem;
-    }
-
-    .team-hero-stats .stat-number,
-    .team-hero-stats .stat-box--featured .stat-number {
-        font-size: var(--fs-18);
-        margin-bottom: 0.25rem;
-        letter-spacing: -0.03em;
-    }
-
-    .team-hero-stats .stat-label {
-        font-size: var(--fs-11);
-        line-height: 1.35;
-        max-width: none;
-    }
-
-    .team-story-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .team-grid {
-        grid-template-columns: 1fr;
     }
 
     /* FAQ — планшет: горизонтальная лента */
@@ -489,9 +390,9 @@
         font-size: var(--fs-14);
         line-height: 1.25;
         color: var(--text-pure);
-        background: var(--bg-card);
+        background: var(--surface-panel-solid);
         border-radius: 2rem;
-        border: 1px solid var(--border-glass);
+        border: 1px solid var(--border-default);
     }
 
     .faq-category-header {
@@ -504,117 +405,11 @@
     }
 
     /* Coverflow — один слайд, без absolute/negative margin */
-    .docs-coverflow {
-        overflow: visible;
-        max-width: 100%;
-    }
-
     #licenses .scroll-reveal {
         opacity: 1;
         transform: none;
     }
 
-    .docs-coverflow-viewport {
-        overflow: hidden;
-        padding: 0;
-    }
-
-    .docs-coverflow-stage {
-        display: grid;
-        place-items: center;
-        height: auto;
-        min-height: 0;
-        perspective: none;
-    }
-
-    .docs-coverflow-slide {
-        position: relative;
-        left: auto;
-        top: auto;
-        grid-area: 1 / 1;
-        width: min(17.5rem, 85vw);
-        height: 20rem;
-        margin: 0;
-        filter: none;
-        transition: opacity 0.35s ease;
-    }
-
-    .docs-coverflow-slide:not([data-offset="0"]) {
-        display: none;
-    }
-
-    .docs-coverflow-slide[data-offset="0"] {
-        display: block;
-        transform: none !important;
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-    }
-
-    .docs-coverflow-caption {
-        margin-top: 1.25rem;
-    }
-
-    .docs-coverflow-nav {
-        display: flex;
-        width: min(100%, 22rem);
-        margin-top: 1.25rem;
-        margin-left: auto;
-        margin-right: auto;
-        justify-content: space-between;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.5rem 0.75rem;
-    }
-
-    .docs-coverflow-dots {
-        gap: 0.5rem;
-        flex: 1;
-        justify-content: center;
-        align-items: center;
-        min-width: 0;
-    }
-
-    .docs-coverflow-dot {
-        position: relative;
-        width: 1.75rem;
-        height: var(--touch-min);
-        min-width: 1.75rem;
-        min-height: var(--touch-min);
-        padding: 0;
-        border: none;
-        border-radius: 999px;
-        background: transparent;
-        flex-shrink: 0;
-    }
-
-    .docs-coverflow-dot::before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0.375rem;
-        height: 0.375rem;
-        border-radius: 0.1875rem;
-        background: var(--border-glass);
-        transform: translate(-50%, -50%) scaleX(1);
-        transition: transform 0.25s ease, background 0.25s ease;
-    }
-
-    .docs-coverflow-dot.active {
-        background: transparent;
-    }
-
-    .docs-coverflow-dot.active::before {
-        background: var(--accent);
-        transform: translate(-50%, -50%) scaleX(3);
-    }
-
-    .docs-coverflow-arrow {
-        flex-shrink: 0;
-        width: var(--touch-min);
-        height: var(--touch-min);
-    }
 }
 
 /* ====================================
@@ -645,7 +440,23 @@
     }
 
     .footer-links {
-        display: none;
+        display: block;
+    }
+
+    .footer-links .nav-col {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 1rem;
+    }
+
+    .footer-links .nav-col h4 {
+        grid-column: 1 / -1;
+    }
+
+    .footer-links .nav-col a {
+        display: flex;
+        align-items: center;
+        min-height: 2.75rem;
     }
 
     .footer-desc {
@@ -660,7 +471,7 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
-        padding: 1rem 0 1.5rem;
+        padding-block: 1rem 1.5rem;
     }
 
     .hero-title {
@@ -776,41 +587,6 @@
         font-size: var(--fs-15);
     }
 
-    .license-preview {
-        height: 16rem;
-    }
-
-    .licenses-cta {
-        flex-direction: column;
-        text-align: center;
-        padding: 1.5rem;
-    }
-
-    .licenses-cta .btn-glow {
-        width: 100%;
-    }
-
-    .license-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .team-card--director {
-        flex-direction: column;
-        text-align: center;
-        padding: 1.5rem;
-        gap: 1.25rem;
-    }
-
-    .team-card--director .team-card-body {
-        text-align: center;
-    }
-
-    .team-story-bridge {
-        padding: 1.25rem;
-        font-size: var(--fs-16);
-        text-align: left;
-    }
-
     /* FAQ — телефон */
     .faq-nav a {
         font-size: var(--fs-15);
@@ -918,82 +694,14 @@
         min-height: 1.75rem;
     }
 
-    .score-number {
-        font-size: clamp(2.5rem, 10vw, 4rem);
-    }
-
-    .rating-bg {
-        right: -1rem;
-        width: 10rem;
-    }
-
-    .review-card-inner {
-        padding: 1.5rem;
-    }
-
     .cta-wrapper {
         padding: 1.5rem 1rem;
     }
 
-    .lightbox-close {
-        top: 0.5rem;
-        right: 0.5rem;
-        width: var(--touch-min);
-        height: var(--touch-min);
-    }
-
-    .lightbox-content {
-        padding: 1rem;
-    }
 }
 
 /* Disable heavy decor animations on mobile */
-@media (max-width: 768px) {
-    .hero-decor-glow,
-    .hero-decor-glow::before {
-        animation: none;
-    }
-}
-
 /* Portfolio — touch-friendly sliders */
-@media (max-width: 768px) {
-    .portfolio-mini-arrow {
-        opacity: 1;
-        width: 2.5rem;
-        height: 2.5rem;
-    }
-
-    .portfolio-slide-open {
-        aspect-ratio: 4 / 3;
-        max-height: 240px;
-    }
-
-    .portfolio-body {
-        padding: 20px 20px 22px;
-    }
-
-    .portfolio-name {
-        font-size: var(--fs-17);
-    }
-
-    .portfolio-works {
-        font-size: var(--fs-13);
-        -webkit-line-clamp: 4;
-    }
-
-    .portfolio-featured-gallery {
-        padding: 0.75rem 0.75rem 0;
-    }
-
-    .portfolio-card--featured {
-        margin-bottom: 2rem;
-    }
-
-    .portfolio-grid {
-        gap: 1.25rem;
-    }
-}
-
 /* Engineering-passport responsive refinements (gallery rules above stay untouched). */
 @media (max-width: 1024px) {
     .section-header:not(.services-header) {
@@ -1013,7 +721,7 @@
     .cta-form-block {
         padding-top: 2rem;
         padding-left: 0;
-        border-top: 1px solid var(--line-strong);
+        border-top: 1px solid var(--border-default);
         border-left: 0;
     }
 }
@@ -1056,7 +764,7 @@
     }
 
     .service-area {
-        border-top-color: var(--line-strong);
+        border-top-color: var(--border-default);
     }
 
     .review-entry,
@@ -1077,13 +785,6 @@
         gap: 0.75rem;
     }
 
-    .service-directions {
-        grid-template-columns: 1fr;
-    }
-
-    .service-direction {
-        min-height: 260px;
-    }
 }
 @media (max-width: 900px) {
     .home-portfolio {
@@ -1136,39 +837,32 @@
 
 @media (max-width: 768px) {
     .section-header,
-    .section-header:not(.services-header),
-    .team-section-header.section-header {
+    .section-header:not(.services-header) {
         max-width: 100%;
         margin-bottom: 2rem;
         padding: 0;
         text-align: center;
     }
 
-    .section-header .section-title,
-    .services-section-heading.section-header h2,
-    .price-intro.section-header h2 {
+    .section-header .section-title {
         font-size: clamp(1.8rem, 8vw, 2.35rem);
         line-height: 1.18;
         text-align: center;
     }
 
     .section-header .section-title::after,
-    .home-portfolio-copy > .section-title::after,
-    .about-title::after {
+    .home-portfolio-copy > .section-title::after {
         width: 44px;
         height: 2px;
         margin-top: 13px;
     }
 
-    .section-header .section-subtitle,
-    .price-intro.section-header > .section-subtitle,
-    .about-subtitle {
+    .section-header .section-subtitle {
         font-size: var(--fs-14);
         text-align: center;
     }
 
-    .premium-badge,
-    .about-badge {
+    .premium-badge {
         gap: 10px;
         margin-bottom: 18px;
     }
@@ -1207,139 +901,5 @@
         font-size: var(--fs-14);
     }
 
-    #licenses .docs-coverflow {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        column-gap: 12px;
-    }
-
-    #licenses .docs-coverflow-viewport {
-        grid-column: 1 / -1;
-    }
-
-    #licenses .docs-coverflow-stage {
-        height: 250px;
-    }
-
-    #licenses .docs-coverflow-slide {
-        width: min(13.5rem, 68vw);
-        height: 15.5rem;
-    }
-
-    #licenses .docs-coverflow-caption {
-        grid-column: 1;
-        margin-top: 12px;
-    }
-
-    #licenses .docs-coverflow-nav {
-        grid-column: 2;
-        width: auto;
-        margin: 12px 0 0;
-        padding: 4px 6px;
-    }
-
-    #licenses .docs-coverflow-dots {
-        display: none;
-    }
-
-    #licenses .docs-coverflow-link {
-        grid-column: 1 / -1;
-        justify-self: stretch;
-        justify-content: center;
-        margin-top: 14px;
-    }
-
-    #licenses .docs-dossier {
-        grid-template-columns: 42% 58%;
-        grid-template-rows: minmax(310px, auto) auto;
-    }
-
-    #licenses .docs-dossier-preview {
-        min-height: 330px;
-        padding: 20px 14px;
-    }
-
-    #licenses .docs-dossier-preview img {
-        height: 275px;
-    }
-
-    #licenses .docs-dossier-stamp {
-        top: 12px;
-        left: 12px;
-        padding: 5px 7px;
-        font-size: 8px;
-    }
-
-    #licenses .docs-dossier-count {
-        right: 12px;
-        bottom: 10px;
-    }
-
-    #licenses .docs-dossier-info {
-        padding: 22px 20px 18px;
-    }
-
-    #licenses .docs-dossier-info .docs-slide-type {
-        margin-top: 20px;
-    }
-
-    #licenses .docs-dossier-info .docs-slide-name {
-        font-size: 27px;
-    }
-
-    #licenses .docs-dossier-info > p {
-        font-size: var(--fs-13);
-    }
-
-    #licenses .docs-dossier-link {
-        min-width: 0;
-        padding-inline: 16px;
-    }
-
-    #licenses .docs-dossier-rail {
-        display: none;
-    }
-
-    #licenses .docs-dossier-rail::-webkit-scrollbar {
-        display: none;
-    }
-
-    #licenses .docs-dossier-thumb {
-        flex: 0 0 150px;
-        scroll-snap-align: start;
-    }
 }
 
-@media (max-width: 560px) {
-    #licenses .docs-dossier {
-        display: block;
-    }
-
-    #licenses .docs-dossier-preview {
-        min-height: 320px;
-        border-right: 0;
-        border-bottom: 1px solid var(--line-strong);
-    }
-
-    #licenses .docs-dossier-preview img {
-        height: 278px;
-    }
-
-    #licenses .docs-dossier-info {
-        min-height: 310px;
-    }
-
-    #licenses .docs-dossier-registry {
-        margin-bottom: 0;
-    }
-
-    #licenses .docs-dossier-nav {
-        display: grid;
-        grid-template-columns: 48px 48px minmax(0, 1fr);
-    }
-
-    #licenses .docs-dossier-link {
-        justify-content: center;
-        margin-left: 0;
-    }
-}

@@ -8,11 +8,13 @@ html {
     overflow-x: clip;
     -webkit-text-size-adjust: 100%;
     font-family: var(--font-sans);
+    /* Якорные переходы не должны заводить заголовок под плавающую шапку. */
+    scroll-padding-top: calc(var(--header-offset) + 1rem);
 }
 
 body { 
     font-family: var(--font-sans); 
-    background-color: var(--bg-base); 
+    background-color: var(--surface-canvas); 
     color: var(--text-pure); 
     overflow-x: clip;
     transition: background-color 0.4s ease, color 0.4s ease;
@@ -60,11 +62,6 @@ body.nav-open {
     color: var(--text-dim); 
 }
 
-.text-left { 
-    text-align: left; 
-    margin: 0 0 1.25rem 0; 
-}
-
 .ambient-bg { 
     position: fixed; 
     top: -50%; 
@@ -100,14 +97,9 @@ body.nav-open {
 }
 
 .about-feature-icon svg,
-.stat-icon-wrap svg,
 .service-icon-wrap svg,
 .review-icon-wrap svg,
-.license-zoom svg,
-.docs-coverflow-arrow svg,
-.reviews-carousel-arrow svg,
-.faq-nav-arrow svg,
-.lightbox-close svg {
+.faq-nav-arrow svg {
     color: inherit;
 }
 

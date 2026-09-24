@@ -32,31 +32,6 @@ function setModalBackgroundInert(modal, inert) {
 window.getFocusableElements = getFocusableElements;
 window.setModalBackgroundInert = setModalBackgroundInert;
 
-function initTheme() {
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const root = document.documentElement;
-
-    if (!themeToggleBtn) return;
-
-    const syncThemeState = () => {
-        const isDark = root.getAttribute('data-theme') !== 'light';
-        themeToggleBtn.setAttribute('aria-pressed', String(isDark));
-        themeToggleBtn.setAttribute(
-            'aria-label',
-            isDark ? 'Включить светлую тему' : 'Включить тёмную тему'
-        );
-    };
-
-    syncThemeState();
-
-    themeToggleBtn.addEventListener('click', () => {
-        const newTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        syncThemeState();
-    });
-}
-
 function initMobileNav() {
     const burger = document.querySelector('.burger-btn');
     const nav = document.getElementById('main-nav');
@@ -186,6 +161,5 @@ function initScrollReveal(options = {}) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    initTheme();
     initMobileNav();
 });
