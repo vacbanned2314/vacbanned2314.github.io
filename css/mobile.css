@@ -334,6 +334,7 @@
     .input-group,
     .input-group--secondary {
         flex-direction: column;
+        align-items: stretch;
     }
 
     .input-group--secondary select,

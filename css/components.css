@@ -1609,8 +1609,10 @@
     gap: 15px; 
 }
 
+/* Поля ряда выровнены по верху: ошибка под одним полем не растягивает соседнее. */
 .input-group { 
     display: flex; 
+    align-items: flex-start;
     gap: 15px; 
 }
 
