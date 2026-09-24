@@ -1,5 +1,51 @@
+// Ответ по марке: данные берутся из строк таблицы документов, чтобы не дублировать их в JS.
+function initBrandCheck() {
+    const verdict = document.querySelector('.permit-verdict');
+    if (!verdict) return;
+
+    const tiles = document.querySelectorAll('[data-brand-pick]');
+    const known = verdict.querySelector('.permit-verdict__known');
+    const other = verdict.querySelector('.permit-verdict__other');
+    const scan = known.querySelector('.permit-verdict__scan img');
+    const fields = {};
+    known.querySelectorAll('[data-verdict]').forEach((field) => { fields[field.dataset.verdict] = field; });
+
+    const rows = {};
+    document.querySelectorAll('.permit-line[data-brand]').forEach((row) => { rows[row.dataset.brand] = row; });
+
+    const pick = (brand) => {
+        tiles.forEach((tile) => tile.setAttribute('aria-pressed', String(tile.dataset.brandPick === brand)));
+        const row = rows[brand];
+        known.hidden = !row;
+        other.hidden = Boolean(row);
+        if (!row) return;
+
+        const rowImage = row.querySelector('img');
+        fields.name.textContent = row.querySelector('h3').textContent;
+        fields.kind.textContent = row.dataset.kind;
+        fields.term.textContent = row.dataset.term;
+        fields.org.textContent = row.dataset.org;
+        known.dataset.src = row.dataset.src;
+        known.dataset.title = row.dataset.title;
+        known.dataset.meta = row.dataset.meta;
+        scan.src = rowImage.getAttribute('src');
+        scan.alt = rowImage.alt;
+        scan.width = rowImage.width;
+        scan.height = rowImage.height;
+    };
+
+    tiles.forEach((tile) => tile.addEventListener('click', () => {
+        pick(tile.dataset.brandPick);
+        // На телефоне ответ стоит под плитками: показываем его, если он за экраном.
+        if (verdict.getBoundingClientRect().top > window.innerHeight * 0.6) {
+            verdict.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
+        }
+    }));
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
+    initBrandCheck();
 
     const lightbox = document.getElementById('permit-lightbox');
     if (!lightbox) return;
@@ -45,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     document.querySelectorAll('[data-permit-document]').forEach((card) => {
-        card.querySelectorAll('.permit-document-button, .permit-row__open').forEach((trigger) => {
+        card.querySelectorAll('.permit-document-button').forEach((trigger) => {
             trigger.addEventListener('click', () => openLightbox(card, trigger));
         });
     });
